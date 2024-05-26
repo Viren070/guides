@@ -1,14 +1,18 @@
-# Guide Introduction
-
+---
+sidebar_label: Guide
+toc_min_heading_level: 2
+toc_max_heading_level: 5
+---
+# Guide
 I will now begin the guide to setting up Stremio and its addons. I recommend that the initial setup is completed on your laptop or desktop. Once it has been setup, you can log in to Stremio with the same account on any device and your configuration will be synced to the device so there is no need to set it up again.
 
-# Creating a Stremio Account
+## Creating a Stremio Account
 
 First, we need to create a Stremio account. This allows you to keep your progress on different content synced across devices and also allows you to sync your configuration so that it does not need to be repeated.
 
 Head over to [Stremio](https://stremio.com/login) and either [sign up for an account](https://www.stremio.com/signup) with an email or login through Facebook.
 
-# Downloading Stremio
+## Downloading Stremio
 
 Head over to the [Stremio Downloads](https://www.stremio.com/downloads) page and download the required package for your device.
 
@@ -48,7 +52,7 @@ Once sideloading is enabled, download the ARM APK that is designed to run on and
 
 Then login to Stremio using the account you created earlier.
 
-# Debrid Service (Optional)
+## Debrid Service (Optional)
 
 As explained before, a debrid service is not required. However, it will allow you to stream 4K content at unrestricted speeds, which means no buffering. For more details, please see [Debrid Services ](https://www.notion.so/Debrid-Services-ebf72e64ed244046bd3f748876c9ca94?pvs=21) 
 
@@ -60,8 +64,9 @@ All-Debrid does provide a free 7 day trial. If you are not sure that this is the
 
 Deciding which debrid provider to use comes down to personal preference. There should be almost no difference between the two but the torrents available on a debrid service is dependent on the users of the service and what torrents the users are caching.
 
-**Note: Keep in mind that you cannot use the service from several locations at once. You are allowed to connect from unlimited devices as long as they do it through the same public IP address. If you do, you risk having your account banned.**
-
+:::warning
+Keep in mind that you cannot use the service from several locations at once. You are allowed to connect from unlimited devices as long as they do it through the same public IP address. If you do, you risk having your account banned.**
+:::
 Here is a list of some other debrid services:
 
 - [Premiumize](https://www.premiumize.me/)
@@ -90,7 +95,7 @@ I will now cover the instructions of setting up a Debrid Service. I will only co
     3. Go to the Pricing [](https://alldebrid.com/offer/)page
     4. Choose a package and subscribe.
 
-# Setting up Addons
+## Setting up Addons
 
 Addons can not be configured on some systems such as the Samsung TV app. You will have to configure the addons on your phone or desktop.
 
@@ -100,7 +105,7 @@ As addons are community provided, the addons provided here may become outdated o
 
 Before this, we need to go through some of the pre-installed addons.
 
-## Removing pre-installed addons
+### Removing pre-installed addons
 
 ![Untitled](./img/Untitled%202.png)
 
@@ -120,7 +125,7 @@ To remove these addons, go to the addons page (the puzzle icon on the navigation
 
 ![Untitled](./img/Untitled%205.png)
 
-## Stream Provider Addons
+### Stream Provider Addons
 
 These addons are the backbone to our on-demand streaming experience. They provide the video content that allows us to watch anything we want.
 
@@ -189,7 +194,7 @@ For other addons such as HTTP streams, please check the community hosted addon l
 
 The basic setup for Stremio has now been completed. If you search for a specific movie and click on it, you should see links to stream the selected movie with [RD] in its name. You could theoretically stop now. The next few addons I will go through are optional addons that mainly focus on giving you an experience more like streaming services by populating your Home page with popular/new/trending movies or other content of your liking.
 
-## Catalogue Addons
+### Catalogue Addons
 
 These are the addons that provide categories for your Stremio homepage. It'll pull, for example, `Netflix movies popular`, `Netflix movies new`, `Netflix series popular`, `Netflix series new`, etc. to create a semi-endless scrolling experience that pulls all of the best and newest that film and TV have to offer, and everything else in between. 
 
@@ -199,7 +204,9 @@ There is one built-in addon called Cinemata which provides Popular and Featured 
 
 I will go through the most popular addons that are used currently. However, be sure to look through the Community addons on Stremio and on the community hosted website I linked earlier as there are always new addons being created.
 
-Note for Anime: I would recommend using [Aniyomi (WIP)](https://www.notion.so/Aniyomi-WIP-f45fddbd20e648059b3b74d71044de98?pvs=21) instead, it also supports using Torrentio and it supports tracking with AniList, MyAnimeList, Trakt, Kitsu and more. It also has an AniSkip feature which allows you to skip intros. As an app built for anime, I feel it is a much better choice. The lack of syncing on Stremio is also a factor to think about. the animeo addon does allow syncing, however it only supports AniList and it updates AniList when you start watching an episode. animeo may support more tracking services in the future.
+:::note
+For those looking to watch anime, I would recommend using [Aniyomi (WIP)](https://www.notion.so/Aniyomi-WIP-f45fddbd20e648059b3b74d71044de98?pvs=21) instead, it also supports using Torrentio and it supports tracking with AniList, MyAnimeList, Trakt, Kitsu and more. It also has an AniSkip feature which allows you to skip intros. As an app built for anime, I feel it is a much better choice. The lack of syncing on Stremio is also a factor to think about. the animeo addon does allow syncing, however it only supports AniList and it updates AniList when you start watching an episode. animeo may support more tracking services in the future.
+:::
 
 - **TMDB Addon**
     
@@ -260,17 +267,17 @@ Note for Anime: I would recommend using [Aniyomi (WIP)](https://www.notion.so/An
     You may also configure the [Anime Catalogs addon](https://1fe84bc728af-stremio-anime-catalogs.baby-beamup.club/configure) too.
     
 
-## Advanced Customised Catalogues
+### Advanced Customised Catalogues
 
 This is where things get interesting. It is cool to add new catalogues based on the content from streaming platforms, but if you are like me, you probably don't care much about which platform the content comes from and more about the content itself.
 
 The Trakt addon is the tool that will allow us to create an experience tailored specifically to us.
 
-### What is Trakt?
+#### What is Trakt?
 
 It is a media tracking service that helps users sync their TV shows and movies across numerous platforms and devices.
 
-### Setting up the Trakt Lists addon
+#### Setting up the Trakt Lists addon
 
 Install the Trakt addon from the addons section or from [here](https://stremio-addons.netlify.app/trakt-tv)
 
@@ -306,8 +313,9 @@ Click install, and tadaaaaaa!
 
 ![https://preview.redd.it/stremio-all-you-need-to-know-v0-gr7elje509ub1.png?width=1478&format=png&auto=webp&s=25096a12607ded7de0b52c2ea22fb7c0cdc467ba](https://preview.redd.it/stremio-all-you-need-to-know-v0-gr7elje509ub1.png?width=1478&format=png&auto=webp&s=25096a12607ded7de0b52c2ea22fb7c0cdc467ba)
 
-*Note: you DO NOT need a Trakt TV account if you add public lists. It is only required if you want to access your own private lists (Watch List or Recommendations, for example) or if you want to keep track of what you have watched (scrobbling).*
-
+:::note
+You DO NOT need a Trakt TV account if you add public lists. It is only required if you want to access your own private lists (Watch List or Recommendations, for example) or if you want to keep track of what you have watched (scrobbling).*
+:::
 
 ## Subtitle Addons
 
