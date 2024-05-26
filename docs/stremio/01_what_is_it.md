@@ -24,5 +24,5 @@ I will now go through the technical details of Stremio, debrid services and addo
 
 - Your website does not support 4k
 - The 1080p content available through Stremio is vastly superior to the low bitrate and compressed content shown on your movie website
-- Your movie website is unlikely to experience no buffering.
+- With a Debrid service, you will not experience buffering (with a good internet)
 - Get access to the latest movies as soon as they’re out (Granted, only a days difference but its still 1 day quicker)
