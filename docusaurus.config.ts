@@ -39,7 +39,7 @@ const config: Config = {
           // Please change this to your repo.
           // Remove this to remove the "edit this page" links.
           editUrl:
-            'https://github.com/Viren070/guides/edit/tree/main/',
+            'https://github.com/Viren070/guides/edit/main/',
           routeBasePath: '/',
         },
         blog: {
@@ -47,7 +47,7 @@ const config: Config = {
           // Please change this to your repo.
           // Remove this to remove the "edit this page" links.
           editUrl:
-            'https://github.com/Viren070/guides/edit/tree/main/',
+            'https://github.com/Viren070/guides/edit/main/',
         },
         theme: {
           customCss: './src/css/custom.css',
@@ -88,7 +88,7 @@ const config: Config = {
           items: [
             {
               label: 'Guides',
-              to: '/docs/intro',
+              to: '/',
             },
           ],
         },
