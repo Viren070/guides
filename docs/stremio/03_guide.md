@@ -317,6 +317,6 @@ Click install, and tadaaaaaa!
 You DO NOT need a Trakt TV account if you add public lists. It is only required if you want to access your own private lists (Watch List or Recommendations, for example) or if you want to keep track of what you have watched (scrobbling).*
 :::
 
-## Subtitle Addons
+### Subtitle Addons
 
 The built-in OpenSubtitles v3 addon should be enough for all the subtitles you need. However, if you want more addons for subtitles, here are a list of subtitle addons that work.
