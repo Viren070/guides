@@ -22,11 +22,11 @@ You can save the launcher anywhere you want, somewhere convenient such as your d
 
 ----
 
-![smartscreen_1](smartscreen_1.png)
+![smartscreen_1](./img/smartscreen_1.png)
 
 ----
 
-![smartscreen_2](smartscreen_2.png)
+![smartscreen_2](./img/smartscreen_2.png)
 
 ----
 
@@ -70,7 +70,7 @@ Once it's done you will have your copy of the game downloaded, here is an exampl
 
 ---
 
-![example_t6_folder](example_t6_folder.png)
+![example_t6_folder](./img/example_t6_folder.png)
 
 ---
 
@@ -82,7 +82,7 @@ Once it's done you will have your copy of the game downloaded, here is an exampl
 
 ---
 
-![t6_launcher_setup](t6_setup_1.png)
+![t6_launcher_setup](./img/t6_setup_1.png)
 
 ---
 
@@ -90,7 +90,7 @@ Once it's done you will have your copy of the game downloaded, here is an exampl
 
 ---
 
-![alt text](t6_setup_2.png)
+![alt text](./img/t6_setup_2.png)
 
 ---
 
