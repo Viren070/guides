@@ -54,7 +54,7 @@ Then login to Stremio using the account you created earlier.
 
 ## Debrid Service (Optional)
 
-As explained before, a debrid service is not required. However, it will allow you to stream 4K content at unrestricted speeds, which means no buffering. For more details, please see [Debrid Services ](https://www.notion.so/Debrid-Services-ebf72e64ed244046bd3f748876c9ca94?pvs=21) 
+As explained before, a debrid service is not required. However, it will allow you to stream 4K content at unrestricted speeds, which means no buffering. For more details, please see [Debrid Services](technical_details#debrid-services) and the [FAQ](faq)
 
 There are many debrid services available to use.
 
@@ -205,7 +205,7 @@ There is one built-in addon called Cinemata which provides Popular and Featured 
 I will go through the most popular addons that are used currently. However, be sure to look through the Community addons on Stremio and on the community hosted website I linked earlier as there are always new addons being created.
 
 :::note
-For those looking to watch anime, I would recommend using [Aniyomi (WIP)](https://www.notion.so/Aniyomi-WIP-f45fddbd20e648059b3b74d71044de98?pvs=21) instead, it also supports using Torrentio and it supports tracking with AniList, MyAnimeList, Trakt, Kitsu and more. It also has an AniSkip feature which allows you to skip intros. As an app built for anime, I feel it is a much better choice. The lack of syncing on Stremio is also a factor to think about. the animeo addon does allow syncing, however it only supports AniList and it updates AniList when you start watching an episode. animeo may support more tracking services in the future.
+For those looking to watch anime, I would recommend using [Aniyomi](../aniyomi) instead, it also supports using Torrentio and it supports tracking with AniList, MyAnimeList, Trakt, Kitsu and more. It also has an AniSkip feature which allows you to skip intros. As an app built for anime, I feel it is a much better choice. The lack of syncing on Stremio is also a factor to think about. the animeo addon does allow syncing, however it only supports AniList and it updates AniList when you start watching an episode. animeo may support more tracking services in the future.
 :::
 
 - **TMDB Addon**

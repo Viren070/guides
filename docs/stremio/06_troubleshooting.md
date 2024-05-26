@@ -6,7 +6,7 @@ Ensure that you followed the guide correctly. If you are sure you did this, then
 
 If the movie or TV show you are trying to watch is still in cinemas, you will not see streams as a digital release has not come out yet. You may see CAM or Screener (a recording of the movie being played in cinema) if you have not excluded those qualities.  
 
-Try using [Debrid Media Manager](https://www.notion.so/Stremio-49483446be9e43bdbbac3c3f36f2b551?pvs=21) to find the movie or TV show. If you can find it through here, you should be able to watch it through debrid media manager. If you want to watch it on Stremio, use the Debrid Search addon (linked above) to achieve this.
+Try using [Debrid Media Manager](extras#debrid-media-manager) to find the movie or TV show. If you can find it through here, you should be able to watch it through debrid media manager. If you want to watch it on Stremio, use the Debrid Search addon (linked above) to achieve this.
 
 ## Content keeps stuttering/buffering
 
