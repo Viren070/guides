@@ -10,7 +10,7 @@ I will now begin the guide to setting up Stremio and its addons. I recommend tha
 
 First, we need to create a Stremio account. This allows you to keep your progress on different content synced across devices and also allows you to sync your configuration so that it does not need to be repeated.
 
-Head over to [Stremio](https://stremio.com/login) and either [sign up for an account](https://www.stremio.com/signup) with an email or login through Facebook.
+Head over to [Stremio](https://stremio.com/) and either [sign up for an account](https://www.stremio.com/register) with an email or [login](https://stremio.com/login) through Facebook.
 
 ## Downloading Stremio
 
@@ -137,7 +137,7 @@ I will only provide detailed instructions for Torrentio and KnightCrawler. Other
 
 - Torrentio
     
-    (For a in depth explanation of how Torrentio works, see [this reddit comment](https://www.reddit.com/r/StremioAddons/comments/19fmjlp/comment/kjlnwru/) from an unaffiliated user)
+    (For a in depth explanation of how Torrentio works, see [this reddit comment](https://www.reddit.com/r/StremioAddons/comments/19fmjlp/comment/kjlnwru/).)
     
     To begin, head over to [Torrentio's config page](https://torrentio.strem.fun/configure) to manage the addon.
     
