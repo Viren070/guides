@@ -60,17 +60,17 @@ const config: Config = {
     // Replace with your project's social card
     image: 'img/docusaurus-social-card.jpg',
     navbar: {
-      title: 'Guides',
+      title: 'Viren070\'s Guides',
       logo: {
         alt: 'Guides Logo',
-        src: 'img/logo.svg',
+        src: 'img/viren070_pfp.svg',
       },
       items: [
         {
           type: 'docSidebar',
           sidebarId: 'tutorialSidebar',
           position: 'left',
-          label: 'Tutorial',
+          label: 'Guides',
         },
         {to: '/blog', label: 'Blog', position: 'left'},
         {
