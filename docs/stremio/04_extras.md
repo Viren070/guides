@@ -69,3 +69,11 @@ This website acts as a front-end to your debrid service. You can search for any 
 Pimp My Stremio is a local addon manager for Stremio. It provides more addons that may not be available on Stremio’s own addon list. Please note that this has not been updated in more than 4 years. You can find a list of addons [here](https://github.com/sungshon/PimpMyStremio/blob/master/src/addonsList.json).
 
 Read more about it on [their GitHub](https://github.com/sungshon/PimpMyStremio). There is a user guide linked on that page.
+
+Although there is no android package for this, it is possible to use Termux to get it running. Here is a [guide](https://gist.github.com/sleeyax/e9635eb352a4fcdf94194f763d743689) that explains how to do so.
+
+## Stremio downloader
+
+[Stremio Downloader](https://github.com/BurningSands70/stremio-downloader) is a desktop application that allows you to download streams that you are watching through Stremio to your device. 
+
+If you want to download streams on android, read this [reddit post](https://www.reddit.com/r/StremioAddons/comments/ekwj5x/how_to_download_moviesseries_on_android/).
