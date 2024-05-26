@@ -205,7 +205,7 @@ There is one built-in addon called Cinemata which provides Popular and Featured 
 I will go through the most popular addons that are used currently. However, be sure to look through the Community addons on Stremio and on the community hosted website I linked earlier as there are always new addons being created.
 
 :::note
-For those looking to watch anime, I would recommend using [Aniyomi](../aniyomi) instead, it also supports using Torrentio and it supports tracking with AniList, MyAnimeList, Trakt, Kitsu and more. It also has an AniSkip feature which allows you to skip intros. As an app built for anime, I feel it is a much better choice. The lack of syncing on Stremio is also a factor to think about. the animeo addon does allow syncing, however it only supports AniList and it updates AniList when you start watching an episode. animeo may support more tracking services in the future.
+For those looking to watch anime, I would recommend using [Aniyomi](../category/aniyomi) instead, it also supports using Torrentio and it supports tracking with AniList, MyAnimeList, Trakt, Kitsu and more. It also has an AniSkip feature which allows you to skip intros. As an app built for anime, I feel it is a much better choice. The lack of syncing on Stremio is also a factor to think about. the animeo addon does allow syncing, however it only supports AniList and it updates AniList when you start watching an episode. animeo may support more tracking services in the future.
 :::
 
 - **TMDB Addon**
