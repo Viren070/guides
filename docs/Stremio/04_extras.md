@@ -1,0 +1,71 @@
+# Extras
+
+## Peario - Watching with friends
+
+Sometimes your friends and family don't live close enough to watch a movie from your living room's couch, but that shouldn't be a problem, thanks to Peario.
+
+The only requirement is to have **a web browser with the ads blocker disabled**.
+
+I recommend enjoying it on a desktop or Android phone and then casting the video on your TV. You can still chat with your friends on Peario if you are not talking over Discord, WhatsApp, FaceTime, Zoom, or similar (although, if your friends talk too much during the movie, you might want to stick to the chat :-D ).
+
+Let's access [https://peario.xyz/](https://peario.xyz/) and click addons (top-right corner). It will present us with a list of addons we can turn on/off:
+
+![https://preview.redd.it/stremio-all-you-need-to-know-v0-prqkf5qrclvb1.png?width=559&format=png&auto=webp&s=080036ea775ee5f21c7aad875d41f74a362dd2b7](https://preview.redd.it/stremio-all-you-need-to-know-v0-prqkf5qrclvb1.png?width=559&format=png&auto=webp&s=080036ea775ee5f21c7aad875d41f74a362dd2b7)
+
+Go to Stremio, addons section, and click Torrentio settings to open the addon's configuration page on your browser, as seen at the beginning of the tutorial. However, this time we won't change anything, we will just copy the URL from the install button (right click -> copy link address) and close the tab.
+
+Let's go back to Peario website and paste the URL into "Paste addon install link", replace "stremio" with "https" at the beginning of the link and press enter.
+
+Now we should see Torrentio among the streaming providers. The last step is to enable the provider by clicking the toggle on the right side:
+
+![https://preview.redd.it/stremio-all-you-need-to-know-v0-pi069kb05lvb1.png?width=611&format=png&auto=webp&s=7f182f6cc63692934002c0444a643eb5b4bde528](https://preview.redd.it/stremio-all-you-need-to-know-v0-pi069kb05lvb1.png?width=611&format=png&auto=webp&s=7f182f6cc63692934002c0444a643eb5b4bde528)
+
+Let's continue with the fun part, picking a movie and sharing it with our friends.
+
+![https://preview.redd.it/stremio-all-you-need-to-know-v0-jon7us506lvb1.png?width=835&format=png&auto=webp&s=665291253acf21cd35837f9b56b50d9f371b7f13](https://preview.redd.it/stremio-all-you-need-to-know-v0-jon7us506lvb1.png?width=835&format=png&auto=webp&s=665291253acf21cd35837f9b56b50d9f371b7f13)
+
+Peario will create a link to be shared among your friends:
+
+![https://preview.redd.it/stremio-all-you-need-to-know-v0-v3e4iruu6lvb1.png?width=1005&format=png&auto=webp&s=987238d26a81cedc00e08746972551d714771e9f](https://preview.redd.it/stremio-all-you-need-to-know-v0-v3e4iruu6lvb1.png?width=1005&format=png&auto=webp&s=987238d26a81cedc00e08746972551d714771e9f)
+
+Once everybody at the party has clicked "Ready", the host will be able to start the movie/TV show in sync:
+
+( I have added Spanish subtitles to show that they work as expected)
+
+![https://preview.redd.it/stremio-all-you-need-to-know-v0-vsgal0a08lvb1.png?width=2535&format=png&auto=webp&s=82c7362c775b3d369c8487d09d1f68c86f12c58b](https://preview.redd.it/stremio-all-you-need-to-know-v0-vsgal0a08lvb1.png?width=2535&format=png&auto=webp&s=82c7362c775b3d369c8487d09d1f68c86f12c58b)
+
+Users are able to chat, change username, language of the interface, add subtitles, toggle volume up/down, and select fullscreen. Additionally, the host can pause the video for the entire party and assign somebody else as the host.
+
+**Just don't forget to grab some popcorn or nachos before starting the movie. Enjoy!**
+
+We can optionally install the Peario addon from the addons section or from [here](https://stremio-addons.netlify.app/peario). This will allow us to skip a few steps as creating the room and searching for the movie, but it is not required for Peario to work:
+
+![https://preview.redd.it/stremio-all-you-need-to-know-v0-yb0itjojblvb1.png?width=1522&format=png&auto=webp&s=76a4c0bb9dea5628ee1717ece2b337945a4864e3](https://preview.redd.it/stremio-all-you-need-to-know-v0-yb0itjojblvb1.png?width=1522&format=png&auto=webp&s=76a4c0bb9dea5628ee1717ece2b337945a4864e3)
+
+*Note: some videos might not have audio. This is a common issue when reproducing from a web browser due to the lack of certain codecs. Try different sources if the first one on the list doesn't work or cast it to your TV.*
+
+
+## Addon Manager
+
+[https://addon-manager.dontwanttos.top/](https://addon-manager.dontwanttos.top/)
+
+Currently, the only way to re-order your Stremio addons, is to uninstall all of them and then reinstall them in the order you want. The Stremio Addon Manager solves this.
+
+[Stremio Addon Manager](https://addon-manager.dontwanttos.top/) will allow you to manage the order of your Stremio addons without re-installing. *Including the default Cinemeta catalogues.* 
+
+## Debrid Media Manager
+
+[https://debridmediamanager.com/](https://debridmediamanager.com/)
+
+This is only for people paying for a Debrid service.
+
+This website acts as a front-end to your debrid service. You can search for any movie or tv show on this website. To watch this on Stremio you can either:
+
+- use the [Debrid Media Manager Stremio Addon](https://debridmediamanager.com/stremio)
+- Or add the torrent to your Debrid library and then use [Debrid Search](https://github.com/MrMonkey42/stremio-addon-debrid-search) which will provide the debrid link when you click on the movie or show you want to watch.
+
+## Pimp My Stremio
+
+Pimp My Stremio is a local addon manager for Stremio. It provides more addons that may not be available on Stremio’s own addon list. Please note that this has not been updated in more than 4 years. You can find a list of addons [here](https://github.com/sungshon/PimpMyStremio/blob/master/src/addonsList.json).
+
+Read more about it on [their GitHub](https://github.com/sungshon/PimpMyStremio). There is a user guide linked on that page.

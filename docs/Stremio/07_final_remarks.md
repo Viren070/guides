@@ -1,0 +1,19 @@
+# Notes and Credits
+
+## Notes
+
+DO NOT use a debrid service from more than one IP address at a time as it may get your account banned.
+
+I have not given any HTTP addons in this guide as they are always changing and having issues. I suggest checking the community add on list that has a HTTP stream filter which will allow you to see all addons that provide HTTP streams. 
+
+The versions of the application available on the LG TV and Samsung TV stores are based off of the Web OS. As these apps are not natively designed for the specific TV vendors, the app is heavily limited and you may experience a degraded performance. It is recommended that you buy a device meant for streaming such as the Google TV with Chromecast 4K or the Fire TV Stick (4K/4K MAX). If money is not a concern and you want the best experience the NVIDIA Shield TV Pro is recommended. 
+
+## Credits
+
+Much of the information available here was taken from reddit posts and comments that are available on r/StremioAddons. 
+
+[https://www.reddit.com/r/StremioAddons/comments/17833ms/stremio_all_you_need_to_know/](https://www.reddit.com/r/StremioAddons/comments/17833ms/stremio_all_you_need_to_know/)
+
+[https://www.reddit.com/r/StremioAddons/comments/yi5jdw/ultimate_guide_to_stremio_torrentio_rd/](https://www.reddit.com/r/StremioAddons/comments/yi5jdw/ultimate_guide_to_stremio_torrentio_rd/)
+
+[https://www.reddit.com/r/StremioAddons/comments/15agu2p/stremio_torrentio_debrid_a_howto_guide/](https://www.reddit.com/r/StremioAddons/comments/15agu2p/stremio_torrentio_debrid_a_howto_guide/)
