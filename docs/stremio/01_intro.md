@@ -1,6 +1,4 @@
-# What is it?
-
-## Introduction
+# Introduction
 
 Stremio, on its surface, is a simple media player and aggregator. When combined with the right addons and a debrid service though, it becomes my favourite on-demand video streamer currently in existence. Following this guide, you'll have a simple yet aesthetically pleasing app that will combine Netflix, Hulu, Disney+, HBO Max, Amazon Prime, Apple TV+, and so much more all in one unified app, with the potential for unlimited and unrestricted 4K content.
 
