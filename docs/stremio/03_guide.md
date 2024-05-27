@@ -113,7 +113,7 @@ Before this, we need to go through some of the pre-installed addons.
 
 The first picture above shows that when you click on a movie, Stremio will display links to third party streaming services that provide the selected content. The addon that does this is called WatchHub. 
 
-The second picture shows catalogues from two different addons - YouTube and Public Domain Movies. The YouTube addon will show popular YouTube channels and allow you to view their latest videos. The Public Domain Movies addon will show movies that are now in the [Public Domain](https://en.wikipedia.org/wiki/Public_domain). These movies are generally released in the 90s. 
+The second picture shows catalogues from two different addons - YouTube and Public Domain Movies. The YouTube addon will show popular YouTube channels and allow you to view their latest videos. The Public Domain Movies addon will show movies that are now in the [Public Domain](https://en.wikipedia.org/wiki/Public_domain). Most of these movies are quite old and released in the 1900s. 
 
 These addons are not required so it is recommended that they be removed. If, however, you prefer to keep them, then you may do so.
 
@@ -205,7 +205,7 @@ There is one built-in addon called Cinemata which provides Popular and Featured 
 I will go through the most popular addons that are used currently. However, be sure to look through the Community addons on Stremio and on the community hosted website I linked earlier as there are always new addons being created.
 
 :::note
-For those looking to watch anime, I would recommend using [Aniyomi](../category/aniyomi) instead, it also supports using Torrentio and it supports tracking with AniList, MyAnimeList, Trakt, Kitsu and more. It also has an AniSkip feature which allows you to skip intros. As an app built for anime, I feel it is a much better choice. The lack of syncing on Stremio is also a factor to think about. the animeo addon does allow syncing, however it only supports AniList and it updates AniList when you start watching an episode. animeo may support more tracking services in the future.
+For those looking to watch anime, I would recommend using [Aniyomi](../category/aniyomi) (An android only app) instead, it also supports using Torrentio and it supports tracking with AniList, MyAnimeList, Trakt, Kitsu and more. It also has an AniSkip feature which allows you to skip intros. As an app built for anime, I feel it is a much better choice. The lack of syncing on Stremio is also a factor to think about. the animeo addon does allow syncing, however it only supports AniList and it updates AniList when you start watching an episode. animeo may support more tracking services in the future. However, it is only an android app so if watching on TV or other devices is important to you, then Stremio may still be enough.
 :::
 
 - **TMDB Addon**
