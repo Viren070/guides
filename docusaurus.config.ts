@@ -18,7 +18,7 @@ const config: Config = {
   organizationName: 'Viren070', // Usually your GitHub org/user name.
   projectName: 'guides', // Usually your repo name.
   deploymentBranch: 'gh-pages',
-  trailingSlash: false,
+  trailingSlash: true,
   onBrokenLinks: 'throw',
   onBrokenMarkdownLinks: 'warn',
 
