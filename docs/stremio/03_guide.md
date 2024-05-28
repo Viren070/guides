@@ -65,7 +65,8 @@ All-Debrid does provide a free 7 day trial. If you are not sure that this is the
 Deciding which debrid provider to use comes down to personal preference. There should be almost no difference between the two but the torrents available on a debrid service is dependent on the users of the service and what torrents the users are caching.
 
 :::warning
-Keep in mind that you cannot use the service from several locations at once. You are allowed to connect from unlimited devices as long as they do it through the same public IP address. If you do, you risk having your account banned.**
+Keep in mind that you cannot use the service from several locations at once. You are allowed to connect from unlimited devices as long as they do it through the same public IP address. If you do, you risk having your account banned. 
+If streaming from multiple IPs is important to you, consider using premiumize as that allows multiple IPs.
 :::
 Here is a list of some other debrid services:
 
