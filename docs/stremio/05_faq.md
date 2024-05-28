@@ -1,3 +1,7 @@
+---
+title: Stremio | FAQ
+sidebar_label: FAQ
+---
 # FAQ
 
 This FAQ will mostly repeat what has already been said but provide the answers in a more accessible form 

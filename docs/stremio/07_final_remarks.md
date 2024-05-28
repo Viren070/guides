@@ -1,3 +1,7 @@
+---
+title: Stremio | Credits
+sidebar_label: Notes and Credits
+---
 # Notes and Credits
 
 ## Notes

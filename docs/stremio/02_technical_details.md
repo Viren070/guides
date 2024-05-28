@@ -1,3 +1,7 @@
+---
+title: Stremio | Technical Details
+sidebar_label: Technical Details
+---
 # Technical Details
 
 ### Stremio Addons

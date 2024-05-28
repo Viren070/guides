@@ -1,3 +1,7 @@
+---
+title: Stremio | Troubleshooting
+sidebar_label: Troubleshooting
+---
 # Troubleshooting
 
 ## A movie/TV show I wanted to watch said “No streams were found”

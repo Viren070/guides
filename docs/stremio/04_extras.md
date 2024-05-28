@@ -1,3 +1,7 @@
+---
+title: Stremio | Extras
+sidebar_label: Extras
+---
 # Extras
 
 ## Peario - Watching with friends
