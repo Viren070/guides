@@ -3,6 +3,10 @@ sidebar_label: Guide
 toc_min_heading_level: 2
 toc_max_heading_level: 5
 ---
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+import Admonition from '@theme/Admonition';
+
 # Guide
 I will now begin the guide to setting up Stremio and its addons. I recommend that the initial setup is completed on your laptop or desktop. Once it has been setup, you can log in to Stremio with the same account on any device and your configuration will be synced to the device so there is no need to set it up again.
 
@@ -13,43 +17,52 @@ First, we need to create a Stremio account. This allows you to keep your progres
 Head over to [Stremio](https://stremio.com/) and either [sign up for an account](https://www.stremio.com/register) with an email or [login](https://stremio.com/login) through Facebook.
 
 ## Downloading Stremio
+Head to the [downloads page](https://stremio.com/downloads) and download the required package.
+<Tabs>
+<TabItem value="pc" label="PC" default>
+    Stremio provides packages for Windows and Mac OS. 
 
-Head over to the [Stremio Downloads](https://www.stremio.com/downloads) page and download the required package for your device.
+    There are packages available for popular distributions of Linux such as Debian and Arch Linux. However, there is also a flatpak link as well as a link to the source code. 
 
-### PC
+    The flatpak can be used to install Stremio on the Steam Deck too. 
 
-Stremio provides packages for Windows and Mac OS. 
+</TabItem>
+    <TabItem value="android" label="Android">
+    
+    For android and android TV users, the app can be downloaded through the Play Store - [Play Store: Stremio](https://play.google.com/store/apps/details?id=com.stremio.one)
+    However, you can also downloda the apk provided 
 
-There are packages available for popular distributions of Linux such as Debian and Arch Linux. However, there is also a flatpak link as well as a link to the source code. 
+</TabItem>
+    <TabItem value="ios" label="iOS">
 
-The flatpak can be used to install Stremio on the Steam Deck too.
+    A limited version of Stremio is available on the App Store. 
 
-### Android (Mobile & TV)
+    For a better experience, follow this [blog post](https://blog.stremio.com/using-stremio-web-on-iphone-ipad/) that explains how to setup a PWA which will allow you to get the full experience of Stremio. As mentioned at the end of the blog, a streaming server running on another device will be needed for torrent playback. However, as explained in Debrid Services, a debrid service does not fall under this category as it gives you a link to stream over HTTP.
 
-For android and android TV users, the app can be downloaded through the Play Store - [Play Store: Stremio](https://play.google.com/store/apps/details?id=com.stremio.one)
+</TabItem>
+    <TabItem value="samsung" label="Samsung TVs">
+    
+    Search for Stremio in the App Store of 2019+ Samsung TV models
 
-### iOS
+</TabItem>
+    <TabItem value="lg" label="LG TVs">    
 
-A limited version of Stremio is available on the App Store. 
+    Search for Stremio in the App Store of 2020+ LG TV models. 
+    <Admonition type="note">
+    Stremio may not appear in the search results. However, if you go to the enterntainment section of the app store. You should see Stremio
+    </Admonition>
 
-For a better experience, follow this [blog post](https://blog.stremio.com/using-stremio-web-on-iphone-ipad/) that explains how to setup a PWA which will allow you to get the full experience of Stremio. As mentioned at the end of the blog, a streaming server running on another device will be needed for torrent playback. However, as explained in Debrid Services, a debrid service does not fall under this category as it gives you a link to stream over HTTP.
+</TabItem>
+<TabItem value="amazon" label="Amazon Fire TV / Fire TV Sticks">
 
-### Samsung TVs
+    Stremio is not available on the amazon app store. To install Stremio, you will need to enable sideloading in developer settings.
 
-Search for Stremio in the App Store of 2019+ Samsung TV models
+    Follow [this guide](https://www.firesticktricks.com/sideload-apps-on-firestick.html) to enable sideloading on your fire stick. 
 
-### LG TVs
+    Once sideloading is enabled, download the ARM APK that is designed to run on android TVs. This version of the app is built for a TV experience and for the ARM architecture.
 
-Search for Stremio in the App Store of 2020+ LG TV models
-
-### Amazon Fire TV / Fire TV Sticks.
-
-Stremio is not available on the amazon app store. To install Stremio, you will need to enable sideloading in developer settings.
-
-Follow [this guide](https://www.firesticktricks.com/sideload-apps-on-firestick.html) to enable sideloading on your fire stick. 
-
-Once sideloading is enabled, download the ARM APK that is designed to run on android TVs. This version of the app is built for a TV experience and for the ARM architecture.
-
+</TabItem>
+</Tabs>
 Then login to Stremio using the account you created earlier.
 
 ## Debrid Service (Optional)
@@ -64,10 +77,7 @@ All-Debrid does provide a free 7 day trial. If you are not sure that this is the
 
 Deciding which debrid provider to use comes down to personal preference. There should be almost no difference between the two but the torrents available on a debrid service is dependent on the users of the service and what torrents the users are caching.
 
-:::warning
-Keep in mind that you cannot use the service from several locations at once. You are allowed to connect from unlimited devices as long as they do it through the same public IP address. If you do, you risk having your account banned. 
-If streaming from multiple IPs is important to you, consider using premiumize as that allows multiple IPs.
-:::
+
 Here is a list of some other debrid services:
 
 - [Premiumize](https://www.premiumize.me/)
@@ -75,26 +85,35 @@ Here is a list of some other debrid services:
 - [Offcloud](https://offcloud.com/)
 - [Put.io](https://put.io/)
 
-Note: Before committing to a Debrid service, please make sure you have a capable internet speed  through [https://fast.com](https://fast.com) and also check that you are in a suitable location close to the Debrid providers servers. Check this through the speed tests provided on their website. ([Real Debrid’s Speed test](https://real-debrid.com/speedtest) and [AllDebrid’s Speed test](https://alldebrid.com/speedtest))
+:::warning
+Keep in mind that you cannot use the service from several locations at once. You are allowed to connect from unlimited devices as long as they do it through the same public IP address. If you do, you risk having your account banned. 
+
+If streaming from multiple IPs is important to you, consider using Premiumize as that allows unlimited IPs.
+:::
+:::note
+ Before committing to a Debrid service, please make sure you have a capable internet speed  through [https://fast.com](https://fast.com) and also check that you are in a suitable location close to the Debrid providers servers. Check this through the speed tests provided on their website. ([Real Debrid’s Speed test](https://real-debrid.com/speedtest) and [AllDebrid’s Speed test](https://alldebrid.com/speedtest))
+:::
 
 I will now cover the instructions of setting up a Debrid Service. I will only cover setting up Real Debrid and AllDebrid.
 
-- Real Debrid
-    
+<Tabs>
+<TabItem value="real-debrid" label="Real Debrid"> 
     ![Untitled](./img/Untitled.png)
     
     1. Go to [https://real-debrid.com/](https://real-debrid.com/) (Consider using [this affiliate link](http://real-debrid.com/?id=9483829) instead to support me)
     2. Click Sign Up to create an account
     3. Go to the Premium Offers page
-    4. Choose a package and subscribe. I would recommend using Amazon Pay. Using your bank card is also secure but Amazon Pay is convenient if you already have a payment method setup there.
-- AllDebrid
-    
+    4. Choose a package and subscribe. I would recommend using Amazon Pay. Using your bank card is also secure but Amazon Pay is convenient if you already have a payment method setup there. 
+</TabItem>
+<TabItem value="all-debrid" label="AllDebrid">
     ![Untitled](./img/Untitled%201.png)
     
     1. Go to [https://alldebrid.com/](https://alldebrid.com/register/) (Consider using [this affiliate link](https://alldebrid.com/?uid=3n8qa&lang=en) to support me)
     2. Register for an account
     3. Go to the Pricing [](https://alldebrid.com/offer/)page
     4. Choose a package and subscribe.
+</TabItem>
+</Tabs>
 
 ## Setting up Addons
 
@@ -135,8 +154,10 @@ Torrentio is the most popular addon and should be all that you need for all your
 Many of the alternative addons will be hosted on [ElfHosted](https://elfhosted.com/). Although you have to pay for private instances of the addon, they provide free instances with a reasonable rate limit. Through casual viewing, these rate limits are unlikely to be hit and they are only in place to protect ElfHosted from people using automation.
 
 I will only provide detailed instructions for Torrentio and KnightCrawler. Other addons will follow a similar structure to setting up. Ensure that any option relating to direct torrenting is disabled if you do not want to torrent and customise the addon as you wish.
+<details>
+    <summary>Torrentio</summary>
+    <div>
 
-- Torrentio
     
     (For a in depth explanation of how Torrentio works, see [this reddit comment](https://www.reddit.com/r/StremioAddons/comments/19fmjlp/comment/kjlnwru/).)
     
@@ -151,7 +172,7 @@ I will only provide detailed instructions for Torrentio and KnightCrawler. Other
     - `Priority foreign language`: Torrentio defaults to pulling English audio content regardless of origin source, so only change this if you prefer another language to display first.
     - `Exclude qualities`: If checked, the quality types selected will be excluded and suppressed from your search results. I only exclude *screener, CAM* and *Unknown* sources, therefore the only boxes I have checked are *screener, CAM* and *Unknown*. If you have slower internet or your devices aren’t capable of playing 4k content, you may want to exclude 4K sources.
     - `Max results per quality`: I leave this blank to obtain all results.
-    - `Debrid provider`: Choose your Debrid provider
+    - `Debrid provider`: Choose your Debrid provider if you are using one. If not, skip the rest of the options.
     - `API Key`: Click *find it here* or create it here. This will link to RD or AD displaying your API key. Copy that and paste it into Torrentio.
     - `Debrid options`
         - `Don't show download to debrid`: These links will be displayed with a [RD Download] in front of them. These are torrents that were found but not downloaded to the Debrid’s servers. Clicking this link sends a request to your Debrid provider to start downloading that torrent. Clicking it poses no risk to you. I leave this unchecked.
@@ -159,11 +180,11 @@ I will only provide detailed instructions for Torrentio and KnightCrawler. Other
         - `Show P2P torrent links for uncached` :  If checked, this will show links to stream torrents directly. There is almost no point to leaving this checked as it poses a risk to you if not in a third world country that doesn’t care about piracy. I have this unchecked.
     
     Now we are done configuring Torrentio. The next step is to click `Install`. Doing so should automatically open Stremio prompting you to install once again.
-    
-    **Note**: It is possible to use Stremio + Torrentio without a debrid service completely for free. Torrentio without debrid, as its name implies, streams torrents directly. Torrentio with debrid streams cached torrents via HTTPS and **does not** need a VPN. The experience IMO is far superior with a debrid service.
-    
-- KnightCrawler (ElfHosted)
-    
+    </div>
+</details>
+<details>
+    <summary> KnightCrawler (ElfHosted)</summary>
+    <div>
     KnightCrawler is a fork of Torrentio and the setup for it is almost the same.
     
     To begin, head over to [KnightCrawler’s config page](https://knightcrawler.elfhosted.com/configure)
@@ -174,7 +195,7 @@ I will only provide detailed instructions for Torrentio and KnightCrawler. Other
     - `Priority foreign language`: Torrentio defaults to pulling English audio content regardless of origin source, so only change this if you prefer another language to display first.
     - `Exclude qualities`: If checked, the quality types selected will be excluded and suppressed from your search results. I only exclude *screener, CAM* and *Unknown* sources, therefore the only boxes I have checked are *screener, CAM* and *Unknown*. If you have slower internet or your devices aren’t capable of playing 4k content, you may want to exclude 4K sources.
     - `Max results per quality`: I leave this blank to obtain all results.
-    - `Debrid provider`: Choose your Debrid provider
+    - `Debrid provider`: Choose your Debrid provider if you are using one. If not, skip the rest of the options
     - `API Key`: Click *find it here* or create it here. This will link to RD or AD displaying your API key. Copy that and paste it into Torrentio.
     - `Debrid options`
         - `Don't show download to debrid`: These links will be displayed with a [RD Download] in front of them. These are torrents that were found but not downloaded to the Debrid’s servers. Clicking this link sends a request to your Debrid provider to start downloading that torrent. Clicking it poses no risk to you. I leave this unchecked.
@@ -182,8 +203,8 @@ I will only provide detailed instructions for Torrentio and KnightCrawler. Other
         - `Show P2P torrent links for uncached` :  If checked, this will show links to stream torrents directly. There is almost no point to leaving this checked as it poses a risk to you if not in a third world country that doesn’t care about piracy. I have this unchecked.
     
     Now we are done configuring KnightCrawler. The next step is to click `INSTALL`. Doing so should automatically open Stremio prompting you to install once again. Click Install again and the addon should be installed.
-    
-
+    </div>
+</details>
 Here is a list of other addons that use torrent streams with debrid support. These may also have additional features and provide more content in some scenarios.:
 
 - [Annatar](https://annatar.elfhosted.com/configure)
@@ -203,13 +224,19 @@ Note that Stremio will display the catalogues from the addons in the order that 
 
 There is one built-in addon called Cinemata which provides Popular and Featured Movies and Series. If you feel that Cinemata is enough then you do not need to install any others. However, it is recommended that you at least try them out and see what the addons do.
 
-I will go through the most popular addons that are used currently. However, be sure to look through the Community addons on Stremio and on the community hosted website I linked earlier as there are always new addons being created.
+I will go through the most popular addons that are used currently. However, be sure to look through the Community addons on Stremio and on the community hosted website I linked earlier as there are always new addons being created. 
+
+:::note
+CyberFlix and Streaming Catalogs are very similar and will show very similar content. I recommend that you only install one of them
+:::
 
 :::note
 For those looking to watch anime, I would recommend using [Aniyomi](../category/aniyomi) (An android only app) instead, it also supports using Torrentio and it supports tracking with AniList, MyAnimeList, Trakt, Kitsu and more. It also has an AniSkip feature which allows you to skip intros. As an app built for anime, I feel it is a much better choice. The lack of syncing on Stremio is also a factor to think about. the animeo addon does allow syncing, however it only supports AniList and it updates AniList when you start watching an episode. animeo may support more tracking services in the future. However, it is only an android app so if watching on TV or other devices is important to you, then Stremio may still be enough.
 :::
 
-- **TMDB Addon**
+<details>
+<summary>TMDB Addon</summary>
+    <div>
     
     The TMDB addon that will fetch data from The Movie Database to display Popular and New Movies and Series. 
     
@@ -224,16 +251,22 @@ For those looking to watch anime, I would recommend using [Aniyomi](../category/
     ![Untitled](./img/Untitled%209.png)
     
     The addon should now be installed.
-    
-- **IMDB Catalogs**
-    
+    </div>
+</details>
+<details>
+<summary>IMDB Catalogs</summary>
+    <div>
     This addon will add a catalogue that fetches movies and shows from IMDB. This addon requires no configuration, so it can be installed from directly within the Stremio app. 
     
     1. Head to the addons page on the Stremio app
     2. Click on the Community Addons tab
     3. Search for `IMDB Catalog` and it should be the first result. 
     4. Click Install.
-- **CyberFlix**
+    </div>
+</details>
+<details>
+<summary>CyberFlix</summary>
+    <div>
     
     This Addon will fetch a list of movies from a range of different 3rd party streaming services as well as different catalogs for Kids, Anime, and Indian Movies. (It is recommended that you use the Kitsu Addon for Anime instead)
     
@@ -246,8 +279,11 @@ For those looking to watch anime, I would recommend using [Aniyomi](../category/
     3. Click Next
     4. Rearrange the order of the catalogues to your liking and click Next again
     5. Then click Install on Stremio and a prompt should open in the Stremio app. Click Install on that prompt too.
-    
-- **Streaming Catalogs**
+    </div>
+</details>
+<details>
+<summary>Streaming Catalogs</summary>
+    <div>
     
     This addon is very similar to CyberFlix. It only provides 2 catalogues for each streaming service instead of 4.
     
@@ -255,18 +291,23 @@ For those looking to watch anime, I would recommend using [Aniyomi](../category/
     2. Click on the filter providers by country and select Any.
     3. Select the streaming services that you want to see in your home page for Stremio.
     4. Click Install addon and then when the Stremio app opens with a prompt asking to install, click Install again.
-- **Kitsu**
+    </div>
+</details>
+<details>
+<summary>Kitsu</summary>
+    <div>
     
     This addon is focused on providing catalogues for Anime. It provides Top Airing, Trending, Most Popular, Highest Rated, and Newest. It is recommended to use this addon for anime as you are more likely to get stream results with the metadata from the Kitsu addon.
     
-    Similar to the IMDB Catalogs addon, this addon cannot be configured. I could not find the addon through the built in community addon search so I will go through the steps. 
+    Similar to the IMDB Catalogs addon, this addon cannot be configured. I could not find the addon through the built in community addon search so I will go through the steps for installing an addon through the search bar.
     
     1. Copy this URL: [https://anime-kitsu.strem.fun/manifest.json](https://anime-kitsu.strem.fun/manifest.json)
     2. In the stremio application, paste the URL into any search bar. (main one or addon search bar). 
     3. A prompt should show giving you the option to install this addon. 
     
     You may also configure the [Anime Catalogs addon](https://1fe84bc728af-stremio-anime-catalogs.baby-beamup.club/configure) too.
-    
+    </div>
+</details>
 
 ### Advanced Customised Catalogues
 
