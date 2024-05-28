@@ -42,13 +42,7 @@ const config: Config = {
             'https://github.com/Viren070/guides/edit/main/',
           routeBasePath: '/',
         },
-        blog: {
-          showReadingTime: true,
-          // Please change this to your repo.
-          // Remove this to remove the "edit this page" links.
-          editUrl:
-            'https://github.com/Viren070/guides/edit/main/',
-        },
+        blog: false,
         theme: {
           customCss: './src/css/custom.css',
         },
@@ -72,7 +66,6 @@ const config: Config = {
           position: 'left',
           label: 'Guides',
         },
-        {to: '/blog', label: 'Blog', position: 'left'},
         {
           href: 'https://github.com/Viren070/guides',
           label: 'GitHub',
@@ -95,10 +88,6 @@ const config: Config = {
         {
           title: 'More',
           items: [
-            {
-              label: 'Blog',
-              to: '/blog',
-            },
             {
               label: 'GitHub',
               href: 'https://github.com/Viren070/guides',
