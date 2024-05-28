@@ -98,7 +98,7 @@ I will now cover the instructions of setting up a Debrid Service. I will only co
 
 <Tabs>
 <TabItem value="real-debrid" label="Real Debrid"> 
-    ![Untitled](./img/Untitled.png)
+    ![Real Debrid Payment](./img/real_debrid_payment.png)
     
     1. Go to [https://real-debrid.com/](https://real-debrid.com/) (Consider using [this affiliate link](http://real-debrid.com/?id=9483829) instead to support me)
     2. Click Sign Up to create an account
@@ -106,7 +106,7 @@ I will now cover the instructions of setting up a Debrid Service. I will only co
     4. Choose a package and subscribe. I would recommend using Amazon Pay. Using your bank card is also secure but Amazon Pay is convenient if you already have a payment method setup there. 
 </TabItem>
 <TabItem value="all-debrid" label="AllDebrid">
-    ![Untitled](./img/Untitled%201.png)
+    ![All Debrid Payment](./img/all_debrid_payment.png)
     
     1. Go to [https://alldebrid.com/](https://alldebrid.com/register/) (Consider using [this affiliate link](https://alldebrid.com/?uid=3n8qa&lang=en) to support me)
     2. Register for an account
@@ -127,9 +127,9 @@ Before this, we need to go through some of the pre-installed addons.
 
 ### Removing pre-installed addons
 
-![Untitled](./img/Untitled%202.png)
+![Default Addon Catalogues](./img/watchhub_movie_details.png)
 
-![Untitled](./img/Untitled%203.png)
+![Default Addons](./img/default_addon_catalogues.png)
 
 The first picture above shows that when you click on a movie, Stremio will display links to third party streaming services that provide the selected content. The addon that does this is called WatchHub. 
 
@@ -141,9 +141,9 @@ The reason these addons being pre-installed is for Stremio to appear as a legiti
 
 To remove these addons, go to the addons page (the puzzle icon on the navigation menu on the left of the screen) and click Uninstall on the following addons.
 
-![Untitled](./img/Untitled%204.png)
+![Addon menu selected](./img/navbar_addon_selected.png)
 
-![Untitled](./img/Untitled%205.png)
+![Addon menu with default addons](./img/default_addon_list.png)
 
 ### Stream Provider Addons
 
@@ -165,7 +165,7 @@ I will only provide detailed instructions for Torrentio and KnightCrawler. Other
     
     Torrentio has a lot of options and it can be overwhelming at first. Below I've listed my recommendations and my personal configuration:
     
-    ![Untitled](./img/Untitled%206.png)
+    ![Torrentio Configuration](./img/torrentio_setup.png)
     
     - `Providers`: I have them all checked excluding foreign languages.
     - `Sorting`: By quality then size. If you are not using a debrid service, then do By quality then seeders . This is because without a debrid service you are reliant on the number of seeders. However, with a debrid service the number of seeders is irrelevant to you.
@@ -189,7 +189,7 @@ I will only provide detailed instructions for Torrentio and KnightCrawler. Other
     
     To begin, head over to [KnightCrawler’s config page](https://knightcrawler.elfhosted.com/configure)
     
-    ![Untitled](./img/Untitled%207.png)
+    ![KnightCrawler Configuration](./img/knightcrawler_setup.png)
     
     - `Sorting`: By quality then size. If you are not using a debrid service, then do By quality then seeders . This is because without a debrid service you are reliant on the number of seeders. However, with a debrid service the number of seeders is irrelevant to you.
     - `Priority foreign language`: Torrentio defaults to pulling English audio content regardless of origin source, so only change this if you prefer another language to display first.
@@ -240,7 +240,7 @@ For those looking to watch anime, I would recommend using [Aniyomi](../category/
     
     The TMDB addon that will fetch data from The Movie Database to display Popular and New Movies and Series. 
     
-    ![Untitled](./img/Untitled%208.png)
+    ![TMDB Configuration](./img/tmdb_setup_1.png)
     
     1. Head to the [TMDB Addon Configuration page](https://94c8cb9f702d-tmdb-addon.baby-beamup.club/configure)
     2. Configure the catalogue settings to your liking. (The ratings on poster is not required)
@@ -248,7 +248,7 @@ For those looking to watch anime, I would recommend using [Aniyomi](../category/
     4. Click Install. 
     5. Stremio should now open and a prompt asking you to install should appear, click Install again.
     
-    ![Untitled](./img/Untitled%209.png)
+    ![TMDB Installation](./img/tmdb_setup_2.png)
     
     The addon should now be installed.
     </div>
@@ -272,7 +272,7 @@ For those looking to watch anime, I would recommend using [Aniyomi](../category/
     
     To get started, head over to the [configuration page](https://cyberflix.elfhosted.com/)
     
-    ![Untitled](./img/Untitled%2010.png)
+    ![CyberFlix Setup](./img/cyberflix_setup.png)
     
     1. Click Setup
     2. Select up to 60 different catalogues to display on your homepage. Click the arrows to select/deselect specific types of catalogues for a streaming service.
