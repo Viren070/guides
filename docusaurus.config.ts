@@ -34,6 +34,12 @@ const config: Config = {
     [
       'classic',
       {
+        sitemap: {
+          lastmod: "date",
+          changefreq: 'weekly',
+          priority: 0.8,
+          filename: 'sitemap.xml',
+        },
         docs: {
           sidebarPath: './sidebars.ts',
           // Please change this to your repo.
