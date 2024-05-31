@@ -4,6 +4,10 @@ sidebar_label: FAQ
 description: Frequently asked questions about Stremio, debrid services and addons.
 keywords: [stremio, help, faq, frequently asked questions, stremio guide, stremio help, stremio faq, stremio questions, stremio answers, stremio support, stremio troubleshooting]
 ---
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+import Admonition from '@theme/Admonition';
+
 # FAQ
 
 This FAQ will mostly repeat what has already been said but provide the answers in a more accessible form 
@@ -27,6 +31,61 @@ No. Your account and its addons are stored on Stremio’s servers. Meaning that 
 ## My device was not listed in the supported devices list. Can I still use it?
 
 Yes. Through [Stremio Web](https://web.stremio.com), any device can use Stremio as long as you log in your account.
+
+## What is the best device to use Stremio on?
+The NVIDIA Shield TV Pro is the best choice. However, the Fire TV Stick 4K and the Chromecast with Google TV 4K are also good options and they are much cheaper than the NVIDIA Shield TV Pro and regularly go on sale.
+
+## Can I use Stremio on my Smart TV?
+Yes. Stremio will run on any android based smart TV. It can be downloaded from the Google Play Store. 
+Stremio is also available on LG WebOS (2020+ models only) and Samsung Tizen (2019+ models only). You can download it from the respective app stores.
+
+## Can I use Stremio on my iPhone or iPad?
+Yes. Although a fully featured Stremio app is not available on iOS, you can add the Stremio Web app to your home screen. You will need to set an external player such as Outplayer or VLC. Follow this [blog post from Stremio](https://blog.stremio.com/using-stremio-web-on-iphone-ipad/) for more information.
+:::info
+Keep in mind that the Stremio Web app on iOS is unable to handle torrent playback. For this reason, you will have to use HTTP addons or use a Debrid service to stream torrent files through HTTP.
+:::
+
+
+## How do I change the default player?
+The instructions are different depending on the device you are using. I'm not sure on the instructions for every device but they should be something similar. 
+<Tabs>
+<TabItem value="web" label="Stremio Web" default>
+    1. Go to the settings menu
+    2. Click on the player tab
+    3. Scroll down to the advanced section and find the `Play in external player` option
+    4. Click on the dropdown menu and select the player you want to use
+
+</TabItem>
+<TabItem value="windows" label="Windows">
+    1. Within the player, click on the 3 dots
+    2. There should be an option saying `Watch on [player name]`
+    3. Click on this and the video should open in the player you selected
+</TabItem>
+<TabItem value="android" label="Android">
+    1. Within the player, there is a button that says `Play in external player`
+    2. Click this and it should show a prompt asking which player to use. 
+    3. Select the player you want to use and the video should open in that player.
+    <Admonition type="info">
+    There is an option in settings called `Always open in external player`. You can enable this to always open videos in an external player.
+    </Admonition>
+</TabItem>
+</Tabs>
+
+## Is Torrentio down?
+Use this [website](https://status.elfhosted.com/) from ElfHosted to check the status of Torrentio.
+
+## Can I use my own subtitles?
+Yes. Drag your subtitle file into the player and it should play with the video. You can also use the MSubtitles addon to use your own subtitles.
+
+## Can I change the configuration of an addon without reinstalling it?
+Yes, simply click the cogwheel/settings icon on the addon in the addons menu. This opens the addon's configuration page with your current configuration. You can change the settings here and click install again.
+:::info
+You will have to uninstall the old version of the addon as you would otherwise have two versions of the addon installed.
+:::
+
+## Can I make my own addon for Stremio?
+Yes. The [Stremio Addon SDK](https://github.com/Stremio/stremio-addon-sdk/) can be used to develop addons with Node.js. 
+Addons can also be developed with any other language that supports creating a HTTP server. Here are some [examples](https://github.com/Stremio/stremio-addon-sdk/blob/ff10a5a66ff6a592d6145baba117515041aa33ab/docs/examples.md)
 
 ## Can I use Stremio to watch Live TV?
 
