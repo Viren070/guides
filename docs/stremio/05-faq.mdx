@@ -12,41 +12,100 @@ import Admonition from '@theme/Admonition';
 
 This FAQ will mostly repeat what has already been said but provide the answers in a more accessible form 
 
-## Is a Debrid Service required?
+## Debrid/VPN Questions
+
+### Is a Debrid Service required?
 
 No. Depending on your circumstances, Stremio and Torrentio without a Debrid service may work fine and 4K content may still stream without buffering. However, torrenting carries a legal risk and if this is an issue for you, a debrid service is recommended. Furthermore, torrenting relies on seeders being available constantly and you are limited by the upload seed of the seeders. With a Debrid Service, this issue is solved as the torrent is downloaded to the Debrid services’ high speed servers. You can then stream content from their servers at high speeds. (The speed is still limited by your own internet connection)
 
-## Do I need a VPN?
+### Do I need a VPN?
 
 If you are using a debrid service, a VPN is NOT required. 
 
-If you are not, it depends on the country you are living in. If your country is strict on piracy, then a VPN is recommended as you may get notices from your ISP otherwise.
+For HTTP addons, a VPN is not required. However, if you are using a torrent addon such as Torrentio then a VPN or a Debrid service might be required.
 
-If your country is strict on piracy, it is recommended that you pay for a debrid service, as it is often cheaper than a VPN, and the experience on Stremio with a debrid service is much better than a VPN.
+This depends on the laws in your country. If your country is strict on torrenting, then a VPN or a Debrid service is recommended. Otherwise, you can use Stremio without a VPN or a Debrid service.
 
-## Will I have to repeat the setup process on all of my devices?
+However, a Debrid service is usually the better option as it is usually cheaper and provides a smoother experience on Stremio and a debrid service can also be used to download other torrents.
 
-No. Your account and its addons are stored on Stremio’s servers. Meaning that it is all in the cloud. As long as you sign in to the same account on a different device, it will sync the addons that are linked with your account and you do not need to repeat the setup process.
+### Can you have a recurring payment with Real Debrid?
 
-## My device was not listed in the supported devices list. Can I still use it?
+On Real Debrid, there are no recurring payments. You will have to set a reminder to renew your subscription. You can always add more days to your subscription before it expires. 
+
+Other debrid providers, such as AllDebrid, do have recurring payments based on a monthly subscription.
+
+### How do I know if I am in an optimal location for a Debrid service?
+
+You can check the speed of your connection to the Debrid service by using the speedtest on the Debrid service's website.
+- [Real Debrid Speedtest](https://real-debrid.com/speedtest)
+- [AllDebrid Speedtest](https://alldebrid.com/speedtest)
+- [Premiumize Speedtest](https://www.premiumize.me/speedtest)
+For other Debrid services, you can find the speedtest on their website.
+
+### Can I use a Debrid service on multiple devices?
+
+Yes. A debrid service can be used from an unlimited number of devices. **However, you cannot use the service from more than one public IP address at a time.** 
+
+This means that you can use the service on multiple devices within your home network but you cannot use the service on a device outside of your home network while another device is using the service.
+
+Premiumize is an exception to this rule as it can be used from unlimited devices and unlimited IP addresses at the same time.
+
+### Can I use a Debrid service with a VPN?
+
+Yes, but it is not recommended. A debrid service is enough to protect your privacy and a VPN will limit your speed.
+
+You must also ensure that no one else on your home network is using the Debrid service at the same time as this would be considered as using the service from multiple IP addresses at the same time.
+
+## Addon Questions
+
+### Can I change the configuration of an addon without reinstalling it?
+
+Yes, simply click the cogwheel/settings icon on the addon in the addons menu. This opens the addon's configuration page with your current configuration. You can change the settings here and click install again.
+:::info
+You will have to uninstall the old version of the addon as you would otherwise have two versions of the addon installed.
+:::
+### Where can I find more addons?
+
+Through the Community addons tab in the Addons menu of the Stremio app or the [community hosted addon list](https://stremio-addons.netlify.app/)
+
+### Is [insert addon here] down?
+
+Use this [website](https://status.elfhosted.com/) from ElfHosted to check the status of various addons. You can also check the [r/StremioAddons](https://reddit.com/r/StremioAddons/) subreddit or the [r/StremioAddons Discord](https://discord.gg/zNRf6YF) for more information.
+
+### Is there a way to change the order of the addons without reinstalling them?
+
+Yes. You can use the [Stremio Addon Manager](extras#addon-manager) to change the order of your addons without reinstalling them.
+
+## Stremio questions 
+
+### Will I have to repeat the setup process on all of my devices?
+
+No. Your account and its addons are stored on Stremio's servers. Meaning that it is all in the cloud. As long as you sign in to the same account on a different device, it will sync the addons that are linked with your account and you do not need to repeat the setup process.
+
+### My device was not listed in the supported devices list. Can I still use it?
 
 Yes. Through [Stremio Web](https://web.stremio.com), any device can use Stremio as long as you log in your account.
 
-## What is the best device to use Stremio on?
-The NVIDIA Shield TV Pro is the best choice. However, the Fire TV Stick 4K and the Chromecast with Google TV 4K are also good options and they are much cheaper than the NVIDIA Shield TV Pro and regularly go on sale.
+### Can I use Stremio on my Smart TV?
 
-## Can I use Stremio on my Smart TV?
 Yes. Stremio will run on any android based smart TV. It can be downloaded from the Google Play Store. 
 Stremio is also available on LG WebOS (2020+ models only) and Samsung Tizen (2019+ models only). You can download it from the respective app stores.
 
-## Can I use Stremio on my iPhone or iPad?
+### Can I use Stremio on my iPhone or iPad?
+
 Yes. Although a fully featured Stremio app is not available on iOS, you can add the Stremio Web app to your home screen. You will need to set an external player such as Outplayer or VLC. Follow this [blog post from Stremio](https://blog.stremio.com/using-stremio-web-on-iphone-ipad/) for more information.
 :::info
 Keep in mind that the Stremio Web app on iOS is unable to handle torrent playback. For this reason, you will have to use HTTP addons or use a Debrid service to stream torrent files through HTTP.
 :::
 
+### What is the best device to use Stremio on?
 
-## How do I change the default player?
+The NVIDIA Shield TV Pro is the best choice. However, the Fire TV Stick 4K and the Chromecast with Google TV 4K are also good options and they are much cheaper than the NVIDIA Shield TV Pro and regularly go on sale.
+
+If you are in the US, the ONN 4K TV Pro from Walmart is also a good option due to its cheap price and good performance.
+
+### How do I change the default player?
+
 The instructions are different depending on the device you are using. I'm not sure on the instructions for every device but they should be something similar. 
 <Tabs>
 <TabItem value="web" label="Stremio Web" default>
@@ -71,31 +130,21 @@ The instructions are different depending on the device you are using. I'm not su
 </TabItem>
 </Tabs>
 
-## Can I download a stream from Stremio:
+### Can I download a stream from Stremio?
+
 Yes. You can download a video by clicking the 3 dots within the player and then clicking `Download this video`.
 
 You can also use [Stremio Downloader](extras#stremio-downloader).
 
-## Is Torrentio down?
-Use this [website](https://status.elfhosted.com/) from ElfHosted to check the status of Torrentio.
+### Can I use my own subtitles?
 
-## Can I use my own subtitles?
 Yes. Drag your subtitle file into the player and it should play with the video. You can also use the MSubtitles addon to use your own subtitles.
 
-## Can I change the configuration of an addon without reinstalling it?
-Yes, simply click the cogwheel/settings icon on the addon in the addons menu. This opens the addon's configuration page with your current configuration. You can change the settings here and click install again.
-:::info
-You will have to uninstall the old version of the addon as you would otherwise have two versions of the addon installed.
-:::
+### Can I make my own addon for Stremio?
 
-## Can I make my own addon for Stremio?
 Yes. The [Stremio Addon SDK](https://github.com/Stremio/stremio-addon-sdk/) can be used to develop addons with Node.js. 
 Addons can also be developed with any other language that supports creating a HTTP server. Here are some [examples](https://github.com/Stremio/stremio-addon-sdk/blob/ff10a5a66ff6a592d6145baba117515041aa33ab/docs/examples.md)
 
-## Can I use Stremio to watch Live TV?
+### Can I use Stremio to watch Live TV?
 
-Stremio was not designed with Live TV in mind, so its interface for such things is less than ideal. However, MediaFusion does provide live streams. The [xtremio addon](https://xtremio.elfhosted.com/configure) can be used to stream content from your paid IPTV subscription. However, as mentioned before, the interface is not designed for this. I suggest that you try it out and if its not for you, then stick to an app designed for IPTV content or other apps that provide Live TV.
-
-## Where can I find more addons?
-
-Through the Community addons tab in the Addons menu of the Stremio app or the [community hosted addon list](https://stremio-addons.netlify.app/)
+Stremio does support live streams. However, its its interface is not designed for this. However, MediaFusion does provide live streams. The [xtremio addon](https://xtremio.elfhosted.com/configure) can be used to stream content from your paid IPTV subscription. However, as mentioned before, the interface is not designed for this. I suggest that you try it out and if its not for you, then stick to an app designed for IPTV content or other apps that provide Live TV.
