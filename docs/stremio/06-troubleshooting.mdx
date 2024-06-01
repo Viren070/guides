@@ -26,11 +26,29 @@ If you think you have a good internet speed and are using a debrid service, then
 Perform the speedtest on your debrid service's website to see if it is your connection to the debrid service that is the issue.
 [Real Debrid Speedtest](https://real-debrid.com/speedtest), [AllDebrid Speedtest](https://alldebrid.com/speedtest), [Premiumize Speedtest](https://www.premiumize.me/speedtest)
 
+## Access Denied when trying to watch a movie/TV show on a debrid service
+Check that your your debrid subscription hasn't expired.
+
+If it hasn't, then check the debrid service's website to see if they are having issues.
+
+If they aren't having issues, refresh your API token and reconfigure your addons that use the debrid service.
+
+Related question: [Can you have a recurring payment with real debrid?](faq#can-you-have-a-recurring-payment-with-real-debrid)
+
 ## Audio plays but only black screen
 
-This indicates that your device can’t handle that specific stream. Try choosing a different stream. 
+This indicates that your device can't handle that specific stream. Try choosing a different stream. 
 
 Note that firesticks currently have an issue with playing content that has both DV and HDR10+.
+
+## An addon is not working  
+Check this [status page from ElfHosted](https://status.elfhosted.com/) or recent posts from [r/StremioAddons](https://reddit.com/r/StremioAddons/) to see if the addon is down. 
+
+If the addon is experiencing issues, then you will have to wait for the addon developer to fix it.
+
+Otherwise, try reinstalling the addon. If the addon depends on a debrid service and the error you get is related to the debrid service, then refresh your API token and reconfigure the addon with the new token.
+
+
 
 ## Subtitles not appearing correctly
 This could be because the subtitles are SSA subtitles. Stremio's default player, ExoPlayer, does not support these subtitles. You can use an external player such as Vimu Player to fix this.
