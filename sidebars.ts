@@ -8,8 +8,8 @@ const sidebars: SidebarsConfig = {
 			label: 'Games / Emulation',
 			link: {
 				type: 'generated-index', 
-				title: 'Games', 
-				description: 'Guides on how to get some games for free', 
+				title: 'Games / Emulation', 
+				description: 'Guides on downloading and setting up games / emulators', 
 				keywords: ['games', 'free', 'download']
 			},
 			items: [
@@ -49,7 +49,7 @@ const sidebars: SidebarsConfig = {
 			type: 'category',
 			label: 'Movies / TV / Anime',
 			link: { 
-				type: 'generated-index', title: 'Movies', description: 'Guides on how to get some movies for free', keywords: ['movies', 'free', 'download'] 
+				type: 'generated-index', title: 'Movies / TV / Anime', description: 'Guides on using apps that can be used to stream movies / tv shows / anime', keywords: ['movies' , 'download'] 
 			},
 			items: [
 				{
