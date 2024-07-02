@@ -5,7 +5,7 @@ const sidebars: SidebarsConfig = {
 		"index",
 		{
 			type: "category",
-			label: "Games / Emulation",
+			label: "Gaming",
 			link: {
 				type: "generated-index",
 				title: "Games / Emulation",
@@ -23,13 +23,13 @@ const sidebars: SidebarsConfig = {
 					items: [
 						{
 							type: "category",
-							label: "Java Edition",
+							label: "Java",
 							link: { type: "doc", id: "minecraft/java/index" },
 							items: [],
 						},
 						{
 							type: "category",
-							label: "Bedrock Edition",
+							label: "Bedrock",
 							link: { type: "doc", id: "minecraft/bedrock/index" },
 							items: ["minecraft/bedrock/windows", "minecraft/bedrock/android"],
 						},
@@ -54,7 +54,7 @@ const sidebars: SidebarsConfig = {
 		},
 		{
 			type: "category",
-			label: "Movies / TV / Anime",
+			label: "Streaming",
 			link: {
 				type: "generated-index",
 				title: "Movies / TV / Anime",
@@ -89,8 +89,21 @@ const sidebars: SidebarsConfig = {
 					},
 					items: [],
 				},
+				"revanced/index"
+				
 			],
 		},
+		{
+			type: "category",
+			label: "Reading",
+			link: {
+				type: "generated-index",
+				title: "Reading",
+				description: "Guides on downloading and reading books / comics",
+				keywords: ["books", "comics", "download"],
+			},
+			items: ["aniyomi/index", "tachiyomiJ2K/index"],
+		}
 	],
 };
 
