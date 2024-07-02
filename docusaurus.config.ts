@@ -74,8 +74,9 @@ const config: Config = {
         },
         {
           href: 'https://github.com/Viren070/guides',
-          label: 'GitHub',
           position: 'right',
+          className: 'header-github-link',
+          'aria-label': 'GitHub repository',
         },
       ],
     },
