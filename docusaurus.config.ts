@@ -67,12 +67,6 @@ const config: Config = {
       },
       items: [
         {
-          type: 'docSidebar',
-          sidebarId: 'guides',
-          position: 'left',
-          label: 'Guides',
-        },
-        {
           href: 'https://github.com/Viren070/guides',
           position: 'right',
           className: 'header-github-link',
