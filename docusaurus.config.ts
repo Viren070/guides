@@ -55,7 +55,6 @@ const config: Config = {
       } satisfies Preset.Options,
     ],
   ],
-
   themeConfig: {
     // Replace with your project's social card
     image: 'img/docusaurus-social-card.jpg',
@@ -112,7 +111,30 @@ const config: Config = {
         autoCollapseCategories: true,
         hideable: true,
       }
-    }
+    },
+    algolia: {
+      // The application ID provided by Algolia
+      appId: 'H8VMKESUZ1',
+
+      // Public API key: it is safe to commit it
+      apiKey: '5e266f4d711fe4a8737eed20bce3610d',
+
+      indexName: 'guides-viren070',
+
+      // Optional: see doc section below
+      contextualSearch: true,
+
+      // Optional: Algolia search parameters
+      searchParameters: {},
+
+      // Optional: path for search page that enabled by default (`false` to disable it)
+      searchPagePath: 'search',
+
+      // Optional: whether the insights feature is enabled or not on Docsearch 
+      insights: true,
+
+      //... other Algolia params
+    },
   } satisfies Preset.ThemeConfig,
 };
 
