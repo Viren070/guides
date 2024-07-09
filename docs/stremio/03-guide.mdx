@@ -364,11 +364,6 @@ I will go through the most popular addons that are used currently. However, be s
 CyberFlix and Streaming Catalogs are very similar and will show very similar content. I recommend that you only install one of them
 :::
 
-:::note
-For those looking to watch anime on android specifically, I would recommend using [Aniyomi](https://aniyomi.org/) (An android only app) instead, it has a much greater library of HTTP addons and also supports Torrentio (debrid required). It supports tracking with AniList, MyAnimeList, Trakt, Kitsu and more. It also has an AniSkip feature which allows you to skip intros. As an app built for anime, I feel it is a much better choice. 
-The lack of syncing on Stremio is also a factor to think about. The animeo addon does allow syncing, however it only supports AniList and it updates AniList when you start watching an episode. animeo may support more tracking services in the future. 
-:::
-
 <details>
 <summary>TMDB Addon</summary>
     <div>
@@ -428,6 +423,20 @@ The lack of syncing on Stremio is also a factor to think about. The animeo addon
     4. Click Install addon and then when the Stremio app opens with a prompt asking to install, click Install again.
     </div>
 </details>
+
+#### Anime Addons 
+
+I will now go through some Anime addons. A reminder that these addons are only catalogue addons and do not provide any links themselves. 
+However, Torrentio with the NyaaSi provider enabled should provide you the necessary links. 
+
+The Stremify addon also provides streams from Gogoanime if you are looking for http streams. 
+
+Scroll up to the [Stream Provider Addons section](#stream-provider-addons) to see how to configure Torrentio and Stremify.
+
+:::note
+If you are planning to only watch on an android device, you may want to look into [Aniyomi](https://aniyomi.org) instead. 
+It also has a torrentio extension that supports watching normal movies/show.
+:::
 <details>
 <summary>Kitsu</summary>
     <div>
@@ -444,6 +453,35 @@ The lack of syncing on Stremio is also a factor to think about. The animeo addon
     </div>
 </details>
 
+<details>
+<summary>Anime Catalogs</summary>
+    <div>
+    
+    This addon is similar to the Kitsu addon but provides a lot more catalogues from different sources (AniList, Kitsu, MyAnimeList, AniDB)
+    
+    1. Head over to the [Anime Catalogs Configuration page](https://1fe84bc728af-stremio-anime-catalogs.baby-beamup.club/configure)
+    2. Select the catalogues that you want to see on your homepage.
+    3. Click Install addon and then when the Stremio app opens with a prompt asking to install, click Install again.
+    </div>
+</details>
+
+<details>
+<summary>animeo</summary>
+<div>
+This is an addon that uses the AniList API to track your anime progress. 
+You can look at the [GitHub page for animeo](https://github.com/Jenrykster/animeo) that explains how to set it up and how it works. 
+
+1. Head over to the [animeo Configuration page](https://7a625ac658ec-animeo.baby-beamup.club/configure)
+2. Click `ANILIST LOGIN` at the top of the page and login with your AniList account. You will then be returned to the configration page
+3. There are two options to configure, I will go through them now: 
+    - `Kitsu entries only`: I recommend keeping this option checked. You will need the kitsu addon installed for this to work. 
+                          This means that only when you are watching a title from the Kitsu addon will it be tracked. 
+                          This is useful because it reduces the likelihood of incorrect titles being tracked. 
+    - `Only update anime already on my list` - This option makes it so that only anime that you are already tracking on AniList will be updated. 
+                                               I leave this unchecked as otherwise, new anime that I watch will not be tracked unless I manually add them on AniList.
+3. Click Install. (If this doesn't work, follow the instructions underneath the install button that says to copy the link and paste it into the stremio search bars)
+</div>
+</details>
 ### Subtitle Addons
 
 Here are a list of working subtitle addons. This list may become outdated, please check the community addons list for new subtitle addons if none of these work.
