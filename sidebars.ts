@@ -74,6 +74,7 @@ const sidebars: SidebarsConfig = {
 						"stremio/intro",
 						"stremio/technical-details",
 						"stremio/guide",
+						"stremio/using-trakt",
 						"stremio/extras",
 						"stremio/faq",
 						"stremio/troubleshooting",
