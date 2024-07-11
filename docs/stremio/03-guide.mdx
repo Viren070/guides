@@ -181,7 +181,7 @@ iOS users, I recommend that you follow the instructions in the iOS tab as the St
 </Tabs>
 Then login to Stremio using the account you created earlier.
 
-## Debrid Service (Optional)
+## Debrid Service
 
 As explained before, a debrid service is not required. However, it removes the need for a VPN and removes the reliance on seeders for torrents by streaming from their servers at unrestricted speeds through HTTP which makes playing 4K content easy. For more details, please see [Debrid Services](technical-details#debrid-services) and the [FAQ](faq). 
 
@@ -191,21 +191,18 @@ Furthermore, a debrid service can be used to generate direct download links for 
 
 There are many debrid services available to use. I will provide a tutorial for setting up Real Debrid and AllDebrid below but the setup for others will be very similar.
 
-Here is a list of some other debrid services:
-- [Premiumize](https://www.premiumize.me/)
-- [Debrid-Link](https://debrid-link.com/)
-- [Offcloud](https://offcloud.com/)
-- [Put.io](https://put.io/)
+You can find the speed tests for some debrid services [here](faq#where-can-i-find-the-speed-tests-for-debrid-services). You can find the other speed tests on the debrid service's website.
 
-The main factors to consider are cost and optimality. The two options that provide the greatest cost-value benefit are Real Debrid and AllDebrid. They are priced at the same point and the larger userbase ensures more torrents are regularly cached.
-The average monthly cost for Real Debrid and AllDebrid comes down to around £2.30 if you get the 6-month subscription.
+The main factors to consider are cost, optimality, and userbase. The two options that provide the greatest cost-value benefit are Real Debrid and AllDebrid. They are priced at the same point and the larger userbase ensures more torrents are regularly cached.
+The average monthly cost for Real Debrid, AllDebrid and Debrid-Link comes down to around £2.30 if you get the 6-month subscription.
 
 What I mean by optimality is how close you are to the servers of the Debrid service. The closer you are, the higher download speeds you will get from a Debrid Service. 
 
 You can use these speed tests to test the speed (You may need to create an account before being able to test your speeds):
-- [Real Debrid](https://real-debrid.com/speedtest)
-- [AllDebrid](https://alldebrid.com/speedtest)
-- [Premiumize](https://www.premiumize.me/speedtest)
+
+
+The amount and variety of torrents that are cached on the Debrid service's servers are also important. The larger the userbase, the more torrents are cached. Real Debrid and AllDebrid have the largest userbases. 
+However, even with the smaller userbase of Debrid-Link, most popular torrents will be cached. If you are only going to be watching popular movies and TV shows, then Debrid-Link is a good choice, if it is the fastest for you. 
 
 One other factor to consider is whether streaming from multiple IP addresses is important to you. 
 Most of these Debrid services will only allow you to use their service from one IP address at a time. 
@@ -247,6 +244,28 @@ As I mentioned before, the intial setup should be done on a laptop/desktop or an
 
 Before we install the addons, we need to go through some of the pre-installed addons.
 
+In this guide, I will be making use of the following feature to provide details on different addons. You need to click the addon name to expand the details.
+<details>
+<summary>[Addon Name]</summary>
+<div>  
+[Addon Description and tutorial] 
+</div>
+</details>
+
+:::info
+If you are attempting to configure addons on Stremio Web or on an iPhone (which is just Stremio Web), read the following note.
+
+I would recommend using another device with the app installed (not on iPhone) but you can use the following method:
+
+Once an addon has been configured, attempt to find the URL. 
+This may be given already or you might need to copy the link from the `Install` button. 
+Some addons copy the link to your clipboard when you click install.
+
+Now that you have the link, open Stremio, go to the addons page and either click the `+ Add addon` button (if the button is there) or the search bar and paste the link in.
+
+If this still doesn't work, you should complete the initial setup on another device. You can borrow an android phone / laptop or go to the library. 
+:::
+
 ### Removing pre-installed addons
 
 ![Default Addon Catalogues](./img/watchhub_movie_details.png)
@@ -264,84 +283,268 @@ To remove these addons, go to the addons page (the puzzle icon on the navigation
 ![Addon menu with default addons](./img/default_addons_page.png)
 
 ### Stream Provider Addons
-:::info
-You will encounter issues if you attempt to set up addons on iOS. If, for whatever reason, you **need** to set up addons on iOS, then do the following to avoid issues:
-
-Once an addon has been configured, attempt to find the URL. 
-This may be given already or you might need to copy the link from the `Install` button. 
-Some addons copy the link to your clipboard when you click install.
-
-Now that you have the link, open Stremio, go to the addons page and either click the `+ Add addon` button (if the button is there) and paste the URL in or paste the link into the search bar.
-
-If this still doesn't work, you should complete the initial setup on another device. You can borrow an android phone / laptop or go to the library. 
-:::
-
-#### Torrent/Debrid Addons
-
-I will first go through the torrent addons. These addons are better as they provide a larger library of content and of higher quality than those available through http streams.
+I will now go through some addons that provide content to Stremio. 
 
 These addons are the backbone to our on-demand streaming experience. They provide the video content that allows us to watch anything we want.
 
+You can have a look at this [community hosted addon list](https://stremio-addons.netlify.app/) to view all the available addons. 
+This list will have more addons listed than the ones shown in the Stremio app.
+
+#### Torrent Addons
+
+I will first go through the torrent addons. These addons are better as they provide a larger library of content and of higher quality than those available through the HTTP addons. 
+
+These addons can be configured to use a debrid service to stream the torrents through HTTP. This is the recommended way to use these addons to avoid the risks of torrenting, and to avoid the reliance on seeders while streaming. (For more information, see [Debrid Services](technical-details#debrid-services))
+
 Torrentio is the most popular addon and should be all that you need for all your content. However, it is not harmful to have backups installed.
 
-Many of the alternative addons will be hosted on [ElfHosted](https://elfhosted.com/). Although you have to pay for private instances of the addon, they provide free instances with a reasonable rate limit. Through casual viewing, these rate limits are unlikely to be hit and they are only in place to protect ElfHosted from people using automation.
+All of the addons I will go through can be self-hosted except Torrentio and the Orion stremio addon. 
 
-I will only provide detailed instructions for Torrentio and KnightCrawler. Other addons will follow a similar structure to setting up. Ensure that any option relating to direct torrenting is disabled if you do not want to torrent and customise the addon as you wish.
+However, KnightCrawler is a fork of Torrentio that can be self-hosted.
+
+Some of these addons have public instances available hosted either by themselves or through [ElfHosted](https://elfhosted.com/). ElfHosted also provide a customisable personal instance without rate-limits that costs money.
+
 <details>
     <summary>Torrentio</summary>
     <div>
-    To begin, head over to [Torrentio's config page](https://torrentio.strem.fun/configure) to manage the addon.
-    
-    Torrentio has a lot of options and it can be overwhelming at first. Below I've listed my recommendations and my personal configuration:
-    
-    ![Torrentio Configuration](./img/torrentio_setup.png)
-    
-    - `Providers`: I have them all checked excluding foreign languages.
-    - `Sorting`: By quality then size. If you are not using a debrid service, then do By quality then seeders . This is because without a debrid service you are reliant on the number of seeders. However, with a debrid service the number of seeders is irrelevant to you.
-    - `Priority foreign language`: Torrentio defaults to pulling English audio content regardless of origin source, so only change this if you prefer another language to display first.
-    - `Exclude qualities`: If checked, the quality types selected will be excluded and suppressed from your search results. I only exclude *screener, CAM* and *Unknown* sources, therefore the only boxes I have checked are *screener, CAM* and *Unknown*. If you have slower internet or your devices aren’t capable of playing 4k content, you may want to exclude 4K sources.
-    - `Max results per quality`: I leave this blank to obtain all results.
-    - `Debrid provider`: Choose your Debrid provider if you are using one. If not, skip the rest of the options.
-    - `API Key`: Click *here*. This link will take you to your debrid provider's website where you can obtain your API key. Copy that and paste it here.
-    - `Debrid options`
-        - `Don't show download to debrid`: These links will be displayed with a Debrid Download] in front of them. These are torrents that were found but not downloaded to the Debrid’s servers. Clicking this link sends a request to your Debrid provider to start downloading that torrent. Clicking it poses no risk to you. I leave this unchecked.
-        - `Don't show debrid catalog`: This will show a catalogue showing the videos you have watched before using your Debrid provider. I check this box as it is unnecessary clutter.
-        - `Show P2P torrent links for uncached` :  If checked, this will show links to stream torrents directly. There is almost no point to leaving this checked as it poses a risk to you if not in a third world country that doesn’t care about piracy. I have this unchecked.
-    
-    Now we are done configuring Torrentio. The next step is to click `Install`. Doing so should automatically open Stremio prompting you to install once again.
-    (For a in depth explanation of how Torrentio works, see [this reddit comment](https://www.reddit.com/r/StremioAddons/comments/19fmjlp/comment/kjlnwru/).)
+        Torrentio is a torrent search addon that scrapes public trackers. (For a in depth explanation of how Torrentio works, see [this reddit comment](https://www.reddit.com/r/StremioAddons/comments/19fmjlp/comment/kjlnwru/))
+        
+        To begin, head over to [Torrentio's config page](https://torrentio.strem.fun/configure) to manage the addon.
+        
+        Torrentio has a lot of options to customise your experience. I will go through each option explaining what it does and list my preferences and why.
+        
+        ![Torrentio Configuration](./img/torrentio_setup.png)
+        
+        - `Providers`: I have them all checked excluding foreign languages because I only speak English. If you speak another language, you can check the box for that language.
+        - `Sorting`: By quality then size. If you are not using a debrid service, then do By quality then seeders . This is because without a debrid service you are reliant on the number of seeders. However, with a debrid service the number of seeders is irrelevant to you.
+        - `Priority foreign language`: Torrentio defaults to pulling English audio content regardless of origin source, so only change this if you prefer another language to display first.
+        - `Exclude qualities`: If checked, the quality types selected will be excluded and suppressed from your search results. I only exclude *screener, CAM* and *Unknown* sources, therefore the only boxes I have checked are *screener, CAM* and *Unknown*. If you have slower internet or your devices aren't capable of playing 4k content, you may want to exclude 4K sources.
+        - `Max results per quality`: I leave this blank to obtain all results.
+        - `Debrid provider`: Choose your Debrid provider if you are using one. If not, skip the rest of the options.
+        - `API Key`: Click *here*. This link will take you to your debrid provider's website where you can obtain your API key. Copy that and paste it here. (Struggling to find the API key? [click here](faq#where-can-i-find-my-debrid-api-key))
+        - `Debrid options`
+            - `Don't show download to debrid`: These links will be displayed with a Debrid Download] in front of them. These are torrents that were found but not downloaded to the Debrid's servers. Clicking this link sends a request to your Debrid provider to start downloading that torrent. Clicking it poses no risk to you. I leave this unchecked.
+            - `Don't show debrid catalog`: This will show a catalogue showing the videos you have watched before using your Debrid provider. I check this box as it is unnecessary clutter.
+            - `Show P2P torrent links for uncached` :  If checked, this will show links to stream torrents directly. There is almost no point to leaving this checked as it poses a risk to you if not in a third world country that doesn't care about piracy. I have this unchecked.
+        
+        Now we are done configuring Torrentio. The next step is to click `Install`. Doing so should automatically open Stremio prompting you to install once again.
     </div>
 </details>
-<details>
-    <summary> KnightCrawler (ElfHosted)</summary>
-    <div>
-    KnightCrawler is a fork of Torrentio and the setup for it is almost the same.
-    
-    To begin, head over to [KnightCrawler’s config page](https://knightcrawler.elfhosted.com/configure)
-    
-    ![KnightCrawler Configuration](./img/knightcrawler_setup.png)
-    
-    - `Sorting`: By quality then size. If you are not using a debrid service, then do By quality then seeders . This is because without a debrid service you are reliant on the number of seeders. However, with a debrid service the number of seeders is irrelevant to you.
-    - `Priority foreign language`: Torrentio defaults to pulling English audio content regardless of origin source, so only change this if you prefer another language to display first.
-    - `Exclude qualities`: If checked, the quality types selected will be excluded and suppressed from your search results. I only exclude *screener, CAM* and *Unknown* sources, therefore the only boxes I have checked are *screener, CAM* and *Unknown*. If you have slower internet or your devices aren’t capable of playing 4k content, you may want to exclude 4K sources.
-    - `Max results per quality`: I leave this blank to obtain all results.
-    - `Debrid provider`: Choose your Debrid provider if you are using one. If not, skip the rest of the options
-    - `API Key`: Click *here*. This link will take you to your debrid provider where you can obtain your API key. Copy that and paste it here.
-    - `Debrid options`
-        - `Don't show download to debrid`: These links will be displayed with a [Debrid Download] in front of them. These are torrents that were found but not downloaded to the Debrid's servers. Clicking this link sends a request to your Debrid provider to start downloading that torrent. Clicking it poses no risk to you. I leave this unchecked.
-        - `Don't show debrid catalog`: This will show a catalogue showing the videos you have watched before using your Debrid provider. I check this box as it is unnecessary clutter.
-        - `Show P2P torrent links for uncached` :  If checked, this will show links to stream torrents directly. There is almost no point to leaving this checked as it poses a risk to you if not in a third world country that doesn’t care about piracy. I have this unchecked.
-    
-    Now we are done configuring KnightCrawler. The next step is to click `INSTALL`. Doing so should automatically open Stremio prompting you to install once again. Click Install again and the addon should be installed.
-    </div>
-</details>
-Here is a list of other addons that use torrent streams with debrid support. These may also have additional features and provide more content in some scenarios.:
 
-- [Stremio-Jackett](https://stremio-jackett.elfhosted.com/configure)
-- [Jackettio](https://jackettio.elfhosted.com/configure)
-- [MediaFusion](https://mediafusion.elfhosted.com/configure) (provides sports/live TV)
-- [Annatar](https://annatar.elfhosted.com/configure) 
-- [Orion](https://orionoid.com/) 
+<details>
+    <summary>KnightCrawler</summary>
+    <div>
+        [KnightCrawler](https://github.com/knightcrawler-stremio/knightcrawler) is a fork of Torrentio. 
+
+        KnightCrawler can be [selfhosted](https://github.com/knightcrawler-stremio/knightcrawler?tab=readme-ov-file#using) or [ElfHosted](https://elfhosted.com/apps/torrentio/)
+
+        However, a free, public instance is available on ElfHosted. We can use this instead of selfhosting it. 
+        
+        To begin, head over to the [configuration page](https://knightcrawler.elfhosted.com/configure)
+        
+        ![KnightCrawler Configuration](./img/knightcrawler_setup.png)
+        
+        - `Sorting`: By quality then size. If you are not using a debrid service, then do By quality then seeders . This is because without a debrid service you are reliant on the number of seeders. However, with a debrid service the number of seeders is irrelevant to you.
+        - `Priority foreign language`: Torrentio defaults to pulling English audio content regardless of origin source, so only change this if you prefer another language to display first.
+        - `Exclude qualities`: If checked, the quality types selected will be excluded and suppressed from your search results. I only exclude *screener, CAM* and *Unknown* sources, therefore the only boxes I have checked are *screener, CAM* and *Unknown*. If you have slower internet or your devices aren't capable of playing 4k content, you may want to exclude 4K sources.
+        - `Max results per quality`: I leave this blank to obtain all results.
+        - `Debrid provider`: Choose your Debrid provider if you are using one. If not, skip the rest of the options
+        - `API Key`: Click *here*. This link will take you to your debrid provider where you can obtain your API key. Copy that and paste it here.(Struggling to find the API key? [click here](faq#where-can-i-find-my-debrid-api-key))
+        - `Debrid options`
+            - `Don't show download to debrid`: These links will be displayed with a [Debrid Download] in front of them. These are torrents that were found but not downloaded to the Debrid's servers. Clicking this link sends a request to your Debrid provider to start downloading that torrent. Clicking it poses no risk to you. I leave this unchecked.
+            - `Don't show debrid catalog`: This will show a catalogue showing the videos you have watched before using your Debrid provider. I check this box as it is unnecessary clutter.
+            - `Show P2P torrent links for uncached` :  If checked, this will show links to stream torrents directly. There is almost no point to leaving this checked as it poses a risk to you if not in a third world country that doesn't care about piracy. I have this unchecked.
+        
+        Now we are done configuring KnightCrawler. The next step is to click `INSTALL`. Doing so should automatically open Stremio prompting you to install once again. Click Install again and the addon should be installed.
+    </div>
+</details>
+
+<details>
+    <summary>Annatar</summary>
+    <div>
+        [Annatar](https://github.com/g0ldyy/annatar) is a self hostable and fast torrent/debrid search addon. (It requires a debrid service)
+
+        It can be [selfhosted](https://github.com/g0ldyy/annatar?tab=readme-ov-file#running-locally) or [ElfHosted](https://elfhosted.com/app/annatar/).
+
+        You can find a full description of Annatar on their [GitHub page](https://github.com/g0ldyy/annatar)
+
+        I will go through the setup using the free, public ElfHosted instance. If you don't want to selfhost but want more customisation, you can pay for your own instance on ElfHosted.
+
+        To get started, head over to the [configuration page](https://annatar.elfhosted.com/configure). 
+
+        You will see the following configuration page:
+
+        ![Annatar Configuration](./img/annatar_configuration.png)
+
+        I will now go through each option: 
+
+        - `Debrid Provider` - Choose your debrid provider, Real Debrid, AllDebrid, Premiumize and Debrid-Link are supported. 
+
+        - `Debrid API Key` - Obtain your API key from your debrid provider and paste it here. (Struggling to find your API key? [Click here](faq#where-can-i-find-my-debrid-api-key))
+
+        - `Max Results` - Here you can choose from 3, 5 or 10. This is the maximum number of results that will be displayed. I choose 10 as I want to see the maximum number of results.
+
+        - `Resolution` - You can select which resolutions you want to see. I leave all resolutions selected, however, if you have a slow internet connection or your device can't handle 4K content, you may want to deselect 4K.
+
+        - `Video Quality` - You can select the video quality you want to see. I leave all selected.
+
+        After you have configured Annatar, click `Install`. This will open Stremio and prompt you to install the addon. Click Install again and the addon will be installed.
+    </div>
+</details>
+
+<details> 
+    <summary>MediaFusion</summary>
+    <div>
+        [MediaFusion](https://github.com/mhdzumair/MediaFusion) is a universal stremio addon that provides a variety of content (including Live TV and Sports)
+
+        Check the [features section](https://github.com/mhdzumair/MediaFusion?tab=readme-ov-file#-features) of their GitHub page to see all that the addon has to offer.
+
+        This addon can be [selfhosted](https://github.com/mhdzumair/MediaFusion?tab=readme-ov-file#-local-add-on-deployment) or [ElfHosted](https://elfhosted.com/app/mediafusion/). 
+
+        I will go through the setup using the free, public ElfHosted instance. If you don't want to selfhost but want more customisation, you can pay for your own instance on ElfHosted.
+
+        To get started, head over to the [configuration page](https://mediafusion.elfhosted.com/configure).
+
+        MediaFusion has a lot of options to customise your experience. I will go through each option explaining what it does and list my preferences and why. 
+
+        ----
+
+        - `Streaming Provider` - Here you can choose whether to use direct torrent or a debrid service or another provider. Select what you are using and then fill in the details below.
+                                 Mediafusion supports authorising as a device, this is simpler but you can still use the API key method if you prefer. (Struggling to find the API key? [Click here](faq#where-can-i-find-my-debrid-api-key))
+
+        - `Catalog Configuration` - Here you can choose which content is available to you through MediaFusion. Simply select the content you want to see. I will provide some notes on specific options below.
+            - `Prowlarr Streams` - This will provide you with streams from Prowlarr. You should enable this to get more streams. 
+            - `Torrentio Streams` - If you already have Torrentio installed, then there is no point in enabling this as it will just provide you with the same streams. 
+            - `Contribution Streams` - Enabling this provide a stream on movies and shows that allow you to upload torrent files or magnet links to MediaFusion for the community. 
+                                       You can read more about this [here](https://www.reddit.com/r/StremioAddons/comments/1cwaqh8/comment/l4w1bw1/)
+            - `Provider Watchlist Catalog` - This will provide a catalog displaying all the files you have watched using the provider. I leave this unchecked as it is unnecessary clutter.
+            - `Show Catalogs in Stremio` - This will show the catalogues in Stremio. I leave this checked as I want to see the catalogues for the content I have enabled.
+        
+        - `Streaming Preferences` 
+            - `Select Streaming Resolutions` - Here you can choose which resolutions you want to see. I leave all resolutions selected, however, if you have a slow internet connection or your device can't handle 4K content, you may want to deselect 4K.
+            - `Set File Size Filter` - Here you can use a max file size. I leave this at the end for an unlimited file size as I want to see all the streams available.
+            - `Select & Arrange Sorting Priority` - Here you can choose the order in which the streams are displayed. I choose `Cached`, `Quality`, `Size` - in that order. If you are not using a debrid service, then do `Resolution` and `Seeders`. This is because without a debrid service you are reliant on the number of seeders. However, with a debrid service the number of seeders is irrelevant to you.
+            - `Max Streams per Resolution` - Here you can choose the maximum number of streams per resolution. I set this to a large number like 50 as I want to see a high number of the streams available.
+            - `Torrent Stream Display option` - Here you can choose how the torrent streams are displayed. I choose `Show parsed data`. Although there is a small chance that the parsed data is incorrect, it is usually correct and it is easier to read than the other options.
+        
+        Now that MediaFusion has been configured, click `Install`. This will open Stremio and prompt you to install the addon. Click Install again and the addon will be installed.
+        
+        You can also click `Share Installation URL` and copy the URL into either the Stremio addon search bar or the add addon menu on Stremio Web.
+
+    </div>
+</details>
+
+<details> 
+    <summary>Comet</summary>
+    <div>
+        [Comet](https://github.com/g0ldyy/comet) is a self hostable torrent/debrid search addon. (It requires a debrid service)
+        One of its distinguishing features is that it supports using Proxy Debrid streams. This allows the use of Debrid streams on multiple IPs at the same time on the same account.
+        
+        However, you will have to use comet exclusively, no other addon that uses the same debrid should be being used at the same time as it will have a different IP address to the proxy. 
+        
+        You can read more about its features on the [Comet GitHub page](https://github.com/g0ldyy/comet?tab=readme-ov-file#features)
+
+        Comet can be [selfhosted](https://github.com/g0ldyy/comet?tab=readme-ov-file#self-hosted) or [ElfHosted](https://elfhosted.com/app/comet/).
+        
+        For this guide, I will go through the setup using the free, public ElfHosted instance. If you don't want to selfhost but want more customisation, you can pay for your own instance on ElfHosted.
+
+        To get started, head over to the [configuration page](https://comet.elfhosted.com/configure)
+
+        - `Indexers` - Choose which indexers you want to use. I leave all of them checked to obtain the most results 
+        - `Language` - Choose which language you want your results to have. I leave the following selected: multi_subs, multi_audio, dual_audio, english. You can more if you are going to watch content in other languages (e.g. japanese for anime)
+        - `Max Results` - The maximum number of results to display. I set this to 150 to see the most results.
+        - `Filter Titles` - If checked, titles will be checked to see if the titles don't match. I leave this unchecked in the case that there is more than 1 title for a movie. 
+        - `Debrid Service` - Choose your debrid service. 
+        - `Debrid API Key` - Obtain your API key from your debrid provider and paste it here. (Struggling to find your API key? [Click here](faq#where-can-i-find-my-debrid-api-key))
+
+        Then click Install and a prompt will show on Stremio to install the addon. Click Install again and the addon will be installed. 
+
+        If you don't have the stremio app installed and are using Stremio Web, you can copy the URL, go to the addons page, click the `+ Add addon` button and paste the URL in. 
+    </div>
+</details>
+
+<details> 
+    <summary>Stremio-Jackett</summary>
+    <div>
+        [Stremio-Jackett](https://github.com/aymene69/stremio-jackett) is a self hostable addon that resolves torrent links using Jackett (It does **not** require a debrid service)
+
+        You can find a full list of features on the [features section](https://github.com/arvida42/jackettio#features) of their GitHub page.
+
+        Stremio-Jackett can be [selfhosted](https://github.com/aymene69/stremio-jackett#installation) or [ElfHosted](https://elfhosted.com/app/stremio-jackett/).
+
+        For this guide, I will go through the setup using the free, public ElfHosted instance. If you don't want to selfhost but want more customisation, you can pay for your own instance on ElfHosted.
+
+        To get started, head over to the [configuration page](https://stremio-jackett.elfhosted.com/configure)
+
+        - `Enable debrid service` - If you are using a debrid service, you can check this box. You will then see the `Debrid Information` section below. 
+        - `Enable torrenting` - If you want to use torrents, check this box. If you are using a debrid service, there isn't a need to check this box. 
+
+        If you are using a debrid service, you can fill in the `Debrid Information` section.
+        - `Debrid Provider` - Choose your debrid provider. 
+        - `Debrid API Key` - Obtain your API key from your debrid provider and paste it here. (Struggling to find your API key? [Click here](faq#where-can-i-find-my-debrid-api-key))
+        - `Metadata Provider` - You can select which metadata provider you want to use. I change this to TMDB. You will need to obtain an API key for this. If you are struggling to obtain an API key, [click here](faq#where-can-i-find-my-tmdb-api-key)
+        - `Sorting` - I prefer to sort by size descending. This gives me the highest sized files first. I do this because, generally, the higher the size, the higher the bitrate and the better the quality. Although, in some cases, a lower sized file can have better quality. 
+        - `Quality Exclusion` - You can choose to exclude certain qualities. I check the boxes for `CAMs` as I don't want to watch CAMs.
+        - `Languages` - You can choose which languages you want to see. I only speak English so I only check English. I also check MULTi.  
+        - `Maximum size` - I set this to 500 to see all the results.
+        - `Maximum results` - I set this to 100 to see all the results.
+
+
+        
+    </div>
+</details>
+
+<details>
+    <summary>Jackettio</summary>
+    <div>
+        [Jackettio](https://github.com/arvida42/jackettio) is a self hostable addon that resolves streams using Jackett and a debrid service. 
+
+        You can find a full list of features on the [features section](https://github.com/arvida42/jackettio#features) of their GitHub page.
+
+        Jackettio can be [selfhosted](https://github.com/arvida42/jackettio). 
+
+        As there is no public instance available, I will not be going through the setup of Jackettio. However, you can follow the instructions on their GitHub page to set it up.
+    </div>
+</details>
+
+<details>
+    <summary>Orion</summary>
+    <div>
+        [Orion](https://orionoid.com/) is an indexer for torrent, usenet and hoster links. 
+        
+        We will be using the [Orion Stremio Addon](https://github.com/gorlev/orion-stremio-addon) to access the links that Orion can provide.  
+
+        If you are using Orion for free, you have a limit of 100 links per day. Their cheapest plan is $0.50 / month for 1000 daily links. You can check the pricing [here](https://orionoid.com/#packages).
+
+        To get started, we first need to create an account on Orion:
+            1. Head over to [Orion](https://orionoid.com/) 
+            2. Click `GET FREE ACCOUNT` 
+            3. Choose the registration type (email or username). I recommend username if you are testing as you can always add an email later. 
+            4. Fill in the username and password fields and click register. 
+
+        Now that we have logged in, we need to configure our Orion account with any debrid services we are using.
+        1. Once you are logged in, head to your [account panel](https://panel.orionoid.com/)
+        2. Click on the `Account` menu on the navigation bar on the left of the screen.
+        3. Then click `Services` at the top. 
+        4. Choose the debrid service you are using and click `Add Service`. 
+        
+            Depending on your provider, you either need to authorise Orion as a device by following the on-screen instructions after clicking `Authorise` or you need to paste your API key in the box provided. (Struggling to find your API key? [Click here](faq#where-can-i-find-my-debrid-api-key))
+
+        Finally, we need to configure the Orion Stremio Addon, head over to the [Orion Stremio Addon Configuration page](https://5a0d1888fa64-orion.baby-beamup.club/configure)
+        - `Orion API key` - You can find this on your [account panel](https://panel.orionoid.com/) in the main `Dash` page or `Account` -> `Profile` -> `API Key`. 
+        - `Link limit per search` - This is the maximum number of links that will be displayed per search. 
+            
+           Depending on your plan, you may want to change this to lower values as each link that is displayed when you click on a movie/show counts towards your daily limit. I set mine to 10 (this means I can search for 10 movies/shows before I reach my daily limit on the free plan)
+
+        - `Sorting` - The sorting options available here are much more varied compared to other addons. You can experiment with these to see which one you prefer. I still choose `Sort by file size`. 
+        - `Video Quality` - I leave the default selection of options (4K (HD), 1080p (HD), 720p (HD), SD). The SCR means Screener and CAM means Camera. I exclude these as they are of lower quality.
+        
+        The next step is to click `Install`. This will open Stremio and prompt you to install the addon. Click Install again and the addon will be installed.
+
+        You can also click the clipboard button to copy the installation URL and paste it into the Stremio addon search bar or the add addon menu on Stremio Web. 
+    </div>
+</details>
+
 
 #### HTTP Addons 
 
@@ -350,12 +553,6 @@ Here is a list of some HTTP addons:
 - [JaMovies](https://eja-addon.vercel.app/) (Only 1 stream but provides 1080p links from VidSrc)
 - [Shluflix](https://shluflix.elfhosted.com/configure)
 - [Stremify](https://stremify.elfhosted.com/configure)
-
-:::warning
-As addons are community provided, the addons provided here may become outdated or superseded by new ones. 
-Use this [community hosted addon list](https://stremio-addons.netlify.app/) to view all the available addons. 
-This list will have more addons listed than the ones shown in the Stremio app.
-:::
 
 The basic setup for Stremio has now been completed. You can now search for a movie and you will be provided with high quality links to stream from.
 
@@ -368,22 +565,20 @@ I will go through this in the [Using Trakt](using-trakt) section of this guide. 
 ### Catalogue Addons
 
 These are the addons that provide the different catalogues (the rows of movies/shows) on your Stremio homepage. 
-They can provide catalogues that pull content from popular streaming services (e.g. Netflix Movies - Popular) or from databases like The Movie Database (TMDB) or IMDB (e.g. Movies - Trending)
 
 There is one built-in addon called Cinemata which provides Popular and Featured Movies and Series. 
 However, there may be some shows that provide more results with the TMDB addon, so I highly recommend that you install the TMDB addon.
 
-I will go through the most popular addons that are used currently. 
+#### General Catalogues
 
-:::note
-CyberFlix and Streaming Catalogs are very similar and will show very similar content. I recommend that you only install one of them
-:::
+These addons provide general catalogues of movies and shows such as popular, trending, new, featured, award-winning etc.
 
 <details>
 <summary>TMDB Addon</summary>
     <div>
     
     The TMDB addon that will fetch data from The Movie Database to display Popular and New Movies and Series. 
+    It is recommended that you install this addon as it will provides alternate metadata that may result in more links for some series/shows. 
     
     ![TMDB Configuration](./img/tmdb_setup_1.png)
     
@@ -409,6 +604,26 @@ CyberFlix and Streaming Catalogs are very similar and will show very similar con
     4. Click Install.
     </div>
 </details>
+
+#### Streaming Service Catalogues
+These addons will provide catalogues that pull movies and shows from popular streaming services (e.g. Netflix, Prime, Hulu, Disney+ etc.).
+
+I recommend only installing one of them. If you install multiple, you may see the same content multiple times on your homepage. 
+You can try both to see which you prefer but I recommend Streaming Catalogs.
+
+
+<details>
+<summary>Streaming Catalogs</summary>
+    <div>
+    
+    This addon is very similar to CyberFlix. It only provides 2 catalogues for each streaming service instead of 4.
+    
+    1. Head over to the [Streaming Catalogs Configuration page](https://7a82163c306e-stremio-netflix-catalog-addon.baby-beamup.club/)
+    2. Click on the filter providers by country and select Any.
+    3. Select the streaming services that you want to see in your home page for Stremio.
+    4. Click Install addon and then when the Stremio app opens with a prompt asking to install, click Install again.
+    </div>
+</details>
 <details>
 <summary>CyberFlix</summary>
     <div>
@@ -426,20 +641,8 @@ CyberFlix and Streaming Catalogs are very similar and will show very similar con
     5. Then click Install on Stremio and a prompt should open in the Stremio app. Click Install on that prompt too.
     </div>
 </details>
-<details>
-<summary>Streaming Catalogs</summary>
-    <div>
-    
-    This addon is very similar to CyberFlix. It only provides 2 catalogues for each streaming service instead of 4.
-    
-    1. Head over to the [Streaming Catalogs Configuration page](https://7a82163c306e-stremio-netflix-catalog-addon.baby-beamup.club/)
-    2. Click on the filter providers by country and select Any.
-    3. Select the streaming services that you want to see in your home page for Stremio.
-    4. Click Install addon and then when the Stremio app opens with a prompt asking to install, click Install again.
-    </div>
-</details>
 
-#### Anime Addons 
+#### Anime Catalogues
 
 I will now go through some Anime catalogue addons. A reminder that these addons are only catalogue addons and do not provide any links themselves. 
 However, Torrentio with the NyaaSi and AniDex providers enabled should provide you the necessary links. 
@@ -483,6 +686,8 @@ It also has a torrentio extension that supports watching normal movies/show.
 <details>
 <summary>animeo</summary>
 <div>
+Although this is not a catalogue addon, I will include it here as it is an addon that should be used in conjunction with the Kitsu addon for Anime.
+
 This is an addon that uses the AniList API to track your anime progress. 
 You can look at the [GitHub page for animeo](https://github.com/Jenrykster/animeo) that explains how to set it up and how it works. 
 
@@ -494,7 +699,7 @@ You can look at the [GitHub page for animeo](https://github.com/Jenrykster/anime
                           This is useful because it reduces the likelihood of incorrect titles being tracked. 
     - `Only update anime already on my list` - This option makes it so that only anime that you are already tracking on AniList will be updated. 
                                                I leave this unchecked as otherwise, new anime that I watch will not be tracked unless I manually add them on AniList.
-3. Click Install. (If this doesn't work, follow the instructions underneath the install button that says to copy the link and paste it into the stremio search bars)
+3. Click Install. (If this doesn't work, follow the instructions underneath the install button that says to copy the link and paste it into the stremio search bar or the add addon menu on stremio web.)
 </div>
 </details>
 ### Subtitle Addons
