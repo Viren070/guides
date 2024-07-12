@@ -23,7 +23,8 @@ Stremio provides an [addon SDK](https://github.com/Stremio/stremio-addon-sdk) th
 
 There are many addons that provide streams. Each addon either provides HTTP streams or torrent streams. 
 
-Addons that use HTTP streams are safe to use and will not get you flagged by your ISP. However, these addons are largely unreliable and prone to breakage quite often. These streams may also buffer too. HTTP addons will scrape specific sources (dependent on the addon) using the metadata for the selected content to provide a stream to you.
+Addons that use HTTP streams are safe to use and will not get you flagged by your ISP. If you have a good source for HTTP streams, you can get a buffer-free experience as the file is usually of a lower size and streaming directly through HTTP is less likely to buffer compared to torrent streams which can buffer due to seeders.
+However, these addons are largely unreliable and prone to breakage quite often. HTTP addons will scrape specific sources (dependent on the addon) using the metadata for the selected content to provide a stream to you.
 
 Torrent addons, will scrape torrents from available sources on the web and provide these torrents to Stremio. Streaming torrents is generally more reliable as torrents download pieces from multiple sources simultaneously, which can result in faster and more consistent streaming compared to single-source HTTP streams. However, torrenting carries the risk of your IP being shown to the trackers on the torrent. This means that your ISP will be flagged about your online activities. Furthermore, the speed of a torrent stream is heavily reliant on the number of seeders for that torrent. If a torrent has a small number of low speed seeders, you will encounter a lot of buffering. 
 
