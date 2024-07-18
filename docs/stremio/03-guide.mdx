@@ -88,7 +88,7 @@ iOS users, I recommend that you follow the instructions in the iOS tab as the St
 
     Stremio is not available on the amazon app store. To install Stremio, you will need to sideload the app. 
     
-    I will now go through the steps to sideload the app. (Source: https://www.firesticktricks.com/sideload-apps-on-firestick.html)
+    I will now go through the steps to sideload the app.
 
     1. In the home screen, click on the search icon to access the find menu. 
 
@@ -104,7 +104,7 @@ iOS users, I recommend that you follow the instructions in the iOS tab as the St
 
     5. Scroll down to `My Fire TV` and click it 
 
-    6. If you see the `Developer Options` setting under `About`, skip to step 10.
+    6. If you see the `Developer Options` setting under `About`, click it and skip to step 11.
 
     7. Click `About`
 
@@ -183,47 +183,69 @@ Then login to Stremio using the account you created earlier.
 
 ## Debrid Service
 
-As explained before, a debrid service is not required. However, it removes the need for a VPN and removes the reliance on seeders for torrents by streaming from their servers at unrestricted speeds through HTTP which makes playing 4K content easy. For more details, please see [Debrid Services](technical-details#debrid-services) and the [FAQ](faq). 
+I will now go through what a debrid service is and why you should use it. 
 
-Furthermore, a debrid service can be used to generate direct download links for any torrents such as games, software, music etc. without the need for a VPN as the torrenting is done by the debrid service.
+**It is not required** and most torrent addons can be used without one. 
+You would still be able to stream torrents as long as it has enough seeders. 
+However, using a debrid service will provide a better experience.
+
+### What is a debrid service and why should I use it?
+
+A debrid service is a service that allows you to generate unrestricted (up to 1gbps) download links for torrents and other files on supported hosters (It has more features that are discussed in [Debrid Services](technical-details#debrid-services)).
+
+It brings the following benefits: 
+- Using a debrid service allows you to stream torrents without the risk of receiving a notice from your ISP as you would be streaming through HTTPS
+- While you are streaming something, you are not reliant on the number of seeders and can stream at up to 1gbps speeds. This makes it possible to stream some of the highest quality content available (4K, DV, HDR, Dolby Atmos, etc.) without buffering as long as your internet connection can handle it.
+- If you are using a debrid service, a VPN is not required as you are streaming through HTTPS. 
+- You can use it for more than just Stremio. You can use it to download any type of file, whether that be games, software or audio. If it is a torrent or a file on a supported hoster, you can download it through your debrid service.
+
+However, the drawbacks of using a debrid service are that most do not seed the torrents and will also restrict usage to one IP address at a time. 
+This means that you are not contributing to the torrent and that you can only use the service on one device at a time.
+
+There are some exceptions to this, which I discuss below. 
 
 ### Which debrid service do I use?
 
-There are many debrid services available to use. I will provide a tutorial for setting up Real Debrid, AllDebrid, Premiumize and Debrid-Link.
+There are many debrid services available to use. Here is a list of the ones supported by the most popular Stremio addon - Torrentio. I will walk you through the setup for each below. 
 
-Here is a list of some other debrid services:
-- [Offcloud](https://offcloud.com/)
+- [Real Debrid](https://real-debrid.com/) (Consider using [this affiliate link](http://real-debrid.com/?id=9483829) to support me)
+- [AllDebrid](https://alldebrid.com/) (Consider using [this affiliate link](https://alldebrid.com/?uid=3n8qa&lang=en) to support me)
+- [Premiumize](https://www.premiumize.me/) 
+- [Debrid-Link](https://debrid-link.com/) (Consider using [this affiliate link](https://debrid-link.com/id/EY0JO) to support me)
+- [Offcloud](https://offcloud.com/) (Consider using [this affiliate link](https://offcloud.com/?=06202a3d) to support me)
 - [Put.io](https://put.io/)
 
-The main factors to consider are cost, optimality, and userbase. The two options that provide the greatest cost-value benefit are Real Debrid, AllDebrid and Debrid-Link. They are priced at the same point and the larger userbase ensures more torrents are regularly cached.
-The average monthly cost for Real Debrid, AllDebrid and Debrid-Link comes down to around £2.30 if you get the 6-month subscription.
+When choosing a Debrid service, the factors you have to consider are cost and the value you get from it which is made up of its optimality and userbase. 
+Real Debrid, AllDebrid, and Debrid-Link offer the best cost-value, with a large userbase ensuring extensive torrent caching. 
+The average cost for these services is about £2.30 for a 6-month subscription. 
+Debrid-Link does offer a 300 day subscription unlike the other two which offer 180 days as a maximum. This makes it the cheapest option.
 
-What I mean by optimality is how close you are to the servers of the Debrid service. The closer you are, the higher download speeds you will get from a Debrid Service. 
+Optimality refers to your proximity to the service's servers. The closer you are, the faster the download speeds and thus the better the streaming experience.
+The download speeds you get directly determine the quality of the stream you can watch. Make sure to carry out speed tests to determine the best service for you.
+The speed tests for each debrid service can be found [here](faq#where-can-i-find-the-speed-tests-for-debrid-services) and on their website too.
 
-You can find the speed tests for some debrid services [here](faq#where-can-i-find-the-speed-tests-for-debrid-services). You can find the other speed tests on the debrid service's website.
+A larger userbase means more cached torrents, with Real Debrid and AllDebrid leading. 
+However, the other debrid services will still have a lot of popular torrents cached.
 
-The amount and variety of torrents that are cached on the Debrid service's servers are also important. The larger the userbase, the more torrents are cached. Real Debrid and AllDebrid have the largest userbases. 
-However, even with the relatively smaller userbase of Debrid-Link and Premiumize, most popular torrents will still be cached. If you are only going to be watching popular movies and TV shows, then Debrid-Link or Premiumize is a good choice, if it is the fastest for you. 
+Support for debrid services varies among addons, with Real Debrid, AllDebrid, and Premiumize being the most supported. 
+However, all the debrid services I mentioned are supported by Torrentio and this addon provides enough content for most users.
 
-Also, although many debrid services exist, it is up to addon creators to add support for debrid services. Real Debrid, AllDebrid and Premiumize are the most supported debrid services.
+Most Debrid services restrict usage to one IP address at a time, with violations risking account bans.
+Premiumize allows multiple IP addresses but limits cloud storage.
 
-One other factor to consider is whether streaming from multiple IP addresses is important to you. 
-Most of these Debrid services will only allow you to use their service from one IP address at a time. 
-This means you can use it from an unlimited number of devices from any one IP address at a given time. 
-You cannot, for example, use it on your mobile data while another device in your home uses your home network to use the debrid service. 
+Most debrid services don't seed, and this means you aren't contributing to the torrent. 
+If this is important to you, consider using Debrid-Link as it offers a seedbox. 
 
-**If you do use 2 IP addresses at a given time, you risk having your account banned.**
-
-If streaming from multiple IP addresses is important to you, then consider getting Premiumize as it allows multiple IP addresses. It does, however, set a limit on the storage of files you can have in your cloud storage.
-
-Furthermore, most debrid services do not seed and will be labelled a leecher. If this is an issue for you, consider using Debrid-Link. 
-Debrid-Link provides a way for you to seed torrents. 
+put.io also offers a way to seed but it has fixed limits and only for private trackers. 
+It either seeds to a specific ratio or for a specific time period. This is dependent on your plan.
 
 :::info
-All-Debrid does provide a free 7 day trial. If you are not sure that this is the right choice for you, I suggest that you use this 7 day trial to test it out. You can also buy the service for 15 days which will cost a small amount but can be used to test it out.
+All-Debrid offers a free 7-day trial and put.io offers a $0.99 1 day trial, ideal for testing its suitability. 
+Alternatively, you can use the 15 day package that most debrid services offer to test them out.
 :::
+### Setting up a debrid service
 
-I will now cover the instructions of setting up a Debrid Service. I will only cover setting up Real Debrid and AllDebrid.
+I will now cover the instructions of setting up each debrid service I previously mentioned.
 
 <Tabs>
 <TabItem value="real-debrid" label="Real Debrid"> 
@@ -259,7 +281,26 @@ I will now cover the instructions of setting up a Debrid Service. I will only co
     4. Click `Premium` in the top right corner 
     5. Choose a package and purchase it.
 </TabItem>
+<TabItem value="offcloud" label="Offcloud">
+    ![Offcloud Payment](./img/offcloud_payment.png)
+    1. Go to https://offcloud.com/ (Consider using [this affiliate link](https://offcloud.com/?=06202a3d) to support me) 
+    2. Enter your email and click `Join us for free` 
+    3. You will be sent an email to set your password, set your password and log in.
+    4. Click `Shop` from the navigation bar on the left.  
+    5. Choose a package and purchase it.
+</TabItem>
+<TabItem value="putio" label="put.io">
+    ![Put.io Payment](./img/put.io_payment.png)
+    1. Go to https://app.put.io/register and create an account
+    2. You will see a banner asking you to activate your account. Click the button to go to the [billing page](https://app.put.io/billing/activate-account) 
+    3. Choose a package and purchase it. 
+    <Admonition type="info">
+    Put.io offers two plans for which you can either pay monthly or yearly.
+    One plan gives you 100GB of storage 
+    </Admonition>
+</TabItem>
 </Tabs>
+
 ## Setting up Addons
 
 As I mentioned before, the intial setup should be done on a laptop/desktop or an android device. Once you have set up the addons, you can log in to Stremio on any device and your configuration will be synced to that device.
