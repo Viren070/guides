@@ -80,8 +80,14 @@ iOS users, I recommend that you follow the instructions in the iOS tab as the St
 
     The second way is to have another device running the [Stremio service](https://www.stremio.com/download-service). You then connect to the Stremio service on your iOS device. This way will allow you to stream torrents directly on Stremio.
     Follow this [blog post](https://blog.stremio.com/using-stremio-service/) to set up the Stremio service. 
+    
+    The stremio server by default, can only be accessed locally. To access it from another device (in the same network) follow these steps:
 
-   
+    1. Make sure the Stremio service is running, then open Stremio Web on the same device 
+    2. Go to the settings page,  then click the `Streaming` section. 
+    3. Set the Streaming HTTPS endpoint to your local IP address (this option should appear as a dropdown).
+    4. Then copy the Remote URL and paste it into your other iOS device's Stremio settings for the streaming server URL.
+
 
 </TabItem>
 <TabItem value="amazon" label="Fire Devices">
@@ -181,7 +187,7 @@ iOS users, I recommend that you follow the instructions in the iOS tab as the St
 <TabItem value="rasberry" label="Rasberry Pi 4 and 5">
 
     Stremio can be used on the Raspberry Pi 4 and 5 through the use of Stremio's [Custom Stremio OS](https://blog.stremio.com/stremio-os-is-now-available-for-raspberry-pi-5-4/)
-    
+
 </TabItem>
 </Tabs>
 Then login to Stremio using the account you created earlier.
