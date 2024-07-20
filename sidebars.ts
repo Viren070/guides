@@ -74,8 +74,23 @@ const sidebars: SidebarsConfig = {
 						"stremio/intro",
 						"stremio/technical-details",
 						"stremio/guide",
-						"stremio/using-trakt",
-						"stremio/extras",
+						{
+							type: "category",
+							label: "Extras",
+							link: {
+								type: "doc",
+								id: "stremio/extras/index",
+							},
+							items: [
+								"stremio/extras/trakt", 
+								"stremio/extras/addon-manager", 
+								"stremio/extras/debrid-media-manager", 
+								"stremio/extras/discord-integration",
+								"stremio/extras/pimp-my-stremio",
+								"stremio/extras/stremio-downloader"
+							]
+							
+						},
 						"stremio/faq",
 						"stremio/troubleshooting",
 						"stremio/credits",
