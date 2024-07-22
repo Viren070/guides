@@ -20,6 +20,9 @@ First, we need to create a Stremio account. This allows you to keep your progres
 Head over to [Stremio](https://stremio.com/) and either [sign up for an account](https://www.stremio.com/register) with an email or [login](https://stremio.com/login) through Facebook.
 
 ## Downloading Stremio
+
+If you are using Stremio Web, click on the Stremio Web tab below.  
+
 Head to the [downloads page](https://stremio.com/downloads) and download the required package.
 
 If you can't find the download link for your device, I will go through the instructions for each device here.
@@ -29,6 +32,38 @@ iOS users, I recommend that you follow the instructions in the iOS tab as the St
 :::
 
 <Tabs>
+<TabItem value="web" label="Stremio Web"> 
+
+Stremio service is a companion to Stremio Web and is required for some features. Stremio Service will become the server for Stremio Web. 
+
+Without running the Stremio service, you will not be able to stream torrents and you may encounter issues with audio for some files. 
+
+These are the steps to set up the Stremio service for access on devices locally. 
+
+1. Download the Stremio service from the [downloads page](https://www.stremio.com/download-service) for your operating system on the **same device** that you are using Stremio Web.
+2. Run the setup and then launch the Stremio Service application. 
+3. Open [Stremio Web](https://web.stremio.com/) 
+4. Go to Settings
+5. Click on the Streaming section, you should see this: 
+
+        ![stremio service settings](./img/stremio_service_settings.png)
+    
+    :::tip 
+    If it shows the Status as error, try disabling any adblockers/tracking blockers you have enabled. On Brave, it will not work without disabling Brave Shields.
+    :::
+
+6. The Stremio service has now been correctly set up. However, you can only access it on the same device. To access it from another device (in the same network) follow the next steps:
+
+7. Set the Streaming HTTPS endpoint to your local IP address (this option should appear as a dropdown).
+8. Then copy the Remote URL and paste it into your other device's Stremio settings for the streaming server URL.
+
+:::info 
+If you are going to be torrenting (using torrent addons without a debrid service), then set the torrent profile to Ultra Fast and the cache size to 10GB or infinite. 
+:::
+
+The Stremio service is now set up and can be accessed from another device.
+
+</TabItem>
 <TabItem value="pc" label="PC" default>
 
     For windows, download the following: 
@@ -79,14 +114,7 @@ iOS users, I recommend that you follow the instructions in the iOS tab as the St
     To use this method, simply follow the guide as normal but you must also set up a debrid service.
 
     The second way is to have another device running the [Stremio service](https://www.stremio.com/download-service). You then connect to the Stremio service on your iOS device. This way will allow you to stream torrents directly on Stremio.
-    Follow this [blog post](https://blog.stremio.com/using-stremio-service/) to set up the Stremio service. 
-    
-    The stremio server by default, can only be accessed locally. To access it from another device (in the same network) follow these steps:
-
-    1. Make sure the Stremio service is running, then open Stremio Web on the same device 
-    2. Go to the settings page,  then click the `Streaming` section. 
-    3. Set the Streaming HTTPS endpoint to your local IP address (this option should appear as a dropdown).
-    4. Then copy the Remote URL and paste it into your other iOS device's Stremio settings for the streaming server URL.
+    Follow the Stremio Web tab to set up the Stremio service. Follow this on a desktop device. 
 
 
 </TabItem>
