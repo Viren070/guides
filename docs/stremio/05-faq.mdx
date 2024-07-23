@@ -148,6 +148,35 @@ Use this [website](https://status.elfhosted.com/) from ElfHosted to check the st
 
 Yes. You can use the [Stremio Addon Manager](extras/addon-manager) to change the order of your addons without reinstalling them.
 
+### How do I install an addon manually?
+
+To install an addon manually, you will need the addon's manifest URL. 
+
+There are 3 possible ways to obtain this URL: 
+
+1. The addon's configuration page has a `Copy URL` button or a box with the URL in it.
+2. The addon's configuration page will copy the URL to your clipboard automatically when you click install 
+3. You can right click / hold the install button and click `Copy link` 
+
+To avoid issues, when you are pasting the link replace stremio:// with https://
+
+Now that you have the URL, you can install the addon on your device by following these steps depending on the platform you are using:
+
+<Tabs groupId="platform" className="custom-tabs">
+<TabItem value="web" label="Stremio Web / iOS">
+1. Go to the [Addon page on Stremio Web](https://web.stremio.com/#/addons). 
+2. Click the ` + Add Addon` button in the top right corner. 
+3. Paste the URL into the box and click `Add`
+4. A prompt will appear asking if you want to install the addon. Click `Install`
+</TabItem>
+<TabItem value="app" label="Stremio Apps">
+This is for if you are using the Stremio app on a device such as Android, Windows, macOS etc. 
+1. Open the Stremio app and go to the Addons menu.
+2. Click the search bar and paste the URL into the search bar. 
+3. A prompt will appear asking if you want to install the addon. Click `Install`
+</TabItem>
+</Tabs>
+
 ## Stremio questions 
 
 ### Will I have to repeat the setup process on all of my devices?
