@@ -21,7 +21,7 @@ Head over to [Stremio](https://stremio.com/) and either [sign up for an account]
 
 ## Downloading Stremio
 
-If you are using Stremio Web, click on the Stremio Web tab below.  
+If you are using Stremio Web on your desktop device, then you can skip ahead to [Setting up Stremio Service](#setting-up-stremio-service).
 
 Head to the [downloads page](https://stremio.com/downloads) and download the required package.
 
@@ -50,44 +50,6 @@ iOS users, I recommend that you follow the instructions in the iOS tab as the St
     There are packages available for popular distributions of Linux such as Debian and Arch Linux. However, there is also a flatpak link as well as a link to the source code. 
 
     The flatpak can be used to install Stremio on the Steam Deck too. 
-
-</TabItem>
-<TabItem value="web" label="Web"> 
-
-[Stremio Web](https://web.stremio.com/) is a web version of Stremio that can be accessed on any device with a web browser. It requires no installation. 
-However, Stremio service is a companion to Stremio Web and is required for some features. Stremio Service will become the server for Stremio Web. 
-
-Without running the Stremio service, you will not be able to stream torrents and you may encounter issues with audio for some files. 
-
-These are the steps to set up the Stremio service for access on devices locally. 
-
-1. Download the Stremio service from the [downloads page](https://www.stremio.com/download-service) for your operating system on the **same device** that you are using Stremio Web.
-2. Run the setup and then launch the Stremio Service application. 
-3. Open [Stremio Web](https://web.stremio.com/) 
-4. Go to Settings
-5. Click on the Streaming section, you should see this: 
-
-        ![stremio service settings](./img/stremio_service_settings.png)
-    
-    :::tip 
-    If it shows the Status as error, try disabling any adblockers/tracking blockers you have enabled. On Brave, it will not work without disabling Brave Shields.
-    :::
-
-6. The Stremio service has now been correctly set up. However, you can only access it on the same device. To access it from another device (in the same network) follow the next steps:
-
-7. Set the Streaming HTTPS endpoint to your local IP address (this option should appear as a dropdown).
-8. Then copy the Remote URL and paste it into your other device's Stremio settings for the streaming server URL.
-
-:::info 
-If you are going to be torrenting (using torrent addons without a debrid service), then set the torrent profile to Ultra Fast and the cache size to 10GB or infinite. 
-:::
-
-The Stremio service is now set up and can be accessed from another device.
-
-:::tip
-If you are using Stremio Web, then pressing the `Install` button when you attempt to install an addon will not do anything. 
-You will need to use the manual method of adding addons through a link.
-:::
 
 </TabItem>
 <TabItem value="android" label="Android">
@@ -142,7 +104,7 @@ You will need to use the manual method of adding addons through a link.
 
     These limitations can be overcome by using the Stremio Service, which requires a computer to be on and running Stremio Service at all times. 
     
-    To enjoy full functionality, including torrent streaming, progress tracking, and subtitles, follow the steps in the Web tab. 
+    To enjoy full functionality, including torrent streaming, progress tracking, and subtitles, follow the steps in the [Setting up Stremio Service](#setting-up-stremio-service) section.
 
     **Make sure to disable external players in the settings if you are using the Stremio Service.**
 
@@ -254,6 +216,44 @@ You will need to use the manual method of adding addons through a link.
 </TabItem>
 </Tabs>
 Then login to Stremio using the account you created earlier.
+
+---
+
+### Setting up Stremio Service 
+
+This section is only for those using Stremio Web on their desktop device (or those willing to leave their desktop on all the time to use Stremio Web on their mobile device).
+
+Without running the Stremio service, you will not be able to stream torrents and you may encounter issues with audio for some files. 
+If you are on a mobile device using Stremio Web, then you won't be able to play content within the browser. 
+
+These are the steps to set up the Stremio service for access on devices locally. 
+
+1. Download the Stremio service from the [downloads page](https://www.stremio.com/download-service) for your operating system on the **same device** that you are using Stremio Web.
+2. Run the setup and then launch the Stremio Service application. 
+3. Open [Stremio Web](https://web.stremio.com/) 
+4. Go to Settings
+5. Click on the Streaming section, you should see this: 
+
+        ![stremio service settings](./img/stremio_service_settings.png)
+    
+    :::tip 
+    If it shows the Status as error, try disabling any adblockers/tracking blockers you have enabled. On Brave, it will not work without disabling Brave Shields.
+
+    You may need to also add an exception for the Stremio service in your firewall settings.
+    :::
+
+6. The Stremio service has now been correctly set up. However, you can only access it on the same device. To access it from another device (in the same network) follow the next steps:
+
+7. Set the Streaming HTTPS endpoint to your local IP address (this option should appear as a dropdown).
+8. Then copy the Remote URL and paste it into your other device's Stremio settings for the streaming server URL.
+
+The Stremio service is now set up and can be accessed from another device.
+
+:::tip
+If you are using Stremio Web, then pressing the `Install` button when you attempt to install an addon will not do anything. 
+You will need to use the [manual method of adding addons through a link](faq#how-do-i-install-an-addon-manually).
+:::
+
 
 ### Configuring Stremio settings 
 
