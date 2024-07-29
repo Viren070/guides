@@ -107,21 +107,44 @@ You will need to use the manual method of adding addons through a link.
 
 
 </TabItem>
-<TabItem value="ios" label="iOS">
+<TabItem value="ios" label="iPhone / iPad">
+
+    The app available in the App Store is very limited and is pretty useless.
+
+    You can, however, install Stremio Web as an app to your device by following these steps:
+
+    **Installing Stremio Web**
+    
+    1. **Open Stremio Web on Safari**: Open Safari and go to [Stremio Web](https://web.stremio.com/).
+    2. **Add it to your home screen**: 
+        - Tap the box with an arrow located next to the address bar. 
+        - Scroll down and tap "Add to Home Screen."
+    3. **Access the app**: The Stremio icon will appear on your home screen, allowing you to access Stremio Web directly. 
 
 
-    As the app in the App Store is a limited version, you can follow this [blog post](https://blog.stremio.com/using-stremio-web-on-iphone-ipad/) to set up a PWA (Progressive Web App). 
-    This will give you access to most of Stremio's features. 
+    We aren't quite done just yet. Stremio Web, on its own, does not support torrent playback or streaming videos in the browser. 
+    
+    To work around this limitation, you can use an external player. 
+    Here are the steps to set up an external player on your iPhone or iPad:
 
-    Although following the blog post will give you access to most of Stremio's features, it will not allow you to stream torrents. 
-    This means you can only use HTTP addons which are mostly unreliable. However, there are two ways to gain access to the massive library of torrents through Stremio. 
+    1. **Open the Stremio Web App**: Tap the Stremio icon on your home screen to open the app.
+    2. **Dismiss the Warning**: Ignore the "streaming server not available" banner by dismissing it.
+    3. **Access Settings**:
+        - Go to the settings menu by tapping the gear icon.
+        - Scroll down to the `Player` section and under `Advanced` select "Play in external player."
+    4. **Choose an External Player**: Select "Outplayer" or "VLC" from the options. Make sure the chosen player is installed on your device.
 
-    The first way is to pay for a debrid service. This will allow you to stream torrents through HTTP. This is the easiest and most recommended way to use Stremio on iOS.
-    To use this method, simply follow the guide as normal but you must also set up a debrid service.
+    Using an external player with Stremio Web has some limitations:
 
-    The second way is to have another device running the [Stremio service](https://www.stremio.com/download-service). You then connect to the Stremio service on your iOS device. This way will allow you to stream torrents directly on Stremio.
-    Follow the Stremio Web tab to set up the Stremio service. Follow this on a desktop device. 
+    - Torrent streaming is still not possible. This means **a debrid service is required** to stream torrents.
+    - No episode progress tracking. 
+    - Addon-provided subtitles cannot be used.
 
+    These limitations can be overcome by using the Stremio Service, which requires a computer to be on and running Stremio Service at all times. 
+    
+    To enjoy full functionality, including torrent streaming, progress tracking, and subtitles, follow the steps in the Web tab. 
+
+    **Make sure to disable external players in the settings if you are using the Stremio Service.**
 
 </TabItem>
 <TabItem value="fire-tv" label="Fire TV">
