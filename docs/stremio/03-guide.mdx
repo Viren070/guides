@@ -21,17 +21,93 @@ Head over to [Stremio](https://stremio.com/) and either [sign up for an account]
 
 ## Downloading Stremio
 
-If you are using Stremio Web on your desktop device, then you can skip ahead to [Setting up Stremio Service](#setting-up-stremio-service).
-
 Head to the [downloads page](https://stremio.com/downloads) and download the required package.
-
+:::warning 
+If you want to use Stremio on your iPhone or iPad, click the `Web` tab and then the `iOS` tab.
+:::
 If you can't find the download link for your device, I will go through the instructions for each device here.
 
-:::warning
-iOS users, I recommend that you follow the instructions in the iOS tab as the Stremio app available in the App Store is very limited and will not provide the full experience.
-:::
+<Tabs className="custom-tabs" queryString="platform">
 
-<Tabs groupId="device" className="custom-tabs" queryString>
+<TabItem value="web" label="Web" default>
+
+    [Stremio Web](https://web.stremio.com) is a web version of Stremio doesn't require any signup or installation. 
+
+    <Tabs className="custom-tabs" queryString="platform">
+    <TabItem label="PC" value="web-pc" default>
+        
+        On PC, playback in the browser will work most of the time. However, you may encounter audio issues and you won't be able to stream torrents without a streaming server.
+        
+        Therefore, you will need to [set up a streaming server](extras/stremio-server). 
+    
+    </TabItem>
+    <TabItem label="Android" value="web-android">
+
+        If you are using Stremio Web on your android phone, then you can add it to your home screen for easy access. Here are the steps to do this:
+
+        1. **Open Stremio Web**: Open your browser and go to [Stremio Web](https://web.stremio.com/).
+        2. **Add it to your home screen**: 
+            - The steps for this are different depending on the browser you are using. 
+            - However, generally, you can do this by tapping the three dots and selecting "Add to Home Screen."
+        3. **Access the app**: The Stremio icon will appear on your home screen, allowing you to access Stremio Web directly. 
+
+        We aren't quite done just yet. Stremio Web, on its own, does not support torrent playback or streaming videos in the browser. 
+
+        To overcome these limitations, you can setup the streaming server on your phone. To do this, follow the instructions in the [Stremio Server](extras/stremio-server) section.
+        
+        Another method to use Stremio Web on your android phone is to use an external player. This method, however, has some limitations:
+
+            - Torrent streaming is still not possible. This means **a debrid service is required** to stream torrents.
+            - No episode progress tracking. 
+            - Addon-provided subtitles cannot be used (you can still use the embedded subtitles provided by the video file).
+
+        Here are the steps to set up an external player:
+
+        1. **Open the Stremio Web App**: Tap the Stremio icon on your home screen to open the app.
+        2. **Dismiss the Warning**: Ignore the "streaming server not available" banner by tapping `Don't show again`.
+        3. **Access Settings**:
+            - Go to the settings menu by tapping the gear icon.
+            - Scroll down to the `Player` section and under `Advanced` select `Play in external player`
+        4. **Choose an External Player**: Select `VLC`, `MX Player` or `Just Player`. Make sure the chosen player is installed on your device.
+    
+    </TabItem>
+    <TabItem value="web-ios" label="iOS">
+
+        The app available in the App Store is very limited and is pretty useless.
+
+        You can, however, install Stremio Web as an app to your device by following these steps:
+        
+        1. **Open Stremio Web on Safari**: Open Safari and go to [Stremio Web](https://web.stremio.com/).
+        2. **Add it to your home screen**: 
+            - Tap the box with an arrow located next to the address bar. 
+            - Scroll down and tap `Add to Home Screen`
+        3. **Access the app**: The Stremio icon will appear on your home screen, allowing you to access Stremio Web directly. 
+
+        We aren't quite done just yet. Stremio Web, on its own, does not support torrent playback or streaming videos in the browser. 
+        
+        To work around this limitation, you could setup a streaming server on your android phone or desktop. However, this may be inconvenient as you may not have an android phone or you may not want to leave your desktop on 24/7.
+        
+        For this reason, I will go through how to use an external player with Stremio Web first. It does, however, have some limitations.
+
+            - Torrent streaming is still not possible. This means **a debrid service is required** to stream torrents.
+            - No episode progress tracking. 
+            - Addon-provided subtitles cannot be used (you can still use the embedded subtitles provided by the video file).
+
+        Here are the steps to set up an external player on your iPhone or iPad:
+
+        1. **Open the Stremio Web App**: Tap the Stremio icon on your home screen to open the app.
+        2. **Dismiss the Warning**: Ignore the "streaming server not available" banner by tapping `Don't show again`.
+        3. **Access Settings**:
+            - Go to the settings menu by tapping the gear icon.
+            - Scroll down to the `Player` section and under `Advanced` select `Play in external player`
+        4. **Choose an External Player**: Select "Outplayer" or "VLC" from the options. Make sure the chosen player is installed on your device.
+
+        To overcome these limitations, you can use an android phone or desktop as a server. To do this, follow the instructions in the [Stremio Server](extras/stremio-server) section.
+
+    </TabItem>
+    </Tabs>
+
+</TabItem>
 <TabItem value="pc" label="PC">
 
     For windows, download the following: 
@@ -67,44 +143,6 @@ iOS users, I recommend that you follow the instructions in the iOS tab as the St
     - x86 - 32 bit Intel 
     - x86_64 - 64 bit Intel
 
-
-</TabItem>
-<TabItem value="apple" label="iPhone / iPad">
-
-    The app available in the App Store is very limited and is pretty useless.
-
-    You can, however, install Stremio Web as an app to your device by following these steps:
-    
-    1. **Open Stremio Web on Safari**: Open Safari and go to [Stremio Web](https://web.stremio.com/).
-    2. **Add it to your home screen**: 
-        - Tap the box with an arrow located next to the address bar. 
-        - Scroll down and tap "Add to Home Screen."
-    3. **Access the app**: The Stremio icon will appear on your home screen, allowing you to access Stremio Web directly. 
-
-
-    We aren't quite done just yet. Stremio Web, on its own, does not support torrent playback or streaming videos in the browser. 
-    
-    To work around this limitation, you can use an external player. 
-    Here are the steps to set up an external player on your iPhone or iPad:
-
-    1. **Open the Stremio Web App**: Tap the Stremio icon on your home screen to open the app.
-    2. **Dismiss the Warning**: Ignore the "streaming server not available" banner by dismissing it.
-    3. **Access Settings**:
-        - Go to the settings menu by tapping the gear icon.
-        - Scroll down to the `Player` section and under `Advanced` select "Play in external player."
-    4. **Choose an External Player**: Select "Outplayer" or "VLC" from the options. Make sure the chosen player is installed on your device.
-
-    Using an external player with Stremio Web has some limitations:
-
-    - Torrent streaming is still not possible. This means **a debrid service is required** to stream torrents.
-    - No episode progress tracking. 
-    - Addon-provided subtitles cannot be used (you can still use the embedded subtitles provided by the video file).
-
-    These limitations can be overcome by using the Stremio Service, which requires a computer to be on and running Stremio Service at all times. 
-    
-    To enjoy full functionality, including torrent streaming, progress tracking, and addon-provided subtitles, follow the steps in the [Setting up Stremio Service](#setting-up-stremio-service) section.
-
-    **Make sure to disable external players in the settings if you are using the Stremio Service.**
 
 </TabItem>
 <TabItem value="fire-tv" label="Fire TV">
@@ -215,45 +253,7 @@ iOS users, I recommend that you follow the instructions in the iOS tab as the St
 </Tabs>
 Then login to Stremio using the account you created earlier.
 
----
-
-### Setting up Stremio Service 
-
-This section is only for those using Stremio Web on their desktop device (or those willing to leave their desktop on all the time to use Stremio Web on their mobile device).
-
-Without running the Stremio service, you will not be able to stream torrents and you may encounter issues with audio for some files. 
-If you are on a mobile device using Stremio Web, then you won't be able to play content within the browser. 
-
-These are the steps to set up the Stremio service for access on devices locally. 
-
-1. Download the Stremio service from the [downloads page](https://www.stremio.com/download-service) for your operating system on the **same device** that you are using Stremio Web.
-2. Run the setup and then launch the Stremio Service application. 
-3. Open [Stremio Web](https://web.stremio.com/) 
-4. Go to Settings
-5. Click on the Streaming section, you should see this: 
-
-        ![stremio service settings](./img/stremio_service_settings.png)
-    
-    :::tip 
-    If it shows the Status as error, try disabling any adblockers/tracking blockers you have enabled. On Brave, it will not work without disabling Brave Shields.
-
-    You may need to also add an exception for the Stremio service in your firewall settings.
-    :::
-
-6. The Stremio service has now been correctly set up. However, you can only access it on the same device. To access it from another device (in the same network) follow the next steps:
-
-7. Set the Streaming HTTPS endpoint to your local IP address (this option should appear as a dropdown).
-8. Then copy the Remote URL and paste it into your other device's Stremio settings for the streaming server URL.
-
-The Stremio service is now set up and can be accessed from another device.
-
-:::tip
-If you are using Stremio Web, then pressing the `Install` button when you attempt to install an addon will not do anything. 
-You will need to use the [manual method of adding addons through a link](faq#how-do-i-install-an-addon-manually).
-:::
-
-
-### Configuring Stremio settings 
+## Configuring Stremio settings 
 
 Although Stremio is mostly ready to use out of the box, one setting you should turn on is hardware accelerated decoding. This can avoid issues relating to crashing while playing content. 
 
