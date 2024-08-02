@@ -2,16 +2,30 @@
 title: Troubleshooting | Stremio
 sidebar_label: Troubleshooting
 description: Troubleshooting common issues with Stremio, debrid services and addons.
-keywords: [stremio, troubleshooting, help, faq, frequently asked questions, stremio guide, stremio help, stremio faq, stremio questions, stremio answers, stremio support, stremio troubleshooting]
+keywords:
+  [
+    stremio,
+    troubleshooting,
+    help,
+    faq,
+    frequently asked questions,
+    stremio guide,
+    stremio help,
+    stremio faq,
+    stremio questions,
+    stremio answers,
+    stremio support,
+    stremio troubleshooting,
+  ]
 ---
+
 # Troubleshooting
 
 ## A movie/TV show I wanted to watch said “No streams were found”
 
-
 **Misconfiguration of Torrentio or other addons**:
 
-- Ensure that you followed the guide correctly and that your configuration of Torrentio isn't causing an issue (Configure your Torrentio settings exactly as I have done in the guide to confirm this). 
+- Ensure that you followed the guide correctly and that your configuration of Torrentio isn't causing an issue (Configure your Torrentio settings exactly as I have done in the guide to confirm this).
 
 **Your ISP is blocking Torrentio or other addons**:
 
@@ -19,81 +33,97 @@ keywords: [stremio, troubleshooting, help, faq, frequently asked questions, stre
 
 **The movie or TV show is not available digitally:**
 
-- Ensure that there is a digital version of the movie or TV show you are trying to watch. 
-  If the movie or TV show you are trying to watch is still in cinemas, you will not see streams as a digital release has not come out yet. You may see CAM or Screener (a recording of the movie being played in cinema) if you have not excluded those qualities.  
+- Ensure that there is a digital version of the movie or TV show you are trying to watch.
+  If the movie or TV show you are trying to watch is still in cinemas, you will not see streams as a digital release has not come out yet. 
+  You may see CAM or Screener (a recording of the movie being played in cinema) if you have not excluded those qualities.
 
 **The movie or TV show is too niche and a torrent for it exists but is not cached:**
 
-- Try using [Debrid Media Manager](extras/debrid-media-manager) to find the movie or TV show. If you can find it through here, you should be able to watch it through debrid media manager. If you want to watch it on Stremio, use the Debrid Search addon (linked above) to achieve this.
+- Try using [Debrid Media Manager](extras/debrid-media-manager) to find the movie or TV show.
+  If you can find it through here, you should be able to watch it through debrid media manager. 
+  
+  If you want to watch it on Stremio, use the Debrid Search addon (linked above) to achieve this.
 
 ## Content keeps stuttering/buffering
 
 **Slow internet connection:**
-- Check your internet speed at [SamKnows](https://samknows.com/realspeed/). If your internet speed is slow, then you will experience buffering. 
-- If you believe your internet speed is fast and are using a debrid service, then it could be that the connection to the debrid service is the issue. 
-  Perform the speedtest on your debrid service's website to see if it is your connection to the debrid service that is the issue. 
+
+- Check your internet speed at [SamKnows](https://samknows.com/realspeed/). 
+  If your internet speed is slow, then you will experience buffering.
+
+- If you believe your internet speed is fast and are using a debrid service, then it could be that the connection to the debrid service is the issue.
+  Perform the speedtest on your debrid service's website to see if it is your connection to the debrid service that is the issue.
   You can find the speed tests for most debrid services [here](faq#where-can-i-find-the-speed-tests-for-debrid-services)
 
 **Stremio settings**
 
-- Try enabling/disabling the hardware-accelerated decoding option in the advanced player settings. 
+- Try enabling/disabling the hardware-accelerated decoding option in the advanced player settings.
 - If you don't use a debrid service, try increasing the cache size and changing the torrent profile to Ultra Fast.
 
 **Your device is not powerful enough to handle the stream:**
 
-- If your device is not powerful enough, it will be unable to play larger sized streams. Try choosing a lower quality stream or buying a more powerful device.  
+- If your device is not powerful enough, it will be unable to play larger sized streams. Try choosing a lower quality stream or buying a more powerful device.
 
-
-## Red screen when clicking on a debrid stream 
+## Red screen when clicking on a debrid stream
 
 **Expired subscription:**
-- Check that your your debrid subscription hasn't expired. If it has expired, you will need to reconfigure your addons with the new API token as it refreshes when you renew your subscription after it expires.
+
+- Check that your your debrid subscription hasn't expired.
+  If it has expired, you will need to reconfigure your addons with the new API token as it refreshes when you renew your subscription after it expires.
 
 **Debrid service is down:**
 
-- The debrid service may be experiencing issues, check the debrid service's website or their social media to see if they are having issues. 
+- The debrid service may be experiencing issues, check the debrid service's website or their social media to see if they are having issues.
 
-**Your debrid service expired and you renewed after this**: 
+**Your debrid service expired and you renewed after this**:
 
-- Some debrid services, such as RealDebrid, will regenerate your API token when you renew your subscription. You will have to reconfigure your addons with the new API token.
+- Some debrid services, such as RealDebrid, will regenerate your API token when you renew your subscription. 
+  You will have to reconfigure your addons with the new API token.
 
 **Other:**
 
 - Try refreshing the token and reconfigure your addons that use the debrid service.
 
-## No streams for TV Shows / Only 4 providers when configuring Torrentio 
+## No streams for TV Shows / Only 4 providers when configuring Torrentio
 
-You are using Torrentio-sh, not Torrentio. 
+You are using Torrentio-sh, not Torrentio.
 
-Torrentio-sh (self hosted) is an instance of an outdated version of Knight Crawler and should no longer be used. 
+Torrentio-sh (self hosted) is an instance of an outdated version of Knight Crawler and should no longer be used.
 
 Use the [correct Torrentio addon](https://torrentio.strem.fun/) instead.
 
-## When I click Install, nothing happens 
-This happens when the website fails to establish a connection to the app. This could happen if you don't have the Stremio application installed. 
-This means that if you are using Stremio Web, it will also not work. 
+## When I click Install, nothing happens
+
+This happens when the website fails to establish a connection to the app. 
+This could happen if you don't have the Stremio application installed.
+This means that if you are using Stremio Web, it will also not work.
 
 To fix this, you will have to [install the addon manually](faq#how-do-i-install-an-addon-manually)
 
-## Content appears split 
+## Content appears split
+
 ![Example](https://preview.redd.it/how-can-i-solve-this-v0-rvamcnp3y3bd1.jpg?width=1440&format=pjpg&auto=webp&s=8d7fe469d32f5c2671b9bd4c74af71a040c02418)
 
-This is a known issue due to the Firestick 4K Max 2nd gen not supporting DV profile 7. 
-You will have to choose a different link that does not have DV profile 7. 
-
+This is a known issue due to the Firestick 4K Max 2nd gen not supporting DV profile 7.
+You will have to choose a different link that does not have DV profile 7.
 
 ## Audio plays but only black screen
 
-This indicates that your device can't handle that specific stream. Try choosing a different stream. 
+This indicates that your device can't handle that specific stream. 
+Try choosing a different stream.
 
 Note that firesticks currently have an issue with playing content that has both DV and HDR10+.
 
-## An addon is not working  
-Check this [status page from ElfHosted](https://status.elfhosted.com/) or recent posts from [r/StremioAddons](https://reddit.com/r/StremioAddons/) to see if the addon is down. 
+## An addon is not working
+
+Check this [status page from ElfHosted](https://status.elfhosted.com/) or recent posts from [r/StremioAddons](https://reddit.com/r/StremioAddons/) to see if the addon is down.
 
 If the addon is experiencing issues, then you will have to wait for the addon developer to fix it.
 
-Otherwise, try reinstalling the addon. If the addon depends on a debrid service and the error you get is related to the debrid service, then refresh your API token and reconfigure the addon with the new token.
+Otherwise, try reinstalling the addon. 
+If the addon depends on a debrid service and the error you get is related to the debrid service, then refresh your API token and reconfigure the addon with the new token.
 
 ## Subtitles not appearing correctly
-This could be because the subtitles are SSA subtitles. Stremio's default player, ExoPlayer, does not support these subtitles. You can use an external player such as Vimu Player to fix this.
+
+This could be because the subtitles are SSA subtitles. Stremio's default player, ExoPlayer, does not support these subtitles.
+You can use an external player such as Vimu Player to fix this.
