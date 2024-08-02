@@ -51,190 +51,208 @@ Head to the [downloads page](https://stremio.com/downloads) and download the req
 :::warning
 If you want to use Stremio on your iPhone or iPad, click the `Web` tab and then the `iOS` tab.
 :::
-If you can't find the download link for your device, I will go through the instructions for each device here.
+
+Here are the instructions for each platform, if you are viewing on a mobile phone, you will need to scroll horizontally to see all the different platform instructions. 
 
 <Tabs className="custom-tabs" queryString="platform">
 
-<TabItem value="web" label="Web" default>
+	<TabItem value="web" label="Web" default>
 
-    [Stremio Web](https://web.stremio.com) is a web version of Stremio doesn't require any signup or installation.
+		[Stremio Web](https://web.stremio.com) is a web version of Stremio doesn't require any signup or installation.
 
-    <Tabs className="custom-tabs" queryString="platform">
-    <TabItem label="PC" value="web-pc" default>
+		<Tabs className="custom-tabs" queryString="platform">
 
-        On PC, playback in the browser will work most of the time. However, you may encounter audio issues and you won't be able to stream torrents without a streaming server.
+			<TabItem label="PC" value="web-pc" default>
 
-        Therefore, you will need to [set up a streaming server](extras/stremio-server).
 
-    </TabItem>
-    <TabItem label="Android" value="web-android">
+				On PC, playback in the browser will work most of the time. However, you may encounter audio issues and you won't be able to stream torrents without a streaming server.
 
-        If you are using Stremio Web on your android phone, then you can add it to your home screen for easy access. Here are the steps to do this:
+				Therefore, you will need to [set up a streaming server](extras/stremio-server).
 
-        1. **Open Stremio Web**: Open your browser and go to [Stremio Web](https://web.stremio.com/).
-        2. **Add it to your home screen**:
-            - The steps for this are different depending on the browser you are using.
-            - However, generally, you can do this by tapping the three dots and selecting "Add to Home Screen."
-        3. **Access the app**: The Stremio icon will appear on your home screen, allowing you to access Stremio Web directly.
+			</TabItem>
+		
+			<TabItem label="Android" value="web-android">
 
-        We aren't quite done just yet. Stremio Web, on its own, does not support torrent playback or streaming videos in the browser.
+				If you are using Stremio Web on your android phone, then you can add it to your home screen for easy access. Here are the steps to do this:
 
-        To overcome these limitations, you can setup the streaming server on your phone. To do this, follow the instructions in the [Stremio Server](extras/stremio-server) section.
+				1. **Open Stremio Web**: Open your browser and go to [Stremio Web](https://web.stremio.com/).
+				2. **Add it to your home screen**:
+					- The steps for this are different depending on the browser you are using.
+					- However, generally, you can do this by tapping the three dots and selecting "Add to Home Screen."
+				3. **Access the app**: The Stremio icon will appear on your home screen, allowing you to access Stremio Web directly.
 
-        Another method to use Stremio Web on your android phone is to use an external player. This method, however, has some limitations:
+				We aren't quite done just yet. Stremio Web, on its own, does not support torrent playback or streaming videos in the browser.
 
-            - Torrent streaming is still not possible. This means **a debrid service is required** to stream torrents.
-            - No episode progress tracking.
-            - Addon-provided subtitles cannot be used (you can still use the embedded subtitles provided by the video file).
+				To overcome these limitations, you can setup the streaming server on your phone. To do this, follow the instructions in the [Stremio Server](extras/stremio-server) section.
 
-        Here are the steps to set up an external player:
+				Another method to use Stremio Web on your android phone is to use an external player. This method, however, has some limitations:
 
-        1. **Open the Stremio Web App**: Tap the Stremio icon on your home screen to open the app.
-        2. **Dismiss the Warning**: Ignore the "streaming server not available" banner by tapping `Don't show again`.
-        3. **Access Settings**:
-            - Go to the settings menu by tapping the gear icon.
-            - Scroll down to the `Player` section and under `Advanced` select `Play in external player`
-        4. **Choose an External Player**: Select `VLC`, `MX Player` or `Just Player`. Make sure the chosen player is installed on your device.
+					- Torrent streaming is still not possible. This means **a debrid service is required** to stream torrents.
+					- No episode progress tracking.
+					- Addon-provided subtitles cannot be used (you can still use the embedded subtitles provided by the video file).
 
-    </TabItem>
-    <TabItem value="web-ios" label="iOS">
+				Here are the steps to set up an external player:
 
-        The app available in the App Store is very limited and is pretty useless.
+				1. **Open the Stremio Web App**: Tap the Stremio icon on your home screen to open the app.
+				2. **Dismiss the Warning**: Ignore the "streaming server not available" banner by tapping `Don't show again`.
+				3. **Access Settings**:
+					- Go to the settings menu by tapping the gear icon.
+					- Scroll down to the `Player` section and under `Advanced` select `Play in external player`
+				4. **Choose an External Player**: Select `VLC`, `MX Player` or `Just Player`. Make sure the chosen player is installed on your device.
 
-        You can, however, install Stremio Web as an app to your device by following these steps:
+				You can now open a link and it should open in the external player you selected.
+			</TabItem>
+		
+			<TabItem value="web-ios" label="iOS">
 
-        1. **Open Stremio Web on Safari**: Open Safari and go to [Stremio Web](https://web.stremio.com/).
-        2. **Add it to your home screen**:
-            - Tap the box with an arrow located next to the address bar.
-            - Scroll down and tap `Add to Home Screen`
-        3. **Access the app**: The Stremio icon will appear on your home screen, allowing you to access Stremio Web directly.
+				The app available in the App Store is very limited and is pretty useless.
 
-        We aren't quite done just yet. Stremio Web, on its own, does not support torrent playback or streaming videos in the browser.
+				You can, however, install Stremio Web as an app to your device by following these steps:
 
-        To work around this limitation, you could [setup a streaming server on your android phone or desktop](extras/stremio-server).
-        However, this may be inconvenient as you may not have an android phone or you may not want to leave your desktop on 24/7.
+				1. **Open Stremio Web on Safari**: Open Safari and go to [Stremio Web](https://web.stremio.com/).
+				2. **Add it to your home screen**:
+					- Tap the box with an arrow located next to the address bar.
+					- Scroll down and tap `Add to Home Screen`
+				3. **Access the app**: The Stremio icon will appear on your home screen, allowing you to access Stremio Web directly.
 
-        For this reason, I will go through how to use an external player with Stremio Web first. It does, however, have some limitations.
+				We aren't quite done just yet. Stremio Web, on its own, does not support torrent playback or streaming videos in the browser.
 
-            - Torrent streaming is still not possible. This means **a debrid service is required** to stream torrents.
-            - No episode progress tracking.
-            - Addon-provided subtitles cannot be used (you can still use the embedded subtitles provided by the video file).
+				To work around this limitation, you could [setup a streaming server on your android phone or desktop](extras/stremio-server).
+				However, this may be inconvenient as you may not have an android phone or you may not want to leave your desktop on 24/7.
 
-        Here are the steps to set up an external player on your iPhone or iPad:
+				For this reason, I will go through how to use an external player with Stremio Web first. It does, however, have some limitations.
 
-        1. **Open the Stremio Web App**: Tap the Stremio icon on your home screen to open the app.
-        2. **Dismiss the Warning**: Ignore the "streaming server not available" banner by tapping `Don't show again`.
-        3. **Access Settings**:
-            - Go to the settings menu by tapping the gear icon.
-            - Scroll down to the `Player` section and under `Advanced` select `Play in external player`
-        4. **Choose an External Player**: Select "Outplayer" or "VLC" from the options. Make sure the chosen player is installed on your device.
+					- Torrent streaming is still not possible. This means **a debrid service is required** to stream torrents.
+					- No episode progress tracking.
+					- Addon-provided subtitles cannot be used (you can still use the embedded subtitles provided by the video file).
 
-        You can now open a link and it should open in the external player you selected.
-    </TabItem>
-    </Tabs>
+				Here are the steps to set up an external player on your iPhone or iPad:
 
-</TabItem>
-<TabItem value="pc" label="PC">
+				1. **Open the Stremio Web App**: Tap the Stremio icon on your home screen to open the app.
+				2. **Dismiss the Warning**: Ignore the "streaming server not available" banner by tapping `Don't show again`.
+				3. **Access Settings**:
+					- Go to the settings menu by tapping the gear icon.
+					- Scroll down to the `Player` section and under `Advanced` select `Play in external player`
+				4. **Choose an External Player**: Select "Outplayer" or "VLC" from the options. Make sure the chosen player is installed on your device.
 
-    For windows, download the following:
+				You can now open a link and it should open in the external player you selected.
+			</TabItem>
 
-    ![Windows Download](./img/stremio_win_download.png)
+		</Tabs>
 
-    For Mac OS, download one of the following depending on your version of Mac OS:
+	</TabItem>
 
-    ![Mac Download](./img/stremio_mac_download.png)
+	<TabItem value="pc" label="PC">
 
-    For Linux, download one of the following:
+		For windows, download the following:
 
-    ![Linux Download](./img/stremio_linux_download.png)
+		![Windows Download](./img/stremio_win_download.png)
 
-    There are packages available for popular distributions of Linux such as Debian and Arch Linux. However, there is also a flatpak link as well as a link to the source code.
+		For Mac OS, download one of the following depending on your version of Mac OS:
 
-    The flatpak can be used to install Stremio on the Steam Deck too.
+		![Mac Download](./img/stremio_mac_download.png)
 
-</TabItem>
-<TabItem value="android" label="Android">
-    
-    Stremio can be installed from the [Play Store](https://play.google.com/store/apps/details?id=com.stremio.one).
+		For Linux, download one of the following:
 
-    However, you can also download one of the following:
+		![Linux Download](./img/stremio_linux_download.png)
 
-    ![Android Download](./img/stremio_android_download.png)
+		There are packages available for popular distributions of Linux such as Debian and Arch Linux. However, there is also a flatpak link as well as a link to the source code.
 
-    You will most likely need to download the ARM64 APK.
+		The flatpak can be used to install Stremio on the Steam Deck too.
 
-    - ARM (armeabi-v7a) - 32 bit
-    - ARM64 (arm64-v8a) - 64 bit
-    - x86 - 32 bit Intel
-    - x86_64 - 64 bit Intel
+		Once you have downloaded the package for your system, install it and open Stremio. 
+		Then, log in with the account you created earlier.
 
-</TabItem>
-<TabItem value="fire-tv" label="Fire TV">
+	</TabItem>
 
-    Stremio is not available on the amazon app store. To install Stremio, you will need to sideload the app.
+	<TabItem value="android" label="Android">
+		
+		Stremio can be installed from the [Play Store](https://play.google.com/store/apps/details?id=com.stremio.one).
 
-    I will now go through the steps to sideload the app.
+		However, you can also download one of the following:
 
-    1. In the home screen, click on the search icon to access the find menu.
+		![Android Download](./img/stremio_android_download.png)
 
-    2. Search for Downloader
+		You will most likely need to download the ARM64 APK.
 
-    3. Click on the `Downloader` app and then click get/download.
+		- ARM (armeabi-v7a) - 32 bit
+		- ARM64 (arm64-v8a) - 64 bit
+		- x86 - 32 bit Intel
+		- x86_64 - 64 bit Intel
 
-        ![firestick downloader search results](./img/firestick_downloader_search_result.jpg)
+		Once the Stremio app is installed, open it and log in with the account you created earlier.
 
-    4. Navigate to the settings menu from the home screen
+	</TabItem>
 
-        ![firestick settings 1](./img/firestick_settings_1.jpg)
+	<TabItem value="fire-tv" label="Fire TV">
 
-    5. Scroll down to `My Fire TV` and click it
+		Stremio is not available on the amazon app store. To install Stremio, you will need to sideload the app.
 
-    6. If you see the `Developer Options` setting under `About`, click it and skip to step 11.
+		I will now go through the steps to sideload the app.
 
-    7. Click `About`
+		1. In the home screen, click on the search icon to access the find menu.
 
-    8. Click `Fire TV Stick Lite/4K/4K MAX` 7 times quickly.
+		2. Search for Downloader
 
-    9. You should then see a message saying `No need, you are already a developer`
+		3. Click on the `Downloader` app and then click get/download.
 
-    10. Go back to the My Fire TV menu and click Developer Options
+			![firestick downloader search results](./img/firestick_downloader_search_result.jpg)
 
-    11. You will see either `Install apps from unknown sources`, in which case you select that, and turn it ON.
+		4. Navigate to the settings menu from the home screen
 
-        Otherwise, you will see `Install unknown apps`. Select this, navigate to Downloader, and turn it ON.
+			![firestick settings 1](./img/firestick_settings_1.jpg)
 
-    12. Go back to the home screen. Scroll to the end and click on the apps menu. Click on `My Apps`
+		5. Scroll down to `My Fire TV` and click it
 
-        ![firestick apps menu](./img/firestick_apps_menu.png)
+		6. If you see the `Developer Options` setting under `About`, click it and skip to step 11.
 
-    13. Select the Downloader app.
+		7. Click `About`
 
-    14. Click `Allow` if it asks for permission to access storage
+		8. Click `Fire TV Stick Lite/4K/4K MAX` 7 times quickly.
 
-    15. Navigate to the Downloader settings and enable JavaScript
+		9. You should then see a message saying `No need, you are already a developer`
 
-    16. Click `Browser` on the sidebar.
+		10. Go back to the My Fire TV menu and click Developer Options
 
-    17. Enter the following URL in the searchbar `https://stremio.com/downloads` and click `Go`
+		11. You will see either `Install apps from unknown sources`, in which case you select that, and turn it ON.
 
-    18. On the stremio website, scroll down to the android TV section and click the following link:
+			Otherwise, you will see `Install unknown apps`. Select this, navigate to Downloader, and turn it ON.
 
-        ![stremio firestick download](./img/stremio_firestick_download.png)
+		12. Go back to the home screen. Scroll to the end and click on the apps menu. Click on `My Apps`
 
-    19. The download should automatically start. When the Android installation prompt shows, click `Install`
+			![firestick apps menu](./img/firestick_apps_menu.png)
 
-    20. When the install is finished, click Done.
+		13. Select the Downloader app.
 
-    21. When you click Done, a pop-up will appear on the Downloader app. You can click `Delete` to remove the APK file. This won't delete the app.
+		14. Click `Allow` if it asks for permission to access storage
 
-    22. Stremio should now be installed to your Fire Stick. Launch Stremio from the same place you launched the downloader app from.
+		15. Navigate to the Downloader settings and enable JavaScript
 
-    <Admonition type="info">
-    You can also move Stremio to the top so that you can launch it directly from the home screen
-    </Admonition>
+		16. Click `Browser` on the sidebar.
 
-</TabItem>
-<TabItem value="android-tv" label="Android TV">
+		17. Enter the following URL in the searchbar `https://stremio.com/downloads` and click `Go`
+
+		18. On the stremio website, scroll down to the android TV section and click the following link:
+
+			![stremio firestick download](./img/stremio_firestick_download.png)
+
+		19. The download should automatically start. When the Android installation prompt shows, click `Install`
+
+		20. When the install is finished, click Done.
+
+		21. When you click Done, a pop-up will appear on the Downloader app. You can click `Delete` to remove the APK file. This won't delete the app.
+
+		22. Stremio should now be installed to your Fire Stick. Launch Stremio from the same place you launched the downloader app from.
+
+		<Admonition type="info">
+			You can also move Stremio to the top so that you can launch it directly from the home screen
+		</Admonition>
+
+		23. Log in with the account you created earlier.
+
+	</TabItem>
+
+	<TabItem value="android-tv" label="Android TV">
     
         Stremio can be installed from the [Play Store](https://play.google.com/store/apps/details?id=com.stremio.one).
     
@@ -249,33 +267,47 @@ If you can't find the download link for your device, I will go through the instr
         - x86 - 32 bit Intel
         - x86_64 - 64 bit Intel
 
-</TabItem>
-<TabItem value="samsung-tv" label="Samsung TVs">
-    
-    Search for Stremio in the App Store of 2019+ Samsung TV models
+		Once the Stremio app is installed, open it and log in with the account you created earlier.
 
-</TabItem>
-<TabItem value="lg-tv" label="LG TVs">
+	</TabItem>
 
-    Search for Stremio in the App Store of 2020+ LG TV models.
-    <Admonition type="note">
-    Stremio may not appear in the search results. However, if you go to the enterntainment section of the app store. You should see Stremio
-    </Admonition>
+	<TabItem value="samsung-tv" label="Samsung TVs">
+		
+		Search for Stremio in the App Store of 2019+ Samsung TV models. 
+		
+		Install the app and log in with the account you created earlier.
 
-</TabItem>
-<TabItem value="rasberry-pi" label="Rasberry Pi">
+	</TabItem>
 
-    Stremio can be used on the Raspberry Pi 4 and 5 through the use of Stremio's [Custom Stremio OS](https://blog.stremio.com/stremio-os-is-now-available-for-raspberry-pi-5-4/)
+	<TabItem value="lg-tv" label="LG TVs">
 
-</TabItem>
-<TabItem value="meta-quest" label="Meta Quest">
+		Search for Stremio in the App Store of 2020+ LG TV models.
+		<Admonition type="note">
+		Stremio may not appear in the search results. However, if you go to the enterntainment section of the app store. You should see Stremio
+		</Admonition>
+		Install the app and log in with the account you created earlier.
 
-    To use Stremio on your Meta Quest, you will need to sideload the app.
-    Follow the steps in this [blog post from Stremio](https://blog.stremio.com/how-to-install-stremio-on-meta-quest/) to install Stremio on your Meta Quest.
+	</TabItem>
 
-</TabItem>
+	<TabItem value="rasberry-pi" label="Rasberry Pi">
+
+		Stremio can be used on the Raspberry Pi 4 and 5 through the use of Stremio's Custom Stremio OS. 
+		Follow [this blog post from Stremio](https://blog.stremio.com/stremio-os-is-now-available-for-raspberry-pi-5-4/) to install Stremio on your Raspberry Pi.
+
+		Then, log in with the account you created earlier.
+
+	</TabItem>
+
+	<TabItem value="meta-quest" label="Meta Quest">
+
+		To use Stremio on your Meta Quest, you will need to sideload the app.
+		Follow the steps in this [blog post from Stremio](https://blog.stremio.com/how-to-install-stremio-on-meta-quest/) to install Stremio on your Meta Quest.
+
+		Log in with the account you created earlier.
+
+	</TabItem>
+
 </Tabs>
-Then login to Stremio using the account you created earlier.
 
 ## Configuring Stremio settings
 
