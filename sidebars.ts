@@ -35,21 +35,7 @@ const sidebars: SidebarsConfig = {
 						},
 					],
 				},
-				{
-					type: "category",
-					label: "Plutonium",
-					link: {
-						type: "doc",
-						id: "plutonium/index",
-					},
-					items: [
-						"plutonium/intro",
-						"plutonium/setting-up-launcher",
-						"plutonium/downloading-base-game",
-						"plutonium/setting-up-on-plutonium",
-						"plutonium/credits",
-					],
-				},
+				"plutonium/index",
 			],
 		},
 		{
