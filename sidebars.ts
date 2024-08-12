@@ -73,7 +73,6 @@ const sidebars: SidebarsConfig = {
 								"stremio/extras/debrid-media-manager", 
 								"stremio/extras/stremio-server",
 								"stremio/extras/discord-integration",
-								"stremio/extras/stremio-gdrive",
 								"stremio/extras/pimp-my-stremio",
 								"stremio/extras/stremio-downloader"
 							]
