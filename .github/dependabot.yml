@@ -13,8 +13,17 @@ updates:
     groups:
       docusaurus:
         applies-to: version-updates
+        dependency-type: production
         patterns:
         - "@docusaurus*"
+        update-types:
+        - "minor"
+        - "patch"
+      docusaurusDev:
+        applies-to: version-updates
+        dependency-type: development
+        patterns: 
+        - "@docusarus*"
         update-types:
         - "minor"
         - "patch"
