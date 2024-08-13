@@ -71,6 +71,7 @@ const sidebars: SidebarsConfig = {
 								"stremio/extras/trakt", 
 								"stremio/extras/addon-manager", 
 								"stremio/extras/debrid-media-manager", 
+								"stremio/extras/netflix-to-trakt",
 								"stremio/extras/stremio-server",
 								"stremio/extras/discord-integration",
 								"stremio/extras/pimp-my-stremio",
