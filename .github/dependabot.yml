@@ -23,7 +23,7 @@ updates:
         applies-to: version-updates
         dependency-type: development
         patterns: 
-        - "@docusarus*"
+        - "@docusaurus*"
         update-types:
         - "minor"
         - "patch"
