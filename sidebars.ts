@@ -94,7 +94,7 @@ const sidebars: SidebarsConfig = {
 					items: [],
 				},
 				"aniyomi/index",
-				"revanced/index"
+				"youtube/index"
 				
 			],
 		},
