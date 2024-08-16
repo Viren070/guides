@@ -86,6 +86,20 @@ const sidebars: SidebarsConfig = {
 				},
 				{
 					type: "category",
+					label: "YouTube",
+					link: {
+						type: "doc",
+						id: "youtube/index",
+					},
+					items: [
+						"youtube/browser",
+						"youtube/android",
+						"youtube/android-tv",
+						"youtube/samsung-tv",
+					],
+				},
+				{
+					type: "category",
 					label: "Kodi ⏳",
 					link: {
 						type: "doc",
@@ -94,7 +108,6 @@ const sidebars: SidebarsConfig = {
 					items: [],
 				},
 				"aniyomi/index",
-				"youtube/index"
 				
 			],
 		},
