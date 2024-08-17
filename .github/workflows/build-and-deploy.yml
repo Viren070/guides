@@ -3,7 +3,8 @@ name: Build and Deploy
 on:
   push:
     branches:
-      - '**'  # Trigger on all branches
+      - '**'
+      - '!main'
 
 jobs:
   build-and-deploy:
