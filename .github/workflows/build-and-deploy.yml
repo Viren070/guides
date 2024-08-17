@@ -33,4 +33,5 @@ jobs:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./build
           # Conditional deployment to subdirectory for non-main branches
-          destination_dir: ${{ github.ref == 'refs/heads/main' && '' || 'tree/${{ github.ref_name }}' }}
+          destination_dir: ${{ github.head_ref || github.ref_name }}
+          allow_empty_commit: true
