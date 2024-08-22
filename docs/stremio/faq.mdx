@@ -161,6 +161,44 @@ This will let you know if a debrid service is limiting your speed.
 </TabItem>
 </Tabs>
 
+
+### Which Debrid services are supported by each addon?
+
+Use this table below to see debrid compatability for each addon.
+
+|Addon/Debrid Service|     Real-Debrid    	|     All-Debrid     	|     Debrid-Link    	|     Premiumize     	|      Offcloud      	|       Put.io       	|       Torbox       	|
+|---------------	  |:------------------:	|:------------------:	|:------------------:	|:------------------:	|:------------------:	|:------------------:	|:------------------:	|
+|    Torrentio    	| :white_check_mark: 	| :white_check_mark: 	| :white_check_mark: 	| :white_check_mark: 	| :white_check_mark: 	| :white_check_mark: 	|         :x:        	|
+|  KnightCrawler  	| :white_check_mark: 	| :white_check_mark: 	| :white_check_mark: 	| :white_check_mark: 	| :white_check_mark: 	| :white_check_mark: 	|         :x:        	|
+|   MediaFusion   	| :white_check_mark: 	| :white_check_mark: 	| :white_check_mark: 	| :white_check_mark: 	| :white_check_mark: 	|         :x: 	      | :white_check_mark: 	|
+| Stremio-Jackett 	| :white_check_mark: 	| :white_check_mark: 	|         :x:        	| :white_check_mark: 	|         :x:        	|         :x:        	|         :x:        	|
+|      Comet      	| :white_check_mark: 	| :white_check_mark: 	| :white_check_mark: 	| :white_check_mark: 	|         :x:        	|         :x:        	| :white_check_mark: 	|
+|     Annatar     	| :white_check_mark: 	| :white_check_mark: 	| :white_check_mark: 	| :white_check_mark: 	|         :x:        	|         :x:        	|         :x:        	|
+|    Jackettio    	| :white_check_mark: 	| :white_check_mark: 	| :white_check_mark: 	|         :x:        	|         :x:        	|         :x:        	|         :x:        	|
+|      Orion      	| :white_check_mark: 	| :white_check_mark: 	| :white_check_mark: 	| :white_check_mark: 	| :white_check_mark: 	|         :x:        	|         :x:        	|
+|      Torbox     	|         :x:        	|         :x:        	|         :x:        	|         :x:        	|         :x:        	|         :x:        	| :white_check_mark: 	|
+
+:::info
+I only included the debrid services that were covered in my guide. However, even if I had a column for each one, this wouldn't change the table very much. 
+
+The only row that would change is the MediaFusion addon. This is because this addon also supports PikPak and Seedr.cc which are not covered in this guide.
+All other addons only support some debrid services covered in this guide.
+:::
+
+### What do I do if I encounter buffering issues with a Debrid service?
+
+If you are encountering buffering issues with a Debrid service, you can try the following:
+
+1. **Carry out a speed test** - Check the speed of your connection to the Debrid service. You can find the speed tests [here](#where-can-i-find-the-speed-tests-for-debrid-services).
+    Make sure to carry out a speed test on your own internet connection as well to ensure that the issue is not with your own internet connection.
+
+2. **Change the route/server** - You can try changing the route/server that you are using to connect to the Debrid service. 
+    You can find the option to change the route/server in the settings of the Debrid service.
+
+3. **Check the status of the Debrid service** - Sometimes, the Debrid service may be experiencing issues. You can check the status of the Debrid service on their website or social media.
+    You can also check on r/StremioAddons to see if others are experiencing the same issue.
+  
+
 ## Addon Questions
 
 ### Can I change the configuration of an addon without reinstalling it?
@@ -201,17 +239,22 @@ To avoid issues, when you are pasting the link replace stremio:// with https://
 Now that you have the URL, you can install the addon on your device by following these steps depending on the platform you are using:
 
 <Tabs groupId="platform" className="custom-tabs">
-  <TabItem value="web" label="Stremio Web / iOS">
-    1. Go to the [Addon page on Stremio Web](https://web.stremio.com/#/addons).
-    2. Click the ` + Add Addon` button
-    3. Paste the URL into the box and click `Add` 
-    4. A prompt will appear asking if you want to install the addon. Click `Install`
-  </TabItem>
-  <TabItem value="app" label="Stremio Apps">
-    This is for if you are using the Stremio app on a device such as Android,
-    Windows, macOS etc. 1. Open the Stremio app and go to the Addons menu. 2.
-    Click the search bar and paste the URL into the search bar. 3. A prompt will
-    appear asking if you want to install the addon. Click `Install`
+  	<TabItem value="web" label="Stremio Web / iOS">
+		1. Go to the [Addon page on Stremio Web](https://web.stremio.com/#/addons).
+		2. Click the ` + Add Addon` button
+		3. Paste the URL into the box and click `Add` 
+		4. A prompt will appear asking if you want to install the addon. Click `Install`
+  	</TabItem>
+
+	<TabItem value="app" label="Stremio Apps">
+
+		This is for if you are using the Stremio app on a device such as Android,
+		Windows, macOS etc. 
+		
+		1. Open the Stremio app and go to the Addons menu. 
+		2. Click the search bar and paste the URL into the search bar.
+		3. A prompt will appear asking if you want to install the addon. Click `Install`
+
   </TabItem>
 </Tabs>
 
@@ -225,6 +268,14 @@ As there was no public instance of torrentio, a member of the community hosted a
 This addon is outdated and there is no reason to install it. You will find much less streams, especially for TV shows due to the limited number of providers.
 
 The normal Torrentio addon is not listed in the addon catalog, you will have to install it from [the configuration page](https://torrentio.strem.fun/).
+
+### What addons do I need to watch anime?
+
+The only 2 addons you need are Torrentio and Anime Kitsu. 
+
+Make sure the NyaaSi and AniDex providers are enabled in Torrentio.
+You should also make sure that you are using the Anime Kitsu addon to get the best results.
+
 
 ## Stremio questions
 
@@ -244,14 +295,24 @@ Yes. Stremio will run on any android based smart TV. It can be downloaded from t
 Stremio is also available on LG WebOS (2020+ models only) and Samsung Tizen (2019+ models only). 
 You can download it from the respective app stores.
 
+### Will Stremio automatically update?
+
+If Stremio is installed from the Google Play Store, it will automatically update.
+
+If Stremio was sideloaded / installed from the website, it will not automatically update. You will have to manually update it.
+
 ### Can I use Stremio on my iPhone or iPad?
 
 Yes. Although a fully featured Stremio app is not available on iOS, you can add the Stremio Web app to your home screen.
-You will need to set an external player such as Outplayer or VLC. Follow this [blog post from Stremio](https://blog.stremio.com/using-stremio-web-on-iphone-ipad/) for more information.
 
-:::info
-Keep in mind that the Stremio Web app on iOS is unable to handle torrent playback. For this reason, you will have to use HTTP addons or use a Debrid service to stream torrent files through HTTP.
-:::
+Read the [iOS tab](guide?platform=web-ios#downloading-stremio) under the Web category for more information
+
+### Can I use Stremio on my iPhone or iPad without a debrid service? 
+
+Yes. You will have to set up a streaming server on your computer or android phone. 
+
+Read the [stremio server](extras/stremio-server) guide for more information.
+
 
 ### What streaming device should I use for Stremio?
 
@@ -346,6 +407,16 @@ Although there is no official watch together feature, you can use several soluti
 Yes. You can use [Netflix-To-Trakt-Import](https://github.com/jensb89/Netflix-to-Trakt-Import) to import your Netflix history to Trakt. 
 You can then import your Trakt history to Stremio.
 
+
+### Can I use Stremio to watch local files, like on Plex or Jellyfin?
+
+Although there is a local files addon, it is not recommended to use Stremio for this purpose.
+Stremio is not designed to be a media server and it is not as good as Plex or Jellyfin for this purpose.
+
+### Is it possible to share what I am watching on Discord? 
+
+Yes. There are multiple ways to do this. Read the [Discord section](extras/discord-integration) for more information.
+
 ### Can I use my own subtitles?
 
 Yes. Drag your subtitle file into the player and it should play with the video. 
@@ -365,16 +436,32 @@ Stremio does support live streams. However, its its interface is not designed fo
 - [MediaFusion](https://mediafusion.elfhosted.com/configure) does provide live streams and replays for sports.
 - The [xtremio addon](https://xtremio.elfhosted.com/configure) can be used to stream content from your paid IPTV subscription.
 
+Please see the [Live TV section](guide#live-tv) for more information.
+
 ### Can I have my lists from Letterboxd or Simkl on Stremio?
 
 Yes. There are addons that can be used to import your lists from these services.
 
 - [Letterboxd addon](https://letterboxd.almosteffective.com/configure/)
-- [Simkl addon](https://stremio-simkl.nktfh100.com/)
+- [Simkl addons](https://simkl.com/apps/stremio/)
 
 ### Is there a way to get recommendations based on what I have watched?
 
 Yes. You can use Trakt to achieve this. Read the [Trakt section](extras/trakt) for more information.
+
+### What are the official links for Stremio and the StremioAddons community?
+
+Official links:
+- [Stremio website](https://www.stremio.com/)
+- [Stremio Zendesk](http://stremio.zendesk.com/)
+- [Stremio GitHub](https://github.com/Stremio)
+- [/r/Stremio](https://www.reddit.com/r/Stremio/)
+- [Stremio Twitter](https://twitter.com/Stremio)
+- [Stremio Facebook](https://www.facebook.com/stremio/)
+
+Community links:
+- [StremioAddons Discord](https://discord.gg/zNRf6YF)
+- [/r/StremioAddons](https://www.reddit.com/r/StremioAddons/)
 
 ## Other Questions
 
