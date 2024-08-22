@@ -373,16 +373,124 @@ I will now cover the instructions of setting up each debrid service I previously
 
 ## Usenet 
 
+I will now go through what the usenet is and why you may want to use it.
 
 ### What is Usenet?
+
+Usenet is a form of decentralised internet communication that consists of various different "newsgroups". 
+You can think of a newsgroup as a forum where people can post messages and files. 
+For the purpose of Stremio, the files we are interested in are the binaries (NZB files) for video content that are posted to the newsgroups.
+
+Each different newsgroup is dedicated to a specific topic. These newsgroups can have their own moderators and rules.
+This is very similar to subreddits on Reddit.
+
+
+#### Providers
+
+To access Usenet, you need a Usenet provider.
+A provider will host the servers that store the content from the newsgroups.
+This provider will give you access to their servers where you can download content from the newsgroups.
+Usenet providers will be paid services due to the real costs of hosting the servers and the bandwidth required to provide access to the content.
+
+The content on different Usenet providers is theoretically the same as the content on all newsgroups is mirrored across all providers.
+However, due to issues like data corruption, takedowns, and different retention periods, some content may not be available on all providers.
+
+For this guide, we will only be considering Easynews and Torbox as Usenet providers as they are the only ones that have addons for Stremio.
+However, generally, the factors to consider when choosing a Usenet provider: 
+- Data Limits: Depending on your plan, you may have a fixed amount of data you can download per month. You will have to consider how much data you will be downloading and choose a plan accordingly. 
+- Retention: This is the amount of time that the provider will store the content for. The longer the retention, the better.
+- Connections: This is the number of connections you can have to the server at the same time. The more connections you have, the more devices you can use the service on at the same time, as well as the number of files you can download at the same time.
+
+#### Indexers
+
+Usenet has a lot of content, and to search for this content, most providers will have some sort of search engine that you can use.
+However, you may not be satisfied with the search engine provided by your Usenet provider. There may be content on the newsgroups that you cannot find through their search engine.
+
+This is where indexers come in. Indexers are websites that index the content on the newsgroups and allow you to search for content. 
+As independent, dedicated services to search for content, they are usually better than the search engine on your Usenet provider.
+
+You can use multiple indexers at the same time to increase the chances of finding the content you want. 
+Different indexers may specialise in different types of content. 
 
 
 ### Should I use Usenet?
 
+The main reason to use Usenet is to access more niche content as well as getting files of larger sizes (and thus higher quality, usually) than what is available through torrents.
 
-### How do I access Usenet on Stremio?
+Just like with debrid services: 
+
+- The usenet providers offer extremely fast download speeds, which mean that only your internet speed will limit the quality of the content you can watch.
+- The content is aquired through HTTP with SSL encryption, so you are not at risk of receiving a notice from your ISP.
+- The usenet can be used for more than just Stremio. You can download any type of file, it doesn't have to be video files. If it is on the Usenet, you can download it.
+
+Now, most people will not need to use Usenet. Torrents are usually sufficient for most people.
+Even if you may need to use Usenet, you will most likely use it as a backup to your debrid service.
+
+However, in some cases, where torrents are not sufficient - such as for German content - Usenet may be the only way to access the content you want.
+
+If you are currently satisfied with your debrid service, then I do not recommend using Usenet. 
+However, it can act as a backup to your debrid service if you want to be prepared for any situation. 
 
 
+### How do I use Usenet with Stremio?
+
+There are only two ways to access Usenet content through Stremio.
+
+There is only one Usenet provider for which there is an addon for Stremio - Easynews.
+
+There is also Torbox, a debrid service that offers Usenet access through undisclosed providers and indexers. 
+As Torbox is also a debrid service, it does sound like possibly the best service that is discussed in this guide. 
+It's seeding policy is the best of all the debrid services and it offers access to Usenet. 
+
+I will now go through the setup for each of these services. 
+Although Torbox has been covered previously, I will go through it again. 
+
+<Tabs className="custom-tabs" queryString="usenet-service">
+
+<TabItem value="easynews" label="Easynews">
+    ![Easynews Payment](./img/easynews_payment.png)
+
+    1. Head to [Easynews's signup page](https://signup.easynews.com/checkout/) 
+    :::tip
+    There is currently a deal where you can get the features of the Big Gig Plan for $44.85 / 15 months ($2.99 / month).
+    Use [this link](https://signup.easynews.com/checkout/deal-for-you) to get this deal.
+    :::
+    2. Choose a package, fill in your details and subscribe.
+    3. Complete the payment and signup process.
+</TabItem>
+
+<TabItem value="torbox" label="Torbox">
+
+    ![Torbox Payment](./img/torbox_payment.png)
+    Torbox is a relatively new debrid service but it is unique in that it offers a lot more. 
+    It offers : 
+    - A generous seedbox that can seed for up to an unlimited amount ratio for up to 30 days.
+    - Up to 10 concurrent slots which means you can use it on up to 10 devices at different locations at the same time.
+    - Access to Usenet and a VPN. (Usenet is explained in more detailed below. It is simply another way to access more content)
+
+    To set up a Torbox account, follow these steps:
+
+    1. Go to [Torbox's website](https://torbox.app/)
+    2. Click `Get Started For Free Now` or `LOGIN` in the top right corner to create an account.
+    3. Click `Don't have an account yet?` at the bottom of the page. 
+    4. Fill in the email and password fields and click `Continue`
+    5. You will be sent an email to verify your email address. Click the link in the email to verify your email address.
+    6. You will then be taken to the Dashboard. 
+    7. Go to the [Subscription page](https://torbox.app/subscription?referral=9ca21adb-dbcb-4fb0-9195-412a5f3519bc).
+        :::info
+        You may get an alert saying `Do you want to use this referral code? If you already have a code, this will replace it.` 
+        This is because the above link has a referral code in it. You will get 15 days free if you accept my referal code. 
+
+        You may also enter this referral code manually at the bottom of the page:
+        ```
+        a6e67618-eb3c-44e3-a0ec-6d1e6135ad48
+        ```
+        :::
+    10. To be able to access Usenet, you need to buy the highest tier package - the `Pro` package.
+    11. Click `Subscribe` on the `Pro` package.
+    12. Then, follow the steps at the payment page to complete your purchase.
+</TabItem>
+</Tabs>
 
 ## Setting up Addons
 
