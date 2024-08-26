@@ -73,6 +73,11 @@ const config: Config = {
       },
       items: [
         {
+          href: '/support-me',
+          label: 'Support Me',
+          position: 'right',
+        },
+        {
           href: 'https://github.com/Viren070/guides',
           position: 'right',
           className: 'header-github-link',
