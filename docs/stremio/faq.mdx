@@ -408,6 +408,51 @@ Although there is no official watch together feature, you can use several soluti
 Yes. You can use [Netflix-To-Trakt-Import](https://github.com/jensb89/Netflix-to-Trakt-Import) to import your Netflix history to Trakt. 
 You can then import your Trakt history to Stremio.
 
+### Is it possible to see the ratings of movies and shows on the posters?
+
+Yes. You can use one of two methods to achieve this: 
+
+<details>
+<summary>RPDB</summary>
+  <div>
+  [RPDB](https://ratingposterdb.com/) is a database of movie posters with ratings. 
+  As it works through an API, you can use it with any addon that supports it. 
+  
+  To obtain an API key, you can follow the instructions [here](#how-do-i-obtain-a-rpdb-api-key).
+
+  Once you have obtained it, you can enter it into the configuration page of any supported addon.
+  I do cover most of these addons in the [set up guide](guide#catalogue-addons), so if you need further instructions you can refer to that.
+
+  RPDB is supported by the following catalogue addons: 
+    - [The Movie Database Addon](https://94c8cb9f702d-tmdb-addon.baby-beamup.club/configure)
+    - [IMDB Catalogs](https://1fe84bc728af-imdb-catalogs.baby-beamup.club/configure)
+    - [Streaming Catalogs](https://7a82163c306e-stremio-netflix-catalog-addon.baby-beamup.club/configure)
+    - [Cyberflix](https://cyberflix.elfhosted.com/)
+    - [Trakt.tv](https://2ecbbd610840-trakt.baby-beamup.club/configure/)
+    - [Anime Catalogs](https://1fe84bc728af-stremio-anime-catalogs.baby-beamup.club/configure)
+    - [RPDB Catalogs](https://1fe84bc728af-rpdb.baby-beamup.club/configure)
+    - [Rotten Tomatoes](https://7a82163c306e-rottentomatoes.baby-beamup.club/configure)
+
+  </div>
+</details>
+
+<details>
+<summary>stremio-rating-addon</summary>
+  <div>
+  stremio-rating-addon is a free and open source addon that provides catalogues with ratings on the posters.
+  It obtains the ratings through web scraping. 
+
+  This means that you cannot use it with other addons and have to use the catalogues provided by stremio-rating-addon.
+
+  You can find more information on its [announcement post](https://www.reddit.com/r/StremioAddons/comments/1ev8ufg/stremioratingaddon_free_and_open_source_rpdb/) on r/StremioAddons and its [GitHub page](https://github.com/hexdecimal16/stremio-rating-addon)
+  
+  This addon can be self-hosted but there is a public ElfHosted instance available [here](https://stremio-ratings.elfhosted.com/).
+  
+  <Admonition type="tip">
+  Use the [Stremio Addon Manager](extras/addon-manager) to move this addon to the top of your list to ensure that you see the ratings on the posters.
+  </Admonition>
+  </div>
+</details>
 
 ### Can I use Stremio to watch local files, like on Plex or Jellyfin?
 
@@ -474,3 +519,17 @@ Community links:
 4. Go to the [API page](https://www.themoviedb.org/settings/api).
 5. You can now fill in the required information. This can be all garbage information but to avoid any issues, you can fill in the information somewhat accurately.
 6. After your API key is generated, go back to the [API page](https://www.themoviedb.org/settings/api) and highlight and copy the `API Key`.
+
+### How do I obtain a RPDB API key?
+
+If you only want free access, then use this API Key: `t0-free-rpdb` 
+
+If you want to access some of the premium features, you will have to subscribe to the RPDB Patreon:
+
+1. [Login to your Patreon account](https://www.patreon.com/login)
+2. Go to the [RPDB Patreon page](https://www.patreon.com/rpdb)
+3. Click `Join for Free`
+4. Then, go to the [RPDB Website](https://ratingposterdb.com/) and click [Login](https://ratingposterdb.com/login) in the top right corner 
+5. RPDB will ask you to log in with Patreon, click `Allow`
+6. You will now see your API Key. Highlight it all and press `Ctrl + C` to copy it.
+7. You can now use this API key in the addons that support RPDB.
