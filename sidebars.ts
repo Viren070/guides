@@ -59,7 +59,7 @@ const sidebars: SidebarsConfig = {
 					items: [
 						"stremio/intro",
 						"stremio/technical-details",
-						"stremio/guide",
+						"stremio/setup",
 						{
 							type: "category",
 							label: "Extras",
