@@ -85,6 +85,18 @@ const sidebars: SidebarsConfig = {
 				},
 				{
 					type: "category",
+					label: "Aniyomi",
+					link: {
+						type: "doc",
+						id: "aniyomi/index",
+					},
+					items: [
+						"aniyomi/intro",
+						"aniyomi/setup",
+					],
+				},
+				{
+					type: "category",
 					label: "Kodi ⏳",
 					link: {
 						type: "doc",
@@ -92,7 +104,6 @@ const sidebars: SidebarsConfig = {
 					},
 					items: [],
 				},
-				"aniyomi/index",
 				"revanced/index"
 				
 			],
