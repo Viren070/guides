@@ -1,9 +1,16 @@
 [Comet](https://github.com/g0ldyy/comet) is a self hostable torrent/debrid search addon. (It requires a debrid service)
-One of its distinguishing features is that it supports using Proxy Debrid streams. This allows the use of Debrid streams on multiple IPs at the same time on the same account.
+
+One of its distinguishing features is that it supports using Proxy Debrid streams. 
+This allows the use of Debrid streams on multiple IPs at the same time on the same account.
 
 However, you will have to use comet exclusively, no other addon that uses the same debrid should be being used at the same time as it will have a different IP address to the proxy. 
 
 You can read more about its features on the [Comet GitHub page](https://github.com/g0ldyy/comet?tab=readme-ov-file#features)
+
+:::note
+The proxy feature is not available on the public ElfHosted instance. You can use the public version with other addons just fine.
+It is only if you enable the proxy feature when self hosting (or using a custom ElfHosted instance) that you will have to use Comet exclusively.
+:::
 
 Comet can be [selfhosted](https://github.com/g0ldyy/comet?tab=readme-ov-file#self-hosted) or [ElfHosted](https://elfhosted.com/app/comet/).
 
@@ -12,12 +19,12 @@ For this guide, I will go through the setup using the free, public ElfHosted ins
 To get started, head over to the [configuration page](https://comet.elfhosted.com/configure)
 
 - `Indexers` - Choose which indexers you want to use. I leave all of them checked to obtain the most results
-- `Language` - Choose which language you want your results to have. I leave the following selected: multi_subs, multi_audio, dual_audio, english. You can more if you are going to watch content in other languages (e.g. japanese for anime)
-- `Max Results` - The maximum number of results to display. I set this to 150 to see the most results.
+- `Language` - Choose which language you want your results to have. I leave the following selected: Multi and English. You can select more if you are going to watch content in other languages (e.g. japanese for anime)
+- `Resolutions` - Choose which resolutions you want your results to have. I leave all of them selected to obtain the most results.
+- `Max Results` - The maximum number of results to display. I set this to 20 so I don't have as many results to scroll through. You can leave it at 0 to display all results.
 - `Filter Titles` - If checked, titles will be checked to see if the titles don't match. I leave this unchecked in the case that there is more than 1 title for a movie.
 - `Debrid Service` - Choose your debrid service.
 - `Debrid API Key` - Obtain your API key from your debrid provider and paste it here. (Struggling to find your API key? [Click here](faq#where-can-i-find-my-debrid-api-key))
 
-Then click Install and a prompt will show on Stremio to install the addon. Click Install again and the addon will be installed.
+Then either click `Install` to open Stremio with a prompt to install the addon or click `Copy Link` to copy the addon URL to paste into Stremio manually.
 
-If you don't have the stremio app installed and are using Stremio Web, you can copy the URL, go to the addons page, click the `+ Add addon` button and paste the URL in.
