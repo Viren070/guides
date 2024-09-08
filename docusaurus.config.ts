@@ -66,10 +66,9 @@ const config: Config = {
       },
       items: [
         {
-          href: '/support-me',
-          label: 'Support Me',
+          type: 'html',
           position: 'right',
-        },
+          value: "<a href='https://ko-fi.com/J3J5UREZU' target='_blank'><img height='38' style='border:0px;height:38px;padding-top:5px;' src='https://storage.ko-fi.com/cdn/kofi3.png?v=3' border='0' alt='Buy Me a Coffee at ko-fi.com' /></a>",        },
         {
           href: 'https://github.com/Viren070/guides',
           position: 'right',
