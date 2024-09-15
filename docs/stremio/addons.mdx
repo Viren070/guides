@@ -4,8 +4,6 @@ description: Instructions for setting up Stremio addons.
 ---
 import Tabs from "@theme/Tabs";
 import TabItem from "@theme/TabItem";
-import useBaseUrl from '@docusaurus/useBaseUrl';
-import CodeBlock from '@theme/CodeBlock'
 import Torrentio from "./addons/_torrentio.mdx";
 import MediaFusion from "./addons/_mediafusion.mdx";
 import KnightCrawler from "./addons/_knightcrawler.mdx";
@@ -34,10 +32,6 @@ import Animeo from "./addons/_animeo.mdx";
 import MalStremioAddon from "./addons/_mal-stremio-addon.mdx";
 
 
-export function AddonUrl({ addon }) {
-  return window.location.origin + useBaseUrl(`/stremio/addons?addon=${addon}`);
-}
-
 # Stremio Addons
 
 <Tabs queryString="addon" className="hidden-tabs">
@@ -48,7 +42,8 @@ To view the instructions for a specific addon, append `?addon=addon-name` to the
 
 For example, to view the instructions for Streaming Catalogs, you would visit the following URL: 
 
-<a href={AddonUrl({ addon: 'streaming-catalogs'})}>{AddonUrl({ addon: 'streaming-catalogs'})}</a><br/><br/>
+https://guides.viren070.me/stremio/addons?addon=streaming-catalogs
+
 <details>
 <summary>Click here for a list of all addons</summary>
 
