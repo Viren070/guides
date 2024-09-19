@@ -4,18 +4,18 @@ import Admonition from "@theme/Admonition";
 
 [Stremio Web](https://web.stremio.com) is a web version of Stremio doesn't require any signup or installation.
 
-<Tabs className="custom-tabs" queryString="platform">
+**The following steps are for using Stremio Web only**. 
+It is recommended that you use dedicated apps, if available, for the best experience.
+Please check the other tabs for information on setting up dedicated apps.
 
-    <TabItem label="PC" value="web-pc" default>
+:::info
+There is no dedicated app for Stremio for the Apple ecosystem. 
+You may still use Stremio Web on most Apple devices, which will require a bit more work to set up, but it's a straightforward process that has clear instructions below.
+:::
 
-
-        On PC, playback in the browser will work most of the time. However, you may encounter audio issues and you won't be able to stream torrents without a streaming server.
-
-        Therefore, you will need to follow the steps below to [setup a streaming server on your android phone or desktop.](#stremio-server)
-
-    </TabItem>
-
-        <TabItem value="web-ios" label="iOS">
+<Tabs className="custom-tabs" queryString="web-platform">
+        
+    <TabItem value="ios" label="iPhone & iPad">
 
         The app available in the App Store is very limited and is pretty useless.
 
@@ -51,7 +51,33 @@ import Admonition from "@theme/Admonition";
         You can now open a link and it should open in the external player you selected.
     </TabItem>
 
-    <TabItem label="Android" value="web-android">
+    <TabItem label="Vision Pro" value="vision-pro">
+    
+        To get the best experience on Apple Vision Pro, you should use the Moon VR Player on Stremio Web. 
+
+        Follow [this blog post](https://blog.stremio.com/how-to-use-stremio-web-on-vision-pro/) to set up Stremio Web on your Apple Vision Pro.
+        Ensure that you select the Moon VR Player as the external player when setting up Stremio Web.
+
+        After setting up Stremio Web, you should ensure that Moon VR Player is installed on your Apple Vision Pro.
+
+        Limitations:
+            - Torrent streaming is not possible. This means **a debrid service is required** to stream torrents.
+            - No episode progress tracking.
+            - Addon-provided subtitles cannot be used (you can still use the embedded subtitles provided by the video file).
+
+        To resolve these limitations, you can [setup a streaming server on your android phone or desktop.](#stremio-server)
+    </TabItem>
+
+    <TabItem label="PC" value="pc" default>
+
+
+        On PC, playback in the browser will work most of the time. However, you may encounter audio issues and you won't be able to stream torrents without a streaming server.
+
+        Therefore, you will need to follow the steps below to [setup a streaming server on your android phone or desktop.](#stremio-server)
+
+    </TabItem>
+
+    <TabItem label="Android" value="android">
 
         If you are using Stremio Web on your android phone, then you can add it to your home screen for easy access. Here are the steps to do this:
 
