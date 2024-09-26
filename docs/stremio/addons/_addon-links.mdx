@@ -1,4 +1,4 @@
-export function GenerateTemplate(props) {
+export function GetLinks(props) {
     const { source, manifest, configurable, configurationRequired, id, configureAtBase } = props;
     const hasContent = source || manifest;
 
@@ -41,4 +41,4 @@ export function GenerateTemplate(props) {
     );
 }
 
-{GenerateTemplate(props)}
+{GetLinks(props)}
