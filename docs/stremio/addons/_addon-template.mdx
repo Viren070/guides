@@ -1,0 +1,50 @@
+export function GenerateTemplate(props) {
+    const { source, manifest, configurable, configurationRequired, id, configureAtBase } = props;
+    const hasContent = source || manifest;
+
+    // Helper functions to modify URLs
+    const getConfigureUrl = (url) => {
+        if (configureAtBase) {
+            return url.replace(/manifest\.json$/, '');
+        }
+        return url.replace(/manifest\.json$/, '') + 'configure';
+    };
+    const getInstallUrl = (url) => url.replace(/^https:\/\//, 'stremio://');
+    const getInstallWebUrl = (url) => `https://web.stremio.com/#/addons?addon=${url}`;
+
+    return (
+        <div>
+            {hasContent && (
+                <>
+                    <h3>Links</h3>
+                    {manifest && configurable && (
+                        <>
+                            <span><a href={getConfigureUrl(manifest)}>⚙️Configure Addon</a></span><br/>
+                        </>
+                    )}
+                    {!configurationRequired && manifest && (
+                        <>
+                            <span><a href={getInstallUrl(manifest)}>➕Install Addon</a></span><br/>
+                            <span><a href={getInstallWebUrl(manifest)}>🌐Install Addon to Stremio Web</a></span><br/>
+                        </>
+                    )}
+                    {id && (
+                        <>
+                            <span><a target="_blank" href={`addons?addon=${id}`}>🔗Addon Instructions Direct Link</a></span><br/>
+                        </>
+                    )}
+                    {source && (
+                        <>
+                            <span><a href={source}>📝Source Code</a></span><br/>
+                        </>
+                    )}
+                    <br/>
+                    <h3>Details</h3>
+                </>
+            )}
+        </div>
+    );
+}
+
+{GenerateTemplate(props)}
+

@@ -49,7 +49,7 @@ import StremioJackett from "./addons/_stremio-jackett.mdx";
 import Annatar from "./addons/_annatar.mdx";
 import Comet from "./addons/_comet.mdx";
 import Jackettio from "./addons/_jackettio.mdx";
-import Orion from "./addons/_orion.mdx";
+import OrionStremioAddon from "./addons/_orion-stremio-addon.mdx";
 import Torbox from "./addons/_torbox.mdx";
 import Easynews from "./addons/_easynews.mdx";
 import EasynewsPlus from "./addons/_easynews-plus.mdx";
@@ -60,8 +60,8 @@ import Stremify from "./addons/_stremify.mdx";
 import JaMovies from "./addons/_jamovies.mdx";
 import StremioGDrive from "./addons/_stremio-gdrive.mdx";
 import UsaTv from "./addons/_usa-tv.mdx";
-import Tmdb from "./addons/_tmdb.mdx";
-import Imdb from "./addons/_imdb.mdx";
+import TmdbAddon from "./addons/_tmdb-addon.mdx";
+import ImdbCatalogs from "./addons/_imdb-catalogs.mdx";
 import CyberFlix from "./addons/_cyberflix.mdx";
 import StreamingCatalogs from "./addons/_streaming-catalogs.mdx";
 import AnimeKitsu from "./addons/_anime-kitsu.mdx";
@@ -86,12 +86,14 @@ Head over to [Stremio](https://stremio.com/) and either [sign up for an account]
 
 ## Downloading Stremio
 
-Head to the [downloads page](https://stremio.com/downloads) and download the required package.
-:::tip
-Want to use Stremio on your Apple device? Check the [Web](?platform=web#downloading-stremio) section below for more information.
-:::
-
 Here are the instructions for each platform, if you are viewing on a mobile phone, you will need to scroll horizontally to see all the different platform instructions. 
+
+:::tip
+Some devices (such as iPhones) do not have a Stremio app. 
+In this case, it may be possible to use Stremio through Stremio Web. 
+
+In the [Web](?platform=web#downloading-stremio) tab below, you will find device specific instructions on how to use Stremio through Stremio Web.
+:::
 
 <Tabs className="custom-tabs" queryString="platform">
 
@@ -177,7 +179,10 @@ It brings the following benefits:
 - You can use it for more than just Stremio. You can use it to download any type of file, whether that be games, software or audio. If it is a torrent or a file on a supported hoster, you can download it through your debrid service.
 
 However, the drawbacks of using a debrid service are that most do not seed the torrents and will also restrict usage to one IP address at a time.
-This means that you are not contributing to the torrent and that you can only use the service on one device at a time.
+This means that you are not contributing to the torrent and that you can only use the service in one location at a time. 
+:::tip
+For more details on the one IP address rule, please see this question in the [FAQ](faq#how-does-the-one-ip-address-rule-work).
+:::
 
 There are some exceptions to this, which I discuss below.
 
@@ -600,7 +605,7 @@ The HTTP addons should only be used if you are not using any other type of addon
 <details>
     <summary>Orion :busts_in_silhouette: :cloud: :newspaper:</summary>
     <div>
-        <Orion/>
+        <OrionStremioAddon/>
     </div>
 </details>
 
@@ -640,7 +645,7 @@ The HTTP addons should only be used if you are not using any other type of addon
 </details>
 
 <details>
-    <summary>Easynews Plus :newspaper:</summary>
+    <summary>Easynews+ :newspaper:</summary>
     <div>
         <EasynewsPlus/>
     </div>
@@ -744,14 +749,14 @@ These addons provide general catalogues of movies and shows such as popular, tre
 <details>
     <summary>TMDB Addon</summary>
     <div>
-        <Tmdb/>
+        <TmdbAddon/>
     </div>
 </details>
 
 <details>
     <summary>IMDB Catalogs</summary>
     <div>
-        <Imdb/>
+        <ImdbCatalogs/>
     </div>
 </details>
 

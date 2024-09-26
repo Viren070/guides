@@ -1,4 +1,9 @@
-[MediaFusion](https://github.com/mhdzumair/MediaFusion) is a universal stremio addon that provides a variety of content (including Live TV and Sports)
+import AddonTemplate from './_addon-template.mdx';
+
+<AddonTemplate id="mediafusion" manifest="https://mediafusion.elfhosted.com/manifest.json" configurable={true} source="https://github.com/mhdzumair/MediaFusion"/> 
+
+
+MediaFusion is a universal stremio addon that provides a variety of content (including Live TV and Sports)
 
 Check the [features section](https://github.com/mhdzumair/MediaFusion?tab=readme-ov-file#-features) of their GitHub page to see all that the addon has to offer.
 
@@ -6,11 +11,9 @@ This addon can be [selfhosted](https://github.com/mhdzumair/MediaFusion?tab=read
 
 I will go through the setup using the free, public ElfHosted instance. If you don't want to selfhost but want more customisation, you can pay for your own instance on ElfHosted.
 
-To get started, head over to the [configuration page](https://mediafusion.elfhosted.com/configure).
+<h3>Configuration</h3>
 
-MediaFusion has a lot of options to customise your experience. I will go through each option explaining what it does and list my preferences and why.
-
-----
+To get started, head over to the [configuration page](https://mediafusion.elfhosted.com/configure):
 
 - `Streaming Provider` - Here you can choose whether to use direct torrent or a debrid service or another provider. Select what you are using and then fill in the details below.
                             Mediafusion supports authorising as a device, this is simpler but you can still use the API key method if you prefer. (Struggling to find the API key? [Click here](faq#where-can-i-find-my-debrid-api-key))
