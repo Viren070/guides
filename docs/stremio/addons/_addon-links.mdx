@@ -3,12 +3,7 @@ export function GenerateTemplate(props) {
     const hasContent = source || manifest;
 
     // Helper functions to modify URLs
-    const getConfigureUrl = (url) => {
-        if (configureAtBase) {
-            return url.replace(/manifest\.json$/, '');
-        }
-        return url.replace(/manifest\.json$/, '') + 'configure';
-    };
+    const getConfigureUrl = (url) => configureAtBase ? url.replace(/manifest\.json$/, '') : url.replace(/manifest\.json$/, '') + 'configure';
     const getInstallUrl = (url) => url.replace(/^https:\/\//, 'stremio://');
     const getInstallWebUrl = (url) => `https://web.stremio.com/#/addons?addon=${url}`;
 
@@ -47,4 +42,3 @@ export function GenerateTemplate(props) {
 }
 
 {GenerateTemplate(props)}
-
