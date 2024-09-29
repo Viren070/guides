@@ -8,6 +8,8 @@
 - [x] Rename stremio/guide to stremio/setup ?
 - [x] Update Formulio section when fixed 
 - [x] Change headings for live tv / sports ? 
+- [ ] Fix torbox stuff
+- [ ] Fix Usenet stuff
 
 ## New Guides 
 
