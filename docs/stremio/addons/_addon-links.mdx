@@ -11,30 +11,43 @@ export function GetLinks(props) {
         <div>
             {hasContent && (
                 <>
-                    <h3>Links</h3>
-                    {manifest && configurable && (
-                        <>
-                            <span><a href={getConfigureUrl(manifest)}>⚙️Configure Addon</a></span><br/>
-                        </>
-                    )}
-                    {!configurationRequired && manifest && (
-                        <>
-                            <span><a href={getInstallUrl(manifest)}>➕Install Addon</a></span><br/>
-                            <span><a href={getInstallWebUrl(manifest)}>🌐Install Addon to Stremio Web</a></span><br/>
-                        </>
-                    )}
-                    {id && (
-                        <>
-                            <span><a target="_blank" href={`addons?addon=${id}`}>🔗Addon Instructions Direct Link</a></span><br/>
-                        </>
-                    )}
-                    {source && (
-                        <>
-                            <span><a href={source}>📝Source Code</a></span><br/>
-                        </>
-                    )}
+                    <div className="addon-links-button-container">
+                        {manifest && (
+                            <div className="addon-links-row">
+                                {!configurationRequired && (
+                                    <>
+                                        <button className="addon-links-button install-button">
+                                            <a href={getInstallUrl(manifest)}>➕ Install Addon</a>
+                                        </button>
+                                        <button className="addon-links-button install-web-button">
+                                            <a href={getInstallWebUrl(manifest)}>🌐 Install to Web</a>
+                                        </button>
+                                    </>
+                                )}
+                                {configurable && (
+                                    <button className="addon-links-button configure-button">
+                                        <a href={getConfigureUrl(manifest)}>⚙️ Configure Addon</a>
+                                    </button>
+                                )}
+                            </div>
+                        )}
+                        {(source || id) && (
+                            <div className="addon-links-row">
+                                {source && (
+                                    <button className="addon-links-button source-code-button">
+                                        <a href={source}>📝 Source Code</a>
+                                    </button>
+                                )}
+                                {id && (
+                                    <button className="addon-links-button guide-link-button">
+                                        <a href={`addons?addon=${id}`} target="_blank">🔗 Addon Guide</a>
+                                    </button>
+                                )}
+                            </div>
+                        )}
+                    </div>
                     <br/>
-                    <h3>Details</h3>
+                    <h3>Description</h3>
                 </>
             )}
         </div>

@@ -59,3 +59,77 @@
 .hidden-tabs {
   display: none;
 }
+
+
+.addon-links-button-container {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.addon-links-row {
+  display: flex;
+  justify-content: flex-start;
+  gap: 10px; /* Add gap between buttons */
+}
+
+.addon-links-button {
+  border: none;
+  color: white;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 1rem;
+  cursor: pointer;
+  border-radius: var(--ifm-global-radius);
+  transition: background-color 0.3s ease;
+  width: 190px;
+}
+
+.addon-links-button a {
+  text-decoration: none;
+  color: inherit;
+  display: block;
+}
+
+/* Specific button colors */
+.install-button {
+  background-color: #28a745; /* Green */
+}
+
+.install-button:hover {
+  background-color: #218838; /* Darker green */
+}
+
+.install-web-button {
+  background-color: #6f42c1; /* Purple */
+}
+
+.install-web-button:hover {
+  background-color: #5a32a3; /* Darker purple */
+}
+
+.configure-button {
+  background-color: #007bff; /* Blue */
+}
+
+.configure-button:hover {
+  background-color: #0056b3; /* Darker blue */
+}
+
+.source-code-button {
+  background-color: #ffc107; /* Yellow */
+}
+
+.source-code-button:hover {
+  background-color: #e0a800; /* Darker yellow */
+}
+
+.guide-link-button {
+  background-color: #6c757d; /* Gray */
+}
+
+.guide-link-button:hover {
+  background-color: #5a6268; /* Darker gray */
+}
