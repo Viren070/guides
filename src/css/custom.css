@@ -76,15 +76,17 @@
 .addon-links-button {
   border: none;
   color: white;
-  padding: 10px 20px;
   text-align: center;
   text-decoration: none;
   display: inline-block;
-  font-size: 1rem;
+  font-size: 1.1rem;
+  font-weight: 600;
   cursor: pointer;
   border-radius: var(--ifm-global-radius);
   transition: background-color 0.3s ease;
-  width: 190px;
+  height: 75px;
+  flex-grow: 1; /* Allow buttons to grow and fill the available space */
+  flex-basis: 0; /* Ensure buttons start with zero width */
 }
 
 .addon-links-button a {

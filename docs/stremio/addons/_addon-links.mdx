@@ -17,16 +17,16 @@ export function GetLinks(props) {
                                 {!configurationRequired && (
                                     <>
                                         <button className="addon-links-button install-button">
-                                            <a href={getInstallUrl(manifest)}>➕ Install Addon</a>
+                                            <a href={getInstallUrl(manifest)}>➕ Install</a>
                                         </button>
                                         <button className="addon-links-button install-web-button">
-                                            <a href={getInstallWebUrl(manifest)}>🌐 Install to Web</a>
+                                            <a href={getInstallWebUrl(manifest)}>🌐 Install (Web)</a>
                                         </button>
                                     </>
                                 )}
                                 {configurable && (
                                     <button className="addon-links-button configure-button">
-                                        <a href={getConfigureUrl(manifest)}>⚙️ Configure Addon</a>
+                                        <a href={getConfigureUrl(manifest)}>⚙️ Configure</a>
                                     </button>
                                 )}
                             </div>
