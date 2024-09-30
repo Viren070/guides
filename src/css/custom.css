@@ -92,7 +92,11 @@
 .addon-links-button a {
   text-decoration: none;
   color: inherit;
-  display: block;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  width: 100%;
 }
 
 /* Specific button colors */
