@@ -51,6 +51,15 @@ To get started, head over to the [configuration page](https://mediafusion.elfhos
     - `Max Streams per Resolution` - Here you can choose the maximum number of streams per resolution. I set this to 50 to get a large number of streams. 
     - `Torrent Stream Display option` - Here you can choose how the torrent streams are displayed. I choose `Show parsed data`. Although there is a small chance that the parsed data is incorrect, it is usually correct and it is easier to read than the other options.
 
+- **External Services Configuration:**
+    - **MediaFlow**: This is a service that allows you to proxy your streams through a server. You will have to either self host your MediaFlow Proxy server or pay for an instance at [ElfHosted](https://elfhosted.com/app/mediaflow-proxy/). 
+        You can read more about MediaFlows features and instructions on setting it up [on its GitHub page](https://github.com/mhdzumair/mediaflow-proxy?tab=readme-ov-file#mediaflow-proxy).
+
+        By using MediaFlow, you can:
+        - Gain access to DRM protected live streams 
+        - Usese the same debrid account across several geographic locations. As all the streams are proxied through the same server, it will appear as if they are all coming from the same location.
+    - **RPDB**: This service allows you to have posters with ratings on them. To use this, you will need to obtain an API key. There is a free tier available. To obtain your API key, see [this question in the FAQ](faq#how-do-i-obtain-a-rpdb-api-key)
+
 Now that MediaFusion has been configured, click `Install in Stremio`. This will open Stremio and prompt you to install the addon. Click Install again and the addon will be installed.
 
 You can also click `Share Manifest URL` and copy the URL into either the Stremio addon search bar or the add addon menu on Stremio Web.
