@@ -23,7 +23,8 @@ To get started, head over to the [configuration page](https://mediafusion.elfhos
 
     Here you can choose which content is available to you through MediaFusion. Simply select the content you want to see. I will provide some notes on specific options below.
     - `Prowlarr Streams` - This will provide you with streams from Prowlarr. You should enable this to get more streams.
-    - `Torrentio Streams` - If you already have Torrentio installed, then there is no point in enabling this as it will just provide you with the same streams.
+    - `Torrentio Streams` - This will provide streams from either Torrentio or Knightcrawler. On the public ElfHosted instance, it is configured to use KnightCrawler. 
+                            Although you will get more streams by enabling this, if you already have Torrentio installed, you may want to disable this to avoid duplicate streams.
     - `Zilean DMM Streams` - This will provide you with streams obtained through [Zilean](https://github.com/iPromKnight/zilean), a [DMM](extras/debrid-media-manager) scraper. You should enable this to get more streams.
     - `Contribution Streams` - Enabling this provide a stream on movies and shows that allow you to upload torrent files or magnet links to MediaFusion for the community.
                                 You can read more about this [here](https://www.reddit.com/r/StremioAddons/comments/1cwaqh8/comment/l4w1bw1/)
@@ -40,6 +41,15 @@ To get started, head over to the [configuration page](https://mediafusion.elfhos
                                If you want to see all content, then you can select `Disable`.
     - `Nudity` - The optons you select will control the level of nudity in the content that appears in the catalogues. For example, if you select `Sever`, then any content with a sever nudity level will not appear in the catalogues.
                  If you want to see all content, then you can select `Disable`.
+
+
+    :::info
+    The certification levels and nudity levels are based on the information provided by IMDB. 
+    Sometimes, the data on IMDB can be provided by the community.
+    Therefore, the accuracy of the information may not always be accurate. 
+
+    To see what exact certification levels are covered by each option, see [here](https://github.com/mhdzumair/MediaFusion/blob/876cfd81760f34c9c1cbb48f5814299b1ef2d7de/utils/const.py#L188)
+    :::
 
 - **Streaming Preferences**:
     - `Streaming Resolutions` - Here you can choose which resolutions you want to see. I leave all resolutions selected, however, if you have a slow internet connection or your device can't handle 4K content, you may want to deselect 4K.
