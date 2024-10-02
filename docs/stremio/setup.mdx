@@ -42,6 +42,8 @@ import LgTv from "./platform/_lg-tv.mdx";
 import RasberryPi from "./platform/_rasberry-pi.mdx";
 import MetaQuest from "./platform/_meta-quest.mdx";
 
+import GenerateTable from "./_generate-debrid-cost-table.js";
+
 import Torrentio from "./addons/_torrentio.mdx";
 import MediaFusion from "./addons/_mediafusion.mdx";
 import KnightCrawler from "./addons/_knightcrawler.mdx";
@@ -229,50 +231,118 @@ There are many debrid services available to use. Here is a list of the ones supp
 
 When choosing a Debrid service, the factors you have to consider are cost and the value you get from it which is made up of its optimality and userbase.
 
-Real Debrid, AllDebrid, and Debrid-Link are the cheapest debrid services.
-However, Debrid-Link and AllDebrid are the cheapest as they offer a 300 day plan compared to Real-Debrid whose maximum is 180 days.
-Other than that, their prices are the same.
+**TL;DR**: Most users should use Real Debrid or AllDebrid. ([Skip to the setup instructions](#setting-up-a-debrid-service))
+
+**Cost**
+
+
+<details>
+<summary>Price Comparison Table</summary>
+<div>
+
+<Tabs>
+<TabItem value="gbp" label="GBP">
+{GenerateTable('GBP')}
+</TabItem>
+<TabItem value="usd" label="USD">
+{GenerateTable('USD')}
+</TabItem>
+<TabItem value="eur" label="EUR">
+{GenerateTable('EUR')}
+</TabItem>
+<TabItem value="unconverted" label="Unconverted">
+{GenerateTable()}
+</TabItem>
+</Tabs>
+
+</div>
+</details>
+
+Using the table above, we can see that Torbox is the cheapest debrid service, if using the Essential plan. (This is the plan I would recommend for Stremio)
+
+RealDebrid, AllDebrid, and Debrid-Link follow closely behind in terms of price.
+
+
+:::info
+If you are unsure if this is something you want to use, you can try a free trial or a limited free plan.
+
+- Torbox offer a limited free plan.
+- All-Debrid offer a free 7-day trial with phone number verification.
+- put.io offers a $0.99 1 day trial.
+
+Alternatively, you can use the 15 day package that most debrid services offer to test them out.
+:::
+
+
+**Optimality**
 
 Optimality refers to your proximity to the service's servers. The closer you are, the faster the download speeds and thus the better the streaming experience.
 The download speeds you get directly determine the quality of the stream you can watch. Make sure to carry out speed tests to determine the best service for you.
 The speed tests for each debrid service can be found [here](faq#where-can-i-find-the-speed-tests-for-debrid-services) and on their website too.
 
+While a debrid service is unlikely to be the bottleneck in your streaming experience, Torbox has the fastest servers (80gbit NVME) which no other service can offer at prices as low as theirs.
+
+**Userbase**
+
+This is important as the more users a debrid service has, the more cached torrents it will have.
+Cached torrents are what you rely on when streaming content through Stremio.
+
 A larger userbase means more cached torrents, with Real Debrid and AllDebrid leading.
 However, the other debrid services will still have a lot of popular torrents cached.
 
-Support for debrid services varies among addons, with Real Debrid, AllDebrid, and Premiumize being the most supported.
-Every debrid service except Torbox is supported by Torrentio (the most popular) and it is possible to get Torrentio streams for Torbox through MediaFusion.
-Find a full table of supported debrid services [here](faq#which-debrid-services-are-supported-by-each-addon).
+In this regard, Torbox is lacking.
+Being a relatively new service (founded in 2023), it has a smaller userbase and has had less time to build up its cache of torrents. 
+This means you may not find the content you want to watch cached on Torbox.
+
+**Addon Support**
+
+Support for debrid services varies among addons, with Real Debrid, AllDebrid, Debrid-Link and Premiumize being the most supported.
+However, all debrid services except Torbox are supported by Torrentio, the most popular Stremio addon, and usually the only one you need.
+
+Although Torbox is not supported by Torrentio, it is supported by other addons so you can still use it with Stremio.
+
+Find a full table of addons and supported debrid services [here](faq#which-debrid-services-are-supported-by-each-addon).
+
+**Additional Features**
+
+Another thing to consider is the additional features that some debrid services offer.
 
 I previously discussed some of the limitations of debrid services, namely the lack of seeding and the restriction to one IP address.
 As I said before, there are some exceptions. I will now go through them.
 
-**Seeding**:
 
-:::warning
-With the way debrid services work, users of debrid services will always be taking more than they are giving.
+- **IP Restrictions**:
 
-The debrid services below will seed the torrent if it hasn't been cached already. 
-In the case that its already been cached, they may not seed it, and other users can stream this cached torrent too. 
-:::
+    - Torbox has no IP restrictions whatsoever. You can use it on as many devices as you want.
+    - Premiumize also allows several IPs. However, it does operate on a storage limitation that you may reach depending on your usage.
 
-- Torbox offer a seedbox that can seed for up to an unlimited amount ratio for up to 30 days. This makes it the best debrid service for seeding.
-- Debrid-Link offers a seedbox with these limits: 600 torrents and 2.5TB of data transfer per month.
-- Premiumize will seed to a 2.0 ratio or for 72 hours. Whichever comes first.
-- put.io is similar to Premiumize but the exact numbers are dependent on your plan. Check their pricing page for more information.
+- **Seeding**:
 
-**IP Restrictions**:
+    :::warning
+    With the way debrid services work, debrid services will always be taking more than they are giving.
 
-- Torbox have no IP restrictions whatsoever. You can use it on as many devices as you want.
-- Premiumize is the only debrid service that allows multiple IP addresses. However, it does operate on a storage limitation that you may reach depending on your usage.
+    The debrid services below will seed the torrent if it hasn't been cached already. 
+    In the case that its already been cached, they may not seed it, and other users can stream this cached torrent too. 
+    :::
 
-:::info
-All-Debrid offers a free 7-day trial and put.io offers a $0.99 1 day trial, ideal for testing its suitability.
-Torbox also offer a limited free plan.
-Alternatively, you can use the 15 day package that most debrid services offer to test them out.
-:::
+    - Torbox offer a seedbox that can seed for up to an unlimited amount ratio for up to 30 days. This makes it the best debrid service for seeding. (The amount of torrents you can actively seed is dependent on your plan, referred to as your `Concurrent Slots`)
+    - Debrid-Link offers a seedbox with these limits: 600 torrents and 2.5TB of data transfer per month.
+    - Premiumize will seed to a 2.0 ratio or for 72 hours. Whichever comes first.
+    - put.io is similar to Premiumize but the exact numbers are dependent on your plan. Check their pricing page for more information.
 
-One last piece of information to consider is that Real Debrid has gone down more than any other debrid service but it is still a small amount of downtime.
+
+- **Usenet:**
+    - Torbox offers access to Usenet on its Pro plan ($110/year or $10/month). This is a unique feature that is not offered by any other debrid service. (Usenet is explained in more detail later. It is simply another way to access more content)
+    - Premiumize also offers access to Usenet. However, it does not support streaming, therefore it cannot be used for Stremio.
+
+
+When considering debrid services alone, I believe that Torbox is the best debrid service.
+However, its userbase is lacking which results in fewer cached torrents. 
+This is due to it being a relatively new service (Torbox came out in 2023 whereas Real Debrid came out in 2009).
+As a result, Torbox is not currently ideal for Stremio, as cached torrents are what you rely on when streaming content through Stremio.
+However, if you are only going to be watching mainstream content, then Torbox may be the right choice for you.
+
+**Therefore, I would recommend Real Debrid or AllDebrid for most users.**
 
 ### Setting up a debrid service
 
@@ -347,8 +417,7 @@ I will now cover the instructions of setting up each debrid service I previously
     ![Torbox Payment](./img/torbox_payment.png)
     Torbox is a relatively new debrid service but it is unique in that it offers a lot more. 
     It offers : 
-    - A generous seedbox that can seed for up to an unlimited amount ratio for up to 30 days.
-    - Up to 10 concurrent slots which means you can use it on up to 10 devices at different locations at the same time.
+    - A generous seedbox that can seed for up to an unlimited ratio for up to 30 days.
     - Access to Usenet and a VPN. (Usenet is explained in more detailed below. It is simply another way to access more content)
 
     To set up a Torbox account, follow these steps:
@@ -362,7 +431,7 @@ I will now cover the instructions of setting up each debrid service I previously
     7. Go to the [Subscription page](https://torbox.app/subscription?referral=9ca21adb-dbcb-4fb0-9195-412a5f3519bc) and choose a package.
         :::info
         You may get an alert saying `Do you want to use this referral code? If you already have a code, this will replace it.` 
-        This is because the above link has a referral code in it. You will get 15 days free if you accept my referal code. 
+        This is because the above link has a referral code in it. You will get 7 days free if you accept my referal code. 
 
         You may also enter this referral code manually at the bottom of the page:
         ```
@@ -381,7 +450,7 @@ I will now cover the instructions of setting up each debrid service I previously
 
 ## Usenet 
 
-I will now go through what the usenet is and why you may want to use it.
+I will now go through what Usenet is and why you may want to use it.
 
 Usenet is completely optional, and for the average user, it is not needed and should not be considered. You may read the [Should I use Usenet?](#should-i-use-usenet) section to determine if you need it.
 
@@ -427,9 +496,9 @@ The main reason to use Usenet is to access more niche content as well as getting
 
 Just like with debrid services: 
 
-- The usenet providers offer extremely fast download speeds, which mean that only your internet speed will limit the quality of the content you can watch.
+- Usenet providers offer extremely fast download speeds, which mean that only your internet speed will limit the quality of the content you can watch.
 - The content is aquired through HTTP with SSL encryption, so you are not at risk of receiving a notice from your ISP.
-- The usenet can be used for more than just Stremio. You can download any type of file, it doesn't have to be video files. If it is on the Usenet, you can download it.
+- Usenet can be used for more than just Stremio. You can download any type of file, it doesn't have to be video files. If it is on Usenet, you can download it.
 
 Most people will not need to use Usenet. Torrents are usually sufficient.
 Even if you may need to use Usenet, you will most likely use it as a backup to your debrid service.
@@ -450,10 +519,9 @@ The other way is through Torbox.
 Torbox is a debrid service that offers access to Usenet content. 
 Their Usenet service is only available on their highest tier package - the `Pro` package.
 They have undisclosed providers and indexers that they use to provide access to Usenet content.
-Torbox have their own Stremio addon that allows you to access their content.
+Torbox have their own Stremio addon that allows you to access their Usenet content, alongside torrents.
 
 I will now go through the setup for each of these services. 
-Although Torbox has been covered previously, I will go through it again. 
 
 <Tabs className="custom-tabs" queryString="usenet">
 
@@ -484,7 +552,7 @@ Although Torbox has been covered previously, I will go through it again.
     7. Go to the [Subscription page](https://torbox.app/subscription?referral=9ca21adb-dbcb-4fb0-9195-412a5f3519bc).
         :::info
         You may get an alert saying `Do you want to use this referral code? If you already have a code, this will replace it.` 
-        This is because the above link has a referral code in it. You will get 15 days free if you accept my referal code. 
+        This is because the above link has a referral code in it. You will get 7 days free if you accept my referal code. 
 
         You may also enter this referral code manually at the bottom of the page:
         ```
@@ -497,7 +565,7 @@ Although Torbox has been covered previously, I will go through it again.
 </TabItem>
 </Tabs>
 
-These steps only cover the setup of the Usenet service. 
+These steps only cover the setup of services that provide access to Usenet content.
 To access the content, you will need to use the Stremio addons for Easynews and Torbox.
 I will now go through the setup of these addons. Look for the Easynews and Torbox addons.
 
