@@ -1,9 +1,9 @@
 export default function generateDebridCostTable(primaryCurrency) {
   // Define conversion rates
   const conversionRates = {
-    EUR_TO_USD: 1.1040,
-    EUR_TO_GBP: 0.8324,
-    USD_TO_GBP: 0.7539,
+    EUR_TO_USD: 1.0982,
+    EUR_TO_GBP: 0.8369,
+    USD_TO_GBP: 0.7621,
   };
 
   const conversionRatesMapping = {
@@ -64,23 +64,23 @@ export default function generateDebridCostTable(primaryCurrency) {
     <table>
       <thead>
         <tr>
-          <th>Service</th>
-          <th>Price</th>
-          <th>Duration (Days)</th>
-          <th>Price per Day</th>
-          <th>Price per Month</th>
-          <th>Price per Year</th>
+          <th>Debrid Service</th>
+          <th>Price per Year <br/>{primaryCurrency && `(${primaryCurrency})`}</th>
+          <th>Price per Month <br/>{primaryCurrency && `(${primaryCurrency})`}</th>
+          <th>Price per Day <br/>{primaryCurrency && `(${primaryCurrency})`}</th>
+          <th>Plan Price</th>
+          <th>Plan Duration (Days)</th>
         </tr>
       </thead>
       <tbody>
         {data.map((service, index) => (
           <tr key={index}>
             <td>{service.name}</td>
+            <td>{formatPrice(convertPrice(service.pricePerYear, service.currency, primaryCurrency), primaryCurrency || service.currency)}</td>
+            <td>{formatPrice(convertPrice(service.pricePerMonth, service.currency, primaryCurrency), primaryCurrency || service.currency)}</td>
+            <td>{formatPrice(convertPrice(service.pricePerDay, service.currency, primaryCurrency), primaryCurrency || service.currency)}</td>
             <td>{formatPrice(service.price, service.currency)}</td>
             <td>{service.duration}</td>
-            <td>{formatPrice(convertPrice(service.pricePerDay, service.currency, primaryCurrency), primaryCurrency || service.currency)}</td>
-            <td>{formatPrice(convertPrice(service.pricePerMonth, service.currency, primaryCurrency), primaryCurrency || service.currency)}</td>
-            <td>{formatPrice(convertPrice(service.pricePerYear, service.currency, primaryCurrency), primaryCurrency || service.currency)}</td>
           </tr>
         ))}
       </tbody>
