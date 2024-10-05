@@ -24,6 +24,7 @@
 	height: 75px;
 	flex-grow: 1; /* Allow buttons to grow and fill the available space */
 	flex-basis: 0; /* Ensure buttons start with zero width */
+	position: relative; /* Ensure the <a> tag can be positioned absolutely */
 }
 
 .button a {
@@ -34,6 +35,9 @@
 	justify-content: center;
 	height: 100%;
 	width: 100%;
+	position: absolute; /* Position the <a> tag absolutely within the button */
+	top: 0;
+	left: 0;
 }
 
 /* Specific button colors */
