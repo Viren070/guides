@@ -1,0 +1,78 @@
+.buttonsContainer {
+	display: flex;
+	flex-direction: column;
+	gap: 10px;
+}
+
+.buttonRow {
+	display: flex;
+	justify-content: flex-start;
+	gap: 10px; /* Add gap between buttons */
+}
+
+.button {
+	border: none;
+	color: white;
+	text-align: center;
+	text-decoration: none;
+	display: inline-block;
+	font-size: 1.1rem;
+	font-weight: 600;
+	cursor: pointer;
+	border-radius: var(--ifm-global-radius);
+	transition: background-color 0.3s ease;
+	height: 75px;
+	flex-grow: 1; /* Allow buttons to grow and fill the available space */
+	flex-basis: 0; /* Ensure buttons start with zero width */
+}
+
+.button a {
+	text-decoration: none;
+	color: inherit;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	height: 100%;
+	width: 100%;
+}
+
+/* Specific button colors */
+.installButton {
+	background-color: #28a745; /* Green */
+}
+
+.installButton:hover {
+	background-color: #218838; /* Darker green */
+}
+
+.installWebButton {
+	background-color: #6f42c1; /* Purple */
+}
+
+.installWebButton:hover {
+	background-color: #5a32a3; /* Darker purple */
+}
+
+.configureButton {
+	background-color: #007bff; /* Blue */
+}
+
+.configureButton:hover {
+	background-color: #0056b3; /* Darker blue */
+}
+
+.sourceCodeButton {
+	background-color: #ffc107; /* Yellow */
+}
+
+.sourceCodeButton:hover {
+	background-color: #e0a800; /* Darker yellow */
+}
+
+.guideLinkButton {
+	background-color: #6c757d; /* Gray */
+}
+
+.guideLinkButton:hover {
+	background-color: #5a6268; /* Darker gray */
+}

@@ -42,7 +42,7 @@ import LgTv from "./platform/_lg-tv.mdx";
 import RasberryPi from "./platform/_rasberry-pi.mdx";
 import MetaQuest from "./platform/_meta-quest.mdx";
 
-import GenerateTable from "./_generate-debrid-cost-table.js";
+import DebridCostComparisonTable from "@site/src/components/DebridCostComparisonTable";
 
 import Torrentio from "./addons/_torrentio.mdx";
 import MediaFusion from "./addons/_mediafusion.mdx";
@@ -242,16 +242,16 @@ When choosing a Debrid service, the factors you have to consider are cost and th
 
 <Tabs>
 <TabItem value="gbp" label="GBP">
-{GenerateTable('GBP')}
+<DebridCostComparisonTable primaryCurrency="GBP"/>
 </TabItem>
 <TabItem value="usd" label="USD">
-{GenerateTable('USD')}
+<DebridCostComparisonTable primaryCurrency="USD"/>
 </TabItem>
 <TabItem value="eur" label="EUR">
-{GenerateTable('EUR')}
+<DebridCostComparisonTable primaryCurrency="EUR"/>
 </TabItem>
 <TabItem value="unconverted" label="Unconverted">
-{GenerateTable()}
+<DebridCostComparisonTable/>
 </TabItem>
 </Tabs>
 
