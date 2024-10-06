@@ -51,7 +51,7 @@ export default function StremioAddonButtons(props: StremioAddonButtonsProps): JS
                 )}
                 {id && (
                   <button className={`${styles.button} ${styles.guideLinkButton}`}>
-                    <a href={`/stremio/addons/${id}`} target="_blank" rel="noopener noreferrer">🔗 Addon Guide</a>
+                    <a href={`/stremio/addons/${id}`} target="_blank">🔗 Addon Guide</a>
                   </button>
                 )}
               </div>
