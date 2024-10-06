@@ -47,6 +47,8 @@ const config: Config = {
           editUrl:
             'https://github.com/Viren070/guides/edit/main/',
           routeBasePath: '/',
+          showLastUpdateAuthor: true,
+          showLastUpdateTime: true,
         },
         blog: false,
         theme: {
