@@ -31,13 +31,13 @@ export default function StremioAddonButtons(props: StremioAddonButtonsProps): JS
                       <a href={getInstallUrl(manifest)}>➕ Install</a>
                     </button>
                     <button className={`${styles.button} ${styles.installWebButton}`}>
-                      <a href={getInstallWebUrl(manifest)}>🌐 Install (Web)</a>
+                      <a href={getInstallWebUrl(manifest)} target="_blank" rel="noopener noreferrer">🌐 Install (Web)</a>
                     </button>
                   </>
                 )}
                 {configurable && (
                   <button className={`${styles.button} ${styles.configureButton}`}>
-                    <a href={getConfigureUrl(manifest)}>⚙️ Configure</a>
+                    <a href={getConfigureUrl(manifest)} target="_blank" rel="noopener noreferrer">⚙️ Configure</a>
                   </button>
                 )}
               </div>
@@ -46,7 +46,7 @@ export default function StremioAddonButtons(props: StremioAddonButtonsProps): JS
               <div className={styles.buttonRow}>
                 {source && (
                   <button className={`${styles.button} ${styles.sourceCodeButton}`}>
-                    <a href={source}>📝 Source Code</a>
+                    <a href={source} target="_blank" rel="noopener noreferrer">📝 Source Code</a>
                   </button>
                 )}
                 {id && (
