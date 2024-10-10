@@ -6,17 +6,16 @@ interface StremioAddonButtonsProps {
   configurable: boolean;
   configurationRequired: boolean;
   id: string;
-  configureAtBase: boolean;
 }
 
 export default function StremioAddonButtons(props: StremioAddonButtonsProps): JSX.Element {
-  const { source, manifest, configurable, configurationRequired, id, configureAtBase } = props;
+  const { source, manifest, configurable, configurationRequired, id } = props;
   const hasContent = source || manifest;
 
   // Helper functions to modify URLs
-  const getConfigureUrl = (url: string) => configureAtBase ? url.replace(/manifest\.json$/, '') : url.replace(/manifest\.json$/, '') + 'configure';
-  const getInstallUrl = (url: string) => url.replace(/^https:\/\//, 'stremio://');
-  const getInstallWebUrl = (url: string) => `https://web.stremio.com/#/addons?addon=${url}`;
+  const getConfigureUrl = (manifestUrl: string) => manifestUrl.replace(/manifest\.json$/, '') + 'configure';
+  const getInstallUrl = (manifestUrl: string) => manifestUrl.replace(/^https:\/\//, 'stremio://');
+  const getInstallWebUrl = (manifestUrl: string) => `https://web.stremio.com/#/addons?addon=${manifestUrl}`;
 
   return (
     <div>
