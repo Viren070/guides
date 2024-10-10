@@ -1,3 +1,5 @@
+stremio-addon:
+  label: Stremio Addon
 stremio-addon:usenet-streams:
   label: Usenet Streams
   description: Addons that provide Usenet links for Stremio.
