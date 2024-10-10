@@ -29,13 +29,13 @@ export default function generateDebridCostTable(generateDebridCostTableProps: { 
   
   
     // Helper function to convert prices
-    const convertPrice = (price, fromCurrency, toCurrency) => {
+    const convertPrice = (price: number, fromCurrency: string, toCurrency: string) => {
       if (fromCurrency === toCurrency || !toCurrency || !["USD", "EUR", "GBP"].includes(toCurrency)) return price;
       return price * conversionRatesMapping[fromCurrency][toCurrency];
     };
   
     // Helper function to format prices
-    const formatPrice = (price, currency) => {
+    const formatPrice = (price: number, currency: string) => {
       const symbols = { GBP: '£', EUR: '€', USD: '$' };
       return `${symbols[currency] || ''}${price.toFixed(2)}`;
     };
