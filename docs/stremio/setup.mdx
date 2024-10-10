@@ -74,15 +74,22 @@ import StremioGDrive from "./addons/stremio-gdrive.mdx";
 import UsaTv from "./addons/usa-tv.mdx";
 import TmdbAddon from "./addons/tmdb-addon.mdx";
 import ImdbCatalogs from "./addons/imdb-catalogs.mdx";
+import NewestMovies from "./addons/newest-movies.mdx";
+import CustomCatalogues from "./addons/custom-catalogues.mdx";
 import CyberFlix from "./addons/cyberflix.mdx";
 import StreamingCatalogs from "./addons/streaming-catalogs.mdx";
+import Networks from "./addons/networks.mdx";
+import PopularPeople from "./addons/popular-people.mdx";
 import AnimeKitsu from "./addons/anime-kitsu.mdx";
 import AnimeCatalogs from "./addons/anime-catalogs.mdx";
 import Animeo from "./addons/animeo.mdx";
 import MalStremioAddon from "./addons/mal-stremio-addon.mdx";
-
-
-
+import OpenSubtitlesV3 from "./addons/opensubtitles-v3.mdx";
+import SubDl from "./addons/subdl-subtitles.mdx";
+import SubSource from "./addons/subsource-subtitles.mdx";
+import YifySubtitlesByDexter from "./addons/yifysubtitles-dexter.mdx";
+import MSubtitles from "./addons/msubtitles.mdx";
+import LegendasDivx from "./addons/legendasdivx.mdx";
 
 # Setup
 
@@ -839,28 +846,17 @@ These addons provide general catalogues of movies and shows such as popular, tre
 </details>
 
 <details>
-    <summary>IMDB Lists / Search Results</summary>
+    <summary>Custom Catalogues</summary>
     <div>
-        This is not exactly an addon, but a tool that allows you to convert a list from a CSV file into a Stremio Catalogue. 
-
-        https://www.journey.co.il/stremio/
-
-        You can find more information on how to do this at:
-        - [Reddit: Create your own catalog from IMDB Lists](https://www.reddit.com/r/StremioAddons/comments/1e1uzhg/create_your_own_catalog_from_imdb_lists/)
-        - [Reddit: Create a catalog based on IMDB filtered results](https://www.reddit.com/r/StremioAddons/comments/1emdbwt/create_a_catalog_based_on_imdb_filtered_results/)
-
-        You may also want to have a look at the [browser extension](extras/open-in-stremio) which can create lists from other websites too. 
-    
+        <CustomCatalogues/>
     </div>
 </details>
+
 
 <details>
     <summary>Newest Movies</summary>
     <div>
-        This addon will provide the latest movies that are available
-
-
-        https://www.journey.co.il/stremio/9719661722857498/Newest%20Movies/preview.php
+        <NewestMovies/>
     </div>
 </details>
 
@@ -886,28 +882,9 @@ You can try both to see which you prefer but I recommend Streaming Catalogs.
 </details>
 
 <details>
-    <summary>New TV Shows</summary>
+    <summary>Networks</summary>
     <div>
-        These catalogues will show you the most recent or most popular 20 TV shows on each network.
-
-        Each list is a separate addon so click on the title of the list you want and you will see an install button
-        
-        Go to https://www.journey.co.il/stremio/networks.php to see the available networks. 
-    </div>
-</details>
-
-#### Other Catalogues 
-
-<details>
-    <summary>Popular People</summary>
-    <div>
-        This addon will provide a catalogue for popular actors.
-
-        When you click on a specific actor, you are directed to their most popular movie.
-
-        You can find more information in the [announcement post on r/StremioAddons](https://www.reddit.com/r/StremioAddons/comments/1eo2z5t/popular_people_catalog_if_anyone_is_interested/)
-
-        Go to https://www.journey.co.il/stremio/1/Popular%20People/preview.php to install it. 
+        <Networks/>
     </div>
 </details>
 
@@ -953,16 +930,60 @@ It also has a torrentio extension that supports watching normal movies/show.
     </div>
 </details>
 
+#### Other Catalogues 
+
+<details>
+    <summary>Popular People</summary>
+    <div>
+        <PopularPeople/>
+    </div>
+</details>
+
 ### Subtitle Addons
 
 Here are a list of working subtitle addons. This list may become outdated, please check the [community addons list with the subtitle filter](https://stremio-addons.netlify.app/?label=subtitles) if none of these work.
 
-- [Official OpenSubtitles v3](https://opensubtitles-v3.strem.io/)
-- [SubDL](https://subdl.strem.bar/configure)
-- [SubSource](https://subsource.strem.bar/configure)
-- [yifysubtitles by dexter21767](https://2ecbbd610840-yifysubtitles.baby-beamup.club/configure/)
-- [MSubtitles](https://msubtitles.lowlevel1989.click/conf/api/v1/configure) (You need to add subtitles on the website)
-- [Legendasdivx](https://e1d6cc1ff4a7-legendasdivx-stremio.baby-beamup.club/configure/) - Addons for PT-PT and PT-BR. Need to be registered at https://www.legendasdivx.pt/
+<details>
+    <summary>OpenSubtitles v3</summary>
+    <div>
+        <OpenSubtitlesV3/>
+    </div>
+</details>
+
+<details>
+    <summary>SubDL</summary>
+    <div>
+        <SubDl/>
+    </div>
+</details>
+
+<details>
+    <summary>SubSource</summary>
+    <div>
+        <SubSource/>
+    </div>
+</details>
+
+<details>
+    <summary>yifysubtitles by dexter21767</summary>
+    <div>
+        <YifySubtitlesByDexter/>
+    </div>
+</details>
+
+<details>
+    <summary>MSubtitles</summary>
+    <div>
+        <MSubtitles/>
+    </div>
+</details>
+
+<details>
+    <summary>LegendasDivx</summary>
+    <div>
+        <LegendasDivx/>
+    </div>
+</details>
 
 ## End of inital setup
 
