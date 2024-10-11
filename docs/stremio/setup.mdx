@@ -53,6 +53,7 @@ import MetaQuest from "./platform/_meta-quest.mdx";
 
 import DebridCostComparisonTable from "@site/src/components/DebridCostComparisonTable";
 import KoFiWidgetWrapper from "@site/src/components/KoFiWidgetWrapper";
+import {ToastContainer} from "react-toastify";
 
 import Torrentio from "./addons/torrentio.mdx";
 import MediaFusion from "./addons/mediafusion.mdx";
@@ -71,6 +72,10 @@ import Shluflix from "./addons/shluflix.mdx";
 import Stremify from "./addons/stremify.mdx";
 import JaMovies from "./addons/jamovies.mdx";
 import StremioGDrive from "./addons/stremio-gdrive.mdx";
+import MammaMia from "./addons/mammamia.mdx";
+import CometFr from "./addons/cometfr.mdx";
+import DramaCool from "./addons/dramacool.mdx";
+import Peerflix from "./addons/peerflix.mdx";
 import UsaTv from "./addons/usa-tv.mdx";
 import TmdbAddon from "./addons/tmdb-addon.mdx";
 import ImdbCatalogs from "./addons/imdb-catalogs.mdx";
@@ -85,6 +90,7 @@ import AnimeCatalogs from "./addons/anime-catalogs.mdx";
 import Animeo from "./addons/animeo.mdx";
 import MalStremioAddon from "./addons/mal-stremio-addon.mdx";
 import OpenSubtitlesV3 from "./addons/opensubtitles-v3.mdx";
+import OpenSubtitlesPro from "./addons/opensubtitles-pro.mdx";
 import SubDl from "./addons/subdl-subtitles.mdx";
 import SubSource from "./addons/subsource-subtitles.mdx";
 import YifySubtitlesByDexter from "./addons/yifysubtitles-dexter.mdx";
@@ -688,6 +694,13 @@ The HTTP addons should only be used if you are not using any other type of addon
 </details>
 
 <details>
+    <summary>Peerflix 🇪🇸 :busts_in_silhouette: </summary>
+    <div>
+        <Peerflix/>
+    </div>
+</details>
+
+<details>
     <summary>Orion :busts_in_silhouette: :cloud: :newspaper:</summary>
     <div>
         <OrionStremioAddon/>
@@ -698,6 +711,13 @@ The HTTP addons should only be used if you are not using any other type of addon
     <summary>Comet :cloud:</summary>
     <div>
         <Comet/>
+    </div>
+</details>
+
+<details>
+    <summary>CometFR 🇫🇷 :cloud:</summary>
+    <div>
+        <CometFr/>
     </div>
 </details>
 
@@ -751,9 +771,23 @@ The HTTP addons should only be used if you are not using any other type of addon
 </details>
 
 <details>
+    <summary>DramaCool :globe_with_meridians: :cloud:</summary>
+    <div>
+        <DramaCool/>
+    </div>
+</details>
+
+<details>
     <summary>Shuflix :globe_with_meridians: </summary>
     <div>
         <Shluflix/>
+    </div>
+</details>
+
+<details>
+    <summary>MammaMia 🇮🇹 :globe_with_meridians:</summary>
+    <div>
+        <MammaMia/>
     </div>
 </details>
 
@@ -763,7 +797,6 @@ The HTTP addons should only be used if you are not using any other type of addon
         <StremioGDrive/>
     </div>
 </details>
-
 
 #### Live TV & Sports
 
@@ -790,8 +823,9 @@ These addons can provide live TV channels, live sports and replays.
     </div>
 </details>
 
-- [Mediafusion](https://mediafusion.elfhosted.com/configure) provides streams for live sports and replays. It also has a few live TV channels.
+- [Mediafusion](/stremio/addons/mediafusion) provides streams for live sports and replays. It also has a few live TV channels.
    The live streams are direct streams but the replays are torrents. You can find more information above, where I covered it previously.
+- The [MammaMia](/stremio/addons/mammamia) addon also provides live TV channels.
 - If you have an IPTV provider, you can use the [xtremio](https://xtremio.elfhosted.com/configure) addon to watch content from your IPTV provider.
 
 
@@ -951,6 +985,13 @@ Here are a list of working subtitle addons. This list may become outdated, pleas
 </details>
 
 <details>
+    <summary>OpenSubtitles Pro</summary>
+    <div>
+        <OpenSubtitlesPro/>
+    </div>
+</details>
+
+<details>
     <summary>SubDL</summary>
     <div>
         <SubDl/>
@@ -996,3 +1037,4 @@ This includes using tracking services such as Trakt to get personalised recommen
 You can also check the [FAQ](faq) for any questions you may have or the [Troubleshooting](troubleshooting) page if you encounter any issues.
 
 <KoFiWidgetWrapper widgetType="button"/>
+<ToastContainer/>
