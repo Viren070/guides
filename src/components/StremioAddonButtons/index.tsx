@@ -24,7 +24,7 @@ const InstallButtons = ({ manifest }: { manifest: string }) => (
       </a>
     </button>
     <button className={`${styles.button} ${styles.installWebButton}`}>
-      <a href={`https://web.stremio.com/#/addons?addon=${manifest}`} target="_blank" rel="noopener noreferrer">
+      <a href={`https://web.stremio.com/#/addons?addon=${encodeURIComponent(manifest)}`} target="_blank" rel="noopener noreferrer">
         🌐 Install (Web)
       </a>
     </button>
