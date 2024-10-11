@@ -90,14 +90,14 @@ export default function StremioAddonButtons(props: StremioAddonButtonsProps): JS
           <div className={styles.buttonsContainer}>
             <div className={styles.buttonRow}>
               {showInstallButtons && <InstallButtons manifest={manifest} />}
-            </div>
-            <div className={styles.buttonRow}>
-              {showCopyManifestUrlButton && <CopyManifestUrlButton manifest={manifest} />}
               {showConfigureButton && <ConfigureButton manifest={manifest} configureOverride={configureOverride} />}
             </div>
             <div className={styles.buttonRow}>
-              {showSourceCodeButton && <SourceCodeButton source={source} />}
+              {showCopyManifestUrlButton && <CopyManifestUrlButton manifest={manifest} />}
               {showShareGuideButton && <ShareGuideButton id={id} />}
+            </div>
+            <div className={styles.buttonRow}>
+              {showSourceCodeButton && <SourceCodeButton source={source} />}
             </div>
           </div>
           <ToastContainer/>
