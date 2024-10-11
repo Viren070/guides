@@ -89,3 +89,7 @@
 .copyManifestUrlButton:hover {
     background-color: #e07b00; /* Darker Orange */
 }
+
+:root {
+    --toastify-color-dark: #242526; 
+}
