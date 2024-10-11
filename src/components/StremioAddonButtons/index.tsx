@@ -1,4 +1,6 @@
-import React from 'react';
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import useToast from './showToast';
 import styles from './styles.module.css';
 
 interface StremioAddonButtonsProps {
@@ -44,13 +46,35 @@ const SourceCodeButton = ({ source }: { source: string }) => (
   </button>
 );
 
-const GuideLinkButton = ({ id }: { id: string }) => (
-  <button className={`${styles.button} ${styles.guideLinkButton}`}>
-    <a href={`/stremio/addons/${id}`} target="_blank">
-      🔗 Addon Guide
-    </a>
-  </button>
-);
+const ShareGuideButton = ({ id }: { id: string }) => {
+  const showToast = useToast();
+  const handleCopy = () => { 
+    const guideLink = `${window.location.origin}/stremio/addons/${id}`;
+    navigator.clipboard.writeText(guideLink).then(() => {
+      showToast('The addon guide link was copied to your clipboard!');
+    });
+  };
+  return (
+  <button className={`${styles.button} ${styles.shareGuideButton}`} onClick={handleCopy}>
+      🔗 Share Addon Guide
+  </button>);
+};
+
+const CopyManifestUrlButton = ({ manifest }: { manifest: string }) => {
+  const showToast = useToast();
+  const handleCopy = () => {
+    navigator.clipboard.writeText(manifest).then(() => {
+      showToast('The manifest URL was copied to your clipboard!');
+    });
+  };
+
+  return (
+    <button className={`${styles.button} ${styles.copyManifestUrlButton}`} onClick={handleCopy}>
+      📋 Copy Manifest URL
+    </button>
+  );
+};
+
 
 export default function StremioAddonButtons(props: StremioAddonButtonsProps): JSX.Element {
   const { source, manifest, configurable, configurationRequired, configureOverride, id } = props;
@@ -58,21 +82,25 @@ export default function StremioAddonButtons(props: StremioAddonButtonsProps): JS
   const showInstallButtons = manifest && !configurationRequired; // only show install buttons if manifest is present and configuration is not required
   const showConfigureButton = (manifest && configurable) || configureOverride;  // only show configure button if manifest is present and addon is configurable or configureOverride is present
   const showSourceCodeButton = source; // only show source code button if source is present
-  const showGuideLinkButton = id; // only show guide link button if id is present
-
+  const showShareGuideButton = id; // only show guide link button if id is present
+  const showCopyManifestUrlButton = manifest && !configurationRequired; // only show copy URL button if manifest is present and configuration is not required
 
   return (
     <div>
           <div className={styles.buttonsContainer}>
             <div className={styles.buttonRow}>
               {showInstallButtons && <InstallButtons manifest={manifest} />}
+            </div>
+            <div className={styles.buttonRow}>
+              {showCopyManifestUrlButton && <CopyManifestUrlButton manifest={manifest} />}
               {showConfigureButton && <ConfigureButton manifest={manifest} configureOverride={configureOverride} />}
             </div>
             <div className={styles.buttonRow}>
               {showSourceCodeButton && <SourceCodeButton source={source} />}
-              {showGuideLinkButton && <GuideLinkButton id={id} />}
+              {showShareGuideButton && <ShareGuideButton id={id} />}
             </div>
           </div>
+          <ToastContainer />
     </div>
   );
 }

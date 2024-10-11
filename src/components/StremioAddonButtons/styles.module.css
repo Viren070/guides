@@ -74,10 +74,18 @@
 	background-color: #e0a800; /* Darker yellow */
 }
 
-.guideLinkButton {
+.shareGuideButton {
 	background-color: #6c757d; /* Gray */
 }
 
-.guideLinkButton:hover {
+.shareGuideButton:hover {
 	background-color: #5a6268; /* Darker gray */
+}
+
+.copyManifestUrlButton {
+    background-color: #ff8c00; /* Dark Orange */
+}
+
+.copyManifestUrlButton:hover {
+    background-color: #e07b00; /* Darker Orange */
 }
