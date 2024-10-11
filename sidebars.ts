@@ -59,7 +59,7 @@ const sidebars: SidebarsConfig = {
 					items: [
 						"stremio/intro",
 						"stremio/technical-details",
-						"stremio/guide",
+						"stremio/setup",
 						{
 							type: "category",
 							label: "Extras",
@@ -71,8 +71,7 @@ const sidebars: SidebarsConfig = {
 								"stremio/extras/trakt", 
 								"stremio/extras/addon-manager", 
 								"stremio/extras/debrid-media-manager", 
-								"stremio/extras/netflix-to-trakt",
-								"stremio/extras/stremio-server",
+								"stremio/extras/open-in-stremio",
 								"stremio/extras/discord-integration",
 								"stremio/extras/pimp-my-stremio",
 								"stremio/extras/stremio-downloader"
@@ -83,6 +82,18 @@ const sidebars: SidebarsConfig = {
 						"stremio/troubleshooting",
 						"stremio/credits",
 					],
+				},
+				{
+					type: "category",
+					label: "Aniyomi",
+					link: {
+						type: "doc",
+						id: "aniyomi/index",
+					},
+					items: [
+						"aniyomi/intro",
+						"aniyomi/setup",
+					]
 				},
 				{
 					type: "category",
@@ -106,8 +117,7 @@ const sidebars: SidebarsConfig = {
 						id: "kodi/index",
 					},
 					items: [],
-				},
-				"aniyomi/index",
+				}
 				
 			],
 		},

@@ -63,7 +63,7 @@ It is built into Stremio and can be enabled through the settings page.
    If the link doesn't work, head over to [Stremio](https://www.stremio.com/) and click on either `My Account` or `Login` in the top right.
 2. Click on the Integrations tab and click `Authenticate` next to Trakt Scrobbling to enable it.
 
-   ![Trakt Scrobbling](../img/stremio_acc_settings_integrations.png)
+   ![Trakt Scrobbling](/img/stremio/acc_settings_integrations.png)
 
 3. Login to your Trakt account and allow Stremio to access your account.
 
@@ -116,22 +116,25 @@ I will first go through creating our own lists with our own filters. You do not 
 :::warning
 You can only create up to 4 lists with a free account. 
 If you want to create more lists, you will need to [become a supporter](https://docs.mdblist.com/docs/supporter/).
+
+The trakt list limit also applies to the number of lists you can create with MDBList.
+However, you can add non-trakt synced lists to Stremio using the [Stremio MDBList Addon](https://1fe84bc728af-stremio-mdblist.baby-beamup.club/configure)
 :::
 
 To create our own lists, you first need to make sure you are logged in to Trakt.
 Click Login in the top right corner and then click `with Trakt.tv`:
 
-![mdblist login](../img/mdblist_login.png)
+![mdblist login](/img/stremio/mdblist_login.png)
 
 With MDBList, you have to create lists separetely for movies and TV shows.
 
 To create a list for movies, head to the homepage for [MDBList](https://mdblist.com/) and you should see the Movie Search menu.
 
-![mdblist movie search](../img/mdblist_movie_filters.png)
+![mdblist movie search](/img/stremio/mdblist_movie_filters.png)
 
 If you want to create a list for TV shows, click [`Shows`](https://mdblist.com/tv/) on the top bar, and you should see the TV Show Search menu.
 
-![mdblist tv search](../img/mdblist_tv_filters.png)
+![mdblist tv search](/img/stremio/mdblist_tv_filters.png)
 
 Now you need to fill in all the search criteria and then click the `Search` button.
 Make sure you have filled in as much of the filters as you can as this will give you the best results.
@@ -139,7 +142,7 @@ Make sure you have filled in as much of the filters as you can as this will give
 Once you have clicked search, you should see a list of movies or TV shows that match your criteria.
 Expand the `Create List` menu and fill in the name and description, then click `Create MDBList + Trakt`
 
-![mdblist create list](../img/mdblist_create_trakt_list.png)
+![mdblist create list](/img/stremio/mdblist_create_trakt_list.png)
 
 The list should now be created and you can view it on the [My Lists](https://mdblist.com/mylists/) page.
 
@@ -166,17 +169,17 @@ Have some history on Netflix? Use [Netflix to Trakt Import](https://github.com/j
 2. Click Login with Trakt
 3. Click Yes to allow Couchmoney to access your Trakt account
 
-   ![couchmoney auth](../img/couchmoney_trakt_auth.png)
+   ![couchmoney auth](/img/stremio/couchmoney_trakt_auth.png)
 
 4. On couchmoney, it should now show 2 lists Movies- Recommenations and TV - Recommendations. Click the edit icon on each list and this will walk you through customising it to your liking.
-   ![couchmoney lists](../img/couchmoney_lists_edit.png)
+   ![couchmoney lists](/img/stremio/couchmoney_lists_edit.png)
    :::info
    If it says `Not enough recommendations - try rating more shows on Trakt`, it simply means that you haven't added enough items to your history and given a rating.
 
    To fix this, simply head over to Trakt and find a movie or show you have watched.
    Then, click add to history. 
    Click the Add a rating button just under the title and give it a rating
-   ![trakt add to history](../img/trakt_add_to_history.png)
+   ![trakt add to history](/img/stremio/trakt_add_to_history.png)
 
    Repeat this process for a few movies and shows and then go back to couchmoney and try again.
    :::tip
@@ -193,7 +196,7 @@ Now that you have chosen or created the lists you want, we need to add them to S
 
 2. If you want to add your own lists that you created using couchmoney or MDBList, you will need to click the `Login to Trakt.tv` button and allow the addon to access your account.
 
-   ![trakt addon auth to trakt](../img/trakt_addon_auth_to_trakt.png)
+   ![trakt addon auth to trakt](/img/stremio/trakt_addon_auth_to_trakt.png)
 
 :::warning
 The addon page will show an expiration date for the token. When this date is reached, the addon won't be able to access personal lists anymore.
@@ -202,7 +205,7 @@ Remember to reconfigure the addon when the token expires if you want to keep usi
 
 3.  Then, scroll down to the `Add lists section`
 
-    ![trakt addon config list section](../img/trakt_addon_config_list_section.png)
+    ![trakt addon config list section](/img/stremio/trakt_addon_config_list_section.png)
 
 4.  Now you can either add lists you found or created earlier, or browse and search lists here.
 
@@ -215,9 +218,14 @@ Remember to reconfigure the addon when the token expires if you want to keep usi
     <summary>Adding our own MDBLists and Couchmoney Lists</summary>
         <div>
             For MDBList (your own lists only) and Couchmoney, click `Browse personal lists (requires login)`
-            ![trakt addon browse personal lists](../img/trakt_addon_browse_personal_lists.png)
+            ![trakt addon browse personal lists](/img/stremio/trakt_addon_browse_personal_lists.png)
 
                 Then click Add list on all the lists you want to add.
+            
+            :::tip
+            You can use the [MDBList Stremio Addon](https://1fe84bc728af-stremio-mdblist.baby-beamup.club/configure) to add lists that are not synced with Trakt.
+            This is useful if you have reached the Trakt list limit and want to add more lists from MDBList.
+            :::
         </div>
     </details>
     
@@ -225,10 +233,10 @@ Remember to reconfigure the addon when the token expires if you want to keep usi
         <summary>Adding other users' lists from MDBList</summary>
         <div>
             For other users' list you found on MDBList, go back to the tab where the list is open on MDBList and right click the trakt icon and click `Copy link address`. This will copy the URL of the list to your clipboard.
-                ![mdblist trakt url](../img/mdblist_trakt_url_list.png)
+                ![mdblist trakt url](/img/stremio/mdblist_trakt_url_list.png)
 
             Once you have the URL, paste it into the `Paste list URL` box and click `Add List`
-            ![trakt addon paste url](../img/trakt_addon_paste_url.png)
+            ![trakt addon paste url](/img/stremio/trakt_addon_paste_url.png)
 
             Repeat this process for any other lists you want to add.
         </div>
@@ -241,7 +249,7 @@ Remember to reconfigure the addon when the token expires if you want to keep usi
             You can also use the search box to search for lists.
 
             For example, you could search for `marvel`
-            ![trakt addon search lists example](../img/trakt_addon_search_lists_example.png)
+            ![trakt addon search lists example](/img/stremio/trakt_addon_search_lists_example.png)
 
             Once you find a list, click the `Add list` button.
 
@@ -251,13 +259,15 @@ Remember to reconfigure the addon when the token expires if you want to keep usi
 
     After you've added the lists, the lists should show up at the bottom like this:
 
-    ![trakt addon final lists example](../img/trakt_addon_final_lists_example.png)
+    ![trakt addon final lists example](/img/stremio/trakt_addon_final_lists_example.png)
 
 5.  Drag and drop the lists to the order you want them to appear on your homepage.
 
-6.  Now, we need to configure the `Generic lists` section
+6.  Optionally provide your [RPDB API key](../faq#how-do-i-obtain-a-rpdb-api-key) to show ratings on the posters.
 
-    ![trakt addon generic lists](../img/trakt_addon_generic_lists_configuration.png)
+7.  Now, we need to configure the `Generic lists` section
+
+    ![trakt addon generic lists](/img/stremio/trakt_addon_generic_lists_configuration.png)
 
     This section allows you to configure the generic lists that will show up on Stremio. I will go through each option and explain what they do.
 
@@ -268,10 +278,10 @@ Remember to reconfigure the addon when the token expires if you want to keep usi
     - Recommendations: This will create a catalog for your Trakt recommendations. (If you have setup a couchmoney list, there is no need to enable this)
     - Search: This will show results from Trakt when you search for a movie or show on Stremio.
 
-7.  Now click `Install Addon`
+8.  Now click `Install Addon`
 
 You should now see the lists on your home page.
-![trakt addon stremio home page](../img/trakt_addon_stremio_homepage.png)
+![trakt addon stremio home page](/img/stremio/trakt_addon_stremio_homepage.png)
 
 ## Trakt Up Next Addon
 

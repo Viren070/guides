@@ -55,3 +55,7 @@
   border-radius: var(--ifm-global-radius);
   background-color: var(--ifm-tabs-color-active);
 }
+
+.hidden-tabs {
+  display: none;
+}

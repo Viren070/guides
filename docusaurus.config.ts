@@ -26,8 +26,8 @@ const config: Config = {
   // useful metadata like html lang. For example, if your site is Chinese, you
   // may want to replace "en" with "zh-Hans".
   i18n: {
-    defaultLocale: 'en',
-    locales: ['en'],
+    defaultLocale: 'en-GB',
+    locales: ['en-GB'],
   },
 
   presets: [
@@ -47,17 +47,12 @@ const config: Config = {
           editUrl:
             'https://github.com/Viren070/guides/edit/main/',
           routeBasePath: '/',
+          showLastUpdateAuthor: true,
+          showLastUpdateTime: true,
         },
         blog: false,
         theme: {
           customCss: './src/css/custom.css',
-        },
-        gtag: {
-          trackingID: 'G-XK40H7Z9KX',
-          anonymizeIP: true,
-        },
-        googleTagManager: {
-          containerId: 'GTM-KXPB3JSP',
         },
       } satisfies Preset.Options,
     ],
@@ -72,6 +67,12 @@ const config: Config = {
         src: 'img/viren070_pfp.svg',
       },
       items: [
+        // add widget here as navbar is always loaded regardless of page
+        {
+          type: 'custom-kofi',
+          position: 'right',
+          widgetType: 'widget',
+        },
         {
           href: 'https://github.com/Viren070/guides',
           position: 'right',
@@ -137,7 +138,7 @@ const config: Config = {
       searchPagePath: 'search',
 
       // Optional: whether the insights feature is enabled or not on Docsearch 
-      insights: true,
+      insights: false,
 
       //... other Algolia params
     },
