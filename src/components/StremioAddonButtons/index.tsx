@@ -83,7 +83,7 @@ export default function StremioAddonButtons(props: StremioAddonButtonsProps): JS
   const showConfigureButton = (manifest && configurable) || configureOverride;  // only show configure button if manifest is present and addon is configurable or configureOverride is present
   const showSourceCodeButton = source; // only show source code button if source is present
   const showShareGuideButton = id; // only show guide link button if id is present
-  const showCopyManifestUrlButton = manifest && !configurationRequired; // only show copy URL button if manifest is present and configuration is not required
+  const showCopyManifestUrlButton = manifest // only show copy manifest URL button if manifest is present
 
   return (
     <div>
