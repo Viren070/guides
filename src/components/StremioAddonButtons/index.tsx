@@ -51,7 +51,10 @@ const ShareGuideButton = ({ id }: { id: string }) => {
   const handleCopy = () => { 
     const guideLink = `${window.location.origin}/stremio/addons/${id}`;
     navigator.clipboard.writeText(guideLink).then(() => {
-      showToast('The addon guide link was copied to your clipboard!', 'info', 'guide-link-toast');
+      showToast('The addon guide link was copied to your clipboard!', 'info');
+    }).catch(() => {
+      showToast('Failed to copy the addon guide link to your clipboard!', 'error');
+      showToast('Addon guide link: ' + guideLink, 'info');
     });
   };
   return (
@@ -64,7 +67,10 @@ const CopyManifestUrlButton = ({ manifest }: { manifest: string }) => {
   const showToast = useToast();
   const handleCopy = () => {
     navigator.clipboard.writeText(manifest).then(() => {
-      showToast('The manifest URL was copied to your clipboard!', 'info', 'manifest-url-toast');
+      showToast('The manifest URL was copied to your clipboard!', 'info');
+    }).catch(() => {
+      showToast('Failed to copy the manifest URL to your clipboard!', 'error');
+      showToast('Manifest URL: ' + manifest, 'info');
     });
   };
 
