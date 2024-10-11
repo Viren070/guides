@@ -12,6 +12,7 @@ const useToast = () => {
       closeOnClick: false,
       pauseOnHover: false,
       draggable: "touch",
+      draggablePercent: 40,
       progress: undefined,
       theme: colorMode,
       transition: Slide,
