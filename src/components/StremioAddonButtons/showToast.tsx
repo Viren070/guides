@@ -4,7 +4,7 @@ import { useColorMode } from '@docusaurus/theme-common';
 const useToast = () => {
   const { colorMode } = useColorMode();
 
-  const showToast = (message: string, type: 'info' | 'error' = 'info') => {
+  const showToast = (message: string, type: 'info' | 'error' = 'info', toastId: string) => {
     toast[type](message, {
       position: "top-right",
       autoClose: 5000,
@@ -14,6 +14,7 @@ const useToast = () => {
       draggable: true,
       progress: undefined,
       theme: colorMode,
+      toastId: toastId,
       transition: Slide,
     });
   };
