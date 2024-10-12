@@ -1,4 +1,3 @@
-import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import styles from './styles.module.css';
 import { useToastSync, showToast } from '@site/src/components/Toasts';
@@ -37,10 +36,10 @@ const InstallButtons = ({ manifest }: { manifest: string }) => {
 
   return (
     <>
-      <button className={`${styles.button} ${styles.installButton}`} onClick={handleInstall} title="Install the addon">
+      <button className={`${styles.button} ${styles.installButton}`} onClick={handleInstall} title="Install the addon to the Stremio app">
         ➕ Install
       </button>
-      <button className={`${styles.button} ${styles.installWebButton}`} onClick={handleInstallWeb} title="Install the addon for web">
+      <button className={`${styles.button} ${styles.installWebButton}`} onClick={handleInstallWeb} title="Install the addon to Stremio Web">
         🌐 Install (Web)
       </button>
     </>
@@ -53,7 +52,7 @@ const SourceCodeButton = ({ source }: { source: string }) => {
   };
 
   return (
-    <button className={`${styles.button} ${styles.sourceCodeButton}`} onClick={handleSourceCode} title="View the source code">
+    <button className={`${styles.button} ${styles.sourceCodeButton}`} onClick={handleSourceCode} title="View the source code of the addon">
       📝 Source Code
     </button>
   );
@@ -70,7 +69,7 @@ const ShareGuideButton = ({ id }: { id: string }) => {
   };
 
   return (
-    <button className={`${styles.button} ${styles.shareGuideButton}`} onClick={handleCopy} title="Copy the addon guide link">
+    <button className={`${styles.button} ${styles.shareGuideButton}`} onClick={handleCopy} title="Copy the link to the guide for this addon">
       🔗 Share Addon Guide
     </button>
   );
@@ -86,7 +85,7 @@ const CopyManifestUrlButton = ({ manifest }: { manifest: string }) => {
   };
 
   return (
-    <button className={`${styles.button} ${styles.copyManifestUrlButton}`} onClick={handleCopy} title="Copy the manifest URL">
+    <button className={`${styles.button} ${styles.copyManifestUrlButton}`} onClick={handleCopy} title="Copy the addon manifest URL">
       📋 Copy Manifest URL
     </button>
   );
