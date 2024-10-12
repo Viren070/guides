@@ -28,7 +28,7 @@ export const useToastSync = () => {
 
 export function MyToastContainer(): JSX.Element {
   return (
-    <ToastContainer stacked style={{width: "500px", padding: "100px"}}/>
+    <ToastContainer stacked style={{padding: "100px"}}/>
   )
 }
 
