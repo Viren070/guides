@@ -70,10 +70,6 @@ const config: Config = {
           widgetType: 'widget',
         },
         {
-          type: 'custom-toastcontainer',
-          position: 'right',
-        },
-        {
           href: 'https://github.com/Viren070/guides',
           position: 'right',
           className: 'header-github-link',
