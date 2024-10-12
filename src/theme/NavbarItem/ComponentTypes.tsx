@@ -4,5 +4,4 @@ import KoFiWrapper from '@site/src/components/KoFiWidgetWrapper';
 export default {
   ...ComponentTypes,
   'custom-kofi': KoFiWrapper,
-
 };
