@@ -21,11 +21,15 @@
 	font-weight: 600;
 	cursor: pointer;
 	border-radius: var(--ifm-global-radius);
-	transition: background-color 0.3s ease;
+	transition: transform 0.1s ease, background-color 0.3s ease;
 	height: 75px;
 	flex-grow: 1; /* Allow buttons to grow and fill the available space */
 	flex-basis: 0; /* Ensure buttons start with zero width */
 	position: relative; /* Ensure the <a> tag can be positioned absolutely */
+}
+
+.button:active {
+	transform: scale(0.95); /* Make the button slightly smaller */
 }
 
 .button a {
