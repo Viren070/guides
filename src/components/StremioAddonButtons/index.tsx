@@ -1,7 +1,7 @@
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import useToast from './showToast';
 import styles from './styles.module.css';
+import { useToastSync, showToast } from '@site/src/components/Toasts';
 
 interface StremioAddonButtonsProps {
   source: string;
@@ -14,76 +14,88 @@ interface StremioAddonButtonsProps {
 
 const ConfigureButton = ({ manifest, configureOverride }: { manifest: string, configureOverride: string }) => {
   const configureUrl = configureOverride || manifest.replace(/manifest\.json$/, 'configure');
+  const handleConfigure = () => {
+    window.open(configureUrl, '_blank', 'noopener,noreferrer');
+  };
+
   return (
-    <button className={`${styles.button} ${styles.configureButton}`}>
-      <a href={configureUrl} target="_blank" rel="noopener noreferrer">
-        ⚙️ Configure
-      </a>
+    <button className={`${styles.button} ${styles.configureButton}`} onClick={handleConfigure} title="Configure the addon">
+      ⚙️ Configure
     </button>
   );
 };
 
-const InstallButtons = ({ manifest }: { manifest: string }) => (
-  <>
-    <button className={`${styles.button} ${styles.installButton}`}>
-      <a href={manifest.replace(/^https:\/\//, 'stremio://')}>
-        ➕ Install
-      </a>
-    </button>
-    <button className={`${styles.button} ${styles.installWebButton}`}>
-      <a href={`https://web.stremio.com/#/addons?addon=${encodeURIComponent(manifest)}`} target="_blank" rel="noopener noreferrer">
-        🌐 Install (Web)
-      </a>
-    </button>
-  </>
-);
+const InstallButtons = ({ manifest }: { manifest: string }) => {
+  const handleInstall = () => {
+    showToast('Attempting to install the addon. If nothing happens, make sure you have the app installed or try using the web install instead.', 'info', 'install-addon-toast');
+    window.location.href = manifest.replace(/^https:\/\//, 'stremio://');
+  };
 
-const SourceCodeButton = ({ source }: { source: string }) => (
-  <button className={`${styles.button} ${styles.sourceCodeButton}`}>
-    <a href={source} target="_blank" rel="noopener noreferrer">
+  const handleInstallWeb = () => {
+    window.open(`https://web.stremio.com/#/addons?addon=${encodeURIComponent(manifest)}`, '_blank', 'noopener,noreferrer');
+  };
+
+  return (
+    <>
+      <button className={`${styles.button} ${styles.installButton}`} onClick={handleInstall} title="Install the addon">
+        ➕ Install
+      </button>
+      <button className={`${styles.button} ${styles.installWebButton}`} onClick={handleInstallWeb} title="Install the addon for web">
+        🌐 Install (Web)
+      </button>
+    </>
+  );
+};
+
+const SourceCodeButton = ({ source }: { source: string }) => {
+  const handleSourceCode = () => {
+    window.open(source, '_blank', 'noopener,noreferrer');
+  };
+
+  return (
+    <button className={`${styles.button} ${styles.sourceCodeButton}`} onClick={handleSourceCode} title="View the source code">
       📝 Source Code
-    </a>
-  </button>
-);
+    </button>
+  );
+};
 
 const ShareGuideButton = ({ id }: { id: string }) => {
-  const showToast = useToast();
   const handleCopy = () => { 
     const guideLink = `${window.location.origin}/stremio/addons/${id}`;
     navigator.clipboard.writeText(guideLink).then(() => {
-      showToast('The addon guide link was copied to your clipboard!', 'info');
+      showToast('The addon guide link was copied to your clipboard!', 'success', 'copy-guide-link-toast');
     }).catch(() => {
-      showToast('Failed to copy the addon guide link to your clipboard!', 'error');
-      showToast('Addon guide link: ' + guideLink, 'info');
+        showToast('Failed to copy the addon guide link to your clipboard! ' + guideLink, 'error', 'copy-guide-link-toast-error');
     });
   };
+
   return (
-  <button className={`${styles.button} ${styles.shareGuideButton}`} onClick={handleCopy}>
+    <button className={`${styles.button} ${styles.shareGuideButton}`} onClick={handleCopy} title="Copy the addon guide link">
       🔗 Share Addon Guide
-  </button>);
+    </button>
+  );
 };
 
 const CopyManifestUrlButton = ({ manifest }: { manifest: string }) => {
-  const showToast = useToast();
   const handleCopy = () => {
     navigator.clipboard.writeText(manifest).then(() => {
-      showToast('The manifest URL was copied to your clipboard!', 'info');
+      showToast('The manifest URL was copied to your clipboard!', 'success', 'copy-manifest-url-toast');
     }).catch(() => {
-      showToast('Failed to copy the manifest URL to your clipboard!', 'error');
-      showToast('Manifest URL: ' + manifest, 'info');
+      showToast('Failed to copy the manifest URL to your clipboard! ' + manifest, 'error', 'copy-manifest-url-toast-error'); 
     });
   };
 
   return (
-    <button className={`${styles.button} ${styles.copyManifestUrlButton}`} onClick={handleCopy}>
+    <button className={`${styles.button} ${styles.copyManifestUrlButton}`} onClick={handleCopy} title="Copy the manifest URL">
       📋 Copy Manifest URL
     </button>
   );
 };
 
-
 export default function StremioAddonButtons(props: StremioAddonButtonsProps): JSX.Element {
   const { source, manifest, configurable, configurationRequired, configureOverride, id } = props;
+
+  useToastSync(); // Sync the color mode
 
   const showInstallButtons = manifest && !configurationRequired; // only show install buttons if manifest is present and configuration is not required
   const showConfigureButton = (manifest && configurable) || configureOverride;  // only show configure button if manifest is present and addon is configurable or configureOverride is present
@@ -93,20 +105,19 @@ export default function StremioAddonButtons(props: StremioAddonButtonsProps): JS
 
   return (
     <div>
-          <div className={styles.buttonsContainer}>
-            <div className={styles.buttonRow}>
-              {showInstallButtons && <InstallButtons manifest={manifest} />}
-              {showConfigureButton && <ConfigureButton manifest={manifest} configureOverride={configureOverride} />}
-            </div>
-            <div className={styles.buttonRow}>
-              {showCopyManifestUrlButton && <CopyManifestUrlButton manifest={manifest} />}
-              {showShareGuideButton && <ShareGuideButton id={id} />}
-            </div>
-            <div className={styles.buttonRow}>
-              {showSourceCodeButton && <SourceCodeButton source={source} />}
-            </div>
-          </div>
-          <ToastContainer/>
+      <div className={styles.buttonsContainer}>
+        <div className={styles.buttonRow}>
+          {showInstallButtons && <InstallButtons manifest={manifest} />}
+          {showConfigureButton && <ConfigureButton manifest={manifest} configureOverride={configureOverride} />}
+        </div>
+        <div className={styles.buttonRow}>
+          {showCopyManifestUrlButton && <CopyManifestUrlButton manifest={manifest} />}
+          {showShareGuideButton && <ShareGuideButton id={id} />}
+        </div>
+        <div className={styles.buttonRow}>
+          {showSourceCodeButton && <SourceCodeButton source={source} />}
+        </div>
+      </div>
     </div>
   );
 }
