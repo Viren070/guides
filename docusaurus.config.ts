@@ -13,14 +13,10 @@ const config: Config = {
   // For GitHub pages deployment, it is often '/<projectName>/'
   baseUrl: '/',
 
-  // GitHub pages deployment config.
-  // If you aren't using GitHub pages, you don't need these.
-  organizationName: 'Viren070', // Usually your GitHub org/user name.
-  projectName: 'guides', // Usually your repo name.
-  deploymentBranch: 'gh-pages',
   trailingSlash: false,
   onBrokenLinks: 'throw',
-  onBrokenMarkdownLinks: 'warn',
+  onBrokenMarkdownLinks: 'throw',
+  onBrokenAnchors: 'throw',
 
   // Even if you don't use internationalization, you can use this field to set
   // useful metadata like html lang. For example, if your site is Chinese, you
@@ -85,20 +81,45 @@ const config: Config = {
       style: 'dark',
       links: [
         {
-          title: 'Docs',
+          title: 'Categories',
           items: [
             {
-              label: 'Guides',
-              to: '/',
+              label: 'Gaming',
+              to: 'category/gaming',
             },
+            {
+              label: 'Streaming',
+              to: 'category/streaming',
+            },
+            {
+              label: 'Reading',
+              to: 'category/reading',
+            }
           ],
         },
+        {
+          title: 'Popular',
+          items: [
+            {
+              label: 'Stremio',
+              to: 'stremio',
+            },
+            {
+              label: 'Plutonium',
+              to: 'plutonium',
+            },
+          ]
+        }, 
         {
           title: 'More',
           items: [
             {
               label: 'GitHub',
               href: 'https://github.com/Viren070/guides',
+            },
+            {
+              label: 'Ko-fi',
+              href: 'https://ko-fi.com/viren070',
             },
           ],
         },
