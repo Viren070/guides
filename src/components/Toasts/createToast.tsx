@@ -11,8 +11,8 @@ const toastTypeColorMapping = {
     ["--toastify-text-color-error", "#4b1113", "#ffebec"]
   ],
   success: [
-    ["--toastify-color-success", "#e6f6c1", "#003100"],
-    ["--toastify-text-color-success", "#003100", "#e6f6c1"]
+    ["--toastify-color-success", "#e6f6e6", "#003100"],
+    ["--toastify-text-color-success", "#003100", "#e6f6e6"]
   ],
 };
 
