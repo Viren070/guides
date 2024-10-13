@@ -2,7 +2,7 @@ import React from 'react';
 import { useColorMode } from '@docusaurus/theme-common';
 import { createToast } from './createToast';
 import { ToastContainer } from 'react-toastify';
-
+import styles from './styles.module.css';
 
 let colorMode: 'light' | 'dark' = 'light';
 
@@ -12,7 +12,7 @@ export const updateColorMode = (newColorMode: 'light' | 'dark') => {
 };
 
 // Singleton showToast function
-export const showToast = (message: string, type: 'info' | 'error' | 'success', toastId: string) => {
+export const showToast = (message: string, type: 'info' | 'error' | 'success', toastId?: string) => {
   createToast(message, type, colorMode, toastId);
 };
 
@@ -28,7 +28,6 @@ export const useToastSync = () => {
 
 export function MyToastContainer(): JSX.Element {
   return (
-    <ToastContainer stacked/>
-  )
+    <ToastContainer stacked className={styles.customContainer} />
+  );
 }
-

@@ -1,5 +1,6 @@
 import { toast, Slide } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import styles from './styles.module.css';
 
 const toastTypeColorMapping = {
   info: [
@@ -16,7 +17,7 @@ const toastTypeColorMapping = {
   ],
 };
 
-export const createToast = (message: string, type: 'info' | 'error' | 'success', colorMode: 'light' | 'dark', toastId: string) => {
+export const createToast = (message: string, type: 'info' | 'error' | 'success', colorMode: 'light' | 'dark', toastId?: string) => {
   const mappings = toastTypeColorMapping[type];
 
   // Set the CSS variables dynamically
@@ -27,7 +28,7 @@ export const createToast = (message: string, type: 'info' | 'error' | 'success',
 
   toast[type](message, {
     position: "top-center",
-    autoClose: 2000,
+    autoClose: 2500,
     hideProgressBar: true,
     closeOnClick: false,
     pauseOnHover: true,
@@ -37,6 +38,7 @@ export const createToast = (message: string, type: 'info' | 'error' | 'success',
     progress: undefined,
     theme: "colored",
     toastId: toastId,
+    className: styles.customToast,
     transition: Slide,
   });
 };
