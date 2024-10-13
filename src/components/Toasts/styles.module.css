@@ -13,4 +13,21 @@
     justify-content: center; /* Center content horizontally */
 
   }
+
+@media only screen and (max-width : 480px) {
+    .customContainer {
+        width: auto; /* Ensure the width is auto to respect max-width */
+        padding: 10px; /* Add padding to ensure space on all sides */
+        left: 5vw; /* Add space on the left */
+        right: 5vw; /* Add space on the right */
+        top: 10px; /* Add space on the top */
+        transform: none; /* Remove transform */
+        border-radius: var(--ifm-global-radius); /* Ensure the border-radius is respected */
+      }
+      .customToast {
+        border-radius: var(--ifm-global-radius); /* Ensure the border-radius is respected */
+        justify-content: center; /* Center content horizontally */
+    
+      }
+}
   
