@@ -1,4 +1,4 @@
-@media  (max-width: 768px) { /* Adjust the max-width value as needed for your mobile breakpoint */
+@media (pointer: coarse), (pointer: none), (max-width: 768px) {
   .customContainer {
     width: auto; /* Ensure the width is auto to respect max-width */
     padding: 10px; /* Add padding to ensure space on all sides */
