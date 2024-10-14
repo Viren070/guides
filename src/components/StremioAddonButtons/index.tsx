@@ -1,6 +1,7 @@
 import 'react-toastify/dist/ReactToastify.css';
 import styles from './styles.module.css';
 import { useToastSync, showToast } from '@site/src/components/Toasts';
+import BrowserOnly from '@docusaurus/BrowserOnly';
 
 interface StremioAddonButtonsProps {
   source: string;
@@ -80,7 +81,7 @@ const ShareGuideButton = ({ id }: { id: string }) => {
 
     if (navigator.canShare(shareData)) {
       try {
-        await navigator.share(shareData);        
+        await navigator.share(shareData);
       } catch (error) {
         showToast('Failed to share the guide using the Share API. Copying the link instead.', 'error');
         await copyToClipboard(guideLink);
@@ -91,9 +92,13 @@ const ShareGuideButton = ({ id }: { id: string }) => {
   };
 
   return (
-    <button className={`${styles.button} ${styles.shareGuideButton}`} onClick={handleShare} title="Copy the link to the guide for this addon">
-      🔗 Share Addon Guide
-    </button>
+    <BrowserOnly>
+      {() => (
+        <button className={`${styles.button} ${styles.shareGuideButton}`} onClick={handleShare} title="Copy the link to the guide for this addon">
+          🔗 Share Addon Guide
+        </button>
+      )}
+    </BrowserOnly>
   );
 };
 
