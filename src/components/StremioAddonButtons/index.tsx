@@ -59,12 +59,18 @@ const SourceCodeButton = ({ source }: { source: string }) => {
 };
 
 const ShareGuideButton = ({ id }: { id: string }) => {
+  const addonName = id.replace('-', ' ').replace(/\b\w/g, char => char.toUpperCase());
   const handleCopy = () => { 
     const guideLink = `${window.location.origin}/stremio/addons/${id}`;
-    navigator.clipboard.writeText(guideLink).then(() => {
-      showToast('The addon guide link was copied to your clipboard!', 'success');
+
+    navigator.share({ title: `${addonName} Guide for Stremio`, text: `Check out this guide to the Stremio addon, ${addonName}`, url: guideLink }).then(() => {
+      showToast('The addon guide link was shared!', 'success');
     }).catch(() => {
-        showToast('Failed to copy the addon guide link to your clipboard! ' + guideLink, 'error');
+      navigator.clipboard.writeText(guideLink).then(() => {
+        showToast('The addon guide link was copied to your clipboard!', 'success');
+      }).catch(() => {
+        showToast('Failed to share or copy the addon guide link! ' + guideLink, 'error');
+      });
     });
   };
 
