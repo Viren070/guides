@@ -61,44 +61,25 @@ const SourceCodeButton = ({ source }: { source: string }) => {
 
 const ShareGuideButton = ({ id }: { id: string }) => {
   const addonName = id.replace('-', ' ').replace(/\b\w/g, char => char.toUpperCase());
-  const guideLink = `${window.location.origin}/stremio/addons/${id}`;
-
-  const copyToClipboard = async (text: string) => {
-    try {
-      await navigator.clipboard.writeText(text);
-      showToast(`The link to the guide for ${addonName} was copied to your clipboard!`, 'success');
-    } catch {
-      showToast('Failed to copy the link.' + text, 'error');
-    }
-  };
-
-  const handleShare = async () => {
-    const shareData = {
-      title: `${addonName} Guide for Stremio`,
-      text: `Check out this guide to the Stremio addon, ${addonName}`,
-      url: guideLink,
-    };
-
-    if (navigator.canShare(shareData)) {
-      try {
-        await navigator.share(shareData);
-      } catch (error) {
-        showToast('Failed to share the guide using the Share API. Copying the link instead.', 'error');
-        await copyToClipboard(guideLink);
-      }
-    } else {
-      await copyToClipboard(guideLink);
-    }
+  
+  const handleShare = () => { 
+    const guideLink = `${window.location.origin}/stremio/addons/${id}`;
+    const shareData = { title: `${addonName} Guide for Stremio`, text: `Check out this guide to the Stremio addon, ${addonName}`, url: guideLink };
+    navigator.share(shareData).then(() => {
+      showToast('The addon guide was shared successfully!', 'success');
+    }).catch(() => {
+      navigator.clipboard.writeText(guideLink).then(() => {
+        showToast('The addon guide link was copied to your clipboard!', 'success');
+      }).catch(() => {
+        showToast('Failed to share or copy the addon guide link! ' + guideLink, 'error');
+      });
+    });
   };
 
   return (
-    <BrowserOnly>
-      {() => (
-        <button className={`${styles.button} ${styles.shareGuideButton}`} onClick={handleShare} title="Copy the link to the guide for this addon">
-          🔗 Share Addon Guide
-        </button>
-      )}
-    </BrowserOnly>
+    <button className={`${styles.button} ${styles.shareGuideButton}`} onClick={handleShare} title="Copy the link to the guide for this addon">
+      🔗 Share Addon Guide
+    </button>
   );
 };
 
