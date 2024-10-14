@@ -39,6 +39,13 @@ To get started, head over to the [configuration page](https://jackettio.elfhoste
 - `Debrid provider` - Choose your debrid provider. 
 - `Debrid API Key` - Obtain your API key from your debrid provider and paste it here. (Struggling to find your API key? [Click here](/stremio/faq#where-can-i-find-my-debrid-api-key))
 
+- `MediaFlow Proxy` - This is a service that allows you to proxy your streams through a server. You will have to either self host your MediaFlow Proxy server or pay for an instance at [ElfHosted](https://elfhosted.com/app/mediaflow-proxy/). 
+    You can read more about MediaFlows features and instructions on setting it up [on its GitHub page](https://github.com/mhdzumair/mediaflow-proxy?tab=readme-ov-file#mediaflow-proxy).
+
+    By using MediaFlow, you can:
+    - Use Jackettio configured with the same debrid provider across different IP addresses. In simple terms, you can use the debrid account from different locations simulateneously (through Jackettio). As all the streams are proxied through the same server, it will appear as if they are all coming from the same IP address / location.
+
+
 After you have configured Jackettio, click `Install`. This will open Stremio and prompt you to install the addon. Click Install again and the addon will be installed.
 
 You may also right click the `Stremio Link` link that pops up after clicking `Install` and copy the link. You can then paste this link into the Stremio addon search bar or the add addon menu on Stremio Web.
