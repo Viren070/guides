@@ -1,13 +1,18 @@
 ---
 title: Addon Manager
 sidebar_label: Addon Manager
-description: Manage the order of your addons without re-installing
+description: Reorder, rename and delete your addons and their catalogues.
 ---
 
 # Addon Manager
 
-[https://addon-manager.dontwanttos.top/](https://addon-manager.dontwanttos.top/)
+The [original Addon Manager](https://addon-manager.dontwanttos.top/) allowed you to reorder your addons, and therefore, their catalogues. 
+This means you no longer have to uninstall and reinstall addons to change the order of their catalogues.
 
-Currently, the only way to re-order your Stremio addons, is to uninstall all of them and then reinstall them in the order you want. The Stremio Addon Manager solves this.
+Redd-ravenn then forked it and added the ability to rename your addons, and rename and delete specific catalogues from addons. 
+Their fork is available on GitHub at [Redd-ravenn/stremio-addon-manager](https://github.com/Redd-ravenn/stremio-addon-manager).
 
-[Stremio Addon Manager](https://addon-manager.dontwanttos.top/) will allow you to manage the order of your Stremio addons without re-installing. _Including the default Cinemeta catalogues._
+There is no "official" public instance of this version, but you can set it up yourself with Docker or standard Node.js by following the instructions in the README of the repository.
+I would recommend using services like Vercel or Netlify to host it. Simply fork the repository and deploy it to one of these services.
+
+However, I have set up a public instance of the Redd-ravenn fork at https://addon-manager.viren070.me/ ([Source Code](https://github.com/Viren070/stremio-addon-manager)) for those who don't want to set it up themselves.
