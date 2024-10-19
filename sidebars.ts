@@ -69,6 +69,7 @@ const sidebars: SidebarsConfig = {
 							},
 							items: [
 								"stremio/extras/trakt", 
+								"stremio/extras/account-bootstrapper",
 								"stremio/extras/addon-manager", 
 								"stremio/extras/debrid-media-manager", 
 								"stremio/extras/open-in-stremio",
