@@ -2,14 +2,16 @@ export default function generateDebridCostTable(generateDebridCostTableProps: { 
     const { primaryCurrency } = generateDebridCostTableProps;
     // Define conversion rates
     const conversionRates = {
-      EUR_TO_USD: 1.0982,
-      EUR_TO_GBP: 0.8369,
-      USD_TO_GBP: 0.7621,
+      EUR_TO_USD: 1.0874,
+      EUR_TO_GBP: 0.8330,
+      USD_TO_GBP: 0.7664,
+      EUR_TO_AUD: 1.6207,
+      USD_TO_AUD: 1.4903,
     };
   
     const conversionRatesMapping = {
-      EUR: { USD: conversionRates.EUR_TO_USD, GBP: conversionRates.EUR_TO_GBP },
-      USD: { GBP: conversionRates.USD_TO_GBP, EUR: 1 / conversionRates.EUR_TO_USD },
+      EUR: { USD: conversionRates.EUR_TO_USD, GBP: conversionRates.EUR_TO_GBP, AUD: conversionRates.EUR_TO_AUD },
+      USD: { GBP: conversionRates.USD_TO_GBP, EUR: 1 / conversionRates.EUR_TO_USD, AUD: conversionRates.USD_TO_AUD },
       GBP: { USD: 1 / conversionRates.USD_TO_GBP, EUR: 1 / conversionRates.EUR_TO_GBP },
     };
   
@@ -30,13 +32,13 @@ export default function generateDebridCostTable(generateDebridCostTableProps: { 
   
     // Helper function to convert prices
     const convertPrice = (price: number, fromCurrency: string, toCurrency: string) => {
-      if (fromCurrency === toCurrency || !toCurrency || !["USD", "EUR", "GBP"].includes(toCurrency)) return price;
+      if (fromCurrency === toCurrency || !toCurrency || !["USD", "EUR", "GBP", "AUD"].includes(toCurrency)) return price;
       return price * conversionRatesMapping[fromCurrency][toCurrency];
     };
   
     // Helper function to format prices
     const formatPrice = (price: number, currency: string) => {
-      const symbols = { GBP: '£', EUR: '€', USD: '$' };
+      const symbols = { GBP: '£', EUR: '€', USD: '$', AUD: '$' };
       return `${symbols[currency] || ''}${price.toFixed(2)}`;
     };
   
