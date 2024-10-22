@@ -94,6 +94,20 @@ const sidebars: SidebarsConfig = {
 					items: [
 						"aniyomi/intro",
 						"aniyomi/setup",
+					]
+				},
+				{
+					type: "category",
+					label: "YouTube",
+					link: {
+						type: "doc",
+						id: "youtube/index",
+					},
+					items: [
+						"youtube/browser",
+						"youtube/android",
+						"youtube/android-tv",
+						"youtube/samsung-tv",
 					],
 				},
 				{
@@ -104,8 +118,7 @@ const sidebars: SidebarsConfig = {
 						id: "kodi/index",
 					},
 					items: [],
-				},
-				"revanced/index"
+				}
 				
 			],
 		},
