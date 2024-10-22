@@ -26,18 +26,19 @@ keywords:
     stremio guide,
   ]
 sidebar_label: Technical Details
+toc_max_heading_level: 5
 ---
 
 # Technical Details
 
-### Stremio
+## Stremio
 
 Stremio is only a media player. It can also stream torrents.
 While streaming torrents, it will also upload back to the swarm.
 
 The way you are able to obtain the sources to stream from is through addons.
 
-### Stremio Addons
+### Addons
 
 As mentioned before, Stremio itself provides no content and is simply a media player. 
 This is to avoid legal issues. 
@@ -52,72 +53,127 @@ An addon can provide one of the following to Stremio:
 
 - Video sources: This is the actual content
 - Catalogues: These addons are what will fill your home screen with content but they do not provide sources
-- Subtitles: These addons will use the metadata of what you’re watching and provide subtitles for them
+- Subtitles: These addons will use the metadata of what you're watching and provide subtitles for them
 - Metadata: These addons will provide the metadata (name, actors, genre, runtime etc. ) of content.
 
-### Stream Providers
 
 There are many addons that provide streams. Each addon either provides HTTP streams or torrent streams.
 
+#### HTTP Addons
+
+HTTP addons will scrape for sources from a central server and provide these sources to Stremio.
+
 Addons that use HTTP streams are safe to use and will not get you flagged by your ISP. 
-If you have a good source for HTTP streams, you can get a buffer-free experience as the file is usually of a lower size and streaming directly through HTTP is less likely to buffer compared to torrent streams which can buffer due to seeders.
-However, these addons are largely unreliable and prone to breakage quite often. 
-HTTP addons will scrape specific sources (dependent on the addon) using the metadata for the selected content to provide a stream to you.
+These streams are stored on a central server. Due to this, they are usually of lower size (and thus quality) than torrents. This is because it reduces costs.
+Although they may have a lower quality, due to the lower file size, it requires less bandwidth to stream. 
+This is useful for users with slower internet connections.
 
-Torrent addons, will scrape torrents from available sources on the web and provide these torrents to Stremio. 
-Streaming torrents is generally more reliable as torrents download pieces from multiple sources simultaneously, which can result in faster and more consistent streaming compared to single-source HTTP streams. 
+HTTP streams are reliant on the server that hosts the file. 
+A benefit of this is that, if a stream is available, it will work. This is unlike torrents, where you need seeders for the torrent to work.
+However, this is also a downside. If the server goes down, the stream will not work.
+Furthermore, these servers can be overloaded with users, which can cause buffering. 
+These free central servers usually rely on ads to generate revenue. Through Stremio, users will not see any ads. 
+Therefore, the hoster may make small changes often to counter scrapers, which can cause the addon to break.
+
+In summary, these are the advantages and disadvantages of HTTP addons:
+
+Advantages: 
+- No need for a VPN
+- No need to worry about seeders
+- Lower file size, which means less bandwidth is required to stream
+
+Disadvantages:
+- Lower quality
+- Reliant on the server that hosts the file
+  - These types of sources are often taken down
+- Server can be overloaded with users, causing buffering
+- Addons can break often due to the hoster making changes to counter 
+
+#### Torrent Addons
+
+Torrent addons, will scrape torrents from available sources on the web and provide these torrents to Stremio to stream.
+
+Torrents are based on a decentralised network and are not reliant on a single server to provide the content.
+As a result, torrents are usually of much higher quality than streams from HTTP addons. 
+Other than generally having a higher quality, the range of qualities is much larger. 
+There can be up to hundreds of, if not more, torrents available for a single movie or TV show episode, ranging from Blu-Ray REMUX to 480p quality, or even lower.
+
+Torrents are also more reliable. The addon itself is less likely to break as there is no incentive to stop scrapers from accessing the torrent.
+Moreover, you won't have to rely on a single server to provide the content. You will be able to stream the torrent as long as there are enough seeders. 
+
 However, torrenting carries the risk of your IP being shown to the trackers on the torrent. 
-This means that your ISP will be flagged about your online activities. Furthermore, the speed of a torrent stream is heavily reliant on the number of seeders for that torrent. If a torrent has a small number of low speed seeders, you will encounter a lot of buffering.
+This means that if that torrent is being monitored, DMCA notices can be sent to your ISP, who can then forward it to you.
+Continued torrenting can lead to your ISP throttling your internet speed or even terminating your internet connection.
 
-One solution to the above is using a VPN.
-However, this can further slow your streaming speed down if you are not using a fast VPN and the issue of reliance on seeders still remains. 
-The recommended solution is a debrid service. Read below to find out why.
+:::note
+It is important to note that the legal risk of torrenting is dependent on your country and ISP.
+In most countries, torrenting won't be an issue.
 
-### Debrid Services
+Some countries that are known to be strict on torrenting is USA and Germany.
+:::
 
-Debrid services cache torrents on their high speed (up to 1gbps) servers.
-This means that you can stream torrents through HTTPS without the need to torrent.
-This is a great way to avoid the risk of torrenting as well as removing the reliance on seeders while streaming the files, giving you a buffer-free experience even for large REMUX files with high bitrates (as long as your internet speed is fast enough to handle the bitrate of the file you are streaming).
+The speed of a torrent stream is heavily reliant on the number of seeders for that torrent.
+If a torrent has a small number of low speed seeders, you will encounter a lot of buffering.
 
-However, debrid services are not free. 
-They also do not seed, so you are not contributing to the torrent.
-Furthermore, for torrents with no seeders, the debrid service can't magically make the torrent available.
-There still needs to be seeders for the torrent to be cached.
+In summary, these are the advantages and disadvantages of torrent addons:
 
-An additional benefit of setting up a debrid service, is that it can be used for other purposes too, not just streaming torrents. 
-It can be used for any torrent file, such as games, music etc.
+Advantages: 
+- Much higher quality and range of qualities
+- More reliable
+- Generally better subtitles
+- Faster availability of new content
+- Addons are less likely to break 
 
-Debrid services also allow you to download at unrestricted speeds from file hosting sites. 
-This is useful for downloading large files from sites like Mega, 1fichier etc.
-They may impose limits on some file hosting sites.
+Disadvantages:
+- Reliant on seeders
+  - Unpopular/Old torrents may not have enough seeders to reliably stream.
+- Legal risk of torrenting
 
-### How does torrenting work on a Debrid service?
+While a VPN can solve the legal risk, it can potentially slow down your speeds and you will still be reliant on the seeders for the torrent to stream.
+You also cannot bind your VPN to Stremio, which means that if your VPN disconnects, your IP could be visible.
 
-When a debrid service is provided with a torrent to download, it first downloads the torrent to its servers.
-A direct HTTP link is then given to the user to download or stream this torrent.
-For this reason, only a web interface is needed, no app.
+A more effective and better solution to this is to use a debrid service.
 
-If a torrent has already been downloaded by other users, it will be instantly available for you to download as well, no need to wait for the Debrid service to download it first.
-This is known as Cached Torrents.
+## Debrid Services
 
-For a torrent that has not been “cached”, the debrid service will need to download the torrent first.
-Although this is also reliant on the number of seeders for a torrent, once at least one person has cached the torrent, the speeds will be much faster.
+Debrid services generate unrestricted, high-speed, HTTPS links to torrents or files on supported file hosters (such as Mega, 1fichier etc) by downloading the torrent or file to their servers first.
+Once a file is downloaded to their servers, it remains there for a certain amount of time (dependent on the debrid service) and is available for any user to download. 
+If another user accesses the same file, it resets the timer for the file to be deleted from the debrid service's servers.
 
-### When downloading torrents, why use this instead of a [VPN](https://en.wikipedia.org/wiki/Virtual_private_network)?
+This is useful because it allows you to remove speed limitations and download restrictions imposed by file hosters.
+It also allows you to access torrents without exposing your IP address to the trackers on the torrent and risking a DMCA notice through your ISP.
+This means a VPN is not necessary when using a debrid service. 
 
-- It's (usually) cheaper compared to most VPNs
-- You don't need to install anything. Just paste the links on the service and it will generate a download link for you
-- It is accessible to any device with a web browser
-- You don't need to worry about the following:
-    - IP address leaking
-    - Checking if ISP is torrent-friendly
-    - Configuring torrent clients
-    - Setting up kill switches
-    - Setting up the network to allow torrent downloading
-    - Threatening letters from big corporations
+Once a torrent or file has been "cached", it removes the need for seeders as the file is already downloaded to the debrid service's servers.
+Most torrents are already cached and are constantly being downloaded. 
+This effectively means that they will remain cached and you will not need to wait for the debrid service to download the torrent first.
+You can just instantly download or stream the file.
 
-### How is the Debrid service used for Stremio.
+### Benefits over a VPN
+- Since debrid services are web-based, they can be accessed from any device with a web browser.
+You do not need to install anything to use a debrid service, just paste the link to the torrent or file and it will generate a download link for you.
+This makes it super convenient to use.
 
-As I mentioned before, Stremio has 2 types of stream providers, HTTP and torrent. Most Torrent addons can be configured to use the Debrid service instead of streaming the actual torrent. The addon can be configured to only show streams that are cached and this eliminates the risk of accidentally torrenting.
+- You don't need to worry about configuring kill switches or binding VPNs, as no torrenting is done on your device.
 
-The way these addons work is that when looking for torrents, they will lookup the torrent on the Debrid service using their API and if the addon is configured to show debrid links then it will provide the link to the file on the debrid service’s servers which allows Stremio to play that torrent file through HTTP on the Debrid providers servers. Your ISP will not be able to see what you are streaming.
+- With a VPN, you are reliant on the seeders when downloading a torrent. However, due to the fact that most torrents on a debrid service are already cached, you do not need to rely on the number or speed of seeders for a torrent to stream or download quickly.
+You will be able to download or stream the file at the maximum speed of your internet connection.
+  :::note 
+  In cases where a torrent is not cached, you will still need to rely on the seeders for the torrent to download with a debrid service.
+  :::
+
+- Debrid services are usually cheaper than VPNs. 
+
+
+## Integrating Debrid Services with Stremio
+
+As mentioned before, Stremio has 2 types of addons that provide streams: HTTP and Torrent addons.
+
+Debrid services can provide files from file hosters and torrents.
+
+Torrent addons can be configured to run the torrents they scraped through a debrid service.
+It can check if the torrent is cached on the debrid service and if it is, it will provide the link to the file on the debrid service's servers.
+If it isn't, it can provide a link that sends a request to the debrid service to cache the torrent.
+
+Addons that make use of debrid services' file hoster capabilites are essentially non-existent on Stremio.
+Only 1 addon ([DramaCool](/stremio/addons/dramacool)) exists and it only supports Real Debrid. 
