@@ -2,10 +2,13 @@
 title: Setup | Aniyomi
 sidebar_label: Setup
 description: The only Aniyomi guide you'll ever need.
+toc_max_heading_level: 5
 ---
 import Tabs from "@theme/Tabs";
 import TabItem from "@theme/TabItem";
 import Admonition from "@theme/Admonition";
+
+import DebridCostComparisonTable from "@site/src/components/DebridCostComparisonTable";
 
 # Setup
 
@@ -14,6 +17,11 @@ import Admonition from "@theme/Admonition";
 
 Aniyomi is not available on the Google Play Store, so you'll need to download it from the [official website](https://aniyomi.org/).
 
+:::note 
+Before you download Aniyomi, you may want to take a look at the [forks of Aniyomi](/aniyomi/forks) to see if there is a fork that better suits your needs.
+
+The same instructions below can still be followed to download and install a fork of Aniyomi, just use the APK of the fork you want to install.  
+:::
 
 1. Go to the [downloads page](https://aniyomi.org/download) on the Aniyomi website.
 
@@ -21,8 +29,9 @@ Aniyomi is not available on the Google Play Store, so you'll need to download it
 
 2. Click either `Stable` or `Preview` to download the APK file for Aniyomi.
     :::note
-    The `Stable` version is the most stable version of Aniyomi, while the `Preview` version is the latest version with new features and bug fixes.
-    The `Preview` versions may have more bugs and cause crashes. Therefore, I recommend downloading the `Stable` version.
+    The `Stable` version is the most stable version of Aniyomi, while the `Preview` version is the latest version with new features.
+    
+    Unless you are willing to encounter bugs, I recommend downloading the `Stable` version.
     :::
 3. The file will now begin downloading. You can check your notifications or the downloads section of your browser to see the progress of the download.
 
@@ -104,9 +113,7 @@ To track your anime and manga, you can make use of the various tracking services
 
 
 
-## Extensions
-
-### Adding Repositories
+## Adding Extension Repositories
 
 The way Aniyomi works is through the use of extensions. Extensions are like plugins that allow Aniyomi to fetch anime and manga from different sources.
 For example, if you had a specific anime site, you could create an extension for it and add it to Aniyomi. This extension would then fetch anime from that site and display it in Aniyomi.
@@ -160,59 +167,80 @@ Due to the nature of third-party extensions, you must click on the extension to 
 Each time an extension is updated, you will need to trust it again.
 :::
 
+## Using Torrents
 
-### Torrentio
+Now, I will go through how to watch anime using torrents on Aniyomi.
 
-Although I am not going to recommend a specific extension, I will show you how to set up Torrentio Anime. 
-This is the extension that I recommend using as I believe it is the best one available.
-
-If you have used Stremio before, you will definitely have heard about the Torrentio addon before. 
-
-Torrentio is a Stremio addon that returns torrent results for movies and TV shows. 
-For a more detailed explanation on how Torrentio works, you can check out [this reddit comment](https://www.reddit.com/r/StremioAddons/comments/19fmjlp/comment/kjlnwru/)
-
-Torrentio Anime is an extension that uses the Torrentio stremio addon to fetch torrent results for anime only. 
-
-Although Aniyomi does not currently support torrent streaming, it is still possible to use Torrentio Anime to fetch torrent results for anime through using a debrid service. 
-This is a paid service which I discuss below. 
-
-If you really do not want to pay at all, you can use Kuukiyomi, a fork of Aniyomi that supports torrent streaming.
-However, I still recommend reading the debrid section as it may change your mind.
+To see the benefits of using torrents, refer to this [torrenting guide from thewiki.moe](https://thewiki.moe/getting-started/torrenting/)
+Note that, with Aniyomi, we will be streaming torrents, not downloading them.
 
 
-#### Debrid Service 
+Although Aniyomi does not currently support torrent streaming, it is still possible to use Torrentio Anime on Aniyomi through a debrid service. 
+Some [forks of Aniyomi](/aniyomi/forks) do support torrent streaming, so you can use Torrentio Anime on those forks without a debrid service.
 
-##### What is a debrid service?
+### Debrid Service
 
-A debrid service will download torrents for users and then store them on their high speed servers. 
-These torrents can then be streamed by other users through a SSL encrypted connection.
+I will now go through what a debrid service is and why you may want to use one. 
 
-It is completely safe and secure to use a debrid service as your connection is encrypted and your IP address is not publicly shown as it would be when torrenting.
+**It is not required** to use a debrid service. You will need to use a [fork of Aniyomi](/aniyomi/forks) that supports torrent streaming if you do not want to use a debrid service.
+You would still be able to stream torrents as long as it has enough seeders.
+However, using a debrid service will provide a better experience.
 
-Using a debrid service will allow you to stream high quality content without buffering. 
-You can stream at speeds of up to 1gbps. This means you can watch high bitrate 4K content without buffering.
-Even old anime that do not have a lot of seeders, as long as the torrent is cached, you will be able to stream it without buffering (assuming your internet speed is fast enough).
+#### What is a debrid service?
 
-You can use the debrid service for more than just Aniyomi. You can use it for any torrent or file on a supported hoster. 
-This means you can download games, software, audio etc. through your debrid service. You can also set up [Stremio](../stremio) to watch movies and TV shows through your debrid service.
+A debrid service is a service that allows you to generate unrestricted (up to 1gbps) download links for torrents and other files on supported hosters (It has more features that are discussed in [Debrid Services](/stremio/technical-details#debrid-services)).
 
-However, a debrid service cannot increase your internet speeds.
+It brings the following benefits:
+
+- Using a debrid service allows you to stream torrents without the risk of receiving a notice from your ISP as you would be streaming through HTTPS
+- While you are streaming something, you are not reliant on the number of seeders and can stream at up to 1gbps speeds. This makes it possible to stream some of the highest quality content available (4K, DV, HDR, Dolby Atmos, etc.) without buffering as long as your internet connection can handle it.
+- If you are using a debrid service, a VPN is not required as you are streaming through HTTPS.
+- You can use it for more than just Aniyomi. You can use it to download any type of file, whether that be games, software or audio. If it is a torrent or a file on a supported hoster, you can download it through your debrid service.
+    :::note
+    You can even use it with other apps like Stremio. You can utilise the debrid service to stream torrents on Stremio too. You can have a look at my [Stremio Guide](/stremio) for more information on how to set up a debrid service with Stremio.
+    ::: 
+
+However, the drawbacks of using a debrid service are that most do not seed the torrents and will also restrict usage to one IP address at a time.
+This means that you are not contributing to the torrent and that you can only use the service in one location at a time. 
+:::tip
+For more details on the one IP address rule, please see [this question in the Stremio FAQ](/stremio/faq#how-does-the-one-ip-address-rule-work).
+:::
+
+There are some exceptions to this, which I discuss below.
+
+#### Should I use a debrid service? 
+
+The answer to this question is dependent on your personal circumstances.
+If your answer is no, then you will need to use a fork of Aniyomi that supports torrent streaming.
+
+- Whether torrenting puts you at risk of receiving a notice from your ISP
+- The popularity (number of seeders) of the content you want to watch
+- Whether your internet speed is sufficient to warrant a debrid service
+
+The main reason to use a debrid service is to avoid the risks of torrenting.
+As explained earlier, you are streaming through HTTPS and the debrid service essentially becomes the middle-man.
+However, if you are in a country where torrenting is not an issue, then a debrid service or VPN is not needed to avoid receiving a notice from your ISP.
+
+The next big reason is to avoid buffering.
+However, whether it buffers or not depends on the type of content you are watching and your internet speed.
+If the content you want to watch is popular and has a lot of seeders, then you will be able to stream it at a high quality without buffering.
+However, torrents of extremely high quality content may still buffer even with a lot of seeders.
+
+Something that is often ignored is that a debrid service cannot increase your download speeds.
 If your internet speed is already slow, then a debrid service will not help you stream higher quality content.
 You need to have a fast internet speed yourself to capitalise on the benefits of a debrid service.
 
-However, the drawbacks of using a debrid service are that most do not seed the torrents and will also restrict usage to one IP address at a time.
-This means that you are not contributing to the torrent and that you can only use the service on one network at a time.
+With all that being said, if torrenting is not an issue, the best way to determine whether you need a debrid service is to try streaming without one.
+You can then try watching the content you want to watch and see if it buffers at the quality you want to watch in. 
+If it does, then you may want to consider using a debrid service.
 
-There are, however, some exceptions to these rules. I will go through them in the next section.
-
-
-##### Which debrid service do I use?
+#### Which debrid service do I use?
 
 :::info
 I receive a commission (free days or small amount of money) if you sign up to a debrid service through (some of) the links provided. This is at no extra cost to you and is a way to support me.
 :::
 
-There are many debrid services available to use. Here is a list of the ones supported by Torrentio. I will walk you through the setup for each below.
+There are many debrid services available to use. Here is a list of the ones supported by, currently, the only torrent addon available for Aniyomi - Torrentio Anime:
 
 - [Real Debrid](https://real-debrid.com/?id=9483829)
 - [AllDebrid](https://alldebrid.com/?uid=3n8qa&lang=en)
@@ -220,53 +248,95 @@ There are many debrid services available to use. Here is a list of the ones supp
 - [Debrid-Link](https://debrid-link.com/id/EY0JO)
 - [Offcloud](https://offcloud.com/?=06202a3d)
 - [Put.io](https://put.io/)
-- [Torbox](https://torbox.app/subscription?referral=9ca21adb-dbcb-4fb0-9195-412a5f3519bc)
 
 When choosing a Debrid service, the factors you have to consider are cost and the value you get from it which is made up of its optimality and userbase.
 
-Real Debrid, AllDebrid, and Debrid-Link are the cheapest debrid services.
-However, Debrid-Link and AllDebrid are the cheapest as they offer a 300 day plan compared to Real-Debrid whose maximum is 180 days.
-Other than that, their prices are the same.
+**TL;DR**: Most users should use Real Debrid or AllDebrid. ([Skip to the setup instructions](#setting-up-a-debrid-service))
+
+**Cost**
+
+
+<details>
+<summary>Price Comparison Table</summary>
+<div>
+
+<Tabs>
+<TabItem value="gbp" label="GBP">
+<DebridCostComparisonTable primaryCurrency="GBP" excludeServices={["torbox"]}/>
+</TabItem>
+<TabItem value="usd" label="USD">
+<DebridCostComparisonTable primaryCurrency="USD" excludeServices={["torbox"]}/>
+</TabItem>
+<TabItem value="eur" label="EUR">
+<DebridCostComparisonTable primaryCurrency="EUR" excludeServices={["torbox"]}/>
+</TabItem>
+<TabItem value="aud" label="AUD">
+<DebridCostComparisonTable primaryCurrency="AUD" excludeServices={["torbox"]}/>
+</TabItem>
+<TabItem value="unconverted" label="Unconverted">
+<DebridCostComparisonTable excludeServices={["torbox"]}/>
+</TabItem>
+</Tabs>
+
+</div>
+</details>
+
+All-Debrid and Debrid-Link are the cheapest debrid services, with Real Debrid closely following.
+
+
+:::info
+If you are unsure if this is something you want to use, you can try a free trial or a limited free plan.
+
+- All-Debrid offer a free 7-day trial with phone number verification.
+- put.io offers a $0.99 1 day trial.
+
+Alternatively, you can use the 15 day package that most debrid services offer to test them out.
+:::
+
+
+**Optimality**
 
 Optimality refers to your proximity to the service's servers. The closer you are, the faster the download speeds and thus the better the streaming experience.
 The download speeds you get directly determine the quality of the stream you can watch. Make sure to carry out speed tests to determine the best service for you.
 The speed tests for each debrid service can be found [here](/stremio/faq#where-can-i-find-the-speed-tests-for-debrid-services) and on their website too.
 
+**Userbase**
+
+This is important as the more users a debrid service has, the more cached torrents it will have.
+Cached torrents are what you rely on when streaming content on Aniyomi.
+
 A larger userbase means more cached torrents, with Real Debrid and AllDebrid leading.
 However, the other debrid services will still have a lot of popular torrents cached.
+Other debrid services will still have a noticeably lower amount of cached torrents. 
 
-Support for debrid services varies among addons, with Real Debrid, AllDebrid, and Premiumize being the most supported.
-Every debrid service except Torbox is supported by Torrentio (the most popular) and it is possible to get Torrentio streams for Torbox through MediaFusion.
-Find a full table of supported debrid services [here](/stremio/faq#which-debrid-services-are-supported-by-each-addon).
+**Additional Features**
+
+Another thing to consider is the additional features that some debrid services offer.
 
 I previously discussed some of the limitations of debrid services, namely the lack of seeding and the restriction to one IP address.
 As I said before, there are some exceptions. I will now go through them.
 
-**Seeding**:
 
-:::warning
-With the way debrid services work, users of debrid services will always be taking more than they are giving.
+- **IP Restrictions**:
 
-The debrid services below will seed the torrent if it hasn't been cached already. 
-In the case that its already been cached, they may not seed it, and other users can stream this cached torrent too. 
-:::
+    - Premiumize also allows several IPs. However, it does operate on a storage limitation that you may reach depending on your usage.
 
-- Debrid-Link offers a seedbox with these limits: 600 torrents and 2.5TB of data transfer per month.
-- Premiumize will seed to a 2.0 ratio or for 72 hours. Whichever comes first.
-- put.io is similar to Premiumize but the exact numbers are dependent on your plan. Check their pricing page for more information.
+- **Seeding**:
 
-**IP Restrictions**:
+    :::warning
+    With the way debrid services work, debrid services will always be taking more than they are giving.
 
-- Premiumize is the only debrid service that allows multiple IP addresses. However, it does operate on a storage limitation that you may reach depending on your usage.
+    The debrid services below will seed the torrent if it hasn't been cached already. 
+    In the case that its already been cached, they may not seed it, and other users can stream this cached torrent too. 
+    :::
+    - Debrid-Link offers a seedbox with these limits: 600 torrents and 2.5TB of data transfer per month.
+    - Premiumize will seed to a 2.0 ratio or for 72 hours. Whichever comes first.
+    - put.io is similar to Premiumize but the exact numbers are dependent on your plan. Check their pricing page for more information.
 
-:::info
-All-Debrid offers a free 7-day trial and put.io offers a $0.99 1 day trial, ideal for testing its suitability.
-Alternatively, you can use the 15 day package that most debrid services offer to test them out.
-:::
 
-One last piece of information to consider is that Real Debrid has gone down more than any other debrid service but it is still a small amount of downtime.
+**My recommendation would be Real Debrid**
 
-##### Setting up a debrid service
+#### Setting up a debrid service
 
 I will now cover the instructions of setting up each debrid service I previously mentioned.
 
@@ -288,7 +358,7 @@ I will now cover the instructions of setting up each debrid service I previously
     4. Choose a package and subscribe.
 </TabItem>
 <TabItem value="premiumize" label="Premiumize">
-    ![Premiumize Payment](/img/stremio//premiumize_payment.png)
+    ![Premiumize Payment](/img/stremio/premiumize_payment.png)
 
     1. Go to [Premiumize's website](https://www.premiumize.me/)
     2. Click Sign Up in the top right corner to create an account
@@ -297,7 +367,7 @@ I will now cover the instructions of setting up each debrid service I previously
 
 </TabItem>
 <TabItem value="debrid-link" label="Debrid-Link">
-    ![Debrid-Link Payment](/img/stremio//debrid_link_payment.png)
+    ![Debrid-Link Payment](/img/stremio/debrid_link_payment.png)
 
     1. Go to [Debrid-Link's website](https://debrid-link.com/id/EY0JO)
     2. Click Register in the top right corner or `Try it Free` on the home page.
@@ -307,7 +377,7 @@ I will now cover the instructions of setting up each debrid service I previously
 
 </TabItem>
 <TabItem value="offcloud" label="Offcloud">
-    ![Offcloud Payment](/img/stremio//offcloud_payment.png)
+    ![Offcloud Payment](/img/stremio/offcloud_payment.png)
 
     1. Go to [Offcloud's website](https://offcloud.com/?=06202a3d)
     2. Enter your email and click `Join us for free`
@@ -317,7 +387,7 @@ I will now cover the instructions of setting up each debrid service I previously
 
 </TabItem>
 <TabItem value="put.io" label="put.io">
-    ![Put.io Payment](/img/stremio//put.io_payment.png)
+    ![Put.io Payment](/img/stremio/put.io_payment.png)
 
     1. Go to [put.io's register page](https://app.put.io/register) and create an account
     2. You will see a banner asking you to activate your account. Click the button to go to the [billing page](https://app.put.io/billing/activate-account)
@@ -336,7 +406,18 @@ I will now cover the instructions of setting up each debrid service I previously
 </TabItem>
 </Tabs>
 
-#### Installing Torrentio Anime
+### Installing Torrent Addons 
+
+Now, we can go through the process of installing and configuring a torrent addon in Aniyomi.
+
+If you have used [Stremio](/stremio/) before, you will definitely have heard about the Torrentio addon before. 
+
+Torrentio is a Stremio addon that returns torrent results for movies and TV shows. 
+For a more detailed explanation on how Torrentio works, you can read [this reddit comment](https://www.reddit.com/r/StremioAddons/comments/19fmjlp/comment/kjlnwru/)
+
+Torrentio Anime is an extension that uses the Torrentio stremio addon to fetch torrent results for anime only. 
+
+At the moment, there is only one torrent addon available for Aniyomi - Torrentio Anime (and Torrentio - this would be used for movies and TV shows too, not just Anime).
 
 I will be using the Torrentio Anime extension from the Kohi Den repository.
 
@@ -354,7 +435,7 @@ I will be using the Torrentio Anime extension from the Kohi Den repository.
 
 - `Debrid Provider` - Choose your debrid provider from the list.
 
-- `Token` - Enter your debrid service's API key here. 
+- `Token` - Enter your debrid service's API key here if using one, otherwise leave it blank.
 
 <details>
 <summary>Where can I find my debrid API key?</summary>
@@ -413,7 +494,9 @@ I will be using the Torrentio Anime extension from the Kohi Den repository.
 </div>
 </details>
 
-- `Enable/Disable Providers` - Here, you can choose the different providers that Torrentio will fetch torrents from. You can enable or disable them by clicking on them. I recommend enabling all of them for the most results.
+- `Enable/Disable Providers`:
+    
+    Here, you can choose the different providers that Torrentio will fetch torrents from. You can enable or disable them by clicking on them. I recommend enabling all of them for the most results.
 
 - `Exclude Qualties/Resolutions` - You can choose to exclude certain qualities from the search results. Since we are on mobile where your phone most likely doesn't support 4K, I recommend excluding the following qualities:
     - HDR/HDR10+/Dolby Vision
@@ -424,7 +507,13 @@ I will be using the Torrentio Anime extension from the Kohi Den repository.
 
 - `Priority Foreign Language` - Here, you can choose the language you want your results to have. I recommmend leaving this blank.
 
-- `Sorting` - You can choose how you want your results to be sorted. I recommend `By quality then size`. Usually, the higher the size the better the quality, so this will give you the best quality results.
+- `Sorting`: You can choose how you want your results to be sorted. 
+
+    - If you are using a debrid service, I recommend `By quality then size`. 
+Usually, the higher the size the better the quality, so this will give you the best quality results. 
+
+    - If you are not using a debrid service, you will want to sort `By quality then seeders`.
+Without a debrid service, you are reliant on seeders, so the more seeders the better.
 
 - `Preferred Title` - Here, you can choose the title you want your results to have. This is completely preference, but I prefer the English title.
     - Romaji - Shingei no Kyojin
@@ -435,7 +524,7 @@ I will be using the Torrentio Anime extension from the Kohi Den repository.
 
 - `Dubbed video Priority` - If enabled, dubbed videos will be shown first in the results. If you prefer dubbed anime, enable this.
 
-- `Efficient Video Priority` - If enabled, videos that are more efficient to stream will be shown first in the results. If you have a slow internet connection, or limited data, you may want to enable this.
+- `Efficient Video Priority` - If enabled, videos that are more efficient to stream (x265, HEVC) will be shown first in the results. If you have a slow internet connection, or limited data, you may want to enable this.
 
 
 Once you have configured the settings, restart Aniyomi to apply the changes.

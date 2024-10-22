@@ -1,5 +1,5 @@
-export default function generateDebridCostTable(generateDebridCostTableProps: { primaryCurrency: string; }): JSX.Element {
-    const { primaryCurrency } = generateDebridCostTableProps;
+export default function generateDebridCostTable(generateDebridCostTableProps: { primaryCurrency: string, excludeServices?: string[]; }): JSX.Element {
+    const { primaryCurrency, excludeServices } = generateDebridCostTableProps;
     // Define conversion rates
     const conversionRates = {
       EUR_TO_USD: 1.0874,
@@ -16,7 +16,7 @@ export default function generateDebridCostTable(generateDebridCostTableProps: { 
     };
   
     // Define service data
-    const services = [
+    let services = [
       { name: 'Torbox (Essential)', price: 30, duration: 365, currency: 'USD' },
       { name: 'Torbox (Standard)', price: 55, duration: 365, currency: 'USD' },
       { name: 'Torbox (Pro)', price: 110, duration: 365, currency: 'USD' },
@@ -28,6 +28,12 @@ export default function generateDebridCostTable(generateDebridCostTableProps: { 
       { name: 'put.io (100GB)', price: 99, duration: 365, currency: 'USD' },
       { name: 'put.io (1TB)', price: 199, duration: 365, currency: 'USD' },
     ];
+    if (excludeServices) {
+      // go through each excluded service and see if that string is within the name of the service
+      excludeServices.forEach((service) => {
+        services = services.filter((s) => !s.name.toLowerCase().includes(service.toLowerCase()));
+      });
+    }
   
   
     // Helper function to convert prices
