@@ -47,3 +47,40 @@ Torrentio has a lot of options to customise your experience. I will go through e
 Now we are done configuring Torrentio. 
 The next step is to click `Install`. 
 Doing so should automatically open Stremio prompting you to install once again.
+
+<h3>Result Example</h3>
+
+Now, I will explain the results that you see from Torrentio in Stremio.
+
+![Torrentio Result Example](/img/stremio/torrentio_result.png)
+
+<h4>Debrid status</h4>
+
+You will only see this if you have configured a debrid provider.
+:::note
+I will use RD here, but it can be any debrid provider you have chosen. e.g. DL, PM, etc.
+:::
+
+In this example, you can see `[RD+]` in front of the title. This means that the torrent was found on a Real Debrid server and you can stream it without any issues.
+
+If you see `[RD Download]` in front of the title, this means that the torrent was found but not downloaded to the Debrid's servers.
+By clicking on this link, you can send a request to your Debrid provider to start downloading that torrent. Once it is downloaded, Torrentio will show `[RD+]` in front of the title.
+
+<h4>Quality Tags</h4>
+
+Underneath the debrid status, you can see the quality of the video. In this case, it is a 4K link with DV (Dolby Vision) and HDR. 
+It could also be 1080p, 720p, SCR, CAM, Unknown, etc.
+
+<h4>Torrent Info</h4>
+
+:bust_in_silhouette: - The number of seeders this torrent has. 
+If you are using a debrid service, this number is irrelevant to you, unless it is a Debrid Download, in which case, the higher the number, the faster the download.
+
+:floppy_disk: - The size of the video file
+
+:gear: - The indexer that the torrent was found on.
+
+<h4>Language Tags</h4>
+
+Underneath the torrent info, you can see the language tags. In this case, it has a lot. 
+It will show the languages that are available in the video.
