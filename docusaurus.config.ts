@@ -75,6 +75,12 @@ const config: Config = {
           className: 'header-github-link',
           'aria-label': 'GitHub repository',
         },
+        {
+          href: 'https://ko-fi.com/viren070',
+          position: 'right',
+          className: 'header-kofi-link',
+          'aria-label': 'Ko-fi',
+        }
       ],
     },
     footer: {
