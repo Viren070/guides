@@ -16,7 +16,7 @@
   --strong-text-color: #cbd5e0;
   --link-color: #63b3ed;
   --link-hover-color: #4299e1;
-  --box-shadow: 0 2px 4px rgba(27, 27, 27, 0.884); /* Subtle shadow for depth */
+  --box-shadow: 0 2px 4px rgba(0, 0, 0, 0.6); /* Subtle shadow for depth */
 }
 
 .creditsContainer {
