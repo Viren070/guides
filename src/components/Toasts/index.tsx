@@ -19,7 +19,7 @@ export function MyToastContainer(): JSX.Element {
       hideProgressBar
       draggablePercent={60}
       draggableDirection='y'
-      draggable="mouse"
+      draggable="touch"
       limit={10}
       theme="colored"
       transition={Slide}
