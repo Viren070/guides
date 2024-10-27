@@ -13,7 +13,7 @@
   --ifm-color-primary-light: #6d6429;
   --ifm-color-primary-lighter: #72692b;
   --ifm-color-primary-lightest: #817630;
-  --ifm-global-radius: 16px;
+  --ifm-global-radius: 12px;
   --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.1);
 }
 
@@ -41,6 +41,14 @@
   100% { transform: rotate(0deg); }
 }
 
+
+.header-github-link,
+.header-kofi-link {
+  display: inline-block;
+  position: relative;
+  transition: transform 0.2s ease, background-color 0.3s ease;
+}
+
 .header-github-link::before,
 .header-kofi-link::before {
   content: '';
@@ -66,6 +74,11 @@
   background-color: var(--ifm-navbar-link-hover-color);
   animation: subtleRotate 0.4s ease-in-out;
   animation-iteration-count: 1;
+}
+
+.header-github-link:active,
+.header-kofi-link:active {
+  transform: scale(0.85);
 }
 
 .custom-tabs .tabs__item {
