@@ -1,0 +1,55 @@
+/* Define CSS variables for light and dark themes */
+:root[data-theme='light'] {
+  --background-color: #eef9fd; /* Light background color */
+  --border-color: #c4e4ed; /* Light border color */
+  --text-color: #2d3748;
+  --strong-text-color: #1a202c;
+  --link-color: #3182ce;
+  --link-hover-color: #2c5282;
+  --box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+}
+
+:root[data-theme='dark'] {
+  --background-color: #193c47; /* Dark background color */
+  --border-color: #0f2a33; /* Dark border color */
+  --text-color: #e2e8f0;
+  --strong-text-color: #cbd5e0;
+  --link-color: #63b3ed;
+  --link-hover-color: #4299e1;
+  --box-shadow: 0 2px 4px rgba(27, 27, 27, 0.884); /* Subtle shadow for depth */
+}
+
+.creditsContainer {
+  background-color: var(--background-color); /* Use CSS variable */
+  border: 1px solid var(--border-color); /* Use CSS variable */
+  border-radius: var(--ifm-global-radius); /* Use CSS variable */
+  padding: 16px;
+  margin: 24px 0;
+  box-shadow: var(--box-shadow); /* Use CSS variable */
+  text-align: center;
+}
+
+.creditsText {
+  font-size: 16px;
+  color: var(--text-color); /* Use CSS variable */
+  margin-bottom: 8px;
+}
+
+.creditsText a {
+  display: inline-block;
+  font-size: 16px;
+  text-decoration: none;
+  transition: underline 0.2s ease-in-out;
+}
+
+.creditsText a:hover {
+  text-decoration: underline;
+}
+
+.linksContainer {
+  display: flex;
+  justify-content: center; /* Center the button horizontally */
+  align-items: center; /* Center the button vertically */
+  margin-top: 16px; /* Add some space above the button */
+  gap: 8px;
+}
