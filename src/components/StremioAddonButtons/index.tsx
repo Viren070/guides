@@ -1,6 +1,6 @@
 import 'react-toastify/dist/ReactToastify.css';
 import styles from './styles.module.css';
-import { useToastSync, showToast } from '@site/src/components/Toasts';
+import { showToast } from '@site/src/components/Toasts';
 import BrowserOnly from '@docusaurus/BrowserOnly';
 
 interface StremioAddonButtonsProps {
@@ -101,8 +101,6 @@ const CopyManifestUrlButton = ({ manifest }: { manifest: string }) => {
 
 export default function StremioAddonButtons(props: StremioAddonButtonsProps): JSX.Element {
   const { source, manifest, configurable, configurationRequired, configureOverride, id } = props;
-
-  useToastSync(); // Sync the color mode
 
   const showInstallButtons = manifest && !configurationRequired; // only show install buttons if manifest is present and configuration is not required
   const showConfigureButton = (manifest && configurable) || configureOverride;  // only show configure button if manifest is present and addon is configurable or configureOverride is present
