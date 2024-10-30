@@ -1,14 +1,14 @@
 .buttonsContainer {
 	display: flex;
 	flex-direction: column;
-	gap: 10px;
-	padding-bottom: 10px;
+	gap: 15px; 
+	padding-bottom: 10px; 
 }
 
 .buttonRow {
 	display: flex;
 	justify-content: flex-start;
-	gap: 10px; /* Add gap between buttons */
+	gap: 15px; 
 }
 
 .button {
@@ -21,15 +21,23 @@
 	font-weight: 600;
 	cursor: pointer;
 	border-radius: var(--ifm-global-radius);
-	transition: transform 0.1s ease, background-color 0.3s ease;
+	transition: transform 0.1s ease, background-color 0.3s ease, box-shadow 0.3s ease;
 	height: 75px;
 	flex-grow: 1; /* Allow buttons to grow and fill the available space */
 	flex-basis: 0; /* Ensure buttons start with zero width */
 	position: relative; /* Ensure the <a> tag can be positioned absolutely */
+	box-shadow: var(--button-box-shadow); 
+}
+
+
+.button:hover {
+	box-shadow: var(--button-hover-box-shadow); /* Use CSS variable */
+	transform: translateY(-2px); /* Slight lift effect */
 }
 
 .button:active {
 	transform: scale(0.95); /* Make the button slightly smaller */
+	box-shadow: var(--button-active-box-shadow); /* Pressed effect */
 }
 
 .button a {
