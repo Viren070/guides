@@ -23,7 +23,7 @@ function NotFound (props: { name?: string }): JSX.Element {
     // center the content
     <div style={{ padding: '1rem', textAlign: 'center' }}>
       <h1>Oops!</h1>
-      <p>An unexpected error occured and the documentation for {name} could not be found.</p>
+      <p>An unexpected error occurred and the documentation for {name} could not be found.</p>
       <p>Please report this issue on <a href="https://github.com/Viren070/guides">GitHub</a>.</p>
     </div>
   );
