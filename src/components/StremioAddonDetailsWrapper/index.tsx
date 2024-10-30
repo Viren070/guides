@@ -17,24 +17,31 @@ interface Props {
   flag?: string;
 }
 
+function NotFound (props: { name?: string }): JSX.Element {
+  const { name } = props;
+  return (
+    // center the content
+    <div style={{ padding: '1rem', textAlign: 'center' }}>
+      <h1>Oops!</h1>
+      <p>An unexpected error occured and the documentation for {name} could not be found.</p>
+      <p>Please report this issue on <a href="https://github.com/Viren070/guides">GitHub</a>.</p>
+    </div>
+  );
+}
+
 export default function (props: Props): JSX.Element {
   const { name, debrid, torrent, usenet, http, flag } = props;
   // state to store the addon component
-  const [AddonComponent, setAddonComponent] = useState<React.ComponentType | null>(null);
-  // state to track if import is in progress
-  const [loading, setLoading] = useState(true);
+  const [AddonComponent, setAddonComponent] = useState<React.ComponentType|null>(null);
 
   useEffect(() => {
     const addonId = name.toLowerCase().replace(/ /g, '-').replace(/\+/g, '-plus');
-    setLoading(true);
     import(`@site/docs/stremio/addons/${addonId}.mdx`)
       .then(module => {
         setAddonComponent(() => module.default);
-        setLoading(false);
       })
       .catch(() => {
         setAddonComponent(null);
-        setLoading(false);
       });
   }, [name]);
 
@@ -49,7 +56,7 @@ export default function (props: Props): JSX.Element {
 
   return (
     <Details summary={addonSummary}>
-      {loading ? <p>Loading...</p> : AddonComponent ? <AddonComponent /> : <p>Addon not found</p>}
+      {AddonComponent ? <AddonComponent /> : <NotFound name={name}/>}
     </Details>
   );
 }
