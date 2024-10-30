@@ -15,6 +15,9 @@
   --ifm-color-primary-lightest: #817630;
   --ifm-global-radius: 12px;
   --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.1);
+  --button-box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  --button-hover-box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
+  --button-active-box-shadow: 0 2px 4px rgba(0, 0, 0, 0.6);
 }
 
 /* For readability concerns, you should choose a lighter palette in dark mode. */
@@ -27,6 +30,9 @@
   --ifm-color-primary-lighter: #d9d19b;
   --ifm-color-primary-lightest: #e7e1bf;
   --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.3);
+  --button-box-shadow: 0 2px 4px rgba(0, 0, 0, 0.6);
+  --button-hover-box-shadow: 0 2px 4px rgba(0, 0, 0, 0.8);
+  --button-active-box-shadow: 0 2px 4px rgba(0, 0, 0, 1);
 }
 
 @keyframes subtleRotate {
