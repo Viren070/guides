@@ -99,10 +99,6 @@ const config: Config = {
               label: 'Streaming',
               to: 'category/streaming',
             },
-            {
-              label: 'Reading',
-              to: 'category/reading',
-            }
           ],
         },
         {
