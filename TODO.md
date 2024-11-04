@@ -10,6 +10,7 @@
 - [x] Change headings for live tv / sports ? 
 - [x] Fix torbox stuff
 - [x] Fix Usenet stuff
+- [ ] remove or add deprecation notice to: Shluflix, KnightCrawler, Stremio-Jackett, Hooligan
 
 ## New Guides 
 
