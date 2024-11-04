@@ -73,8 +73,16 @@ const config: Config = {
           href: 'https://github.com/Viren070/guides',
           position: 'right',
           className: 'header-github-link',
+          'title': 'Visit the GitHub repository',
           'aria-label': 'GitHub repository',
         },
+        {
+          href: 'https://ko-fi.com/viren070',
+          position: 'right',
+          className: 'header-kofi-link',
+          'title': 'Support me on Ko-fi',
+          'aria-label': 'Ko-fi',
+        }
       ],
     },
     footer: {

@@ -54,49 +54,7 @@ import MetaQuest from "./platform/_meta-quest.mdx";
 import DebridCostComparisonTable from "@site/src/components/DebridCostComparisonTable";
 import KoFiWidgetWrapper from "@site/src/components/KoFiWidgetWrapper";
 
-import Torrentio from "./addons/torrentio.mdx";
-import MediaFusion from "./addons/mediafusion.mdx";
-import KnightCrawler from "./addons/knightcrawler.mdx";
-import StremioJackett from "./addons/stremio-jackett.mdx";
-import Annatar from "./addons/annatar.mdx";
-import Comet from "./addons/comet.mdx";
-import Jackettio from "./addons/jackettio.mdx";
-import OrionStremioAddon from "./addons/orion-stremio-addon.mdx";
-import Torbox from "./addons/torbox.mdx";
-import Easynews from "./addons/easynews.mdx";
-import EasynewsPlus from "./addons/easynews-plus.mdx";
-import Formulio from "./addons/formulio.mdx";
-import Hooligan from "./addons/hooligan.mdx";
-import Shluflix from "./addons/shluflix.mdx";
-import Stremify from "./addons/stremify.mdx";
-import JaMovies from "./addons/jamovies.mdx";
-import StremioGDrive from "./addons/stremio-gdrive.mdx";
-import MammaMia from "./addons/mammamia.mdx";
-import CometFr from "./addons/cometfr.mdx";
-import DramaCool from "./addons/dramacool.mdx";
-import Peerflix from "./addons/peerflix.mdx";
-import UsaTv from "./addons/usa-tv.mdx";
-import WorldwideSportsTv from "./addons/worldwide-sports-tv.mdx";
-import ArgentinaTv from "./addons/argentina-tv.mdx";
-import TmdbAddon from "./addons/tmdb-addon.mdx";
-import ImdbCatalogs from "./addons/imdb-catalogs.mdx";
-import NewestMovies from "./addons/newest-movies.mdx";
-import CustomCatalogues from "./addons/custom-catalogues.mdx";
-import CyberFlix from "./addons/cyberflix.mdx";
-import StreamingCatalogs from "./addons/streaming-catalogs.mdx";
-import Networks from "./addons/networks.mdx";
-import PopularPeople from "./addons/popular-people.mdx";
-import AnimeKitsu from "./addons/anime-kitsu.mdx";
-import AnimeCatalogs from "./addons/anime-catalogs.mdx";
-import Animeo from "./addons/animeo.mdx";
-import MalStremioAddon from "./addons/mal-stremio-addon.mdx";
-import OpenSubtitlesV3 from "./addons/opensubtitles-v3.mdx";
-import OpenSubtitlesPro from "./addons/opensubtitles-pro.mdx";
-import SubDl from "./addons/subdl-subtitles.mdx";
-import SubSource from "./addons/subsource-subtitles.mdx";
-import YifySubtitlesByDexter from "./addons/yifysubtitles-dexter.mdx";
-import MSubtitles from "./addons/msubtitles.mdx";
-import LegendasDivx from "./addons/legendasdivx.mdx";
+import StremioAddon from "@site/src/components/StremioAddonDetailsWrapper";
 
 # Setup
 
@@ -259,36 +217,16 @@ When choosing a Debrid service, the factors you have to consider are cost and th
 
 **Cost**
 
+:::info 
+Please note that currency conversions are always changing. You may also have to pay currency conversion fees depending on your payment method.
+:::
 
-<details>
-<summary>Price Comparison Table</summary>
-<div>
 
-<Tabs>
-<TabItem value="gbp" label="GBP">
-<DebridCostComparisonTable primaryCurrency="GBP"/>
-</TabItem>
-<TabItem value="usd" label="USD">
-<DebridCostComparisonTable primaryCurrency="USD"/>
-</TabItem>
-<TabItem value="eur" label="EUR">
-<DebridCostComparisonTable primaryCurrency="EUR"/>
-</TabItem>
-<TabItem value="aud" label="AUD">
-<DebridCostComparisonTable primaryCurrency="AUD"/>
-</TabItem>
-<TabItem value="unconverted" label="Unconverted">
-<DebridCostComparisonTable/>
-</TabItem>
-</Tabs>
+<DebridCostComparisonTable />
 
-</div>
-</details>
+If you take into consideration the fidelity points awarded by Real Debrid and AllDebrid, then AllDebrid is the cheapest, with Real Debrid closely following.
 
-Using the table above, we can see that Torbox is the cheapest debrid service, if using the Essential plan. (This is the plan I would recommend for Stremio)
-
-RealDebrid, AllDebrid, and Debrid-Link follow closely behind in terms of price.
-
+Otherwise, Torbox is the cheapest, with AllDebrid and Debrid-Link following closely behind.
 
 :::info
 If you are unsure if this is something you want to use, you can try a free trial or a limited free plan.
@@ -557,8 +495,12 @@ I will now go through the setup for each of these services.
 
     1. Head to [Easynews's signup page](https://signup.easynews.com/checkout/) 
     :::tip
-    There is currently a deal where you can get the features of the Big Gig Plan for $44.85 / 15 months ($2.99 / month).
-    Use [this link](https://signup.easynews.com/checkout/deal-for-you) to get this deal.
+    Use one of the following deals to get a discount on your subscription:
+    - [Win Back Deal](https://signup.easynews.com/checkout/winback-deal-ae/)
+    - [Deal For You](https://signup.easynews.com/checkout/deal-for-you-e1/)
+    - [Unlimited Special Deal](https://signup.easynews.com/checkout/unlimited-special-deal/)
+    - [Exclusive Usenet Special](https://signup.easynews.com/checkout/exclusive-usenet-special/)
+    - [Exclusive Unlimited Usenet Deal](https://signup.easynews.com/checkout/exclusive-unlimited-usenet-deal/)
     :::
     2. Choose a package, fill in your details and subscribe.
     3. Complete the payment and signup process.
@@ -664,182 +606,47 @@ These addons provide general content such as movies, shows and anime.
  
 It is not required for you to install all of these addons. 
 For most users, only installing the Torrentio addon will be sufficient. 
-You may also want to install some backup addons in case Torrentio goes down.
 
-The HTTP addons should only be used if you are not using any other type of addon. 
+As Stremio addons are hosted on a server, an influx of users or other potential issues can cause the server to go down. 
+Torrentio has a history of going down due to the large number of users.
+You may want to install a backup addon, such as Comet, in case Torrentio goes down.
 
-<details>
-    <summary>Torrentio :busts_in_silhouette: :cloud:</summary>
-    <div>
-        <Torrentio/>
-    </div>
-</details>
+In this guide, I will be providing public instances of addons. 
+Some of these are hosted by ElfHosted, but they have put in place a rate limit to prevent abuse.
+However, you most likely will not hit this rate limit.
 
-<details> 
-    <summary>Comet :cloud:</summary>
-    <div>
-        <Comet/>
-    </div>
-</details>
+I recommend self-hosting your addons to completely remove reliance on third parties.
+While I don't cover how to self-host addons in this guide, most open-source addons have instructions on how to self-host them on their source code repository.
+My recommendation is to self-host [Comet](/stremio/addons/comet)
 
-<details> 
-    <summary>MediaFusion :busts_in_silhouette: :cloud: </summary>
-    <div>
-        <MediaFusion/>
-    </div>
-</details>
 
-<details>
-    <summary>KnightCrawler :busts_in_silhouette: :cloud:</summary>
-    <div>
-        <KnightCrawler/>
-    </div>
-</details>
 
-<details> 
-    <summary>Stremio-Jackett :busts_in_silhouette: :cloud: </summary>
-    <div>
-        <StremioJackett/>
-    </div>
-</details>
-
-<details>
-    <summary>Jackettio :cloud:</summary>
-    <div>
-        <Jackettio/>
-    </div>
-</details>
-
-<details>
-    <summary>Orion :busts_in_silhouette: :cloud: :newspaper:</summary>
-    <div>
-        <OrionStremioAddon/>
-    </div>
-</details>
-
-<details>
-    <summary>Peerflix 🇪🇸 :busts_in_silhouette: </summary>
-    <div>
-        <Peerflix/>
-    </div>
-</details>
-
-<details>
-    <summary>CometFR 🇫🇷 :cloud:</summary>
-    <div>
-        <CometFr/>
-    </div>
-</details>
-
-<details>
-    <summary>Annatar :cloud:</summary>
-    <div>
-        <Annatar/>
-    </div>
-</details>
-
-<details>
-    <summary>Torbox :cloud: :newspaper:</summary>
-    <div>
-        <Torbox/>
-    </div>
-</details>
-
-<details>
-    <summary>Easynews :newspaper:</summary>
-    <div>
-        <Easynews/>
-    </div>
-</details>
-
-<details>
-    <summary>Easynews+ :newspaper:</summary>
-    <div>
-        <EasynewsPlus/>
-    </div>
-</details>
-
-<details>
-    <summary>Stremify :globe_with_meridians:</summary>
-    <div>
-        <Stremify/>
-    </div>
-</details>
-
-<details>
-    <summary>Shuflix :globe_with_meridians: </summary>
-    <div>
-        <Shluflix/>
-    </div>
-</details>
-
-<details>
-    <summary>JaMovies :globe_with_meridians:</summary>
-    <div>
-        <JaMovies/>
-    </div>
-</details>
-
-<details>
-    <summary>DramaCool :globe_with_meridians: :cloud:</summary>
-    <div>
-        <DramaCool/>
-    </div>
-</details>
-
-<details>
-    <summary>stremio-gdrive :globe_with_meridians: </summary>
-    <div>
-        <StremioGDrive/>
-    </div>
-</details>
-
-<details>
-    <summary>MammaMia 🇮🇹 :globe_with_meridians:</summary>
-    <div>
-        <MammaMia/>
-    </div>
-</details>
+<StremioAddon name="Torrentio" debrid torrent />
+<StremioAddon name="Comet" debrid />
+<StremioAddon name="MediaFusion" http torrent debrid/>
+<StremioAddon name="Jackettio" debrid />
+<StremioAddon name="Orion Stremio Addon" torrent debrid/>
+<StremioAddon name="KnightCrawler" torrent debrid deprecated/>
+<StremioAddon name="Stremio-Jackett" torrent debrid deprecated />
+<StremioAddon name="Peerflix" torrent flag="Spain" />
+<StremioAddon name="CometFR" debrid flag="France"/>
+<StremioAddon name="Torbox" debrid usenet />
+<StremioAddon name="Easynews" usenet />
+<StremioAddon name="Easynews+" usenet />
+<StremioAddon name="Stremify" http/>
+<StremioAddon name="JaMovies" http/>
+<StremioAddon name="DramaCool" http debrid />
+<StremioAddon name="Stremio GDrive" http/>
+<StremioAddon name="MammaMia" http flag="Italy" />
 
 #### Live TV & Sports
 
 These addons can provide live TV channels, live sports and replays.
 
-<details>
-    <summary>USA TV :globe_with_meridians:</summary>
-    <div>
-        <UsaTv/>
-    </div>
-</details>
-
-<details>
-    <summary>Worldwide Sports TV :globe_with_meridians:</summary>
-    <div>
-        <WorldwideSportsTv/>
-    </div>
-</details>
-
-<details>
-    <summary>Formulio :busts_in_silhouette:</summary>
-    <div>
-        <Formulio/>
-    </div>
-</details>
-
-<details>
-    <summary>Hooligan :globe_with_meridians:</summary>
-    <div>
-        <Hooligan/>
-    </div>
-</details>
-
-<details>
-    <summary>Argentina TV 🇦🇷 :globe_with_meridians:</summary>
-    <div>
-        <ArgentinaTv/>
-    </div>
-</details>
-
+<StremioAddon name="USA TV" http />
+<StremioAddon name="Worldwide Sports TV" http />
+<StremioAddon name="Formulio" torrent />
+<StremioAddon name="Argentina TV" http flag="Argentina"/>
 
 - [Mediafusion](/stremio/addons/mediafusion) provides streams for live sports and replays. It also has a few live TV channels.
    The live streams are direct streams but the replays are torrents. You can find more information above, where I covered it previously.
@@ -883,34 +690,10 @@ However, you can use this unofficial [Stremio Addon Manager](extras/addon-manage
 
 These addons provide general catalogues of movies and shows such as popular, trending, new, featured, award-winning etc.
 
-<details>
-    <summary>TMDB Addon</summary>
-    <div>
-        <TmdbAddon/>
-    </div>
-</details>
-
-<details>
-    <summary>IMDB Catalogs</summary>
-    <div>
-        <ImdbCatalogs/>
-    </div>
-</details>
-
-<details>
-    <summary>Custom Catalogues</summary>
-    <div>
-        <CustomCatalogues/>
-    </div>
-</details>
-
-
-<details>
-    <summary>Newest Movies</summary>
-    <div>
-        <NewestMovies/>
-    </div>
-</details>
+<StremioAddon name="TMDB Addon" />
+<StremioAddon name="IMDB Catalogs" />
+<StremioAddon name="Custom Catalogues" />
+<StremioAddon name="Newest Movies" />
 
 #### Streaming Service Catalogues
 
@@ -919,26 +702,9 @@ These addons will provide catalogues that pull movies and shows from popular str
 I recommend only installing one of them. If you install multiple, you may see the same content multiple times on your homepage.
 You can try both to see which you prefer but I recommend Streaming Catalogs.
 
-<details>
-    <summary>Streaming Catalogs</summary>
-    <div>
-        <StreamingCatalogs/>
-    </div>
-</details>
-
-<details>
-    <summary>CyberFlix</summary>
-    <div>
-        <CyberFlix/>
-    </div>
-</details>
-
-<details>
-    <summary>Networks</summary>
-    <div>
-        <Networks/>
-    </div>
-</details>
+<StremioAddon name="Streaming Catalogs" />
+<StremioAddon name="CyberFlix" />
+<StremioAddon name="Networks" />
 
 #### Anime Catalogues
 
@@ -950,99 +716,38 @@ The Stremify addon also provides streams from Gogoanime if you are looking for h
 Scroll up to the [Stream Provider Addons section](#stream-provider-addons) to see how to configure Torrentio and Stremify.
 
 :::note
-If you are planning to only watch on an android device, you may want to look into [Aniyomi](https://aniyomi.org) instead.
-It also has a torrentio extension that supports watching normal movies/show.
+If you are planning to only watch on an android device, you may want to look into [Aniyomi](/aniyomi) instead.
+
+My personal opinion is that Stremio is severely lacking for anime.
+
+Aniyomi provides a much better player, better and more tracking integrations, and a better library to keep track of your anime.
+You can combine your debrid subscription with Aniyomi through the Torrentio extension on Aniyomi to keep the high quality streams. 
+An added bonus is that it will auto-play the first link it finds, so you don't have to manually select a link.
+
+You can find my guide for Aniyomi [here](/aniyomi).
 :::
 
-<details>
-    <summary>Kitsu</summary>
-    <div>
-        <AnimeKitsu/>
-    </div>
-</details>
+<StremioAddon name="Anime Kitsu" />
+<StremioAddon name="Anime Catalogs" />
+<StremioAddon name="Animeo" />
+<StremioAddon name="MAL Stremio Addon" />
 
-<details>
-    <summary>Anime Catalogs</summary>
-    <div>
-        <AnimeCatalogs/>
-    </div>
-</details>
-
-<details>
-    <summary>animeo - AniList Catalogues and Tracking</summary>
-    <div>
-        <Animeo/>
-    </div>
-</details>
-
-<details>
-    <summary>MAL Stremio Addon</summary>
-    <div>
-        <MalStremioAddon/>
-    </div>
-</details>
 
 #### Other Catalogues 
 
-<details>
-    <summary>Popular People</summary>
-    <div>
-        <PopularPeople/>
-    </div>
-</details>
+<StremioAddon name="Popular People" />
 
 ### Subtitle Addons
 
 Here are a list of working subtitle addons. This list may become outdated, please check the [community addons list with the subtitle filter](https://stremio-addons.netlify.app/?label=subtitles) if none of these work.
 
-<details>
-    <summary>OpenSubtitles v3</summary>
-    <div>
-        <OpenSubtitlesV3/>
-    </div>
-</details>
-
-<details>
-    <summary>OpenSubtitles Pro</summary>
-    <div>
-        <OpenSubtitlesPro/>
-    </div>
-</details>
-
-<details>
-    <summary>SubDL</summary>
-    <div>
-        <SubDl/>
-    </div>
-</details>
-
-<details>
-    <summary>SubSource</summary>
-    <div>
-        <SubSource/>
-    </div>
-</details>
-
-<details>
-    <summary>yifysubtitles by dexter21767</summary>
-    <div>
-        <YifySubtitlesByDexter/>
-    </div>
-</details>
-
-<details>
-    <summary>MSubtitles</summary>
-    <div>
-        <MSubtitles/>
-    </div>
-</details>
-
-<details>
-    <summary>LegendasDivx</summary>
-    <div>
-        <LegendasDivx/>
-    </div>
-</details>
+<StremioAddon name="OpenSubtitles v3" />
+<StremioAddon name="OpenSubtitles Pro" />
+<StremioAddon name="SubDL Subtitles" />
+<StremioAddon name="SubSource Subtitles" />
+<StremioAddon name="yifysubtitles by dexter21767" />
+<StremioAddon name="MSubtitles" />
+<StremioAddon name="LegendasDivx" />
 
 ## End of inital setup
 

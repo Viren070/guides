@@ -94,6 +94,7 @@ const sidebars: SidebarsConfig = {
 					items: [
 						"aniyomi/intro",
 						"aniyomi/setup",
+						"aniyomi/forks",
 					],
 				},
 				{

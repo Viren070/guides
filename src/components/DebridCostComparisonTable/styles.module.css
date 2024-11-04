@@ -1,0 +1,50 @@
+.currency-select-container {
+  position: absolute;
+  padding: 10px;
+  border-radius: var(--ifm-global-radius);
+  top: -10px;
+  background-color: var(--ifm-color-primary);
+  box-shadow: var(--button-box-shadow);
+  z-index: 1; /* Ensure the dropdown is above other elements */
+  color: white;
+}
+
+.currency-select-container label {
+  margin-right: 10px;
+}
+
+.currency-select {
+  padding: 10px;  
+  border-radius: 10px;
+  color: var(--ifm-color-primary-dark);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+.currency-select:hover {
+  border-color: var(--ifm-color-primary);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.currency-select:focus {
+  outline: none;
+  border-color: var(--ifm-color-primary);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.currency-select option {
+  color: var(--ifm-color-primary-dark);
+  padding: 10px;
+  border: none;
+  font-size: 1rem;
+}
+
+.table-container {
+  position: relative;
+  padding-top: 60px; /* Add padding to ensure the table is below the dropdown menu */
+}
+
+.note {
+  font-style: italic;
+  color: #555;
+}
