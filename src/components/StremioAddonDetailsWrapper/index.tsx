@@ -15,6 +15,7 @@ interface Props {
   usenet?: boolean;
   http?: boolean;
   flag?: string;
+  deprecated?: boolean;
 }
 
 function NotFound (props: { name?: string }): JSX.Element {
@@ -30,7 +31,7 @@ function NotFound (props: { name?: string }): JSX.Element {
 }
 
 export default function (props: Props): JSX.Element {
-  const { name, debrid, torrent, usenet, http, flag } = props;
+  const { name, debrid, torrent, usenet, http, flag, deprecated } = props;
   // state to store the addon component
   const [AddonComponent, setAddonComponent] = useState<React.ComponentType|null>(null);
 
@@ -47,6 +48,7 @@ export default function (props: Props): JSX.Element {
 
   const addonSummary = [
     name,
+    deprecated && '⚠️',
     torrent && '👥',
     http && '🌐',
     debrid && '☁️',
