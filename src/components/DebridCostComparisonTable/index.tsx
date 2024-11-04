@@ -18,7 +18,7 @@ export default function generateDebridCostTable(generateDebridCostTableProps: { 
 
     // Define service data
     let services = [
-      { name: 'Torbox (Essential)', price: 30, duration: 365, currency: 'USD' },
+      { name: 'Torbox (Essential)', price: 33, duration: 365, currency: 'USD' },
       { name: 'Torbox (Standard)', price: 55, duration: 365, currency: 'USD' },
       { name: 'Torbox (Pro)', price: 110, duration: 365, currency: 'USD' },
       { name: 'Real-Debrid', price: 16, duration: 180, currency: 'EUR', pointsPerPlan: 800, pointsRequiredForReward: 1000, durationPerReward: 30 },
