@@ -1,36 +1,13 @@
 import React, { useState } from 'react';
+import Select from 'react-select';
 import styles from './styles.module.css';
 
 export default function DebridCostComparisonTable({ excludeServices }: { excludeServices?: string[]; }): JSX.Element {
-  const [primaryCurrency, setPrimaryCurrency] = useState('GBP');
+  const [primaryCurrency, setPrimaryCurrency] = useState<string>('GBP');
 
-  const conversionRates = {
-    "GBP": {},
-    "USD": {
-      "USD": 1,
-      "AUD": 1.5180,
-      "EUR": 0.9194,
-      "GBP": 0.7723,
-      "CAD": 1.3892
-    },
-    "EUR": {
-      "EUR": 1,
-      "AUD": 1.6516,
-      "GBP": 0.8404,
-      "USD": 1.0877,
-      "CAD": 1.5123
-    },
-    "AUD": {},
-    "CAD": {}
-  }
+  const conversionRates = require('@site/static/currency_rates.json');
+  const availableCurrencies = Object.keys(conversionRates['USD']).filter((currency) => Object.keys(conversionRates['EUR']).includes(currency));
 
-  const currencySymbols = {
-    "GBP": "£",
-    "USD": "$",
-    "EUR": "€",
-    "AUD": "$",
-    "CAD": "$"
-  }
 
   // Define service data
   let services = [
@@ -57,7 +34,6 @@ export default function DebridCostComparisonTable({ excludeServices }: { exclude
     if (fromCurrency === toCurrency || !toCurrency) return price;
     const rate = conversionRates[fromCurrency]?.[toCurrency];
     if (!rate) {
-      console.error(`Conversion rate from ${fromCurrency} to ${toCurrency} not found.`);
       return null;
     }
     return price * rate;
@@ -66,7 +42,7 @@ export default function DebridCostComparisonTable({ excludeServices }: { exclude
   // Helper function to format prices
   const formatPrice = (price: number, currency: string) => {
     if (!price) return;
-    return `${currencySymbols[currency] || ''}${price.toFixed(2)}`;
+    return Intl.NumberFormat(undefined, { style: 'currency', currency: currency }).format(price);
   };
 
   // Prepare data with calculated prices
@@ -122,18 +98,25 @@ export default function DebridCostComparisonTable({ excludeServices }: { exclude
     data.sort((a, b) => a.name.localeCompare(b.name));
   }
 
-  const availableCurrencies = Object.keys(conversionRates);
+
+  
+  const currencyOptions = [...availableCurrencies.map((currency) => ({ value: currency, label: currency }))];
+
 
   return (
     <div className={styles["table-container"]}>
       <div className={styles["currency-select-container"]}>
-        <label htmlFor="currency-select">Select Currency: </label>
-        <select id="currency-select" className={styles["currency-select"]} value={primaryCurrency} onChange={(e) => setPrimaryCurrency(e.target.value)}>
-          {availableCurrencies.map((currency) => (
-            <option key={currency} value={currency}>{currency}</option>
-          ))}
-          <option value="">Original</option>
-        </select>
+        <div className={styles["currency-select-box"]}>
+          <label htmlFor="currency-select"><strong>Select Currency (or clear for Original):</strong></label>
+          <Select
+            id="currency-select"
+            className={styles["currency-select"]}
+            value={{value: primaryCurrency, label: primaryCurrency}}
+            onChange={(selectedOption) => setPrimaryCurrency(selectedOption ? selectedOption.value : null)}
+            options={currencyOptions}
+            isClearable={true}
+          />
+        </div>
       </div>
       <table>
         <thead>
@@ -149,10 +132,7 @@ export default function DebridCostComparisonTable({ excludeServices }: { exclude
         <tbody>
           {data.map((service, index) => (
             <tr key={index}>
-              <td>{service.name} 
-                {service.pointsUsed && <br/>}
-                {service.pointsUsed && "(w/ fidelity points)"} 
-              </td>
+              <td>{service.name} {service.pointsUsed && "(with points*)"}</td>
               <td>{formatPrice(service.pricePerYear, primaryCurrency || service.currency)}</td>
               <td>{formatPrice(service.pricePerMonth, primaryCurrency || service.currency)}</td>
               <td>{formatPrice(service.pricePerDay, primaryCurrency || service.currency)}</td>
