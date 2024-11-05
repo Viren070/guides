@@ -1,9 +1,11 @@
 import React, { useState } from 'react';
 import Select from 'react-select';
 import styles from './styles.module.css';
+import { useColorMode } from '@docusaurus/theme-common';
 
 export default function DebridCostComparisonTable({ excludeServices }: { excludeServices?: string[]; }): JSX.Element {
   const [primaryCurrency, setPrimaryCurrency] = useState<string>('GBP');
+  const { colorMode } = useColorMode();
 
   const conversionRates = require('@site/static/currency_rates.json');
   const availableCurrencies = Object.keys(conversionRates['USD']).filter((currency) => Object.keys(conversionRates['EUR']).includes(currency));
@@ -98,23 +100,53 @@ export default function DebridCostComparisonTable({ excludeServices }: { exclude
     data.sort((a, b) => a.name.localeCompare(b.name));
   }
 
-
-  
-  const currencyOptions = [...availableCurrencies.map((currency) => ({ value: currency, label: currency }))];
-
+  const currencyOptions = [...availableCurrencies.map((currency) => ({ value: currency, label: currency }))].sort((a, b) => a.label.localeCompare(b.label));
 
   return (
-    <div className={styles["table-container"]}>
+    <>
       <div className={styles["currency-select-container"]}>
         <div className={styles["currency-select-box"]}>
           <label htmlFor="currency-select"><strong>Select Currency (or clear for Original):</strong></label>
           <Select
             id="currency-select"
-            className={styles["currency-select"]}
             value={{value: primaryCurrency, label: primaryCurrency}}
             onChange={(selectedOption) => setPrimaryCurrency(selectedOption ? selectedOption.value : null)}
             options={currencyOptions}
             isClearable={true}
+            styles={{ 
+              control: (baseStyles, state) => ({
+                ...baseStyles,
+                borderWidth: '2px',
+                backgroundColor: colorMode === 'dark' ? '#1b1b1d' : 'white',
+                borderRadius: 'var(--ifm-global-radius)',
+                borderColor: state.isFocused ? 'var(--ifm-color-primary-darkest)' : null,
+                color: 'var(--ifm-color-primary-dark)',
+                boxShadow: 'var(--button-box-shadow)',
+                "&:hover": {
+                  borderColor: state.isFocused ? 'var(--ifm-color-primary-darkest)' : null,
+                  boxShadow: 'var(--button-hover-box-shadow)',
+                },
+              }),
+              input: (baseStyles, state) => ({
+                ...baseStyles,
+                color: 'var(--ifm-color-primary-dark)',
+              }),
+              singleValue: (baseStyles, state) => ({
+                ...baseStyles,
+                color: 'var(--ifm-color-primary-dark)',
+              }),
+              menu: (baseStyles, state) => ({
+                ...baseStyles,
+                color: colorMode === 'dark' ? 'white' : 'black',
+                backgroundColor: colorMode === 'dark' ? '#1b1b1d' : 'white',
+
+              }),
+              option: (baseStyles, state) => ({
+                ...baseStyles,
+                color: 'var(--ifm-color-primary-dark)',
+                backgroundColor: state.isFocused ? 'var(--ifm-color-primary-lightest)' : null,
+              }),
+            }}
           />
         </div>
       </div>
@@ -142,6 +174,6 @@ export default function DebridCostComparisonTable({ excludeServices }: { exclude
           ))}
         </tbody>
       </table>
-    </div>
+    </>
   );
 }

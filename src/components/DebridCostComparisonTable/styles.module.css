@@ -8,7 +8,7 @@
 .currency-select-box {
   width: 100%;
   padding: 10px;
-  border-radius: 10px;
+  border-radius: var(--ifm-global-radius);
   border: 1px solid var(--ifm-color-primary-darkest);
   background-color: var(--ifm-color-primary);
   color: white;
@@ -17,6 +17,5 @@
 }
 
 .currency-select {
-  background-color: var(--ifm-color-primary-light);
   color: var(--ifm-color-primary-darkest)
 }
