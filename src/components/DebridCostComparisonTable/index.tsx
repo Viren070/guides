@@ -84,7 +84,6 @@ const calculatePrices = (service: Service, primaryCurrency: string): CalculatedS
     const extraDuration = ((service.pointData.pointsPerPlan * plansRequired) / service.pointData.pointsRequiredForReward) * service.pointData.durationPerReward;
     const totalDuration = service.duration * plansRequired + extraDuration;
     const totalPrice = service.price * plansRequired;
-
     pricePerDay = totalPrice / totalDuration;
     pricePerYear = pricePerDay * 365;
     pricePerMonth = pricePerYear / 12;
@@ -133,7 +132,7 @@ const formatServiceData = (data: CalculatedService[], primaryCurrency: string): 
       <>
         {service.calculatedPointData ? (
           <>
-            {service.calculatedPointData.totalDuration - service.duration} + ({service.pointData.durationPerReward} x {service.calculatedPointData.plansRequired})
+            {service.duration * service.calculatedPointData.plansRequired} + ({service.pointData.durationPerReward} x {service.calculatedPointData.extraDuration / service.pointData.durationPerReward})
             <br />
             ={service.calculatedPointData.totalDuration}
           </>
@@ -190,7 +189,7 @@ export default function DebridCostComparisonTable({ excludeServices }: { exclude
         <tbody>
           {formattedData.map((service, index) => (
             <tr key={index}>
-              <td>{service.name} {service.pointData && (<><br/><span>(w/ FP)</span></>)}</td>
+              <td>{service.name} {service.calculatedPointData && (<><br/><span>(w/ FP)</span></>)}</td>
               <td>{service.formattedPricePerYear}</td>
               <td>{service.formattedPricePerMonth}</td>
               <td>{service.formattedPricePerDay}</td>
