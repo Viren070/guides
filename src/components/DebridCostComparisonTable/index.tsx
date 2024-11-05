@@ -1,155 +1,130 @@
 import React, { useState } from 'react';
-import Select from 'react-select';
-import styles from './styles.module.css';
-import { useColorMode } from '@docusaurus/theme-common';
+import CurrencySelector from './CurrencySelector';
+import conversionRates from '@site/static/currency_rates.json';
 
-export default function DebridCostComparisonTable({ excludeServices }: { excludeServices?: string[]; }): JSX.Element {
-  const [primaryCurrency, setPrimaryCurrency] = useState<string>('GBP');
-  const { colorMode } = useColorMode();
-
-  const conversionRates = require('@site/static/currency_rates.json');
-  const availableCurrencies = Object.keys(conversionRates['USD']).filter((currency) => Object.keys(conversionRates['EUR']).includes(currency));
+const availableCurrencies = Object.keys(conversionRates['USD']).filter((currency) =>
+  Object.keys(conversionRates['EUR']).includes(currency)
+);
+const currencyOptions = availableCurrencies.map((currency) => ({ value: currency, label: currency })).sort((a, b) => a.label.localeCompare(b.label));
 
 
-  // Define service data
-  let services = [
-    { name: 'Torbox (Essential)', price: 33, duration: 365, currency: 'USD' },
-    { name: 'Torbox (Standard)', price: 55, duration: 365, currency: 'USD' },
-    { name: 'Torbox (Pro)', price: 110, duration: 365, currency: 'USD' },
-    { name: 'Real-Debrid', price: 16, duration: 180, currency: 'EUR', pointsPerPlan: 800, pointsRequiredForReward: 1000, durationPerReward: 30 },
-    { name: 'Debrid-Link', price: 25, duration: 300, currency: 'EUR' },
-    { name: 'AllDebrid', price: 24.99, duration: 300, currency: 'EUR', pointsPerPlan: 140, pointsRequiredForReward: 150, durationPerReward: 30 },
-    { name: 'Offcloud', price: 54.99, duration: 365, currency: 'USD' },
-    { name: 'Premiumize', price: 69.99, duration: 365, currency: 'EUR' },
-    { name: 'put.io (100GB)', price: 99, duration: 365, currency: 'USD' },
-    { name: 'put.io (1TB)', price: 199, duration: 365, currency: 'USD' },
-  ];
+const serviceData = [
+  { name: 'Torbox (Essential)', price: 33, duration: 365, currency: 'USD' },
+  { name: 'Torbox (Standard)', price: 55, duration: 365, currency: 'USD' },
+  { name: 'Torbox (Pro)', price: 110, duration: 365, currency: 'USD' },
+  { name: 'Real-Debrid', price: 16, duration: 180, currency: 'EUR', pointsPerPlan: 800, pointsRequiredForReward: 1000, durationPerReward: 30 },
+  { name: 'Debrid-Link', price: 25, duration: 300, currency: 'EUR' },
+  { name: 'AllDebrid', price: 24.99, duration: 300, currency: 'EUR', pointsPerPlan: 140, pointsRequiredForReward: 150, durationPerReward: 30 },
+  { name: 'Offcloud', price: 54.99, duration: 365, currency: 'USD' },
+  { name: 'Premiumize', price: 69.99, duration: 365, currency: 'EUR' },
+  { name: 'put.io (100GB)', price: 99, duration: 365, currency: 'USD' },
+  { name: 'put.io (1TB)', price: 199, duration: 365, currency: 'USD' },
+];
 
-  if (excludeServices) {
-    excludeServices.forEach((service) => {
-      services = services.filter((s) => !s.name.toLowerCase().includes(service.toLowerCase()));
-    });
-  }
+const convertPrice = (price: number, fromCurrency: string, toCurrency: string): number => {
+  if (fromCurrency === toCurrency || !toCurrency) return price;
+  const rate = conversionRates[fromCurrency]?.[toCurrency];
+  return rate ? price * rate : price;
+};
 
-  // Helper function to convert prices
-  const convertPrice = (price: number, fromCurrency: string, toCurrency: string): number => {
-    if (fromCurrency === toCurrency || !toCurrency) return price;
-    const rate = conversionRates[fromCurrency]?.[toCurrency];
-    if (!rate) {
-      return null;
-    }
-    return price * rate;
-  };
+const formatPrice = (price: number, currency: string) => {
+  return Intl.NumberFormat(undefined, { style: 'currency', currency }).format(price);
+};
 
-  // Helper function to format prices
-  const formatPrice = (price: number, currency: string) => {
-    if (!price) return;
-    return Intl.NumberFormat(undefined, { style: 'currency', currency: currency }).format(price);
-  };
+interface Service {
+  name: string;
+  price: number;
+  duration: number;
+  currency: string;
+  pointsPerPlan?: number;
+  pointsRequiredForReward?: number;
+  durationPerReward?: number;
+}
 
-  // Prepare data with calculated prices
-  const data = services.flatMap((service) => {
-    const entries = [];
+interface CalculatedService extends Service {
+  pointsUsed: boolean;
+  pricePerDay: number;
+  pricePerMonth: number;
+  pricePerYear: number;
+  totalPrice?: number;
+  totalDuration?: number;
+  plansRequired?: number;
+  extraDuration?: number;
+}
 
-    // Entry without considering points
-    let pricePerDay = service.price / service.duration;
-    let pricePerYear = pricePerDay * 365;
-    let pricePerMonth = pricePerYear / 12;
+const calculatePrices = (service: Service, primaryCurrency: string): CalculatedService[] => {
+  const entries: CalculatedService[] = [];
+  const baseCurrency = primaryCurrency || service.currency;
+
+  // Entry without considering points
+  let pricePerDay = service.price / service.duration;
+  let pricePerYear = pricePerDay * 365;
+  let pricePerMonth = pricePerYear / 12;
+
+  entries.push({
+    ...service,
+    pointsUsed: false,
+    pricePerDay: convertPrice(pricePerDay, service.currency, baseCurrency),
+    pricePerMonth: convertPrice(pricePerMonth, service.currency, baseCurrency),
+    pricePerYear: convertPrice(pricePerYear, service.currency, baseCurrency),
+  });
+
+  // Entry considering points
+  if (service.pointsPerPlan && service.pointsRequiredForReward && service.durationPerReward) {
+    const gcd = (a: number, b: number): number => (b === 0 ? a : gcd(b, a % b));
+    const lcm = (a: number, b: number): number => (a * b) / gcd(a, b);
+
+    const plansRequired = lcm(service.pointsPerPlan, service.pointsRequiredForReward) / service.pointsPerPlan;
+    const extraDuration = ((service.pointsPerPlan * plansRequired) / service.pointsRequiredForReward) * service.durationPerReward;
+    const planDuration = service.duration * plansRequired + extraDuration;
+    const planPrice = service.price * plansRequired;
+
+    pricePerDay = planPrice / planDuration;
+    pricePerYear = pricePerDay * 365;
+    pricePerMonth = pricePerYear / 12;
 
     entries.push({
       ...service,
-      pointsUsed: false,
-      pricePerDay: convertPrice(pricePerDay, service.currency, primaryCurrency || service.currency),
-      pricePerMonth: convertPrice(pricePerMonth, service.currency, primaryCurrency || service.currency),
-      pricePerYear: convertPrice(pricePerYear, service.currency, primaryCurrency || service.currency),
-      price: service.price,
-      duration: service.duration,
+      pointsUsed: true,
+      pricePerDay: convertPrice(pricePerDay, service.currency, baseCurrency),
+      pricePerMonth: convertPrice(pricePerMonth, service.currency, baseCurrency),
+      pricePerYear: convertPrice(pricePerYear, service.currency, baseCurrency),
+      totalPrice: planPrice,
+      totalDuration: planDuration,
+      plansRequired,
+      extraDuration,
     });
-
-    // Entry considering points
-    if (service.pointsPerPlan && service.pointsRequiredForReward && service.durationPerReward) {
-      const gcd = (a: number, b: number): number => (b === 0 ? a : gcd(b, a % b));
-      const lcm = (a: number, b: number): number => (a * b) / gcd(a, b);
-
-      const plansRequired = lcm(service.pointsPerPlan, service.pointsRequiredForReward) / service.pointsPerPlan;
-      const planDuration = service.duration * plansRequired + ((service.pointsPerPlan * plansRequired) / service.pointsRequiredForReward) * service.durationPerReward;
-      const planPrice = service.price * plansRequired;
-
-      pricePerDay = planPrice / planDuration;
-      pricePerYear = pricePerDay * 365;
-      pricePerMonth = pricePerYear / 12;
-
-      entries.push({
-        ...service,
-        pointsUsed: true,
-        pricePerDay: convertPrice(pricePerDay, service.currency, primaryCurrency || service.currency),
-        pricePerMonth: convertPrice(pricePerMonth, service.currency, primaryCurrency || service.currency),
-        pricePerYear: convertPrice(pricePerYear, service.currency, primaryCurrency || service.currency),
-        price: planPrice,
-        duration: planDuration,
-      });
-    }
-
-    return entries;
-  });
-
-  // Sort data by price per day or service name if primary currency is not set
-  if (primaryCurrency) {
-    data.sort((a, b) => a.pricePerYear - b.pricePerYear);
-  } else {
-    data.sort((a, b) => a.name.localeCompare(b.name));
   }
 
-  const currencyOptions = [...availableCurrencies.map((currency) => ({ value: currency, label: currency }))].sort((a, b) => a.label.localeCompare(b.label));
+  return entries;
+};
+
+
+export default function DebridCostComparisonTable({ excludeServices }: { excludeServices?: string[]; }): JSX.Element {
+  const [primaryCurrency, setPrimaryCurrency] = useState<string>('GBP');
+
+  let filteredServiceData = serviceData;
+  if (excludeServices) {
+    excludeServices.forEach((service) => {
+      filteredServiceData = filteredServiceData.filter((s) => !s.name.toLowerCase().includes(service.toLowerCase()));
+    });
+  }
+
+  const calculatedServiceData = filteredServiceData.flatMap((service) => calculatePrices(service, primaryCurrency));
+
+  if (primaryCurrency) {
+    calculatedServiceData.sort((a, b) => a.pricePerYear - b.pricePerYear);
+  } else {
+    calculatedServiceData.sort((a, b) => a.name.localeCompare(b.name));
+  }
 
   return (
     <>
-      <div className={styles["currency-select-container"]}>
-        <div className={styles["currency-select-box"]}>
-          <label htmlFor="currency-select"><strong>Select Currency (or clear for Original):</strong></label>
-          <Select
-            id="currency-select"
-            value={{value: primaryCurrency, label: primaryCurrency}}
-            onChange={(selectedOption) => setPrimaryCurrency(selectedOption ? selectedOption.value : null)}
-            options={currencyOptions}
-            isClearable={true}
-            styles={{ 
-              control: (baseStyles, state) => ({
-                ...baseStyles,
-                borderWidth: '2px',
-                backgroundColor: colorMode === 'dark' ? '#1b1b1d' : 'white',
-                borderRadius: 'var(--ifm-global-radius)',
-                borderColor: state.isFocused ? 'var(--ifm-color-primary-darkest)' : null,
-                color: 'var(--ifm-color-primary-dark)',
-                boxShadow: 'var(--button-box-shadow)',
-                "&:hover": {
-                  borderColor: state.isFocused ? 'var(--ifm-color-primary-darkest)' : null,
-                  boxShadow: 'var(--button-hover-box-shadow)',
-                },
-              }),
-              input: (baseStyles, state) => ({
-                ...baseStyles,
-                color: 'var(--ifm-color-primary-dark)',
-              }),
-              singleValue: (baseStyles, state) => ({
-                ...baseStyles,
-                color: 'var(--ifm-color-primary-dark)',
-              }),
-              menu: (baseStyles, state) => ({
-                ...baseStyles,
-                color: colorMode === 'dark' ? 'white' : 'black',
-                backgroundColor: colorMode === 'dark' ? '#1b1b1d' : 'white',
-
-              }),
-              option: (baseStyles, state) => ({
-                ...baseStyles,
-                color: 'var(--ifm-color-primary-dark)',
-                backgroundColor: state.isFocused ? 'var(--ifm-color-primary-lightest)' : null,
-              }),
-            }}
-          />
-        </div>
-      </div>
+      <CurrencySelector
+        primaryCurrency={primaryCurrency}
+        setPrimaryCurrency={setPrimaryCurrency}
+        currencyOptions={currencyOptions}
+      />
       <table>
         <thead>
           <tr>
@@ -162,14 +137,23 @@ export default function DebridCostComparisonTable({ excludeServices }: { exclude
           </tr>
         </thead>
         <tbody>
-          {data.map((service, index) => (
+          {calculatedServiceData.map((service, index) => (
             <tr key={index}>
               <td>{service.name} {service.pointsUsed && "(with points*)"}</td>
               <td>{formatPrice(service.pricePerYear, primaryCurrency || service.currency)}</td>
               <td>{formatPrice(service.pricePerMonth, primaryCurrency || service.currency)}</td>
               <td>{formatPrice(service.pricePerDay, primaryCurrency || service.currency)}</td>
-              <td>{formatPrice(service.price, service.currency)}</td>
-              <td>{service.duration}</td>
+              <td>
+                {service.pointsUsed
+                  ? (<>{service.plansRequired} x {formatPrice(service.price, service.currency)}<br />={formatPrice(service.totalPrice, service.currency)}</>)
+                  : formatPrice(service.price, service.currency)}
+              </td>
+              <td>
+                {service.pointsUsed
+                  ? <>{service.duration * service.plansRequired} + {service.extraDuration}<br />={service.totalDuration}</>
+                  : service.duration
+                }
+              </td>
             </tr>
           ))}
         </tbody>
