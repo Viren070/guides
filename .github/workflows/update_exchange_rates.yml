@@ -36,16 +36,17 @@ jobs:
           git checkout -b update-currency-rates
           git add static/currency_rates.json
           git commit -m 'chore: update currency rates'
+          git push -u origin update-currency-rates
 
       - name: create pull request
-        uses: peter-evans/create-pull-request@v3
+        uses: peter-evans/create-pull-request@v7
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           commit-message: 'chore: update currency rates'
+          branch: update-currency-rates
+          sign-commits: true
           title: 'chore: update currency rates'
           body: 'This PR updates the currency rates.'
-          branch: update-currency-rates
-          base: main
    
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
