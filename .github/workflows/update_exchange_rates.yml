@@ -47,6 +47,7 @@ jobs:
           sign-commits: true
           title: 'chore: update currency rates'
           body: 'This PR updates the currency rates.'
+          base: main
    
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
