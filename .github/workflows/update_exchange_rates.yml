@@ -13,15 +13,6 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: set up branch 
-        run: |
-          git fetch origin
-          if git show-ref --verify --quiet refs/remotes/origin/chore/update-currency-rates; then
-            git checkout -B chore/update-currency-rates origin/chore/update-currency-rates
-          else
-            git checkout -b chore/update-currency-rates
-          fi
-
       - name: Set up Python
         uses: actions/setup-python@v5
         with:
