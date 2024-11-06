@@ -16,7 +16,11 @@ jobs:
       - name: set up branch 
         run: |
           git fetch origin
-          git checkout -B chore/update-currency-rates origin/chore/update-currency-rates
+          if git show-ref --verify --quiet refs/remotes/origin/chore/update-currency-rates; then
+            git checkout -B chore/update-currency-rates origin/chore/update-currency-rates
+          else
+            git checkout -b chore/update-currency-rates
+          fi
 
       - name: Set up Python
         uses: actions/setup-python@v5
@@ -47,10 +51,24 @@ jobs:
           # Check for changes
           if git diff-index --quiet HEAD --; then
             echo "No changes to commit"
-            echo "changes_detected=false" >> "$GITHUB_ENV"
+            echo "changes_detected=false" >> "$GITHUB_OUTPUT"
+            exit 0
           else
             # Commit and push changes
             git commit -m 'chore: update currency rates'
             git push origin chore/update-currency-rates
-            echo "changes_detected=true" >> "$GITHUB_ENV"
+            echo "changes_detected=true" >> "$GITHUB_OUTPUT"
           fi
+    
+        
+# - name: Create Pull Request
+#   if steps.check_changes.outputs.changes_detected == true
+#   uses: peter-evans/create-pull-request@v7
+#   with:
+#     token: {{ secrets.GITHUB_TOKEN }}
+#     commit-message: 'chore: update currency rates'
+#     branch: chore/update-currency-rates
+#     signoff: true
+#     title: 'chore: update currency rates'
+#     body: 'This PR updates the currency rates.'
+#     base: main
