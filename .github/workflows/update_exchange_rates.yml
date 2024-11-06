@@ -40,15 +40,11 @@ jobs:
             echo "No changes to commit"
             echo "CHANGES_DETECTED=false" >> "$GITHUB_OUTPUT"
           else
+            git pull origin chore/update-currency-rates || true
             git commit -m 'chore: update currency rates'
+            git push -u origin chore/update-currency-rates
             echo "CHANGES_DETECTED=true" >> "$GITHUB_OUTPUT"
           fi
-
-      - name: Push changes
-        if: steps.check_changes.outputs.CHANGES_DETECTED == 'true'
-        run: |
-          git pull --rebase origin chore/update-currency-rates || true
-          git push -u origin chore/update-currency-rates
 
       - name: create pull request
         uses: peter-evans/create-pull-request@v7
