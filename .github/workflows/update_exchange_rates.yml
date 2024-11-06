@@ -1,4 +1,4 @@
-name: Generate Currency Rates
+name: Update Exchange Rates
 
 on:
   schedule:
@@ -29,12 +29,23 @@ jobs:
         env:
           EXCHANGE_RATE_API_KEY: ${{ secrets.EXCHANGE_RATE_API_KEY }}
 
-      - name: Commit and push changes
+      - name: Commit changes
         run: |
           git config --global user.name 'github-actions[bot]'
           git config --global user.email 'github-actions[bot]@users.noreply.github.com'
+          git checkout -b update-currency-rates
           git add static/currency_rates.json
           git commit -m 'chore: update currency rates'
-          git push
+
+      - name: create pull request
+        uses: peter-evans/create-pull-request@v3
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          commit-message: 'chore: update currency rates'
+          title: 'chore: update currency rates'
+          body: 'This PR updates the currency rates.'
+          branch: update-currency-rates
+          base: main
+   
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

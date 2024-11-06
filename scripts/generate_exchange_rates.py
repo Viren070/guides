@@ -65,6 +65,7 @@ def fetch_currency_rates(currency):
             logging.error(f"Failed to fetch currency rates for {currency}. {data["error-type"]}")
             sys.exit(1)
         logging.info(f"Fetched currency rates for {currency} last updated at: {data["time_last_update_utc"]}")
+        logging.info(f"Conversion rates: {data["conversion_rates"]}")
         return data["conversion_rates"]
     except requests.exceptions.RequestException as e:
         logging.error(f"Failed to fetch currency rates for {currency}. {e}")
