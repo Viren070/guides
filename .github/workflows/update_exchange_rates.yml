@@ -15,8 +15,8 @@ jobs:
 
       - name: set up branch 
         run: |
-          git checkout -b chore/update-currency-rates
-          git pull --rebase origin chore/update-currency-rates
+          git fetch origin
+          git checkout -B chore/update-currency-rates origin/chore/update-currency-rates
 
       - name: Set up Python
         uses: actions/setup-python@v5
