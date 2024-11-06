@@ -39,6 +39,7 @@ def write_to_file(output_file: str, new_data: dict) -> None:
     """
     try:
         # write the new data to the output_file file
+        logging.info(f"Writing data to {os.path.abspath(output_file)}")
         with open(output_file, "w") as f:
             json.dump(new_data, f, separators=(",", ":"))  # use separators to remove whitespaces
     except Exception as e:
