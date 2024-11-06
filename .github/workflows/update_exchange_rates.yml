@@ -1,0 +1,40 @@
+name: Generate Currency Rates
+
+on:
+  schedule:
+    - cron: '23 7 * * 4'
+  workflow_dispatch:
+
+jobs:
+  generate-currency-rates:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install requests
+
+      - name: Run generate_currency_rates.py
+        run: |
+          python scripts/generate_exchange_rates.py -o static/currency_rates.json
+        env:
+          EXCHANGE_RATE_API_KEY: ${{ secrets.EXCHANGE_RATE_API_KEY }}
+
+      - name: Commit and push changes
+        run: |
+          git config --global user.name 'github-actions[bot]'
+          git config --global user.email 'github-actions[bot]@users.noreply.github.com'
+          git add static/currency_rates.json
+          git commit -m 'chore: update currency rates'
+          git push
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
