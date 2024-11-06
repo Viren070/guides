@@ -40,10 +40,8 @@ jobs:
             echo "No changes to commit"
             echo "CHANGES_DETECTED=false" >> "$GITHUB_OUTPUT"
           else
-            echo "Changes detected"
+            git pull origin chore/update-currency-rates || true
             git commit -m 'chore: update currency rates'
-            git status
             git push -u origin chore/update-currency-rates
-            git status
             echo "CHANGES_DETECTED=true" >> "$GITHUB_OUTPUT"
           fi
