@@ -40,23 +40,10 @@ jobs:
             echo "No changes to commit"
             echo "CHANGES_DETECTED=false" >> "$GITHUB_OUTPUT"
           else
+            echo "Changes detected"
             git commit -m 'chore: update currency rates'
+            git status
             git push -u origin chore/update-currency-rates
+            git status
             echo "CHANGES_DETECTED=true" >> "$GITHUB_OUTPUT"
           fi
-          git status
-
-      - name: create pull request
-        uses: peter-evans/create-pull-request@v7
-        if: steps.check_changes.outputs.CHANGES_DETECTED == 'true'
-        with:
-          token: ${{ secrets.GITHUB_TOKEN }}
-          commit-message: 'chore: update currency rates'
-          branch: chore/update-currency-rates
-          sign-commits: true
-          title: 'chore: update currency rates'
-          body: 'This PR updates the currency rates.'
-          base: main
-   
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
