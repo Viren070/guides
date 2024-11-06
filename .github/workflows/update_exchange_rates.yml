@@ -34,14 +34,27 @@ jobs:
         run: |
           git config --global user.name 'github-actions[bot]'
           git config --global user.email 'github-actions[bot]@users.noreply.github.com'
-          git checkout -b chore/update-currency-rates || git checkout chore/update-currency-rates
+          
+          # Create or switch to the branch
+          if git show-ref --verify --quiet refs/heads/chore/update-currency-rates; then
+            git checkout chore/update-currency-rates
+          else
+            git checkout -b chore/update-currency-rates
+          fi
+        
+          # Add changes
           git add static/currency_rates.json
+        
+          # Check for changes
           if git diff-index --quiet HEAD --; then
             echo "No changes to commit"
-            echo "CHANGES_DETECTED=false" >> "$GITHUB_OUTPUT"
+            echo "changes_detected=false" >> "$GITHUB_ENV"
           else
-            git pull origin chore/update-currency-rates || true
+            # Pull and rebase if the branch exists on the remote
+            git pull --rebase origin chore/update-currency-rates || true
+        
+            # Commit and push changes
             git commit -m 'chore: update currency rates'
             git push -u origin chore/update-currency-rates
-            echo "CHANGES_DETECTED=true" >> "$GITHUB_OUTPUT"
+            echo "changes_detected=true" >> "$GITHUB_ENV"
           fi
