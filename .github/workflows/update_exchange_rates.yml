@@ -13,6 +13,11 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
+      - name: set up branch 
+        run: |
+          git checkout -b chore/update-currency-rates
+          git pull --rebase origin chore/update-currency-rates
+
       - name: Set up Python
         uses: actions/setup-python@v5
         with:
@@ -35,11 +40,6 @@ jobs:
           # Configure git
           git config --global user.name 'github-actions[bot]'
           git config --global user.email 'github-actions[bot]@users.noreply.github.com'
-
-          # Checkout a new branch
-          git checkout -b chore/update-currency-rates
-
-          git pull origin chore/update-currency-rates
 
           # Add changes
           git add static/currency_rates.json
