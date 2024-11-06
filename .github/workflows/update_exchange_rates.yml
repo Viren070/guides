@@ -61,14 +61,14 @@ jobs:
           fi
     
         
-# - name: Create Pull Request
-#   if steps.check_changes.outputs.changes_detected == true
-#   uses: peter-evans/create-pull-request@v7
-#   with:
-#     token: {{ secrets.GITHUB_TOKEN }}
-#     commit-message: 'chore: update currency rates'
-#     branch: chore/update-currency-rates
-#     signoff: true
-#     title: 'chore: update currency rates'
-#     body: 'This PR updates the currency rates.'
-#     base: main
+      - name: Create Pull Request
+        if: steps.check_changes.outputs.changes_detected == 'true'
+        uses: peter-evans/create-pull-request@v7
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          commit-message: 'chore: update currency rates'
+          branch: chore/update-currency-rates
+          signoff: true
+          title: 'chore: update currency rates'
+          body: 'This PR updates the currency rates.'
+          base: main
