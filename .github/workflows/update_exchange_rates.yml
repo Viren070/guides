@@ -43,11 +43,6 @@ jobs:
             git checkout -b chore/update-currency-rates
           fi
 
-          # Pull latest changes if the branch exists remotely
-          if git ls-remote --exit-code --heads origin chore/update-currency-rates; then
-            git pull --rebase origin chore/update-currency-rates
-          fi
-
           # Add changes
           git add static/currency_rates.json
 
