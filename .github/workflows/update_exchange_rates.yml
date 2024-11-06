@@ -29,21 +29,33 @@ jobs:
         env:
           EXCHANGE_RATE_API_KEY: ${{ secrets.EXCHANGE_RATE_API_KEY }}
 
-      - name: Commit changes
+      - name: Check for changes
+        id: check_changes
         run: |
           git config --global user.name 'github-actions[bot]'
           git config --global user.email 'github-actions[bot]@users.noreply.github.com'
-          git checkout -b update-currency-rates
+          git checkout -b chore/update-currency-rates || get checkout chore/update-currency-rates
           git add static/currency_rates.json
+          if git diff-index --quiet HEAD --; then
+            echo "No changes to commit"
+            echo "CHANGES_DETECTED=false" >> "$GITHUB_OUTPUT"
+          fi
+          echo "CHANGES_DETECTED=true" >> "$GITHUB_OUTPUT"
+
+      - name: Push changes
+        if: steps.check_changes.outputs.CHANGES_DETECTED == 'true'
+        run: |
           git commit -m 'chore: update currency rates'
-          git push -u origin update-currency-rates
+          git pull --rebase origin chore/update-currency-rates
+          git push -u origin chore/update-currency-rates
 
       - name: create pull request
         uses: peter-evans/create-pull-request@v7
+        if: steps.check_changes.outputs.CHANGES_DETECTED == 'true'
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           commit-message: 'chore: update currency rates'
-          branch: update-currency-rates
+          branch: chore/update-currency-rates
           sign-commits: true
           title: 'chore: update currency rates'
           body: 'This PR updates the currency rates.'
