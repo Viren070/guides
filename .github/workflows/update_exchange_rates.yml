@@ -39,6 +39,7 @@ jobs:
           # Create or switch to the branch
           if git show-ref --verify --quiet refs/heads/chore/update-currency-rates; then
             git checkout chore/update-currency-rates
+            git pull origin chore/update-currency-rates
           else
             git checkout -b chore/update-currency-rates
           fi
