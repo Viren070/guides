@@ -423,49 +423,27 @@ You can then import your Trakt history to Stremio.
 
 ### Is it possible to see the ratings of movies and shows on the posters?
 
-Yes. You can use one of two methods to achieve this: 
+Yes. There is an API called RPDB that can be used to get posters with ratings. 
 
-<details>
-<summary>RPDB</summary>
-  <div>
-  [RPDB](https://ratingposterdb.com/) is a database of movie posters with ratings. 
-  As it works through an API, you can use it with any addon that supports it. 
-  
-  To obtain an API key, you can follow the instructions [here](#how-do-i-obtain-a-rpdb-api-key).
+[RPDB](https://ratingposterdb.com/) is a database of movie posters with ratings. 
+As it works through an API, you can use it with any addon that supports it. 
 
-  Once you have obtained it, you can enter it into the configuration page of any supported addon.
-  I do cover most of these addons in the [set up guide](setup#catalogue-addons), so if you need further instructions you can refer to that.
+To obtain an API key, you can follow the instructions [here](#how-do-i-obtain-a-rpdb-api-key).
 
-  RPDB is supported by the following catalogue addons: 
-    - [The Movie Database Addon](addons?addon=tmdb-addon)
-    - [IMDB Catalogs](addons?addon=imdb-catalogs)
-    - [Streaming Catalogs](addons?addon=streaming-catalogs)
-    - [Cyberflix](addons?addon=cyberflix)
-    - [Trakt.tv Addon](extras/trakt#adding-the-trakt-lists-to-stremio)
-    - [Anime Catalogs](addons?addon=anime-catalogs)
-    - [RPDB Catalogs](https://1fe84bc728af-rpdb.baby-beamup.club/configure)
-    - [Rotten Tomatoes](https://7a82163c306e-rottentomatoes.baby-beamup.club/configure)
+Once you have obtained it, you can enter it into the configuration page of any supported addon.
+I do cover most of these addons in the [set up guide](setup#catalogue-addons), so if you need further instructions you can refer to that.
 
-  </div>
-</details>
+RPDB is supported by the following catalogue addons: 
+  - [The Movie Database Addon](addons?addon=tmdb-addon)
+  - [IMDB Catalogs](addons?addon=imdb-catalogs)
+  - [Streaming Catalogs](addons?addon=streaming-catalogs)
+  - [Cyberflix](addons?addon=cyberflix)
+  - [Trakt.tv Addon](extras/trakt#adding-the-trakt-lists-to-stremio)
+  - [Anime Catalogs](addons?addon=anime-catalogs)
+  - [RPDB Catalogs](https://1fe84bc728af-rpdb.baby-beamup.club/configure)
+  - [Rotten Tomatoes](https://7a82163c306e-rottentomatoes.baby-beamup.club/configure)
 
-<details>
-<summary>stremio-rating-addon</summary>
-  <div>
-  stremio-rating-addon is a free and open source addon that provides catalogues with ratings on the posters.
-  It obtains the ratings through web scraping. 
 
-  This means that you cannot use it with other addons and have to use the catalogues provided by stremio-rating-addon.
-
-  You can find more information on its [announcement post](https://www.reddit.com/r/StremioAddons/comments/1ev8ufg/stremioratingaddon_free_and_open_source_rpdb/) on r/StremioAddons and its [GitHub page](https://github.com/hexdecimal16/stremio-rating-addon)
-  
-  This addon can be self-hosted but there is a public ElfHosted instance available [here](https://stremio-ratings.elfhosted.com/).
-  
-  <Admonition type="tip">
-  Use the [Stremio Addon Manager](extras/addon-manager) to move this addon to the top of your list to ensure that you see the ratings on the posters.
-  </Admonition>
-  </div>
-</details>
 
 ### Can I use Stremio to watch local files, like on Plex or Jellyfin?
 
