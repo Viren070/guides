@@ -6,9 +6,7 @@ const config: Config = {
   title: 'Viren070\'s Guides',
   tagline: 'Dinosaurs are cool',
   favicon: 'img/favicon.ico',
-  future: {
-    experimental_faster: true,
-  },
+
   // Set the production url of your site here
   url: 'https://guides.viren070.me/',
   // Set the /<baseUrl>/ pathname under which your site is served
