@@ -203,7 +203,7 @@ I receive a commission (free days or small amount of money) if you sign up to a 
 
 There are many debrid services available to use. Here is a list of the ones supported by the most popular Stremio addon - Torrentio. I will walk you through the setup for each below.
 
-- [Real Debrid](https://real-debrid.com/?id=9483829)
+- Real Debrid (Not recommended due to recent events, see [here](#setting-up-a-debrid-service))
 - [AllDebrid](https://alldebrid.com/?uid=3n8qa&lang=en)
 - [Premiumize](https://www.premiumize.me/)
 - [Debrid-Link](https://debrid-link.com/id/EY0JO)
@@ -345,9 +345,10 @@ However, if you are only going to be watching mainstream content, then Torbox ma
     <Admonition type="danger">
     You should hold off on purchasing a Real Debrid subscription until you have read this: 
 
+    <details>
+    <summary>Tweet from Real Debrid</summary>
+    <div>
     From [@RealDebrid](https://x.com/RealDebrid/status/1859673163681960169):
-
-    """
     
     Following a formal notice from the FNEF (https://fnef.fr/les-adherents/), Real-Debrid is strengthening its anti-piracy measures.
 
@@ -361,20 +362,50 @@ However, if you are only going to be watching mainstream content, then Torbox ma
         - the deactivation of the API endpoint /instantAvaibility
         - a blocking of counterfeit Kodi / Stremio applications to the extent that they are identifiable
     
-    """
+
+      </div>
+    </details>
 
     Real Debrid may no longer be a viable choice. It is currently uncertain what effects this will have. 
     I suggest choosing a different debrid service if you are impatient, or wait for more information. 
     Keep an eye on [r/StremioAddons Discord Server](https://discord.com/invite/zNRf6YF), [r/StremioAddons](https://www.reddit.com/r/StremioAddons) and [r/RealDebrid](https://www.reddit.com/r/RealDebrid) for updates.
+  
+    Following this announcement, Real Debrid has now: 
+        - Closed the /instantAvailability API endpoint 
+            <details>
+            <summary>What does this mean for Stremio?</summary>
+            <div>
+            Addons can no longer accurately determine if a torrent is cached on Real Debrid. 
+            
+            However, it is possible to continue using Real Debrid with Stremio. 
+            The Torrentio addon has added a workaround that makes use of a local short-term cache to determine if a torrent is cached on Real Debrid.
+            You can find more details on this [GitHub issue](https://github.com/TheBeastLT/torrentio-scraper/issues/305).
+            This workaround does mean that most results will be shown as [RD Download] instead of [RD+].
+            To continue using Real Debrid, it is recommended that you keep the `Don't show download to debrid links` setting off. 
 
-    Note that AllDebrid and Debrid-Link are also based in France, so they may soon also be affected by this. 
+            Other than this, the DMM (Debrid Media Manager) developer has stated that they are working on a crowdsourced solution to determine if a torrent is cached on Real Debrid.
+
+            Other addons may also implement a similar workaround in the future, but this is not guaranteed. It is recommended that you use another debrid service or Easynews if you aren't using Real Debrid already.
+            </div>
+            </details>
+        - Blocked audiovisual files from a number of cyberlockers listed on the USTR blacklist or listed in the European "Counterfeit and Piracy Watch List"
+            - This includes several services. I'm not sure if these are the right sites, but here is what I found:
+                - [European Commission's Counterfeit and Piracy Watch List](https://circabc.europa.eu/ui/group/d0803128-7d62-40ee-8349-c43ee92745aa/library/b36f701d-2850-4768-9b3e-e487140e11e5/details)
+                - [USTR Notorious Markets List](https://ustr.gov/sites/default/files/2023_Review_of_Notorious_Markets_for_Counterfeiting_and_Piracy_Notorious_Markets_List_final.pdf)
+        - Blocked any torrent hashes from French private torrent trackers like YGGTorrent
+
+    As a result, many addons no longer work with Real Debrid. This afffects services outside of Stremio too.
+    Torrentio has implemented a "workaround" to continue using Real Debrid, simply keep the `Don't show download to debrid links` setting in the Torrentio configuration off.
+    You will see that the results all show [RD Download] but most of these will likely still play. 
+
     </Admonition>
 I will now cover the instructions of setting up each debrid service I previously mentioned.
 
 <Tabs className="custom-tabs" queryString="debrid">
 <TabItem value="real-debrid" label="Real Debrid"> 
+    <h2> **Please read the warning above before proceeding.** </h2>
     ![Real Debrid Payment](/img/stremio/real_debrid_payment.png)
-    
+    <h2> **Please read the warning above before proceeding.** </h2  >
     1. Go to [Real Debrid's website](https://real-debrid.com/?id=9483829)
     2. Click Sign Up to create an account
     3. Go to the Premium Offers page
