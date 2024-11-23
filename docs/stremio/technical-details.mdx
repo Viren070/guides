@@ -134,6 +134,23 @@ You also cannot bind your VPN to Stremio, which means that if your VPN disconnec
 
 A more effective and better solution to this is to use a debrid service.
 
+#### Metadata Addons
+
+Metadata addons provide metadata for content. This includes the name, actors, genre, runtime etc.
+These addons are used by Stremio to display information about the content you are watching.
+Each metadata provider will use separate title IDs for content. You can see the ID prefix when you open a title in [Stremio Web](https://web.stremio.com/) by looking at the URL in the address bar.
+
+If you open a title in Stremio from the Cinemeta addon (For example, Silo), you will see that it makes use of tt ID's. These correspond to the IMDb ID's for the content.
+
+If you now open a title from the TMDB addon, you will see that it has the tmdb prefix. These correspond to the TMDB ID's for the content.
+
+Content from addons that use different prefixes will be considered as separate content by Stremio. If you choose a movie and start watching it from Cinemeta, if you later access it from TMDB, it will not show your previous progress, and it will also refetch addon stream results. 
+
+You may notice that you may not get accurate results for anime content sometimes. 
+To combat this, the Anime Kitsu addon was created. This makes use of the Kitsu ID. Kitsu, as a database focused on anime content, is more accurate than other metadata providers.
+The Torrentio addon, maintained by the same developer as the Anime Kitsu addon, has support for Kitsu ID's. 
+This means that you can use the Anime Kitsu addon for metadata and the Torrentio addon for streams to get better results for anime content.
+
 ## Debrid Services
 
 Debrid services generate unrestricted, high-speed, HTTPS links to torrents or files on supported file hosters (such as Mega, 1fichier etc) by downloading the torrent or file to their servers first.
