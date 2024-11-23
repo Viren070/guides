@@ -201,19 +201,25 @@ If it does, then you may want to consider using a debrid service.
 I receive a commission (free days or small amount of money) if you sign up to a debrid service through (some of) the links provided. This is at no extra cost to you and is a way to support me.
 :::
 
-There are many debrid services available to use. Here is a list of the ones supported by the most popular Stremio addon - Torrentio. I will walk you through the setup for each below.
+There are many debrid services available to use. Here is a list of some of the most popular ones. 
+If you have already chosen a debrid service, you can skip to the [setup instructions](#setting-up-a-debrid-service).
+Otherwise, I will go through the factors you should consider when choosing a debrid service.
 
-- Real Debrid (Not recommended due to recent events, see [here](#setting-up-a-debrid-service))
+
 - [AllDebrid](https://alldebrid.com/?uid=3n8qa&lang=en)
 - [Premiumize](https://www.premiumize.me/)
 - [Debrid-Link](https://debrid-link.com/id/EY0JO)
 - [Offcloud](https://offcloud.com/?=06202a3d)
 - [Put.io](https://put.io/)
 - [Torbox](https://torbox.app/subscription?referral=9ca21adb-dbcb-4fb0-9195-412a5f3519bc)
+- Real Debrid (Not recommended due to recent events, see [here](?debrid=real-debrid#setting-up-a-debrid-service))
 
 When choosing a Debrid service, the factors you have to consider are cost and the value you get from it which is made up of its optimality and userbase.
 
-**TL;DR**: Most users should use Real Debrid or AllDebrid. ([Skip to the setup instructions](#setting-up-a-debrid-service))
+Due to recent events surrounding Real Debrid, I cannot recommend it at this time. I also cannot recommend any other debrid service as I have not tried them all. 
+Previously, Real Debrid was widely regarded as the best debrid service, which is why I had recommended it previously. 
+
+I recommend coming to your own conclusion by reading the information below, in addition to your own research. 
 
 **Cost**
 
@@ -253,8 +259,6 @@ and you are awarded 800 fidelity points when you buy a plan, then you will need 
 Then all 4000 fidelity points can be used to extend your subscription by 120 days.
 
 The cost of 5 plans with the duration of 5 plans plus the extra duration from the fidelity points is then used to calculate an average cost.
-
-
 
 </details>
 </details>
@@ -296,6 +300,8 @@ Being a relatively new service (founded in 2023), it has a smaller userbase and 
 This means you may not find the content you want to watch cached on Torbox.
 However, with the recent events surrounding Real Debrid, more and more people are moving to Torbox.
 This could mean that Torbox will end up having a lot of cached torrents in the future.
+
+Offcloud also has very little cached content. 
 
 **Addon Support**
 
@@ -339,18 +345,16 @@ As I said before, there are some exceptions. I will now go through them.
     - Torbox offers access to Usenet on its Pro plan ($110/year or $10/month). This is a unique feature that is not offered by any other debrid service. (Usenet is explained in more detail later. It is simply another way to access more content)
     - Premiumize also offers access to Usenet. However, it does not support streaming, therefore it cannot be used for Stremio.
 
-
-When considering debrid services alone, I believe that Torbox is the best debrid service.
-However, its userbase is lacking which results in fewer cached torrents. 
-This is due to it being a relatively new service (Torbox came out in 2023 whereas Real Debrid came out in 2009).
-As a result, Torbox is not currently ideal for Stremio, as cached torrents are what you rely on when streaming content through Stremio.
-However, if you are only going to be watching mainstream content, then Torbox may be the right choice for you.
-
-**Therefore, I would recommend Real Debrid or AllDebrid for most users.**
+After considering everything, you should have a good idea of which debrid service you want to use.
+I wouldn't recommend Offcloud or put.io due to their lack of addon support as well as their smaller userbases.
 
 ### Setting up a debrid service
+    
+I will now cover the instructions of setting up each debrid service I previously mentioned.
 
-    <Admonition type="danger">
+<Tabs className="custom-tabs" queryString="debrid">
+<TabItem value="real-debrid" label="Real Debrid"> 
+<Admonition type="danger">
     You should hold off on purchasing a Real Debrid subscription until you have read this: 
 
     <details>
@@ -407,10 +411,6 @@ However, if you are only going to be watching mainstream content, then Torbox ma
     You will see that the results all show [RD Download] but most of these will likely still play. 
 
     </Admonition>
-I will now cover the instructions of setting up each debrid service I previously mentioned.
-
-<Tabs className="custom-tabs" queryString="debrid">
-<TabItem value="real-debrid" label="Real Debrid"> 
     <h2> **Please read the warning above before proceeding.** </h2>
     ![Real Debrid Payment](/img/stremio/real_debrid_payment.png)
     <h2> **Please read the warning above before proceeding.** </h2  >
