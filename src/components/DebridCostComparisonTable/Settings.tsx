@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import './Settings.css';
 import { availableCurrencies } from './CurrencyRates';
 import { initialServiceData } from './ServiceData';
-import CurrencySelector from './CurrencySelector';
 
 interface Service {
   name: string;
@@ -33,7 +32,6 @@ const Settings: React.FC<SettingsProps> = ({ serviceData, setServiceData, closeS
   });
 
   const [tempServiceData, setTempServiceData] = useState<Service[]>([...serviceData]);
-  const [tempPrimaryCurrency, setTempPrimaryCurrency] = useState<string>(primaryCurrency);
   const [showNewServiceForm, setShowNewServiceForm] = useState<boolean>(false);
 
   const handleAddService = () => {
@@ -55,7 +53,6 @@ const Settings: React.FC<SettingsProps> = ({ serviceData, setServiceData, closeS
 
   const handleApplyChanges = () => {
     setServiceData(tempServiceData);
-    setPrimaryCurrency(tempPrimaryCurrency);
     closeSettings();
   };
 
@@ -67,10 +64,6 @@ const Settings: React.FC<SettingsProps> = ({ serviceData, setServiceData, closeS
     <div className="settings-popup">
       <div className="settings-content">
         <h2 style={{ color: 'white' }}>Settings</h2>
-        <CurrencySelector
-          primaryCurrency={tempPrimaryCurrency}
-          setPrimaryCurrency={setTempPrimaryCurrency}
-        />
         <div className="service-list">
           {tempServiceData.map((service, index) => (
             <div key={index} className="service-item">

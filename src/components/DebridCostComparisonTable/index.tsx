@@ -150,8 +150,12 @@ export default function DebridCostComparisonTable({ excludeServices }: { exclude
     <>
       {showSettings && <Settings serviceData={serviceData} setServiceData={setServiceData} closeSettings={() => setShowSettings(false)} primaryCurrency={primaryCurrency} setPrimaryCurrency={setPrimaryCurrency} />}
       <button onClick={() => setShowSettings(!showSettings)} className={styles.settingsButton} >
-        <b>Settings</b>
+        <b>Configure Table Data</b>
       </button>
+        <CurrencySelector
+          primaryCurrency={primaryCurrency}
+          setPrimaryCurrency={setPrimaryCurrency}
+        />
       <table>
         <thead>
           <tr>
