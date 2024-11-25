@@ -206,13 +206,70 @@ If you have already chosen a debrid service, you can skip to the [setup instruct
 Otherwise, I will go through the factors you should consider when choosing a debrid service.
 
 
+- [Torbox](https://torbox.app/subscription?referral=9ca21adb-dbcb-4fb0-9195-412a5f3519bc)
 - [Premiumize](https://www.premiumize.me/)
-- [Debrid-Link](https://debrid-link.com/id/EY0JO)
 - [Offcloud](https://offcloud.com/?=06202a3d)
 - [Put.io](https://put.io/)
-- [Torbox](https://torbox.app/subscription?referral=9ca21adb-dbcb-4fb0-9195-412a5f3519bc)
-- AllDebrid (Not recommended due to recent events, see [here](?debrid=alldebrid#setting-up-a-debrid-service))
-- Real Debrid (Not recommended due to recent events, see [here](?debrid=real-debrid#setting-up-a-debrid-service))
+- [Real Debrid](https://real-debrid.com/?id=9483829) :warning:
+- [AllDebrid](https://alldebrid.com/?uid=3n8qa&lang=en) :warning:
+- [Debrid-Link](https://debrid-link.com/id/EY0JO) :warning:
+
+
+<details>
+<summary> 
+:warning: 
+**These debrid services have implemented restrictions that will affect your experience.**
+**Click here to read more.** 
+:warning:
+</summary>
+<div>
+
+<h3> What happened? </h3>
+
+Due to unavoidable circumstances, some debrid services have placed restrictions upon their services and APIs.  
+
+**Real Debrid**, **AllDebrid**, and **Debrid-Link** have removed the API endpoint that allows addons to determine if a torrent is cached on their service.
+
+<h3> What does this mean for Stremio?  </h3>
+
+Most addons will return 2 kinds of results. Cached results which can be streamed instantly, and uncached results which need to be downloaded before they can be streamed.
+With the removal of the API endpoint, addons can no longer determine if a torrent is cached on Real Debrid or AllDebrid.
+
+<h3> Is it possible to continue using these debrid services? </h3>
+
+If addons do not adapt to the removal of this API endpoint, these addons will break for these debrid services.
+
+However, some addons have implemented workarounds to remove the check for cached torrents.
+This means that you would have to configure your addons to show uncached results.
+
+The [addon debrid support table](faq#which-debrid-services-are-supported-by-each-addon) will tell you which addons will work with your debrid service. 
+
+If you configure your addons to show uncached results, you will be able to continue using these debrid services.
+
+<h3> Is it recommended to continue using these debrid services? </h3>
+
+While you will still be able to use these debrid services with the addons that implement any sort of workaround, 
+it is recommended that you use another debrid service or Easynews if you aren't using one of the affected debrid services already.
+
+This is because it is inconvenient to have to pick streams at random not knowing if they are cached or not.
+In the case they are not cached, you will have to wait for the torrent to download before you can watch it.
+Of course, you could just keep trying different streams until you find one that is cached, but this is not ideal.
+
+And again, not all addons have implemented this workaround.
+
+In addition to the lack of addon support, these debrid services may also implement more restrictions in the future. 
+
+<h3> Additional Restrictions </h3>
+
+<h4> Real Debrid </h4>
+
+        - Blocked audiovisual files from a number of cyberlockers listed on the USTR blacklist or listed in the European "Counterfeit and Piracy Watch List"
+            - This includes several services. I'm not sure if these are the right sites, but here is what I found:
+                - [European Commission's Counterfeit and Piracy Watch List](https://circabc.europa.eu/ui/group/d0803128-7d62-40ee-8349-c43ee92745aa/library/b36f701d-2850-4768-9b3e-e487140e11e5/details)
+                - [USTR Notorious Markets List](https://ustr.gov/sites/default/files/2023_Review_of_Notorious_Markets_for_Counterfeiting_and_Piracy_Notorious_Markets_List_final.pdf)
+        - Blocked any torrent hashes from French private torrent trackers like YGGTorrent
+</div>
+</details>
 
 When choosing a Debrid service, the factors you have to consider are cost and the value you get from it which is made up of its optimality and userbase.
 
@@ -346,28 +403,6 @@ As I said before, there are some exceptions. I will now go through them.
     - Torbox offers access to Usenet on its Pro plan ($110/year or $10/month). This is a unique feature that is not offered by any other debrid service. (Usenet is explained in more detail later. It is simply another way to access more content)
     - Premiumize also offers access to Usenet. However, it does not support streaming, therefore it cannot be used for Stremio.
 
-**Legal Restrictions**
-
-Due to legal issues, some debrid services have placed restrictions upon their services. 
-
-Both Real Debrid and AllDebrid have removed the API endpoint that allows addons to determine if a torrent is cached on their service.
-
-This means that addons can no longer accurately determine if a torrent is cached on Real Debrid or AllDebrid.
-This has caused many addons to stop working with Real Debrid and AllDebrid.
-
-However, some addons have implemented workarounds to remove the check for cached torrents.
-This means that you would have to configure your addons to show uncached results from Real Debrid or AllDebrid.
-
-While you will still be able to use Real Debrid or AllDebrid with the addons that implement this workaround (or others), it is recommended that you use another debrid service or Easynews if you aren't using Real Debrid or AllDebrid already.
-
-This is because it is inconvenient to have to pick streams at random not knowing if they are cached or not.
-In the case they are not cached, you will have to wait for the torrent to download before you can watch it.
-Of course, you could just keep trying different streams until you find one that is cached, but this is not ideal.
-
-And again, not all addons have implemented this workaround.
-
-The [addon debrid support table](faq#which-debrid-services-are-supported-by-each-addon) will tell you which addons will work with your debrid service. 
-
 ---
 
 After considering everything, you should have a good idea of which debrid service you want to use.
@@ -378,151 +413,6 @@ I wouldn't recommend Offcloud or put.io due to their lack of addon support as we
 I will now cover the instructions of setting up each debrid service I previously mentioned.
 
 <Tabs className="custom-tabs" queryString="debrid">
-<TabItem value="real-debrid" label="Real Debrid"> 
-    <Admonition type="danger">
-    You should hold off on purchasing a Real Debrid subscription until you have read this: 
-
-    <details>
-    <summary>Tweet from Real Debrid</summary>
-    <div>
-    From [@RealDebrid](https://x.com/RealDebrid/status/1859673163681960169):
-    
-    Following a formal notice from the FNEF (https://fnef.fr/les-adherents/), Real-Debrid is strengthening its anti-piracy measures.
-
-    As you already know, we actively comply with DMCA and are already blocking a certain number of infringing torrents.
-
-    In the coming hours:
-        - audiovisual files available on a number of cyberlockers listed on the USTR blacklist or listed in the European "CCounterfeit and Piracy Watch List" will all be blocked.
-        - a filtering by file name will also be applied, in accordance with the request of the FNEF, this may unfortunately lead to false positives that we will process manually.
-        - a blocking of all torrents hashes of private torrent trackers mentioned in cases at the Paris judicial court
-        - a complete purge of files potentially cached on the previously mentioned criteria
-        - the deactivation of the API endpoint /instantAvaibility
-        - a blocking of counterfeit Kodi / Stremio applications to the extent that they are identifiable
-    
-
-      </div>
-    </details>
-
-    Real Debrid may no longer be a viable choice. It is currently uncertain what effects this will have. 
-    I suggest choosing a different debrid service if you are impatient, or wait for more information. 
-    Keep an eye on [r/StremioAddons Discord Server](https://discord.com/invite/zNRf6YF), [r/StremioAddons](https://www.reddit.com/r/StremioAddons) and [r/RealDebrid](https://www.reddit.com/r/RealDebrid) for updates.
-  
-    Following this announcement, Real Debrid has now: 
-        - Closed the /instantAvailability API endpoint 
-            <details>
-            <summary>What does this mean for Stremio?</summary>
-            <div>
-            Addons can no longer accurately determine if a torrent is cached on Real Debrid. 
-            
-            However, it is possible to continue using Real Debrid with Stremio. 
-            The Torrentio addon has added a workaround that makes use of a local short-term cache to determine if a torrent is cached on Real Debrid.
-            You can find more details on this [GitHub issue](https://github.com/TheBeastLT/torrentio-scraper/issues/305).
-            This workaround does mean that most results will be shown as [RD Download] instead of [RD+].
-            To continue using Real Debrid, it is recommended that you keep the `Don't show download to debrid links` setting off. 
-
-            Other than this, the DMM (Debrid Media Manager) developer has stated that they are working on a crowdsourced solution to determine if a torrent is cached on Real Debrid.
-
-            Other addons may also implement a similar workaround in the future, but this is not guaranteed. It is recommended that you use another debrid service or Easynews if you aren't using Real Debrid already.
-            </div>
-            </details>
-        - Blocked audiovisual files from a number of cyberlockers listed on the USTR blacklist or listed in the European "Counterfeit and Piracy Watch List"
-            - This includes several services. I'm not sure if these are the right sites, but here is what I found:
-                - [European Commission's Counterfeit and Piracy Watch List](https://circabc.europa.eu/ui/group/d0803128-7d62-40ee-8349-c43ee92745aa/library/b36f701d-2850-4768-9b3e-e487140e11e5/details)
-                - [USTR Notorious Markets List](https://ustr.gov/sites/default/files/2023_Review_of_Notorious_Markets_for_Counterfeiting_and_Piracy_Notorious_Markets_List_final.pdf)
-        - Blocked any torrent hashes from French private torrent trackers like YGGTorrent
-
-    As a result, many addons no longer work with Real Debrid. This afffects services outside of Stremio too.
-
-    Some addons can implement workarounds to remove the check for cached torrents. 
-    This would mean that you would have to configure your addons to show uncached results from Real Debrid.
-
-    While you will still be able to use Real Debrid with the addons that implement this workaround (or others), it is recommended that you use another debrid service or Easynews if you aren't using Real Debrid already.
-
-    Known addons that have implemented this workaround are: 
-        - Torrentio: Make sure the `Don't show download to debrid links` setting is off.
-        - MediaFusion: Make sure 
-
-
-    </Admonition>
-    <h2> **Please read the warning above before proceeding.** </h2>
-    ![Real Debrid Payment](/img/stremio/real_debrid_payment.png)
-    <h2> **Please read the warning above before proceeding.** </h2  >
-    1. Go to [Real Debrid's website](https://real-debrid.com/?id=9483829)
-    2. Click Sign Up to create an account
-    3. Go to the Premium Offers page
-    4. Choose a package and subscribe. 
-</TabItem>
-<TabItem value="alldebrid" label="AllDebrid">
-    <Admonition type="danger">
-    You should hold off on purchasing an AllDebrid subscription. 
-
-    Similar to Real Debrid, AllDebrid have also removed the /instant API endpoint. 
-    This means that addons can no longer accurately determine if a torrent is cached on AllDebrid.
-
-    Addons can implement workarounds to remove the check for cached torrents. 
-    This would mean that you would have to configure your addons to show uncached results from AllDebrid.
-
-    While you will still be able to use AllDebrid with the addons that implement this workaround (or others), it is recommended that you use another debrid service or Easynews if you aren't using AllDebrid already.
-
-    Known addons that have implemented this workaround are: 
-        - Torrentio: Make sure the `Don't show download to debrid links` setting is off.
-    </Admonition>
-    <h2> **Please read the warning above before proceeding.** </h2>
-    ![All Debrid Payment](/img/stremio/all_debrid_payment.png)
-    <h2> **Please read the warning above before proceeding.** </h2>
-    
-    1. Go to [AllDebrid's website](https://alldebrid.com/?uid=3n8qa&lang=en)
-    2. Click `Create an account` at the top and register for an account. 
-    3. Go to the Pricing page
-    4. Choose a package and subscribe.
-</TabItem>
-<TabItem value="premiumize" label="Premiumize">
-    ![Premiumize Payment](/img/stremio/premiumize_payment.png)
-
-    1. Go to [Premiumize's website](https://www.premiumize.me/)
-    2. Click Sign Up in the top right corner to create an account
-    3. Click `Buy Premium` at the top of the page
-    4. Choose a package and subscribe.
-
-</TabItem>
-<TabItem value="debrid-link" label="Debrid-Link">
-    ![Debrid-Link Payment](/img/stremio/debrid_link_payment.png)
-
-    1. Go to [Debrid-Link's website](https://debrid-link.com/id/EY0JO)
-    2. Click Register in the top right corner or `Try it Free` on the home page.
-    3. Fill in the required details and click `Register`
-    4. Click `Premium` in the top right corner
-    5. Choose a package and purchase it.
-
-</TabItem>
-<TabItem value="offcloud" label="Offcloud">
-    ![Offcloud Payment](/img/stremio/offcloud_payment.png)
-
-    1. Go to [Offcloud's website](https://offcloud.com/?=06202a3d)
-    2. Enter your email and click `Join us for free`
-    3. You will be sent an email to set your password, set your password and log in.
-    4. Click `Shop` from the navigation bar on the left.
-    5. Choose a package and purchase it.
-
-</TabItem>
-<TabItem value="put.io" label="put.io">
-    ![Put.io Payment](/img/stremio/put.io_payment.png)
-
-    1. Go to [put.io's register page](https://app.put.io/register) and create an account
-    2. You will see a banner asking you to activate your account. Click the button to go to the [billing page](https://app.put.io/billing/activate-account)
-    3. Choose a package and purchase it.
-
-    <Admonition type="info">
-    Put.io offers two plans for which you can either pay monthly or yearly.
-    One plan gives you 100GB of storage and the other 1TB. Depending on the amount and size of files you will be streaming, choose the plan that suits you best.
-
-    I believe that the storage is not made up of the accumulated size of all the files you have downloaded, but rather the amount of files you have downloaded and stored currently.
-    You can delete files to make space for new ones.
-
-    However, I am unsure of the accuracy of this information. If you are considering put.io, then I would recommend contacting their support or looking at their FAQ.
-    </Admonition>
-
-</TabItem>
 <TabItem value="torbox" label="Torbox">
 
     ![Torbox Payment](/img/stremio/torbox_payment.png)
@@ -555,6 +445,88 @@ I will now cover the instructions of setting up each debrid service I previously
         :::
     11. Once you have decided on a package, click `Subscribe`
     12. Then, follow the steps at the payment page to complete your purchase.
+
+</TabItem>
+<TabItem value="premiumize" label="Premiumize">
+    ![Premiumize Payment](/img/stremio/premiumize_payment.png)
+
+    1. Go to [Premiumize's website](https://www.premiumize.me/)
+    2. Click Sign Up in the top right corner to create an account
+    3. Click `Buy Premium` at the top of the page
+    4. Choose a package and subscribe.
+
+</TabItem>
+<TabItem value="offcloud" label="Offcloud">
+    ![Offcloud Payment](/img/stremio/offcloud_payment.png)
+
+    1. Go to [Offcloud's website](https://offcloud.com/?=06202a3d)
+    2. Enter your email and click `Join us for free`
+    3. You will be sent an email to set your password, set your password and log in.
+    4. Click `Shop` from the navigation bar on the left.
+    5. Choose a package and purchase it.
+
+</TabItem>
+<TabItem value="put.io" label="put.io">
+    ![Put.io Payment](/img/stremio/put.io_payment.png)
+
+    1. Go to [put.io's register page](https://app.put.io/register) and create an account
+    2. You will see a banner asking you to activate your account. Click the button to go to the [billing page](https://app.put.io/billing/activate-account)
+    3. Choose a package and purchase it.
+
+    <Admonition type="info">
+    Put.io offers two plans for which you can either pay monthly or yearly.
+    One plan gives you 100GB of storage and the other 1TB. Depending on the amount and size of files you will be streaming, choose the plan that suits you best.
+
+    I believe that the storage is not made up of the accumulated size of all the files you have downloaded, but rather the amount of files you have downloaded and stored currently.
+    You can delete files to make space for new ones.
+
+    However, I am unsure of the accuracy of this information. If you are considering put.io, then I would recommend contacting their support or looking at their FAQ.
+    </Admonition>
+
+</TabItem>
+<TabItem value="real-debrid" label="Real Debrid"> 
+    <Admonition type="danger">
+    Please make sure you have read the warning about the restrictions they have implemented before proceeding.
+
+    You can find the warning [here](#which-debrid-service-do-i-use) just after the list of debrid services. 
+    </Admonition>
+
+
+    ![Real Debrid Payment](/img/stremio/real_debrid_payment.png)
+    1. Go to [Real Debrid's website](https://real-debrid.com/?id=9483829)
+    2. Click Sign Up to create an account
+    3. Go to the Premium Offers page
+    4. Choose a package and subscribe. 
+</TabItem>
+<TabItem value="alldebrid" label="AllDebrid">
+    <Admonition type="danger">
+    Please make sure you have read the warning about the restrictions they have implemented before proceeding.
+
+    You can find the warning [here](#which-debrid-service-do-i-use) just after the list of debrid services. 
+    </Admonition>
+
+    ![All Debrid Payment](/img/stremio/all_debrid_payment.png)
+
+    
+    1. Go to [AllDebrid's website](https://alldebrid.com/?uid=3n8qa&lang=en)
+    2. Click `Create an account` at the top and register for an account. 
+    3. Go to the Pricing page
+    4. Choose a package and subscribe.
+</TabItem>
+<TabItem value="debrid-link" label="Debrid-Link">
+
+    <Admonition type="danger">
+    Please make sure you have read the warning about the restrictions they have implemented before proceeding.
+
+    You can find the warning [here](#which-debrid-service-do-i-use) just after the list of debrid services. 
+    </Admonition>
+    ![Debrid-Link Payment](/img/stremio/debrid_link_payment.png)
+
+    1. Go to [Debrid-Link's website](https://debrid-link.com/id/EY0JO)
+    2. Click Register in the top right corner or `Try it Free` on the home page.
+    3. Fill in the required details and click `Register`
+    4. Click `Premium` in the top right corner
+    5. Choose a package and purchase it.
 
 </TabItem>
 </Tabs>
