@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import './Settings.css';
 import { availableCurrencies } from './CurrencyRates';
 import { initialServiceData } from './ServiceData';
+import { showToast } from '@site/src/components/Toasts';
 
 interface Service {
   name: string;
@@ -24,20 +25,20 @@ interface SettingsProps {
 }
 
 const Settings: React.FC<SettingsProps> = ({ serviceData, setServiceData, closeSettings, primaryCurrency, setPrimaryCurrency }) => {
-  const [newService, setNewService] = useState<Service>({
-    name: '',
-    price: 0,
-    duration: 0,
-    currency: 'USD',
-  });
-
   const [tempServiceData, setTempServiceData] = useState<Service[]>([...serviceData]);
-  const [showNewServiceForm, setShowNewServiceForm] = useState<boolean>(false);
+  const [isClosing, setIsClosing] = useState(false);
+  const [newServiceIndex, setNewServiceIndex] = useState<number | null>(null);
+  const [deletedServiceIndex, setDeletedServiceIndex] = useState<number | null>(null);
 
   const handleAddService = () => {
+    const newService: Service = {
+      name: '',
+      price: 0,
+      duration: 0,
+      currency: 'USD',
+    };
     setTempServiceData([...tempServiceData, newService]);
-    setNewService({ name: '', price: 0, duration: 0, currency: 'USD' });
-    setShowNewServiceForm(false);
+    setNewServiceIndex(tempServiceData.length);
   };
 
   const handleUpdateService = (index: number, updatedService: Service) => {
@@ -47,26 +48,60 @@ const Settings: React.FC<SettingsProps> = ({ serviceData, setServiceData, closeS
   };
 
   const handleDeleteService = (index: number) => {
-    const updatedServices = tempServiceData.filter((_, i) => i !== index);
-    setTempServiceData(updatedServices);
+    setDeletedServiceIndex(index);
+    setTimeout(() => {
+      const updatedServices = tempServiceData.filter((_, i) => i !== index);
+      setTempServiceData(updatedServices);
+      setDeletedServiceIndex(null);
+    }, 500);
   };
 
   const handleApplyChanges = () => {
+    if (tempServiceData.some((service) => !service.name || !service.price || !service.duration)) {
+      showToast('All fields must be filled in', 'error');
+      return;
+    }
+    if (tempServiceData.some((service) => service.price <= 0 || service.duration <= 0)) {
+      showToast('Price and duration must be greater than 0', 'error');
+      return;
+    }
+
+
     setServiceData(tempServiceData);
-    closeSettings();
+    handleClose();
   };
 
   const handleReset = () => {
     setTempServiceData(initialServiceData);
+    setServiceData(initialServiceData);
+    handleClose();
   };
 
+  const handleClose = () => {
+    setIsClosing(true);
+    setTimeout(() => {
+      closeSettings();
+    }, 500);
+  }
+
   return (
-    <div className="settings-popup">
+    <div className={`settings-popup ${isClosing ? 'fade-out' : ''}`}>
       <div className="settings-content">
-        <h2 style={{ color: 'white' }}>Settings</h2>
+        <button onClick={handleClose} className="close-button">X</button>
+        <h2>Service Data</h2>
         <div className="service-list">
           {tempServiceData.map((service, index) => (
-            <div key={index} className="service-item">
+            <div
+            key={index}
+            className={
+              `service-item ${index === newServiceIndex ? 'new-service' : ''} ${index === deletedServiceIndex ? 'deleted-service' : ''}`
+            }
+            onAnimationEnd={() => {
+              if (index === newServiceIndex) {
+                setNewServiceIndex(null);
+              }
+            }}
+          >
               <label style={{ color: 'white' }}>Service Name</label>
               <input
                 type="text"
@@ -102,53 +137,13 @@ const Settings: React.FC<SettingsProps> = ({ serviceData, setServiceData, closeS
               <button onClick={() => handleDeleteService(index)} className="delete-button">Delete</button>
             </div>
           ))}
-          {showNewServiceForm && (
-            <div className="service-item">
-              <label style={{ color: 'white' }}>Service Name</label>
-              <input
-                type="text"
-                placeholder="Service Name"
-                value={newService.name}
-                onChange={(e) => setNewService({ ...newService, name: e.target.value })}
-              />
-              <label style={{ color: 'white' }}>Price</label>
-              <input
-                type="number"
-                placeholder="Price"
-                value={newService.price}
-                onChange={(e) => setNewService({ ...newService, price: parseFloat(e.target.value) })}
-              />
-              <label style={{ color: 'white' }}>Duration</label>
-              <input
-                type="number"
-                placeholder="Duration"
-                value={newService.duration}
-                onChange={(e) => setNewService({ ...newService, duration: parseInt(e.target.value) })}
-              />
-              <label style={{ color: 'white' }}>Currency</label>
-              <select
-                value={newService.currency}
-                onChange={(e) => setNewService({ ...newService, currency: e.target.value })}
-              >
-                {availableCurrencies.map((currency) => (
-                  <option key={currency} value={currency}>
-                    {currency}
-                  </option>
-                ))}
-              </select>
-              <button onClick={handleAddService} className="add-service-button">Add Service</button>
-            </div>
-          )}
-          {!showNewServiceForm && (
-            <div className="service-item add-new-service">
-              <button onClick={() => setShowNewServiceForm(true)} className="add-new-service-button">+</button>
-            </div>
-          )}
+          <div className="service-item add-new-service" onClick={handleAddService}>
+            <button className="add-new-service-button">+</button>
+          </div>
         </div>
         <div className="settings-actions">
-          <button onClick={handleApplyChanges} className="apply-button">Apply</button>
           <button onClick={handleReset} className="reset-button">Reset</button>
-          <button onClick={closeSettings} className="close-button">Close</button>
+          <button onClick={handleApplyChanges} className="apply-button">Apply</button>
         </div>
       </div>
     </div>
