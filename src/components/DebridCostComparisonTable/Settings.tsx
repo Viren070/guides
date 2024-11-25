@@ -13,7 +13,8 @@ interface Service {
     pointsPerPlan: number;
     pointsRequiredForReward: number;
     durationPerReward: number;
-  };
+  },
+  slideClass?: string;
 }
 
 interface SettingsProps {
@@ -36,6 +37,7 @@ const Settings: React.FC<SettingsProps> = ({ serviceData, setServiceData, closeS
       price: 0,
       duration: 0,
       currency: 'USD',
+
     };
     setTempServiceData([...tempServiceData, newService]);
     setNewServiceIndex(tempServiceData.length);
@@ -49,11 +51,21 @@ const Settings: React.FC<SettingsProps> = ({ serviceData, setServiceData, closeS
 
   const handleDeleteService = (index: number) => {
     setDeletedServiceIndex(index);
+  
+    // Temporarily add the 'slide-left' class to items to the right of the deleted one.
+    const updatedServices = tempServiceData.map((service, i) => ({
+      ...service,
+      slideClass: i > index ? 'slide-left' : '',
+    }));
+  
+    setTempServiceData(updatedServices);
+  
+    // Delay removing the service to allow the animation to complete.
     setTimeout(() => {
-      const updatedServices = tempServiceData.filter((_, i) => i !== index);
-      setTempServiceData(updatedServices);
+      const filteredServices = tempServiceData.filter((_, i) => i !== index);
+      setTempServiceData(filteredServices.map((service) => ({ ...service, slideClass: '' })));
       setDeletedServiceIndex(null);
-    }, 500);
+    }, 500); // Match animation duration
   };
 
   const handleApplyChanges = () => {
@@ -74,7 +86,6 @@ const Settings: React.FC<SettingsProps> = ({ serviceData, setServiceData, closeS
   const handleReset = () => {
     setTempServiceData(initialServiceData);
     setServiceData(initialServiceData);
-    handleClose();
   };
 
   const handleClose = () => {
@@ -93,9 +104,9 @@ const Settings: React.FC<SettingsProps> = ({ serviceData, setServiceData, closeS
           {tempServiceData.map((service, index) => (
             <div
             key={index}
-            className={
-              `service-item ${index === newServiceIndex ? 'new-service' : ''} ${index === deletedServiceIndex ? 'deleted-service' : ''}`
-            }
+            className={`service-item ${service.slideClass} ${
+              index === newServiceIndex ? 'new-service' : ''
+            } ${index === deletedServiceIndex ? 'deleted-service' : ''}`}
             onAnimationEnd={() => {
               if (index === newServiceIndex) {
                 setNewServiceIndex(null);
@@ -137,8 +148,8 @@ const Settings: React.FC<SettingsProps> = ({ serviceData, setServiceData, closeS
               <button onClick={() => handleDeleteService(index)} className="delete-button">Delete</button>
             </div>
           ))}
-          <div className="service-item add-new-service" onClick={handleAddService}>
-            <button className="add-new-service-button">+</button>
+          <div className="service-item add-new-service">
+            <button className="add-new-service-button" onClick={handleAddService}>+</button>
           </div>
         </div>
         <div className="settings-actions">

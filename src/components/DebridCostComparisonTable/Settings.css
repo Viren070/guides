@@ -114,6 +114,7 @@
   min-width: 220px;
   max-height: 1%;
   overflow-y: auto;
+  transition: transform 0.5s ease-in-out;
 }
 .service-item.new-service {
     animation: appearFromCenter 0.5s ease-in-out;
@@ -122,6 +123,15 @@
 .service-item.deleted-service {
     animation: disappearToCenter 0.5s ease-in-out;
 }
+  
+.service-item.slide-left {
+    transform: translateX(-100%);
+  }
+  
+.service-item.slide-right {
+    transform: translateX(100%);
+  }
+  
 
 .add-new-service {
   display: flex;
@@ -129,11 +139,10 @@
   justify-content: center;
   align-items: center;
   background-color: transparent;
-  border: 1px solid #ccc;
+  flex-grow: 1;
   padding: 15px;
   border-radius: var(--ifm-global-radius);
   min-width: 220px;
-  cursor: pointer;
   transition: transform 0.2s, box-shadow 0.2s;
 }
 
