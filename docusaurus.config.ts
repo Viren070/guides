@@ -23,7 +23,7 @@ const config: Config = {
   // may want to replace "en" with "zh-Hans".
   i18n: {
     defaultLocale: 'en-GB',
-    locales: ['en-GB'],
+    locales: ['en-GB', 'es'],
   },
 
   future: {
@@ -92,6 +92,10 @@ const config: Config = {
           className: 'header-kofi-link',
           'title': 'Support me on Ko-fi',
           'aria-label': 'Ko-fi',
+        },
+        {
+          type: 'localeDropdown',
+          position: 'left',
         }
       ],
     },

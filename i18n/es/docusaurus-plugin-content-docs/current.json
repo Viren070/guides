@@ -1,0 +1,50 @@
+{
+  "version.label": {
+    "message": "Next",
+    "description": "The label for version current"
+  },
+  "sidebar.guides.category.Gaming": {
+    "message": "Gaming",
+    "description": "The label for category Gaming in sidebar guides"
+  },
+  "sidebar.guides.category.Gaming.link.generated-index.title": {
+    "message": "Games / Emulation",
+    "description": "The generated-index page title for category Gaming in sidebar guides"
+  },
+  "sidebar.guides.category.Gaming.link.generated-index.description": {
+    "message": "Guides on downloading and setting up games / emulators",
+    "description": "The generated-index page description for category Gaming in sidebar guides"
+  },
+  "sidebar.guides.category.Minecraft": {
+    "message": "Minecraft",
+    "description": "The label for category Minecraft in sidebar guides"
+  },
+  "sidebar.guides.category.Bedrock": {
+    "message": "Bedrock",
+    "description": "The label for category Bedrock in sidebar guides"
+  },
+  "sidebar.guides.category.Streaming": {
+    "message": "Streaming",
+    "description": "The label for category Streaming in sidebar guides"
+  },
+  "sidebar.guides.category.Streaming.link.generated-index.title": {
+    "message": "Movies / TV / Anime",
+    "description": "The generated-index page title for category Streaming in sidebar guides"
+  },
+  "sidebar.guides.category.Streaming.link.generated-index.description": {
+    "message": "Guides on using apps that can be used to stream movies / tv shows / anime",
+    "description": "The generated-index page description for category Streaming in sidebar guides"
+  },
+  "sidebar.guides.category.Stremio": {
+    "message": "Stremio",
+    "description": "The label for category Stremio in sidebar guides"
+  },
+  "sidebar.guides.category.Extras": {
+    "message": "Extras",
+    "description": "The label for category Extras in sidebar guides"
+  },
+  "sidebar.guides.category.Aniyomi": {
+    "message": "Aniyomi",
+    "description": "The label for category Aniyomi in sidebar guides"
+  }
+}
