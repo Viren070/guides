@@ -232,7 +232,7 @@ Due to unavoidable circumstances, some debrid services have placed restrictions 
 
 <h3> What does this mean for Stremio?  </h3>
 
-Most addons will return 2 kinds of results. Cached results which can be streamed instantly, and uncached results which need to be downloaded before they can be streamed.
+Most addons will return 2 kinds of results. Cached results which can be streamed instantly, and uncached results which need to be downloaded (to the debrid service) before they can be streamed.
 With the removal of the API endpoint, addons can no longer determine if a torrent is cached on Real Debrid or AllDebrid.
 
 <h3> Is it possible to continue using these debrid services? </h3>
@@ -245,6 +245,15 @@ This means that you would have to configure your addons to show uncached results
 The [addon debrid support table](faq#which-debrid-services-are-supported-by-each-addon) will tell you which addons will work with your debrid service. 
 
 If you configure your addons to show uncached results, you will be able to continue using these debrid services.
+
+By showing both uncached and cached results, the addon will return a list of torrents which you will have to try to stream. 
+If the torrent is cached, you will be able to stream it instantly. If it is not cached, you will have to wait for the torrent to download before you can stream it.
+
+Note that some addons may try and implement some sort of local caching system to try and get a somewhat accurate database of torrents that are cached.
+This is not guaranteed to be accurate. 
+
+By using these debrid services, you agree to some inconvenience in the form of having to try multiple streams to find one that is cached.
+However, due to Real-Debrid's massive cache, it is likely that you will find a cached stream on your first attempt. 
 
 <h3> Is it recommended to continue using these debrid services? </h3>
 
