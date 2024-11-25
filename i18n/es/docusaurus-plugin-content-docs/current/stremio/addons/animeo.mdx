@@ -1,0 +1,28 @@
+---
+title: Animeo
+description: Track your anime progress with AniList and see lists from your AniList account.
+keywords: [stremio, addons, addon, anime, animeo, guide, setup, configuration, install, link]
+tags: [stremio-addon, stremio-addon:anime, stremio-addon:tracking]
+---
+import StremioAddonButtons from '@site/src/components/StremioAddonButtons';
+
+<StremioAddonButtons id="animeo" manifest="https://7a625ac658ec-animeo.baby-beamup.club/manifest.json" configurable={true} configurationRequired={true} source="https://github.com/Jenrykster/animeo"/> 
+
+<h3>Description</h3>
+
+This is an addon that uses the AniList API to track your anime progress.
+It also provides the lists from your AniList account (Plan to Watch, Watching, etc.)
+
+You can look at the [GitHub page for animeo](https://github.com/Jenrykster/animeo) that has more information on the addon.
+
+<h3>Configuration</h3>
+
+1. Head over to the [animeo Configuration page](https://7a625ac658ec-animeo.baby-beamup.club/configure)
+2. Click `ANILIST LOGIN` at the top of the page and login with your AniList account. You will then be returned to the configration page
+3. There are two options to configure, I will go through them now:
+- `Kitsu entries only`: I recommend keeping this option checked. You will need the kitsu addon installed for this to work.
+    This means that only when you are watching a title from the Kitsu addon will it be tracked.
+    This is useful because it reduces the likelihood of incorrect titles being tracked.
+- `Only update anime already on my list` - This option makes it so that only anime that you are already tracking on AniList will be updated.
+    I leave this unchecked as otherwise, new anime that I watch will not be tracked unless I manually add them on AniList.
+4. Click Install. (If this doesn't work, follow the instructions underneath the install button that says to copy the link and paste it into the stremio search bar or the add addon menu on stremio web.)

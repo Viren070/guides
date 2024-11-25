@@ -1,0 +1,28 @@
+---
+title: Cyberflix
+description: Provides catalogs from streaming services (e.g. Netflix) and also catalogs for Kids, Anime, and Indian Movies.
+keywords: [stremio, addons, addon, cyberflix, catalog, catalogue, guide, setup, configuration, install, link]
+tags: [stremio-addon, stremio-addon:catalogues]
+---
+import StremioAddonButtons from '@site/src/components/StremioAddonButtons';
+
+<StremioAddonButtons id="cyberflix" manifest="https://cyberflix.elfhosted.com/manifest.json" configurable={true} configurationRequired={true} source="https://github.com/marcojoao/cyberflix-server"/> 
+
+<h3>Description</h3>
+
+This Addon will fetch a list of movies from a range of different 3rd party streaming services as well as different catalogs for Kids, Anime, and Indian Movies.  (It is recommended that you use the Kitsu Addon for Anime instead)
+
+<h3>Configuration</h3>
+
+To get started, head over to the [configuration page](https://cyberflix.elfhosted.com/) 
+
+![CyberFlix Setup](/img/stremio/cyberflix_setup.png) 
+
+1. Click Setup 
+2. Select up to 60 different catalogues to display on your homepage. 
+    Click the arrows to select/deselect specific types of catalogues for a streaming service.
+
+3. Click Next
+4. Rearrange the order of the catalogues to your liking and click Next again 
+5. Optionally provide your [RPDB API key](/stremio/faq#how-do-i-obtain-a-rpdb-api-key) to show ratings on the posters.
+6. Then click Install on Stremio and a prompt should open in the Stremio app. Click Install on that prompt too.
