@@ -194,25 +194,33 @@ This will let you know if a debrid service is limiting your speed.
 Use this table below to see debrid compatability for each addon.
 
 :::warning
-With AllDebrid and RealDebrids recent limits on the /instant and /instantAvaibility endpoints respectively, this table may not be accurate.
+With AllDebrid, RealDebrid, and Debrid-Link's recent removal of the API endpoint to see if a torrent is cached, this table may not be accurate.
 
 Please let me know if an addon is not working / working with AllDebrid or Real Debrid.
+
+Any column that has the :exclamation: emoji means that the debrid service has imposed limitations that would affect all addons. 
+If you see a :white_check_mark: in that column, that addon has adapted to these limitations and should work fine.
+If you see a :exclamation: in the column, the addon may not work due to these limitations.
+
+If a cell is marked as :exclamation:, it means the addon is supported, but may not work due to recent limitations. With every addon being coded differently, some may work while others may not.
 
 **This table takes into account the latest available version of the addon. The public ElfHosted instance may not be up to date.**
 :::
 
-| Addon/Debrid Service      	|     Real-Debrid    	|     All-Debrid     	|     Debrid-Link    	|     Premiumize     	|      Offcloud      	|       Put.io       	|       Torbox       	|
-|---------------------------	|:------------------:	|:------------------:	|:------------------:	|:------------------:	|:------------------:	|:------------------:	|:------------------:	|
-| Torrentio                 	| :white_check_mark: 	| :white_check_mark: 	| :white_check_mark: 	| :white_check_mark: 	| :white_check_mark: 	| :white_check_mark: 	|         :x:        	|
-| KnightCrawler :warning:   	|         :x:        	|         :x:        	| :white_check_mark: 	| :white_check_mark: 	| :white_check_mark: 	| :white_check_mark: 	|         :x:        	|
-| MediaFusion               	| :white_check_mark: 	|         :x:        	| :white_check_mark: 	| :white_check_mark: 	| :white_check_mark: 	|         :x:        	| :white_check_mark: 	|
-| Stremio-Jackett :warning: 	| :x: 	              | :white_check_mark: 	|         :x:        	| :white_check_mark: 	|         :x:        	|         :x:        	|         :x:        	|
-| Comet                     	|         :x:        	|         :x:        	| :white_check_mark: 	| :white_check_mark: 	|         :x:        	|         :x:        	| :white_check_mark: 	|
-| Jackettio                 	| :white_check_mark:  |         :x:        	| :white_check_mark: 	|         :x:        	|         :x:        	|         :x:        	|         :x:        	|
-| Orion                     	|         :x:        	|         :x:        	| :white_check_mark: 	| :white_check_mark: 	| :white_check_mark: 	|         :x:        	|         :x:        	|
-| Torbox                    	|         :x:        	|         :x:        	|         :x:        	|         :x:        	|         :x:        	|         :x:        	| :white_check_mark: 	|
+| Addon/Debrid Service      	|     Real-Debrid    	|     All-Debrid     	|  Debrid-Link  	|     Premiumize     	|      Offcloud      	|       Put.io       	|       Torbox       	|
+|---------------------------	|:------------------:	|:------------------:	|:-------------:	|:------------------:	|:------------------:	|:------------------:	|:------------------:	|
+| Torrentio                 	| :white_check_mark: 	| :white_check_mark: 	| :exclamation: 	| :white_check_mark: 	| :white_check_mark: 	| :white_check_mark: 	|         :x:        	|
+| KnightCrawler :warning:   	|    :exclamation:   	|    :exclamation:   	| :exclamation: 	| :white_check_mark: 	| :white_check_mark: 	| :white_check_mark: 	|         :x:        	|
+| MediaFusion               	| :white_check_mark: 	|    :exclamation:    | :exclamation: 	| :white_check_mark: 	| :white_check_mark: 	|         :x:        	| :white_check_mark: 	|
+| Stremio-Jackett :warning: 	|    :exclamation:   	| :white_check_mark: 	| :exclamation: 	| :white_check_mark: 	|         :x:        	|         :x:        	|         :x:        	|
+| Comet                     	|    :exclamation:   	|    :exclamation:   	| :exclamation:   | :white_check_mark: 	|         :x:        	|         :x:        	| :white_check_mark: 	|
+| Jackettio                 	| :white_check_mark: 	|    :exclamation:   	| :exclamation: 	|         :x:        	|         :x:        	|         :x:        	|         :x:        	|
+| Orion                     	|    :exclamation:   	|    :exclamation:   	| :exclamation: 	| :white_check_mark: 	| :white_check_mark: 	|         :x:        	|         :x:        	|
+| Torbox                    	|         :x:        	|         :x:        	|      :x:      	|         :x:        	|         :x:        	|         :x:        	| :white_check_mark: 	|
 
 :warning: - Deprecated addon
+
+:exclamation: - Supported but may not work due to [recent limitations](/stremio/setup#which-debrid-service-do-i-use)
 
 :::info
 I only included the debrid services that were covered in my guide. However, even if I had a column for each one, this wouldn't change the table very much. 
