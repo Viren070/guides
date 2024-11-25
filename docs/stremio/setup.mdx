@@ -206,17 +206,17 @@ If you have already chosen a debrid service, you can skip to the [setup instruct
 Otherwise, I will go through the factors you should consider when choosing a debrid service.
 
 
-- [AllDebrid](https://alldebrid.com/?uid=3n8qa&lang=en)
 - [Premiumize](https://www.premiumize.me/)
 - [Debrid-Link](https://debrid-link.com/id/EY0JO)
 - [Offcloud](https://offcloud.com/?=06202a3d)
 - [Put.io](https://put.io/)
 - [Torbox](https://torbox.app/subscription?referral=9ca21adb-dbcb-4fb0-9195-412a5f3519bc)
+- AllDebrid (Not recommended due to recent events, see [here](?debrid=alldebrid#setting-up-a-debrid-service))
 - Real Debrid (Not recommended due to recent events, see [here](?debrid=real-debrid#setting-up-a-debrid-service))
 
 When choosing a Debrid service, the factors you have to consider are cost and the value you get from it which is made up of its optimality and userbase.
 
-Due to recent events surrounding Real Debrid, I cannot recommend it at this time. I also cannot recommend any other debrid service as I have not tried them all. 
+Due to recent events surrounding Real Debrid and AllDebrid, I cannot recommend them at this time. I also cannot recommend any other debrid service as I have not tried them all. 
 Previously, Real Debrid was widely regarded as the best debrid service, which is why I had recommended it previously. 
 
 I recommend coming to your own conclusion by reading the information below, in addition to your own research. 
@@ -345,6 +345,30 @@ As I said before, there are some exceptions. I will now go through them.
     - Torbox offers access to Usenet on its Pro plan ($110/year or $10/month). This is a unique feature that is not offered by any other debrid service. (Usenet is explained in more detail later. It is simply another way to access more content)
     - Premiumize also offers access to Usenet. However, it does not support streaming, therefore it cannot be used for Stremio.
 
+**Legal Restrictions**
+
+Due to legal issues, some debrid services have placed restrictions upon their services. 
+
+Both Real Debrid and AllDebrid have removed the API endpoint that allows addons to determine if a torrent is cached on their service.
+
+This means that addons can no longer accurately determine if a torrent is cached on Real Debrid or AllDebrid.
+This has caused many addons to stop working with Real Debrid and AllDebrid.
+
+However, some addons have implemented workarounds to remove the check for cached torrents.
+This means that you would have to configure your addons to show uncached results from Real Debrid or AllDebrid.
+
+While you will still be able to use Real Debrid or AllDebrid with the addons that implement this workaround (or others), it is recommended that you use another debrid service or Easynews if you aren't using Real Debrid or AllDebrid already.
+
+This is because it is inconvenient to have to pick streams at random not knowing if they are cached or not.
+In the case they are not cached, you will have to wait for the torrent to download before you can watch it.
+Of course, you could just keep trying different streams until you find one that is cached, but this is not ideal.
+
+And again, not all addons have implemented this workaround.
+
+The [addon debrid support table](faq#which-debrid-services-are-supported-by-each-addon) will tell you which addons will work with your debrid service. 
+
+---
+
 After considering everything, you should have a good idea of which debrid service you want to use.
 I wouldn't recommend Offcloud or put.io due to their lack of addon support as well as their smaller userbases.
 
@@ -354,7 +378,7 @@ I will now cover the instructions of setting up each debrid service I previously
 
 <Tabs className="custom-tabs" queryString="debrid">
 <TabItem value="real-debrid" label="Real Debrid"> 
-<Admonition type="danger">
+    <Admonition type="danger">
     You should hold off on purchasing a Real Debrid subscription until you have read this: 
 
     <details>
@@ -407,8 +431,16 @@ I will now cover the instructions of setting up each debrid service I previously
         - Blocked any torrent hashes from French private torrent trackers like YGGTorrent
 
     As a result, many addons no longer work with Real Debrid. This afffects services outside of Stremio too.
-    Torrentio has implemented a "workaround" to continue using Real Debrid, simply keep the `Don't show download to debrid links` setting in the Torrentio configuration off.
-    You will see that the results all show [RD Download] but most of these will likely still play. 
+
+    Some addons can implement workarounds to remove the check for cached torrents. 
+    This would mean that you would have to configure your addons to show uncached results from Real Debrid.
+
+    While you will still be able to use Real Debrid with the addons that implement this workaround (or others), it is recommended that you use another debrid service or Easynews if you aren't using Real Debrid already.
+
+    Known addons that have implemented this workaround are: 
+        - Torrentio: Make sure the `Don't show download to debrid links` setting is off.
+        - MediaFusion: Make sure 
+
 
     </Admonition>
     <h2> **Please read the warning above before proceeding.** </h2>
@@ -420,7 +452,23 @@ I will now cover the instructions of setting up each debrid service I previously
     4. Choose a package and subscribe. 
 </TabItem>
 <TabItem value="alldebrid" label="AllDebrid">
+    <Admonition type="danger">
+    You should hold off on purchasing an AllDebrid subscription. 
+
+    Similar to Real Debrid, AllDebrid have also removed the /instant API endpoint. 
+    This means that addons can no longer accurately determine if a torrent is cached on AllDebrid.
+
+    Addons can implement workarounds to remove the check for cached torrents. 
+    This would mean that you would have to configure your addons to show uncached results from AllDebrid.
+
+    While you will still be able to use AllDebrid with the addons that implement this workaround (or others), it is recommended that you use another debrid service or Easynews if you aren't using AllDebrid already.
+
+    Known addons that have implemented this workaround are: 
+        - Torrentio: Make sure the `Don't show download to debrid links` setting is off.
+    </Admonition>
+    <h2> **Please read the warning above before proceeding.** </h2>
     ![All Debrid Payment](/img/stremio/all_debrid_payment.png)
+    <h2> **Please read the warning above before proceeding.** </h2>
     
     1. Go to [AllDebrid's website](https://alldebrid.com/?uid=3n8qa&lang=en)
     2. Click `Create an account` at the top and register for an account. 
