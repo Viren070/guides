@@ -85,7 +85,6 @@ const Settings: React.FC<SettingsProps> = ({ serviceData, setServiceData, closeS
 
   const handleReset = () => {
     setTempServiceData(initialServiceData);
-    setServiceData(initialServiceData);
   };
 
   const handleClose = () => {
@@ -98,7 +97,7 @@ const Settings: React.FC<SettingsProps> = ({ serviceData, setServiceData, closeS
   return (
     <div className={`settings-popup ${isClosing ? 'fade-out' : ''}`}>
       <div className="settings-content">
-        <button onClick={handleClose} className="close-button">X</button>
+        <button onClick={handleClose} className="close-button"></button>
         <h2>Service Data</h2>
         <div className="service-list">
           {tempServiceData.map((service, index) => (
