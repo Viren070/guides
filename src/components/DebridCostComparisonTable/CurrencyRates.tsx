@@ -6,8 +6,8 @@ export const availableCurrencies = Object.keys(conversionRates['USD']).filter((c
   
 export const convertPrice = (price: number, fromCurrency: string, toCurrency: string): number => {
     if (fromCurrency === toCurrency || !toCurrency) return price;
-    const rate = conversionRates[fromCurrency]?.[toCurrency];
-    return rate ? price * rate : price;
+    let rate = conversionRates[fromCurrency]?.[toCurrency] || (1 / conversionRates["EUR"][fromCurrency]) * conversionRates["EUR"][toCurrency];
+    return price * (rate ? rate : undefined);
   };
 
 export const formatPrice = (price: number, currency: string) => {
