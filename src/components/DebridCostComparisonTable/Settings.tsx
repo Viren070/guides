@@ -3,7 +3,6 @@ import './Settings.css';
 import { availableCurrencies } from './CurrencyRates';
 import { initialServiceData } from './ServiceData';
 import CurrencySelector from './CurrencySelector';
-import { CurrencySelect } from './CurrencySelect';
 
 interface Service {
   name: string;
@@ -35,10 +34,12 @@ const Settings: React.FC<SettingsProps> = ({ serviceData, setServiceData, closeS
 
   const [tempServiceData, setTempServiceData] = useState<Service[]>([...serviceData]);
   const [tempPrimaryCurrency, setTempPrimaryCurrency] = useState<string>(primaryCurrency);
+  const [showNewServiceForm, setShowNewServiceForm] = useState<boolean>(false);
 
   const handleAddService = () => {
     setTempServiceData([...tempServiceData, newService]);
     setNewService({ name: '', price: 0, duration: 0, currency: 'USD' });
+    setShowNewServiceForm(false);
   };
 
   const handleUpdateService = (index: number, updatedService: Service) => {
@@ -65,7 +66,7 @@ const Settings: React.FC<SettingsProps> = ({ serviceData, setServiceData, closeS
   return (
     <div className="settings-popup">
       <div className="settings-content">
-        <h2>Settings</h2>
+        <h2 style={{ color: 'white' }}>Settings</h2>
         <CurrencySelector
           primaryCurrency={tempPrimaryCurrency}
           setPrimaryCurrency={setTempPrimaryCurrency}
@@ -73,28 +74,28 @@ const Settings: React.FC<SettingsProps> = ({ serviceData, setServiceData, closeS
         <div className="service-list">
           {tempServiceData.map((service, index) => (
             <div key={index} className="service-item">
-              <label>Service Name</label>
+              <label style={{ color: 'white' }}>Service Name</label>
               <input
                 type="text"
                 value={service.name}
                 onChange={(e) => handleUpdateService(index, { ...service, name: e.target.value })}
                 placeholder="Service Name"
               />
-              <label>Price</label>
+              <label style={{ color: 'white' }}>Price</label>
               <input
                 type="number"
                 value={service.price}
                 onChange={(e) => handleUpdateService(index, { ...service, price: parseFloat(e.target.value) })}
                 placeholder="Price"
               />
-              <label>Duration</label>
+              <label style={{ color: 'white' }}>Duration</label>
               <input
                 type="number"
                 value={service.duration}
                 onChange={(e) => handleUpdateService(index, { ...service, duration: parseInt(e.target.value) })}
                 placeholder="Duration"
               />
-              <label>Currency</label>
+              <label style={{ color: 'white' }}>Currency</label>
               <select
                 value={service.currency}
                 onChange={(e) => handleUpdateService(index, { ...service, currency: e.target.value })}
@@ -108,42 +109,48 @@ const Settings: React.FC<SettingsProps> = ({ serviceData, setServiceData, closeS
               <button onClick={() => handleDeleteService(index)} className="delete-button">Delete</button>
             </div>
           ))}
-        </div>
-        <div className="new-service">
-          <h3>Add New Service</h3>
-          <label>Service Name</label>
-          <input
-            type="text"
-            placeholder="Service Name"
-            value={newService.name}
-            onChange={(e) => setNewService({ ...newService, name: e.target.value })}
-          />
-          <label>Price</label>
-          <input
-            type="number"
-            placeholder="Price"
-            value={newService.price}
-            onChange={(e) => setNewService({ ...newService, price: parseFloat(e.target.value) })}
-          />
-          <label>Duration</label>
-          <input
-            type="number"
-            placeholder="Duration"
-            value={newService.duration}
-            onChange={(e) => setNewService({ ...newService, duration: parseInt(e.target.value) })}
-          />
-          <label>Currency</label>
-          <select
-            value={newService.currency}
-            onChange={(e) => setNewService({ ...newService, currency: e.target.value })}
-          >
-            {availableCurrencies.map((currency) => (
-              <option key={currency} value={currency}>
-                {currency}
-              </option>
-            ))}
-          </select>
-          <button onClick={handleAddService}>Add Service</button>
+          {showNewServiceForm && (
+            <div className="service-item">
+              <label style={{ color: 'white' }}>Service Name</label>
+              <input
+                type="text"
+                placeholder="Service Name"
+                value={newService.name}
+                onChange={(e) => setNewService({ ...newService, name: e.target.value })}
+              />
+              <label style={{ color: 'white' }}>Price</label>
+              <input
+                type="number"
+                placeholder="Price"
+                value={newService.price}
+                onChange={(e) => setNewService({ ...newService, price: parseFloat(e.target.value) })}
+              />
+              <label style={{ color: 'white' }}>Duration</label>
+              <input
+                type="number"
+                placeholder="Duration"
+                value={newService.duration}
+                onChange={(e) => setNewService({ ...newService, duration: parseInt(e.target.value) })}
+              />
+              <label style={{ color: 'white' }}>Currency</label>
+              <select
+                value={newService.currency}
+                onChange={(e) => setNewService({ ...newService, currency: e.target.value })}
+              >
+                {availableCurrencies.map((currency) => (
+                  <option key={currency} value={currency}>
+                    {currency}
+                  </option>
+                ))}
+              </select>
+              <button onClick={handleAddService} className="add-service-button">Add Service</button>
+            </div>
+          )}
+          {!showNewServiceForm && (
+            <div className="service-item add-new-service">
+              <button onClick={() => setShowNewServiceForm(true)} className="add-new-service-button">+</button>
+            </div>
+          )}
         </div>
         <div className="settings-actions">
           <button onClick={handleApplyChanges} className="apply-button">Apply</button>
