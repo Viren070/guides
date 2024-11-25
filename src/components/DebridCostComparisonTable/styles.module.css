@@ -19,3 +19,16 @@
 .currency-select {
   color: var(--ifm-color-primary-darkest)
 }
+
+.settingsButton {
+  background: var(--ifm-color-primary);
+  border-radius: var(--ifm-global-radius);
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 20px;
+  color: white;
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+  align-self: flex-end;
+}
