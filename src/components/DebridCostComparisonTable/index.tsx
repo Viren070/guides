@@ -1,24 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import CurrencySelector from './CurrencySelector';
-import conversionRates from '@site/static/currency_rates.json';
-
-const availableCurrencies = Object.keys(conversionRates['USD']).filter((currency) =>
-  Object.keys(conversionRates['EUR']).includes(currency)
-);
-const currencyOptions = availableCurrencies.map((currency) => ({ value: currency, label: currency })).sort((a, b) => a.label.localeCompare(b.label));
-
-const serviceData = [
-  { name: 'Torbox (Essential)', price: 33, duration: 365, currency: 'USD' },
-  { name: 'Torbox (Standard)', price: 55, duration: 365, currency: 'USD' },
-  { name: 'Torbox (Pro)', price: 110, duration: 365, currency: 'USD' },
-  { name: 'Real-Debrid', price: 16, duration: 180, currency: 'EUR', pointData: {pointsPerPlan: 800, pointsRequiredForReward: 1000, durationPerReward: 30} },
-  { name: 'Debrid-Link', price: 25, duration: 300, currency: 'EUR' },
-  { name: 'AllDebrid', price: 24.99, duration: 300, currency: 'EUR', pointData: {pointsPerPlan: 140, pointsRequiredForReward: 150, durationPerReward: 30} },
-  { name: 'Offcloud', price: 54.99, duration: 365, currency: 'USD' },
-  { name: 'Premiumize', price: 69.99, duration: 365, currency: 'EUR' },
-  { name: 'put.io (100GB)', price: 99, duration: 365, currency: 'USD' },
-  { name: 'put.io (1TB)', price: 199, duration: 365, currency: 'USD' },
-];
+import SettingsIcon from '@site/static/img/settings-icon.svg'
+import Settings from './Settings';
+import { convertPrice, formatPrice } from './CurrencyRates';
+import { initialServiceData } from './ServiceData';
+import styles from './styles.module.css';
 
 interface Service {
   name: string;
@@ -51,12 +37,6 @@ interface FormattedService extends CalculatedService {
   formattedPlanPrice: JSX.Element;
   formattedPlanDuration: JSX.Element;
 }
-
-const convertPrice = (price: number, fromCurrency: string, toCurrency: string): number => {
-  if (fromCurrency === toCurrency || !toCurrency) return price;
-  const rate = conversionRates[fromCurrency]?.[toCurrency];
-  return rate ? price * rate : price;
-};
 
 const calculatePrices = (service: Service, primaryCurrency: string): CalculatedService[] => {
   const entries = [];
@@ -105,10 +85,6 @@ const calculatePrices = (service: Service, primaryCurrency: string): CalculatedS
   return entries;
 };
 
-const formatPrice = (price: number, currency: string) => {
-  return Intl.NumberFormat(undefined, { style: 'currency', currency }).format(price);
-};
-
 const formatServiceData = (data: CalculatedService[], primaryCurrency: string): FormattedService[] => {
   return data.map(service => ({
     ...service,
@@ -145,8 +121,10 @@ const formatServiceData = (data: CalculatedService[], primaryCurrency: string): 
 };
 
 export default function DebridCostComparisonTable({ excludeServices }: { excludeServices?: string[]; }): JSX.Element {
-  const [primaryCurrency, setPrimaryCurrency] = useState<string>('GBP');
+  const [primaryCurrency, setPrimaryCurrency] = useState<string>('');
   const [formattedData, setFormattedData] = useState<FormattedService[]>([]);
+  const [serviceData, setServiceData] = useState<Service[]>(initialServiceData);
+  const [showSettings, setShowSettings] = useState<boolean>(false);
 
   useEffect(() => {
     let filteredServices = serviceData;
@@ -166,15 +144,18 @@ export default function DebridCostComparisonTable({ excludeServices }: { exclude
 
     const formatted = formatServiceData(data, primaryCurrency);
     setFormattedData(formatted);
-  }, [primaryCurrency, excludeServices]);
+  }, [primaryCurrency, excludeServices, serviceData]);
 
   return (
     <>
-      <CurrencySelector
-        primaryCurrency={primaryCurrency}
-        setPrimaryCurrency={setPrimaryCurrency}
-        currencyOptions={currencyOptions}
-      />
+      {showSettings && <Settings serviceData={serviceData} setServiceData={setServiceData} closeSettings={() => setShowSettings(false)} primaryCurrency={primaryCurrency} setPrimaryCurrency={setPrimaryCurrency} />}
+      <button onClick={() => setShowSettings(!showSettings)} className={styles.settingsButton} >
+        <b>Configure Table Data</b>
+      </button>
+        <CurrencySelector
+          primaryCurrency={primaryCurrency}
+          setPrimaryCurrency={setPrimaryCurrency}
+        />
       <table>
         <thead>
           <tr>
@@ -199,6 +180,8 @@ export default function DebridCostComparisonTable({ excludeServices }: { exclude
           ))}
         </tbody>
       </table>
+
+
     </>
   );
 }

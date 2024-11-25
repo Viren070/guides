@@ -1,0 +1,243 @@
+:root[data-theme="dark"] {
+    --service-data-background-color: #2d2f33;
+}
+
+:root[data-theme="light"] {
+    --service-data-background-color: #dadde1;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+@keyframes fadeOut {
+    from {
+        opacity: 1;
+    }
+    to {
+        opacity: 0;
+    }
+}
+
+@keyframes appearFromCenter {
+    from {
+        transform: scale(0);
+        opacity: 0;
+    }
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+@keyframes disappearToCenter {
+    from {
+        transform: scale(1);
+        opacity: 1;
+    }
+    to {
+        transform: scale(0);
+        opacity: 0;
+    }
+}
+
+.settings-popup {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+.settings-popup.fade-out {
+  animation: fadeOut 0.5s ease-in-out;
+}
+
+.settings-content {
+  background: var(--service-data-background-color);
+  border-radius: var(--ifm-global-radius);
+  padding: 20px;
+  width: 80%;
+  max-width: 600px;
+  max-height: 80%;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  position: relative;
+}
+
+.close-button {
+  background: red;
+  color: white;
+  border: none;
+  padding: 12px;
+  cursor: pointer;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  border-radius: var(--ifm-global-radius);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.close-button:hover {
+  transform: scale(1.05);
+  box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+}
+
+.service-list {
+  display: flex;
+  gap: 10px;
+  overflow-x: auto;
+}
+
+.service-item {
+  display: flex;
+  flex-direction: column;
+  background: var(--ifm-color-primary);
+  gap: 5px;
+  border: 1px solid #ccc;
+  padding: 15px;
+  border-radius: var(--ifm-global-radius);
+  min-width: 220px;
+  max-height: 1%;
+  overflow-y: auto;
+  transition: transform 0.5s ease-in-out;
+}
+.service-item.new-service {
+    animation: appearFromCenter 0.5s ease-in-out;
+}
+
+.service-item.deleted-service {
+    animation: disappearToCenter 0.5s ease-in-out;
+}
+  
+.service-item.slide-left {
+    transform: translateX(-100%);
+  }
+  
+.service-item.slide-right {
+    transform: translateX(100%);
+  }
+  
+
+.add-new-service {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: transparent;
+  flex-grow: 1;
+  padding: 15px;
+  border-radius: var(--ifm-global-radius);
+  min-width: 220px;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+
+.add-new-service-button {
+  background: green;
+  color: white;
+  border: none;
+  padding: 15px;
+  cursor: pointer;
+  border-radius: var(--ifm-global-radius);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+
+.add-new-service-button:hover {
+  transform: scale(1.05);
+  box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+}
+
+.add-new-service-button:active {
+  transform: scale(0);
+}
+
+.settings-button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  position: fixed;
+  top: 10px;
+  right: 10px;
+}
+
+.apply-button, .reset-button {
+  background: green;
+  color: white;
+  border: none;
+  padding: 15px;
+  cursor: pointer;
+  border-radius: var(--ifm-global-radius);
+  margin: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.apply-button:hover, .reset-button:hover {
+  transform: scale(1.05);
+  box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+}
+
+.reset-button {
+  background: orange;
+}
+
+.settings-actions {
+  display: flex;
+  justify-content: space-between;
+}
+
+select, input {
+  padding: 10px;
+  border-radius: var(--ifm-global-radius);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: box-shadow 0.2s;
+}
+
+select:focus, input:focus {
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.15);
+}
+
+.delete-button {
+  background: red;
+  color: white;
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+  border-radius: var(--ifm-global-radius);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.delete-button:hover {
+  transform: scale(1.05);
+  box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+}
+
+@media (max-width: 600px) {
+  .settings-content {
+    width: 90%;
+    max-width: 90%;
+    padding: 10px;
+  }
+
+  .service-item {
+    flex-direction: column;
+  }
+}
