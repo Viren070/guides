@@ -1,5 +1,6 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import Details from '@theme/Details';
+import Translate from '@docusaurus/Translate';
 
 const flagEmojis = {
   "France": "🇫🇷",
@@ -10,6 +11,7 @@ const flagEmojis = {
 
 interface Props {
   name: string;
+  addonComponent: React.ComponentType;
   debrid?: boolean;
   torrent?: boolean;
   usenet?: boolean;
@@ -23,28 +25,29 @@ function NotFound (props: { name?: string }): JSX.Element {
   return (
     // center the content
     <div style={{ padding: '1rem', textAlign: 'center' }}>
-      <h1>Oops!</h1>
-      <p>An unexpected error occurred and the documentation for {name} could not be found.</p>
-      <p>Please report this issue on <a href="https://github.com/Viren070/guides">GitHub</a>.</p>
+      <h1>
+        <Translate 
+          id='stremio.addonNotFound.title'
+          description='Heading for the content of the section when the addon documentation is not found'
+        >
+          Oops
+        </Translate>
+        !
+      </h1>
+      <Translate 
+        id='stremio.addonNotFound.description'
+        description='The content of the section when the addon documentation is not found that tells the user what happened and to report the issue on GitHub'
+        values={{ name: name }}
+      >
+        {"The addon documentation for {name} could not be found. Please report this issue on GitHub. "}
+
+      </Translate>
     </div>
   );
 }
 
 export default function (props: Props): JSX.Element {
-  const { name, debrid, torrent, usenet, http, flag, deprecated } = props;
-  // state to store the addon component
-  const [AddonComponent, setAddonComponent] = useState<React.ComponentType|null>(null);
-
-  useEffect(() => {
-    const addonId = name.toLowerCase().replace(/ /g, '-').replace(/\+/g, '-plus');
-    import(`@site/docs/stremio/addons/${addonId}.mdx`)
-      .then(module => {
-        setAddonComponent(() => module.default);
-      })
-      .catch(() => {
-        setAddonComponent(null);
-      });
-  }, [name]);
+  const { name, addonComponent, debrid, torrent, usenet, http, flag, deprecated } = props;
 
   const addonSummary = [
     name,
@@ -58,7 +61,7 @@ export default function (props: Props): JSX.Element {
 
   return (
     <Details summary={addonSummary}>
-      {AddonComponent ? <AddonComponent /> : <NotFound name={name}/>}
+      {addonComponent ? React.createElement(addonComponent) : <NotFound name={name}/>}
     </Details>
   );
 }

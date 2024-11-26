@@ -1,7 +1,7 @@
 import 'react-toastify/dist/ReactToastify.css';
 import styles from './styles.module.css';
 import { showToast } from '@site/src/components/Toasts';
-import BrowserOnly from '@docusaurus/BrowserOnly';
+import Translate, { translate } from '@docusaurus/Translate';
 
 interface StremioAddonButtonsProps {
   source: string;
@@ -19,15 +19,24 @@ const ConfigureButton = ({ manifest, configureOverride }: { manifest: string, co
   };
 
   return (
-    <button className={`${styles.button} ${styles.configureButton}`} onClick={handleConfigure} title="Configure the addon">
-      ⚙️ Configure
+    <button className={`${styles.button} ${styles.configureButton}`} onClick={handleConfigure} 
+    title={translate({
+      message: "Configure Addon", 
+      id: "stremio.configureButton.title",
+      description: "Title for the button that opens the configuration page for the addon"
+    })}>
+      ⚙️ <Translate id="stremio.configureButton.label" description="Label for the configure button">Configure</Translate>
     </button>
   );
 };
 
 const InstallButtons = ({ manifest }: { manifest: string }) => {
   const handleInstall = () => {
-    showToast('Attempting to install the addon. If nothing happens, make sure you have the app installed or try using the web install instead.', 'info');
+    showToast(translate({
+      message: 'Attempting to install the addon. If nothing happens, make sure you have the app installed or try using the web install instead.',
+      id: 'stremio.installButton.toast',
+      description: 'Toast message for install button'
+    }), 'info');
     window.location.href = manifest.replace(/^https:\/\//, 'stremio://');
   };
 
@@ -37,11 +46,19 @@ const InstallButtons = ({ manifest }: { manifest: string }) => {
 
   return (
     <>
-      <button className={`${styles.button} ${styles.installButton}`} onClick={handleInstall} title="Install the addon to the Stremio app">
-        ➕ Install
+      <button className={`${styles.button} ${styles.installButton}`} onClick={handleInstall} title={translate({
+        message: "Install the addon to the Stremio app",
+        id: "stremio.installButton.title",
+        description: "Title for the install button"
+      })}>
+        ➕ <Translate id="stremio.installButton.label" description="Label for the install button">Install</Translate>
       </button>
-      <button className={`${styles.button} ${styles.installWebButton}`} onClick={handleInstallWeb} title="Install the addon to Stremio Web">
-        🌐 Install (Web)
+      <button className={`${styles.button} ${styles.installWebButton}`} onClick={handleInstallWeb} title={translate({
+        message: "Install the addon to Stremio Web",
+        id: "stremio.installWebButton.title",
+        description: "Title for the install web button"
+      })}>
+        🌐 <Translate id="stremio.installWebButton.label" description="Label for the install web button">Install (Web)</Translate>
       </button>
     </>
   );
@@ -53,8 +70,12 @@ const SourceCodeButton = ({ source }: { source: string }) => {
   };
 
   return (
-    <button className={`${styles.button} ${styles.sourceCodeButton}`} onClick={handleSourceCode} title="View the source code of the addon">
-      📝 Source Code
+    <button className={`${styles.button} ${styles.sourceCodeButton}`} onClick={handleSourceCode} title={translate({
+      message: "View the source code of the addon",
+      id: "stremio.sourceCodeButton.title",
+      description: "Title for the source code button"
+    })}>
+      📝 <Translate id="stremio.sourceCodeButton.label" description="Label for the source code button">Source Code</Translate>
     </button>
   );
 };
@@ -63,22 +84,46 @@ const ShareGuideButton = ({ id }: { id: string }) => {
   const addonName = id.replace('-', ' ').replace(/\b\w/g, char => char.toUpperCase());
   
   const handleShare = () => { 
-    const guideLink = `${window.location.origin}/stremio/addons/${id}`;
+    let guideLink = `${window.location.origin}/stremio/addons/${id}`;
+    if (window.location.pathname.startsWith('/es')) {
+      guideLink = `${window.location.origin}/es/stremio/addons/${id}`;
+    }
     const shareData = { title: `${addonName} Guide for Stremio`, text: `Check out this guide to the Stremio addon, ${addonName}`, url: guideLink };
     navigator.share(shareData).then(() => {
-      showToast('The addon guide was shared successfully!', 'success');
+      showToast(translate({
+        message: 'The addon guide was shared successfully!',
+        id: 'stremio.shareGuideButton.toast.success',
+        description: 'Toast message for successful share'
+      }), 'success');
     }).catch(() => {
       navigator.clipboard.writeText(guideLink).then(() => {
-        showToast('The addon guide link was copied to your clipboard!', 'success');
+        showToast(translate({
+          message: 'The addon guide link was copied to your clipboard!',
+          id: 'stremio.shareGuideButton.toast.copied',
+          description: 'Toast message for copied link'
+        }), 'success');
       }).catch(() => {
-        showToast('Failed to share or copy the addon guide link! ' + guideLink, 'error');
+        showToast(translate(
+          {
+            message: 'Failed to share or copy the addon guide link! {guideLink}',
+            id: 'stremio.shareGuideButton.toast.error',
+            description: 'Toast message for failed share or copy'
+          },
+          {
+            guideLink: guideLink
+          }
+        ), 'error');
       });
     });
   };
 
   return (
-    <button className={`${styles.button} ${styles.shareGuideButton}`} onClick={handleShare} title="Copy the link to the guide for this addon">
-      🔗 Share Addon Guide
+    <button className={`${styles.button} ${styles.shareGuideButton}`} onClick={handleShare} title={translate({
+      message: "Copy the link to the guide for this addon",
+      id: "stremio.shareGuideButton.title",
+      description: "Title for the share guide button"
+    })}>
+      🔗 <Translate id="stremio.shareGuideButton.label" description="Label for the share guide button">Share Addon Guide</Translate>
     </button>
   );
 };
@@ -86,15 +131,32 @@ const ShareGuideButton = ({ id }: { id: string }) => {
 const CopyManifestUrlButton = ({ manifest }: { manifest: string }) => {
   const handleCopy = () => {
     navigator.clipboard.writeText(manifest).then(() => {
-      showToast('The manifest URL was copied to your clipboard!', 'success');
+      showToast(translate({
+        message: 'The manifest URL was copied to your clipboard!',
+        id: 'stremio.copyManifestUrlButton.toast.success',
+        description: 'Toast message for successful copy'
+      }), 'success');
     }).catch(() => {
-      showToast('Failed to copy the manifest URL to your clipboard! ' + manifest, 'error'); 
+      showToast(translate(
+        {
+          message: 'Failed to copy the manifest URL to your clipboard! {manifest}',
+          id: 'stremio.copyManifestUrlButton.toast.error',
+          description: 'Toast message for failed copy'
+        },
+        {
+          manifest: manifest
+        }
+      ), 'error'); 
     });
   };
 
   return (
-    <button className={`${styles.button} ${styles.copyManifestUrlButton}`} onClick={handleCopy} title="Copy the addon manifest URL">
-      📋 Copy Manifest URL
+    <button className={`${styles.button} ${styles.copyManifestUrlButton}`} onClick={handleCopy} title={translate({
+      message: "Copy the addon manifest URL",
+      id: "stremio.copyManifestUrlButton.title",
+      description: "Title for the copy manifest URL button"
+    })}>
+      📋 <Translate id="stremio.copyManifestUrlButton.label" description="Label for the copy manifest URL button">Copy Manifest URL</Translate>
     </button>
   );
 };

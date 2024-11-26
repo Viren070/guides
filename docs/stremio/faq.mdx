@@ -127,67 +127,40 @@ This will let you know if a debrid service is limiting your speed.
 
 ### Where can I find my Debrid API Key?
 
+
+```mdx-code-block
+import RealDebridApi from "@site/docs/stremio/debrid/realdebrid/_api.mdx";
+import AllDebridApi from "@site/docs/stremio/debrid/alldebrid/_api.mdx";
+import PremiumizeApi from "@site/docs/stremio/debrid/premiumize/_api.mdx";
+import DebridLinkApi from "@site/docs/stremio/debrid/debridlink/_api.mdx";
+import OffcloudApi from "@site/docs/stremio/debrid/offcloud/_api.mdx";
+import PutioApi from "@site/docs/stremio/debrid/putio/_api.mdx";
+import TorboxApi from "@site/docs/stremio/debrid/torbox/_api.mdx";
+
 <Tabs className="custom-tabs" queryString="debrid-service">
 <TabItem value="real-debrid" label="Real Debrid">
-
-1. Go to [apitoken page on RealDebrid](https://real-debrid.com/apitoken)
-2. Your API key will be displayed on this page. Highlight it all and press `Ctrl + C` to copy it.
-
+<RealDebridApi />
 </TabItem>
 <TabItem value="alldebrid" label="AllDebrid">
-
-1. Go to the [apikeys page on AllDebrid](https://alldebrid.com/apikeys)
-2. Enter a name to identify the API key and press `Create`
-3. Below the name you entered, you will see the API key. Highlight it all and press `Ctrl + C` to copy it.
-
+<AllDebridApi />
 </TabItem>
 <TabItem value="premiumize" label="Premiumize">
-
-1. Go to the [account page on Premiumize](https://www.premiumize.me/account)
-2. Under the `Account Data` section, you will see `API Key`. Press `Show API Key`
-3. The API Key will now be displayed above the button. Highlight it all and press `Ctrl + C` to copy it.
-
+<PremiumizeApi />
 </TabItem>
-
 <TabItem value="debrid-link" label="Debrid-Link">
-
-1. Go to the [API Key page on Debrid-Link](https://debrid-link.fr/webapp/apikey)
-2. Click `Reveal Key`
-3. Confirm your password
-4. Your API key will be displayed. Press the `Copy` button to copy it.
-
+<DebridLinkApi />
 </TabItem>
 <TabItem value="offcloud" label="Offcloud">
-
-1. Go to [your account page](https://offcloud.com/#/account) on Offcloud
-2. Click `API` on the left side of the page
-3. Your API key will be displayed. Press the `Copy` button to copy it.
-
+<OffcloudApi />
 </TabItem>
-
 <TabItem value="put-io" label="Put.io">
-
-1. Go to the [API page](https://app.put.io/oauth) on Put.io
-2. Click `Create App`
-3. Fill in the required information and click `Create App`
-   :::tip
-   You can use any information for the app name and description. It does not have to be accurate.
-   :::
-4. You will be shown 3 fields - `Client ID`, `Client Secret` and `OAuth token`. For Torrentio, you need both the `Client ID` and `OAuth token`. You can press the clipboard icon to copy the value.
-
+<PutioApi />
 </TabItem>
 <TabItem value="torbox" label="Torbox">
-
-1. Go to [Torbox Settings](https://torbox.app/settings)
-2. Scroll down to the `API Key` section
-
-    ![Torbox API Key](/img/stremio/torbox_settings_api_key.png)
-
-3. Click `Copy API Key` to copy the API key to your clipboard.
-
+<TorboxApi />
 </TabItem>
 </Tabs>
-
+```
 
 ### Which Debrid services are supported by each addon?
 
@@ -282,25 +255,19 @@ To avoid issues, when you are pasting the link replace stremio:// with https://
 
 Now that you have the URL, you can install the addon on your device by following these steps depending on the platform you are using:
 
+```mdx-code-block
+import WebInstallation from "@site/docs/stremio/platform/addon-installation/_web.mdx";
+import AppInstallation from "@site/docs/stremio/platform/addon-installation/_apps.mdx";
+
 <Tabs groupId="platform" className="custom-tabs">
-  	<TabItem value="web" label="Stremio Web / iOS">
-		1. Go to the [Addon page on Stremio Web](https://web.stremio.com/#/addons).
-		2. Click the ` + Add Addon` button
-		3. Paste the URL into the box and click `Add` 
-		4. A prompt will appear asking if you want to install the addon. Click `Install`
-  	</TabItem>
-
-	<TabItem value="app" label="Stremio Apps">
-
-		This is for if you are using the Stremio app on a device such as Android,
-		Windows, macOS etc. 
-		
-		1. Open the Stremio app and go to the Addons menu. 
-		2. Click the search bar and paste the URL into the search bar.
-		3. A prompt will appear asking if you want to install the addon. Click `Install`
-
-  </TabItem>
+<TabItem value="web" label="Stremio Web / iOS">
+<WebInstallation />
+</TabItem>
+<TabItem value="app" label="Stremio Apps">
+<AppInstallation />
+</TabItem>
 </Tabs>
+```
 
 ### What is the difference between Torrentio and Torrentio-sh?
 
@@ -393,28 +360,23 @@ You can find the download link and instructions [here](https://blog.stremio.com/
 The instructions are different depending on the device you are using.
 I'm not sure on the instructions for every device but they should be something similar.
 
+```mdx-code-block
+import WebPlayer from "@site/docs/stremio/platform/player/_web.mdx";
+import WindowsPlayer from "@site/docs/stremio/platform/player/_windows.mdx";
+import AndroidPlayer from "@site/docs/stremio/platform/player/_android.mdx";
+
 <Tabs>
 <TabItem value="web" label="Stremio Web" default>
-    1. Go to the settings menu
-    2. Click on the player tab
-    3. Scroll down to the advanced section and find the `Play in external player` option
-    4. Click on the dropdown menu and select the player you want to use
-
+<WebPlayer />
 </TabItem>
 <TabItem value="windows" label="Windows">
-    1. Within the player, click on the 3 dots
-    2. There should be an option saying `Watch on [player name]`
-    3. Click on this and the video should open in the player you selected
+<WindowsPlayer />
 </TabItem>
 <TabItem value="android" label="Android">
-    1. Within the player, there is a button that says `Play in external player`
-    2. Click this and it should show a prompt asking which player to use. 
-    3. Select the player you want to use and the video should open in that player.
-    <Admonition type="info">
-    There is an option in settings called `Always open in external player`. You can enable this to always open videos in an external player.
-    </Admonition>
+<AndroidPlayer />
 </TabItem>
 </Tabs>
+```
 
 ### Can I download a stream from Stremio?
 
@@ -462,70 +424,19 @@ You will only be able to use these services with addons that support them.
 
 While these services provide a free tier, these are limited and depending on your needs, you may want to pay for a higher tier. 
 
+```mdx-code-block
+import RPDB from "@site/docs/stremio/poster-ratings/_rpdb.mdx";
+import AioRatings from "@site/docs/stremio/poster-ratings/_aioratings.mdx";
+
 <Tabs queryString="ratings" className="custom-tabs">
 <TabItem value="rpdb" label="RPDB">
-
-To see what [RPDB](https://ratingposterdb.com/) offers, have a look at these [examples](https://ratingposterdb.com/examples/). 
-The examples will show you what you get on each tier.
-
-Other than the ratings, RPDB also offers textless posters, posters with other languages, badges (4K, REMUX, HDR etc.).
-You can also get backgrounds with ratings and certifications.
-
-Follow [these instructions](#how-do-i-obtain-a-rpdb-api-key) to obtain an API key.
-
-<details>
-<summary>What addons support RPDB?</summary>
-<div>
-
-To use RPDB, input your API Key in the configuration page for the addon, unless stated otherwise.
-
-RPDB is supported by the following catalogue addons: 
-  - [The Movie Database Addon](/stremio/addons/tmdb-addon)
-  - [IMDB Catalogs](/stremio/addons/imdb-catalogs)
-  - [Streaming Catalogs](/stremio/addons/streaming-catalogs)
-  - [Cyberflix](/stremio/addons/cyberflix)
-  - [Trakt.tv Addon](/stremio/extras/trakt#adding-the-trakt-lists-to-stremio)
-  - [MDBList](https://1fe84bc728af-stremio-mdblist.baby-beamup.club/configure)
-  - [Anime Catalogs](/stremio/addons/anime-catalogs)
-  - [RPDB Catalogs](https://1fe84bc728af-rpdb.baby-beamup.club/configure)
-  - [Rotten Tomatoes](https://7a82163c306e-rottentomatoes.baby-beamup.club/configure)
-  - [Letterboxd](https://letterboxd.almosteffective.com/configure/)
-  - [Top Seeded Torrent Catalogs](https://1fe84bc728af-top-seeded.baby-beamup.club/configure)
-  - [Anime Seasons](https://1fe84bc728af-anime-seasons.baby-beamup.club/configure)
-  - [Letterboxd](https://letterboxd.almosteffective.com/configure/)
-  - It can also be used on the [Stremio Lists website](https://www.journey.co.il/stremio/) (Applies to the [Newest Movies](/stremio/addons/newest-movies), [Popular People](/stremio/addons/popular-people) and [Networks](/stremio/addons/networks) addons and any custom catalogues you create)
-      - To use it on this website, you have to create an account by clicking `Register` in the top right corner. Then, click `Your Catalogs` where you can enter your RPDB API key.
-</div>
-</details>
-
-You can also use it to replace the posters of Cinemeta, the default metadata and catalogue addon. 
-However, this requires a paid API key. **It will not work with the free tier**.
-
-To do this, use this [Cinemeta (with ratings)](https://cinemeta.ratingposterdb.com/) addon.
-
-You can use the [RPDB Manager](https://manager.ratingposterdb.com/) to customise the posters. 
-With the free tier, there are no customisation options.
-
-Related links:
-- [Reddit: RPDB Free tier announcement](https://www.reddit.com/r/StremioAddons/comments/1f12nz9/free_rpdb_is_now_generally_available/)
-
+<RPDB />
 </TabItem>
 <TabItem value="aioratings" label="aioratings">
-
-[aioratings](https://aioratings.com/) has a free plan and a pro plan. 
-
-The free plan provides IMDb and Rotten Tomatoes ratings, while the pro plan also provides ratings from Metacritic and Roger Ebert.
-
-Currently, aioratings only has its own [Stremio aioratings addon](https://stremio.aioratings.com/) that supports it.
-
-To use aioratings, you will need to sign up for an account on their website and obtain an API key.
-
-Once you have the API key, you can input it into the configuration page of the aioratings addon.
-
-Related links:
-- [Reddit: aioratings announcement](https://www.reddit.com/r/StremioAddons/comments/1ggukbu/update_aioratingscom_a_free_ratings_on_posters/)
+<AioRatings />
 </TabItem>
 </Tabs>
+```
 
 ### Can I use Stremio to watch local files, like on Plex or Jellyfin?
 

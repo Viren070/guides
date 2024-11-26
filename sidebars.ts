@@ -68,7 +68,7 @@ const sidebars: SidebarsConfig = {
 								id: "stremio/extras/index",
 							},
 							items: [
-								"stremio/extras/trakt", 
+								"stremio/extras/trakt/index", 
 								"stremio/extras/account-bootstrapper",
 								"stremio/extras/addon-manager", 
 								"stremio/extras/debrid-media-manager", 

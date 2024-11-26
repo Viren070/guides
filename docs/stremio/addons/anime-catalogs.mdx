@@ -4,9 +4,12 @@ description: Provides catalogs for anime from MyAnimeList, AniDB, AniList, Kitsu
 keywords: [stremio, addons, anime, anime catalogs, catalog, catalogue, guide, setup, configuration, install, link]
 tags: [stremio-addon, stremio-addon:anime, stremio-addon:catalogues]
 ---
+
+```mdx-code-block
 import StremioAddonButtons from '@site/src/components/StremioAddonButtons';
 
-<StremioAddonButtons id="anime-catalogs" manifest="https://1fe84bc728af-stremio-anime-catalogs.baby-beamup.club/manifest.json" configurable={true} configurationRequired={true}/> 
+<StremioAddonButtons id="anime-catalogs" manifest="https://1fe84bc728af-stremio-anime-catalogs.baby-beamup.club/manifest.json" configurable configurationRequired/> 
+```
 
 <h3>Description</h3>
 
@@ -21,7 +24,7 @@ To get started, head to the [Anime Catalogs configuration page](https://1fe84bc7
 
 1. Catalog settings:
     - `Show only dubbed content` - If you want to see only dubbed content, enable this.
-    - `Ratings on Posters` - This setting controls whether ratings are shown on the posters. You will need to provide an RPDB API key for this to work. 
+    - `Ratings on Posters` - This setting controls whether ratings are shown on the posters. You will need to provide an RPDB API key for this to work. ([How do I obtain an RPDB key?](/stremio/faq#how-do-i-obtain-a-rpdb-api-key)) 
 
 2. Choose Catalogs: Select the catalogues that you want to see on your homepage.
 3. Click Install and then when the Stremio app opens with a prompt asking to install, click Install again.
