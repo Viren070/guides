@@ -29,6 +29,8 @@ toc_min_heading_level: 2
 toc_max_heading_level: 5
 ---
 
+import AddingLists from "@site/docs/stremio/extras/trakt/traktTvAddon/_adding_lists.mdx";
+
 # Using Trakt
 
 The previous addons provide a good experience for most users. However, they only provide content from streaming services. 
@@ -209,58 +211,9 @@ Remember to reconfigure the addon when the token expires if you want to keep usi
 
 4.  Now you can either add lists you found or created earlier, or browse and search lists here.
 
-    :::info
-    You only need to click `Add list` once. If you click it again, it will show duplicates. 
-    Although there is no response when you click it, the list will be added.
-    :::
-
-    <details>
-    <summary>Adding our own MDBLists and Couchmoney Lists</summary>
-        <div>
-            For MDBList (your own lists only) and Couchmoney, click `Browse personal lists (requires login)`
-            ![trakt addon browse personal lists](/img/stremio/trakt_addon_browse_personal_lists.png)
-
-                Then click Add list on all the lists you want to add.
-            
-            :::tip
-            You can use the [MDBList Stremio Addon](https://1fe84bc728af-stremio-mdblist.baby-beamup.club/configure) to add lists that are not synced with Trakt.
-            This is useful if you have reached the Trakt list limit and want to add more lists from MDBList.
-            :::
-        </div>
-    </details>
-    
-    <details>
-        <summary>Adding other users' lists from MDBList</summary>
-        <div>
-            For other users' list you found on MDBList, go back to the tab where the list is open on MDBList and right click the trakt icon and click `Copy link address`. This will copy the URL of the list to your clipboard.
-                ![mdblist trakt url](/img/stremio/mdblist_trakt_url_list.png)
-
-            Once you have the URL, paste it into the `Paste list URL` box and click `Add List`
-            ![trakt addon paste url](/img/stremio/trakt_addon_paste_url.png)
-
-            Repeat this process for any other lists you want to add.
-        </div>
-    </details>
-    
-    <details>
-        <summary>Browsing popular/trending lists & searching for lists</summary>
-        <div>
-            You can click the `Browse popular lists` or `Browse trending lists` button to browse popular and trending lists.
-            You can also use the search box to search for lists.
-
-            For example, you could search for `marvel`
-            ![trakt addon search lists example](/img/stremio/trakt_addon_search_lists_example.png)
-
-            Once you find a list, click the `Add list` button.
-
-            Repeat this process for any other lists you want to add.
-        </div>
-    </details>
-
-    After you've added the lists, the lists should show up at the bottom like this:
-
-    ![trakt addon final lists example](/img/stremio/trakt_addon_final_lists_example.png)
-
+```mdx-code-block
+    <AddingLists />
+```
 5.  Drag and drop the lists to the order you want them to appear on your homepage.
 
 6.  Optionally provide your [RPDB API key](../faq#how-do-i-obtain-a-rpdb-api-key) to show ratings on the posters.

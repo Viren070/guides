@@ -41,15 +41,7 @@ import Tabs from "@theme/Tabs";
 import TabItem from "@theme/TabItem";
 import Admonition from "@theme/Admonition";
 
-import Web from "./platform/_web.mdx";
-import Pc from "./platform/_pc.mdx";
-import Android from "./platform/_android.mdx";
-import AndroidTv from "./platform/_android-tv.mdx";
-import FireTv from "./platform/_fire-tv.mdx";
-import SamsungTv from "./platform/_samsung-tv.mdx";
-import LgTv from "./platform/_lg-tv.mdx";
-import RasberryPi from "./platform/_rasberry-pi.mdx";
-import MetaQuest from "./platform/_meta-quest.mdx";
+
 
 import DebridCostComparisonTable from "@site/src/components/DebridCostComparisonTable";
 import KoFiWidgetWrapper from "@site/src/components/KoFiWidgetWrapper";
@@ -78,6 +70,17 @@ In this case, it may be possible to use Stremio through Stremio Web.
 
 In the [Web](?platform=web#downloading-stremio) tab below, you will find device specific instructions on how to use Stremio through Stremio Web.
 :::
+
+```mdx-code-block
+import Web from "./platform/setup/web/_web.mdx";
+import Pc from "./platform/setup/_pc.mdx";
+import Android from "./platform/setup/_android.mdx";
+import AndroidTv from "./platform/setup/_android-tv.mdx";
+import FireTv from "./platform/setup/_fire-tv.mdx";
+import SamsungTv from "./platform/setup/_samsung-tv.mdx";
+import LgTv from "./platform/setup/_lg-tv.mdx";
+import RasberryPi from "./platform/setup/_rasberry-pi.mdx";
+import MetaQuest from "./platform/setup/_meta-quest.mdx";
 
 <Tabs className="custom-tabs" queryString="platform">
 
@@ -136,6 +139,7 @@ In the [Web](?platform=web#downloading-stremio) tab below, you will find device 
 	</TabItem>
 
 </Tabs>
+```
 
 ## Configuring Stremio settings
 
@@ -272,11 +276,12 @@ In addition to the lack of addon support, these debrid services may also impleme
 
 <h4> Real Debrid </h4>
 
-        - Blocked audiovisual files from a number of cyberlockers listed on the USTR blacklist or listed in the European "Counterfeit and Piracy Watch List"
-            - This includes several services. I'm not sure if these are the right sites, but here is what I found:
-                - [European Commission's Counterfeit and Piracy Watch List](https://circabc.europa.eu/ui/group/d0803128-7d62-40ee-8349-c43ee92745aa/library/b36f701d-2850-4768-9b3e-e487140e11e5/details)
-                - [USTR Notorious Markets List](https://ustr.gov/sites/default/files/2023_Review_of_Notorious_Markets_for_Counterfeiting_and_Piracy_Notorious_Markets_List_final.pdf)
-        - Blocked any torrent hashes from French private torrent trackers like YGGTorrent
+- Blocked audiovisual files from a number of cyberlockers listed on the USTR blacklist or listed in the European "Counterfeit and Piracy Watch List"
+    - This includes several services. I'm not sure if these are the right sites, but here is what I found:
+        - [European Commission's Counterfeit and Piracy Watch List](https://circabc.europa.eu/ui/group/d0803128-7d62-40ee-8349-c43ee92745aa/library/b36f701d-2850-4768-9b3e-e487140e11e5/details)
+        - [USTR Notorious Markets List](https://ustr.gov/sites/default/files/2023_Review_of_Notorious_Markets_for_Counterfeiting_and_Piracy_Notorious_Markets_List_final.pdf)
+- Blocked any torrent hashes from French private torrent trackers like YGGTorrent
+
 </div>
 </details>
 
@@ -425,123 +430,39 @@ After considering everything, you should have a good idea of which debrid servic
     
 I will now cover the instructions of setting up each debrid service I previously mentioned.
 
+```mdx-code-block
+import Torbox from "./debrid/torbox/_setup.mdx";
+import Premiumize from "./debrid/premiumize/_setup.mdx";
+import Offcloud from "./debrid/offcloud/_setup.mdx";
+import Putio from "./debrid/putio/_setup.mdx";
+import RealDebrid from "./debrid/realdebrid/_setup.mdx";
+import AllDebrid from "./debrid/alldebrid/_setup.mdx";
+import DebridLink from "./debrid/debridlink/_setup.mdx";
+
 <Tabs className="custom-tabs" queryString="debrid">
 <TabItem value="torbox" label="Torbox">
-    ![Torbox Payment](/img/stremio/torbox_payment.png)
-    Torbox is a relatively new debrid service but it is unique in that it offers a lot more. 
-    It offers : 
-    - A generous seedbox that can seed for up to an unlimited ratio for up to 30 days.
-    - Access to Usenet and a VPN. (Usenet is explained in more detailed below. It is simply another way to access more content)
-
-    To set up a Torbox account, follow these steps:
-
-    1. Go to [Torbox's website](https://torbox.app/)
-    2. Click `Get Started For Free Now` or `LOGIN` in the top right corner to create an account.
-    3. Click `Don't have an account yet?` at the bottom of the page. 
-    4. Fill in the email and password fields and click `Continue`
-    5. You will be sent an email to verify your email address. Click the link in the email to verify your email address.
-    6. You will then be taken to the Dashboard. 
-    7. Go to the [Subscription page](https://torbox.app/subscription?referral=9ca21adb-dbcb-4fb0-9195-412a5f3519bc) and choose a package.
-        :::info
-        You may get an alert saying `Do you want to use this referral code? If you already have a code, this will replace it.` 
-        This is because the above link has a referral code in it. You will get 7 days free if you accept my referal code. 
-
-        You may also enter this referral code manually at the bottom of the page:
-        ```
-        9ca21adb-dbcb-4fb0-9195-412a5f3519bc
-        ```
-        :::
-    10. Now you can choose the plan you want. You can choose to pay a subscription or a one-time payment. A yearly subscription has the best value.
-        :::note
-        To access Usenet and the 30 day seeding time, you need to buy the highest tier package - the `Pro` package.
-        :::
-    11. Once you have decided on a package, click `Subscribe`
-    12. Then, follow the steps at the payment page to complete your purchase.
-
+<Torbox/>
 </TabItem>
 <TabItem value="premiumize" label="Premiumize">
-    ![Premiumize Payment](/img/stremio/premiumize_payment.png)
-
-    1. Go to [Premiumize's website](https://www.premiumize.me/)
-    2. Click Sign Up in the top right corner to create an account
-    3. Click `Buy Premium` at the top of the page
-    4. Choose a package and subscribe.
-
+<Premiumize/>
 </TabItem>
 <TabItem value="offcloud" label="Offcloud">
-    ![Offcloud Payment](/img/stremio/offcloud_payment.png)
-
-    1. Go to [Offcloud's website](https://offcloud.com/?=06202a3d)
-    2. Enter your email and click `Join us for free`
-    3. You will be sent an email to set your password, set your password and log in.
-    4. Click `Shop` from the navigation bar on the left.
-    5. Choose a package and purchase it.
-
+<Offcloud/>
 </TabItem>
 <TabItem value="put.io" label="put.io">
-    ![Put.io Payment](/img/stremio/put.io_payment.png)
-
-    1. Go to [put.io's register page](https://app.put.io/register) and create an account
-    2. You will see a banner asking you to activate your account. Click the button to go to the [billing page](https://app.put.io/billing/activate-account)
-    3. Choose a package and purchase it.
-
-    <Admonition type="info">
-    Put.io offers two plans for which you can either pay monthly or yearly.
-    One plan gives you 100GB of storage and the other 1TB. Depending on the amount and size of files you will be streaming, choose the plan that suits you best.
-
-    I believe that the storage is not made up of the accumulated size of all the files you have downloaded, but rather the amount of files you have downloaded and stored currently.
-    You can delete files to make space for new ones.
-
-    However, I am unsure of the accuracy of this information. If you are considering put.io, then I would recommend contacting their support or looking at their FAQ.
-    </Admonition>
-
+<Putio/>
 </TabItem>
 <TabItem value="real-debrid" label="Real Debrid"> 
-    <Admonition type="danger">
-    Please make sure you have read the warning about the restrictions they have implemented before proceeding.
-
-    You can find the warning [here](#which-debrid-service-do-i-use) just after the list of debrid services. 
-    </Admonition>
-
-
-    ![Real Debrid Payment](/img/stremio/real_debrid_payment.png)
-    1. Go to [Real Debrid's website](https://real-debrid.com/?id=9483829)
-    2. Click Sign Up to create an account
-    3. Go to the Premium Offers page
-    4. Choose a package and subscribe. 
+<RealDebrid/>
 </TabItem>
 <TabItem value="alldebrid" label="AllDebrid">
-    <Admonition type="danger">
-    Please make sure you have read the warning about the restrictions they have implemented before proceeding.
-
-    You can find the warning [here](#which-debrid-service-do-i-use) just after the list of debrid services. 
-    </Admonition>
-
-    ![All Debrid Payment](/img/stremio/all_debrid_payment.png)
-
-    
-    1. Go to [AllDebrid's website](https://alldebrid.com/?uid=3n8qa&lang=en)
-    2. Click `Create an account` at the top and register for an account. 
-    3. Go to the Pricing page
-    4. Choose a package and subscribe.
+<AllDebrid/>
 </TabItem>
 <TabItem value="debrid-link" label="Debrid-Link">
-
-    <Admonition type="danger">
-    Please make sure you have read the warning about the restrictions they have implemented before proceeding.
-
-    You can find the warning [here](#which-debrid-service-do-i-use) just after the list of debrid services. 
-    </Admonition>
-    ![Debrid-Link Payment](/img/stremio/debrid_link_payment.png)
-
-    1. Go to [Debrid-Link's website](https://debrid-link.com/id/EY0JO)
-    2. Click Register in the top right corner or `Try it Free` on the home page.
-    3. Fill in the required details and click `Register`
-    4. Click `Premium` in the top right corner
-    5. Choose a package and purchase it.
-
+<DebridLink/>
 </TabItem>
 </Tabs>
+```
 
 ## Usenet 
 
@@ -618,53 +539,19 @@ Torbox have their own Stremio addon that allows you to access their Usenet conte
 
 I will now go through the setup for each of these services. 
 
+```mdx-code-block
+import Easynews from "./usenet/_easynews.mdx";
+import TorboxUsenet from "./usenet/_torbox.mdx";
+
 <Tabs className="custom-tabs" queryString="usenet">
-
 <TabItem value="easynews" label="Easynews">
-    ![Easynews Payment](/img/stremio/easynews_payment.png)
-
-    1. Head to [Easynews's signup page](https://signup.easynews.com/checkout/) 
-    :::tip
-    Use one of the following deals to get a discount on your subscription:
-    - [Win Back Deal](https://signup.easynews.com/checkout/winback-deal-ae/)
-    - [Promo for you (e)](https://signup.easynews.com/checkout/promo-for-you-e/)
-    - [Promo for you (1)](https://signup.easynews.com/checkout/promo-for-you-1/)
-    - [Deal For You](https://signup.easynews.com/checkout/deal-for-you-e1/)
-    - [Unlimited Special Deal](https://signup.easynews.com/checkout/unlimited-special-deal/)
-    - [Exclusive Usenet Special](https://signup.easynews.com/checkout/exclusive-usenet-special/)
-    - [Exclusive Unlimited Usenet Deal](https://signup.easynews.com/checkout/exclusive-unlimited-usenet-deal/)
-    :::
-    2. Choose a package, fill in your details and subscribe.
-    3. Complete the payment and signup process.
+<Easynews/>
 </TabItem>
-
 <TabItem value="torbox" label="Torbox">
-
-    ![Torbox Payment](/img/stremio/torbox_payment.png)
-
-    To set up a Torbox account with Usenet support, follow these steps:
-
-    1. Go to [Torbox's website](https://torbox.app/)
-    2. Click `Get Started For Free Now` or `LOGIN` in the top right corner to create an account.
-    3. Click `Don't have an account yet?` at the bottom of the page. 
-    4. Fill in the email and password fields and click `Continue`
-    5. You will be sent an email to verify your email address. Click the link in the email to verify your email address.
-    6. You will then be taken to the Dashboard. 
-    7. Go to the [Subscription page](https://torbox.app/subscription?referral=9ca21adb-dbcb-4fb0-9195-412a5f3519bc).
-        :::info
-        You may get an alert saying `Do you want to use this referral code? If you already have a code, this will replace it.` 
-        This is because the above link has a referral code in it. You will get 7 days free if you accept my referal code. 
-
-        You may also enter this referral code manually at the bottom of the page:
-        ```
-        9ca21adb-dbcb-4fb0-9195-412a5f3519bc
-        ```
-        :::
-    10. To be able to access Usenet, you need to buy the highest tier package - the `Pro` package.
-    11. Click `Subscribe` on the `Pro` package.
-    12. Then, follow the steps at the payment page to complete your purchase.
+<TorboxUsenet/>
 </TabItem>
 </Tabs>
+```
 
 These steps only cover the setup of services that provide access to Usenet content.
 To access the content, you will need to use the Stremio addons for Easynews and Torbox.
