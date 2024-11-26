@@ -11,8 +11,6 @@
     "clear": "docusaurus clear",
     "serve": "docusaurus serve",
     "write-translations": "docusaurus write-translations",
-    "crowdin": "crowdin",
-    "crowdin:sync": "docusaurus write-translations && crowdin upload && crowdin download",
     "write-heading-ids": "docusaurus write-heading-ids",
     "typecheck": "tsc"
   },

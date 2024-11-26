@@ -22,11 +22,6 @@ jobs:
 
       - name: Install dependencies
         run: npm ci
-    
-      - name: Crowdin Sync
-        env:
-          CROWDIN_PERSONAL_TOKEN: ${{ secrets.CROWDIN_PERSONAL_TOKEN }}
-        run: npm run crowdin:sync
 
       - name: Build website
         run: npm run build
