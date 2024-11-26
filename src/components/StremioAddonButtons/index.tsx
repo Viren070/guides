@@ -84,7 +84,10 @@ const ShareGuideButton = ({ id }: { id: string }) => {
   const addonName = id.replace('-', ' ').replace(/\b\w/g, char => char.toUpperCase());
   
   const handleShare = () => { 
-    const guideLink = `${window.location.origin}/stremio/addons/${id}`;
+    let guideLink = `${window.location.origin}/stremio/addons/${id}`;
+    if (window.location.pathname.startsWith('/es')) {
+      guideLink = `${window.location.origin}/es/stremio/addons/${id}`;
+    }
     const shareData = { title: `${addonName} Guide for Stremio`, text: `Check out this guide to the Stremio addon, ${addonName}`, url: guideLink };
     navigator.share(shareData).then(() => {
       showToast(translate({
@@ -100,11 +103,16 @@ const ShareGuideButton = ({ id }: { id: string }) => {
           description: 'Toast message for copied link'
         }), 'success');
       }).catch(() => {
-        showToast(translate({
-          message: `Failed to share or copy the addon guide link! ${guideLink}`,
-          id: 'stremio.shareGuideButton.toast.error',
-          description: 'Toast message for failed share or copy'
-        }), 'error');
+        showToast(translate(
+          {
+            message: 'Failed to share or copy the addon guide link! {guideLink}',
+            id: 'stremio.shareGuideButton.toast.error',
+            description: 'Toast message for failed share or copy'
+          },
+          {
+            guideLink: guideLink
+          }
+        ), 'error');
       });
     });
   };
@@ -129,11 +137,16 @@ const CopyManifestUrlButton = ({ manifest }: { manifest: string }) => {
         description: 'Toast message for successful copy'
       }), 'success');
     }).catch(() => {
-      showToast(translate({
-        message: `Failed to copy the manifest URL to your clipboard! ${manifest}`,
-        id: 'stremio.copyManifestUrlButton.toast.error',
-        description: 'Toast message for failed copy'
-      }), 'error'); 
+      showToast(translate(
+        {
+          message: 'Failed to copy the manifest URL to your clipboard! {manifest}',
+          id: 'stremio.copyManifestUrlButton.toast.error',
+          description: 'Toast message for failed copy'
+        },
+        {
+          manifest: manifest
+        }
+      ), 'error'); 
     });
   };
 

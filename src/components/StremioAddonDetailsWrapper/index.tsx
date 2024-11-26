@@ -29,8 +29,9 @@ function NotFound (props: { name?: string }): JSX.Element {
           id='stremio.addonNotFound.title'
           description='Heading for the content of the section when the addon documentation is not found'
         >
-          Oops!
+          Oops
         </Translate>
+        !
       </h1>
       <Translate 
         id='stremio.addonNotFound.description'
