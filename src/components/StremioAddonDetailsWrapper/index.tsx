@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import Details from '@theme/Details';
+import Translate from '@docusaurus/Translate';
 
 const flagEmojis = {
   "France": "🇫🇷",
@@ -23,9 +24,22 @@ function NotFound (props: { name?: string }): JSX.Element {
   return (
     // center the content
     <div style={{ padding: '1rem', textAlign: 'center' }}>
-      <h1>Oops!</h1>
-      <p>An unexpected error occurred and the documentation for {name} could not be found.</p>
-      <p>Please report this issue on <a href="https://github.com/Viren070/guides">GitHub</a>.</p>
+      <h1>
+        <Translate 
+          id='stremio.addonNotFound.title'
+          description='Heading for the content of the section when the addon documentation is not found'
+        >
+          Oops!
+        </Translate>
+      </h1>
+      <Translate 
+        id='stremio.addonNotFound.description'
+        description='The content of the section when the addon documentation is not found that tells the user what happened and to report the issue on GitHub'
+        values={{"name": ({name})}}
+      >
+        {"The addon documentation for {name} could not be found. Please report this issue on GitHub. "}
+
+      </Translate>
     </div>
   );
 }

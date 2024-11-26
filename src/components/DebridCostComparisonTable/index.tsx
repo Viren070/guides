@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import CurrencySelector from './CurrencySelector';
-import SettingsIcon from '@site/static/img/settings-icon.svg'
 import Settings from './Settings';
 import { convertPrice, formatPrice } from './CurrencyRates';
 import { initialServiceData } from './ServiceData';
 import styles from './styles.module.css';
+import Translate from '@docusaurus/Translate';
 
 interface Service {
   name: string;
@@ -150,7 +150,14 @@ export default function DebridCostComparisonTable({ excludeServices }: { exclude
     <>
       {showSettings && <Settings serviceData={serviceData} setServiceData={setServiceData} closeSettings={() => setShowSettings(false)} primaryCurrency={primaryCurrency} setPrimaryCurrency={setPrimaryCurrency} />}
       <button onClick={() => setShowSettings(!showSettings)} className={styles.settingsButton} >
-        <b>Configure Table Data</b>
+        <b>
+          <Translate
+            id="debridTable.configureButton"
+            description="Button to configure table data"
+          >
+            Configure Table Data
+          </Translate>
+        </b>
       </button>
         <CurrencySelector
           primaryCurrency={primaryCurrency}
@@ -159,12 +166,12 @@ export default function DebridCostComparisonTable({ excludeServices }: { exclude
       <table>
         <thead>
           <tr>
-            <th>Debrid Service</th>
-            <th>Price per Year <br/>{primaryCurrency && `(${primaryCurrency})`}</th>
-            <th>Price per Month <br/>{primaryCurrency && `(${primaryCurrency})`}</th>
-            <th>Price per Day <br/>{primaryCurrency && `(${primaryCurrency})`}</th>
-            <th>Plan Price</th>
-            <th>Plan Duration (Days)</th>
+            <th><Translate id='debridService' description='General term to refer to Debrid Services'>Debrid Service</Translate></th>
+            <th><Translate id="debridTable.pricePerYear" description="Label to refer to the price of a debrid service per year">Price per Year</Translate><br/>{primaryCurrency && ` (${primaryCurrency})`}</th>
+            <th><Translate id="debridTable.pricePerMonth" description="Label to refer to the price of a debrid service per month">Price per Month</Translate><br/>{primaryCurrency && ` (${primaryCurrency})`}</th>
+            <th><Translate id="debridTable.pricePerDay" description="Label to refer to the price of a debrid service per day">Price per Day</Translate><br/>{primaryCurrency && ` (${primaryCurrency})`}</th>
+            <th><Translate id="debridTable.planPrice" description="Label to refer to the total price of the relevant plan for a debrid service">Plan Price</Translate></th>
+            <th><Translate id="debridTable.planDurationInDays" description="Label to refer to the total duration of a plan measured in days">Plan Duration (Days)</Translate></th>
           </tr>
         </thead>
         <tbody>
