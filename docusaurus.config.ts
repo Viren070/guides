@@ -92,10 +92,6 @@ const config: Config = {
           className: 'header-kofi-link',
           'title': 'Support me on Ko-fi',
           'aria-label': 'Ko-fi',
-        },
-        {
-          type: 'localeDropdown',
-          position: 'left',
         }
       ],
     },
