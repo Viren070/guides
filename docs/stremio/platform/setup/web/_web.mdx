@@ -1,0 +1,89 @@
+import Tabs from "@theme/Tabs";
+import TabItem from "@theme/TabItem";
+import Admonition from "@theme/Admonition";
+
+[Stremio Web](https://web.stremio.com) is a web version of Stremio doesn't require any signup or installation.
+
+**The following steps are for using Stremio Web only**. 
+If your device has a dedicated app, then you should use that instead.
+You will see a separate tab if your device has a standalone app available.
+
+```mdx-code-block
+import WebIos from "@site/docs/stremio/platform/setup/web/_ios.mdx";
+import WebAndroid from "@site/docs/stremio/platform/setup/web/_android.mdx";
+import WebPc from "@site/docs/stremio/platform/setup/web/_pc.mdx";
+import WebVisionPro from "@site/docs/stremio/platform/setup/web/_vision-pro.mdx";
+
+<Tabs className="custom-tabs" queryString="web-platform">
+        
+    <TabItem value="ios" label="iPhone & iPad" default>
+    
+        <WebIos />
+
+
+    </TabItem>
+
+    <TabItem label="Vision Pro" value="vision-pro">
+    
+        <WebVisionPro />
+
+    </TabItem>
+
+    <TabItem label="PC" value="pc">
+
+        <WebPc />
+    </TabItem>
+
+    <TabItem label="Android" value="android">
+
+        <WebAndroid />
+    </TabItem>
+
+
+</Tabs>
+```
+
+##### Stremio Server
+
+The steps below can be used to set up a stremio server that is to be used by Stremio Web. 
+
+It is completely optional and not required for most users. 
+
+
+<details>
+<summary>Stremio Server</summary>
+<div>
+On its own, Stremio Web is limited in what it can do. 
+You won't be able to stream torrents, you may encounter audio issues and on some devices, you won't be able to play content within the browser.
+
+On iOS, you are most likely using an external player. This has some limitations: 
+    - Torrent streaming is still not possible. This means **a debrid service is required** to stream torrents.
+    - No episode progress tracking. 
+    - Addon-provided subtitles cannot be used (you can still use the embedded subtitles provided by the video file).
+
+By using a streaming server, you can overcome these limitations.
+It would mean you can play in the native web browser, stream torrents without a debrid service (though I still recommend you use a debrid service anyways) and have a better experience overall.
+
+This is why it is recommended that you connect Stremio Web to a streaming server. 
+
+There are a few ways to set up a streaming server for Stremio Web. 
+You can either run it on your desktop or on your android device.
+I recommend using an android device as it can be left on 24/7 more easily than a desktop.
+
+```mdx-code-block
+import ServerDesktop from "@site/docs/stremio/platform/setup/web/server/_desktop.mdx";
+import ServerAndroid from "@site/docs/stremio/platform/setup/web/server/_android.mdx";
+
+<Tabs queryString="server-device">
+    <TabItem value="desktop" label="Desktop">
+        <ServerDesktop />
+    </TabItem>
+    <TabItem value="android" label="Android">
+
+        <ServerAndroid />
+
+    </TabItem>
+</Tabs>
+```
+</div>
+</details>

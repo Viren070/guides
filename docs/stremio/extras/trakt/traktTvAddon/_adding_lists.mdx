@@ -1,0 +1,33 @@
+import AddPersonalLists from "@site/docs/stremio/extras/trakt/traktTvAddon/_add_personal_lists.mdx";
+import AddPublicMDBLists from "@site/docs/stremio/extras/trakt/traktTvAddon/_add_public_mdblists.mdx";
+import BrowsePopularLists from "@site/docs/stremio/extras/trakt/traktTvAddon/_browse_popular_lists.mdx";
+
+:::info
+You only need to click `Add list` once. If you click it again, it will show duplicates. 
+Although there is no response when you click it, the list will be added.
+:::
+
+    <details>
+    <summary>Adding our own MDBLists and Couchmoney Lists</summary>
+        <div>
+            <AddPersonalLists/>
+        </div>
+    </details>
+
+    <details>
+        <summary>Adding other users' lists from MDBList</summary>
+        <div>
+            <AddPublicMDBLists />
+        </div>
+    </details>
+
+    <details>
+        <summary>Browsing popular/trending lists & searching for lists</summary>
+        <div>
+            <BrowsePopularLists />
+        </div>
+    </details>
+
+    After you've added the lists, the lists should show up at the bottom like this:
+
+    ![trakt addon final lists example](/img/stremio/trakt_addon_final_lists_example.png)

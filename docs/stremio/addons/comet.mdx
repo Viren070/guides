@@ -4,9 +4,11 @@ description: Stremio's fastest torrent/debrid search add-on.
 keywords: [stremio, addons, addon, comet, torrent, guide, setup, configuration, install, link]
 tags: [stremio-addon, stremio-addon:debrid-streams]
 ---
+```mdx-code-block
 import StremioAddonButtons from '@site/src/components/StremioAddonButtons';
 
 <StremioAddonButtons id="comet" manifest="https://comet.elfhosted.com/manifest.json" configurable={true} configurationRequired={true} source="https://github.com/g0ldyy/comet"/> 
+```
 
 <h3>Description</h3>
 
@@ -39,6 +41,9 @@ To get started, head over to the [configuration page](https://comet.elfhosted.co
 - `Max Size` - The maximum size of the torrent to display. I leave this at 0. If your internet is slow or your device is incapable of streaming large files, you can set a lower maximum size here.
 - `Debrid API Key` - Obtain your API key from your debrid provider and paste it here. (Struggling to find your API key? [Click here](/stremio/faq#where-can-i-find-my-debrid-api-key))
 - **Advanced Settings**:
+    - `Remove Trash` - This removes all the CAM and Screener sources from the results. It also attempts to remove adult content. I leave this checked.
+    - `Reverse Result Order` - Comet normally sorts torrents based on a [smart torrent ranking](https://github.com/dreulavelle/rank-torrent-name). This will reverse the order of the results to show the 'worst' torrents firs. 
+                               I leave this unchecked. However, this could be useful for anyone who has slow internet speeds, bandwidth caps, or devices that can't handle high-quality streams.
     - `Result Format` - Choose the information you want to see in the results. I leave all of them selected.
 
 Then either click `Install` to open Stremio with a prompt to install the addon or click `Copy Link` to copy the addon URL to paste into Stremio manually.

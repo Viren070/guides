@@ -23,9 +23,19 @@ const config: Config = {
   // may want to replace "en" with "zh-Hans".
   i18n: {
     defaultLocale: 'en-GB',
-    locales: ['en-GB'],
+    locales: ['en-GB', 'es'],
   },
 
+  future: {
+    experimental_faster: {
+      swcJsLoader: true,
+      swcJsMinimizer: true,
+      swcHtmlMinimizer: true,
+      lightningCssMinimizer: true,
+      rspackBundler: false,
+      mdxCrossCompilerCache: true,
+    },
+  },
   presets: [
     [
       'classic',
@@ -99,10 +109,6 @@ const config: Config = {
               label: 'Streaming',
               to: 'category/streaming',
             },
-            {
-              label: 'Reading',
-              to: 'category/reading',
-            }
           ],
         },
         {

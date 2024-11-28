@@ -68,7 +68,7 @@ const sidebars: SidebarsConfig = {
 								id: "stremio/extras/index",
 							},
 							items: [
-								"stremio/extras/trakt", 
+								"stremio/extras/trakt/index", 
 								"stremio/extras/account-bootstrapper",
 								"stremio/extras/addon-manager", 
 								"stremio/extras/debrid-media-manager", 
@@ -97,16 +97,6 @@ const sidebars: SidebarsConfig = {
 						"aniyomi/forks",
 					],
 				},
-				{
-					type: "category",
-					label: "Kodi ⏳",
-					link: {
-						type: "doc",
-						id: "kodi/index",
-					},
-					items: [],
-				},
-				"revanced/index"
 				
 			],
 		},
@@ -119,17 +109,7 @@ const sidebars: SidebarsConfig = {
 				description: "Guides on downloading and reading books / comics",
 				keywords: ["books", "comics", "download"],
 			},
-			items: [
-				{
-					type: "category", 
-					label: "TachiyomiJ2K ⏳",
-					link: {
-						type: "doc",
-						id: "tachiyomiJ2K/index",
-					},
-					items: []
-				}
-			]
+			items: []
 		}
 	],
 };
