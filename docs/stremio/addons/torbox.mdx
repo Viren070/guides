@@ -23,43 +23,59 @@ To install the Torbox addon:
 1. Go to your [Torbox Dashboard](https://torbox.app/dashboard)
 2. Ensure you are logged in 
 3. Then go to the [Settings page](https://torbox.app/settings)
-4. Scroll down to the `Integration Settings`. 
-    ![Integration Settings](/img/stremio/torbox_integration_settings.png)
-5. Click `Access Stremio Addon` 
-6. This should open a prompt in Stremio asking to install the addon. Click Install again.
-    :::tip
-    If you don't have the Stremio app installed, you can right click the `Access Stremio Addon` button and copy the link.
-    Then paste it into the search bar in Stremio or if on Stremio Web (iOS too), click the + Add Addon button and paste the link in there.
-    :::
-7. Once the addon has been installed, you can go back to the `Integration Settings`. 
-   You should now see configuration options for the Torbox addon.
-    ![Torbox Configuration](/img/stremio/torbox_stremio_settings.png)
-8. These are my personal configurations: 
+4. Scroll down to the `integrations`. 
+    ![Integration Settings](/img/stremio/torbox_integrations.png)
+5. To install the addon, you can either click the `Access Stremio Addon` button or click the `Copy Manifest URL` and [install the addon manually](/stremio/faq#how-do-i-install-an-addon-manually).
 
-    `Qualities to Show`: This setting controls what qualities are shown in the results.
+6. Now that the addon is installed, we can configure it. This addon is different to the rest, as the configuration can be done from the Torbox website. There is no need to reinstall the addon after configuring. 
+    Simply scroll down to `Integration Settings` and you will see `Stremio Addon`. 
+    ![Torbox Configuration](/img/stremio/torbox_stremio_integration_settings.png)
+    
+    Here, I will explain each setting and give my personal preference:
+
+    - `Qualities to Show`: This setting controls what qualities are shown in the results.
                          I have all of them except CAM selected. This is because I don't want to see CAM quality content.
 
-    `Resolutions to Show`: This setting controls what resolutions are shown in the results. 
-                           I have all of them selected. This is because I want to see all resolutions.
+    - `Resolutions to Show`: This setting controls what resolutions are shown in the results. 
+                           I have all of them selected. Some content may not be available at higher resolutions. A result with lower quality is better than no result.
 
-    `Languages to Show`: This setting controls the language of the results.
-                         I have all of them selected. This is to maximise result. 
+    - `Languages to Show`: This setting controls the language of the results.
+                         I have all of them selected. This is to maximise result. You should make sure Unknown is also selected, as many results may have an unknown language which 
+                         you will end up missing if you don't select it.
 
-    `Cache Settings`: This setting controls what type of results are shown. As a reminder, cached results are results that are ready to stream immediately, and download results are results that need to be downloaded to the debrid service before they can be streamed.
-                      I select `Cached and Download`. This is because I want to see all results, even if it is not cached so that I can cache it myself.
+    - `Cache Settings`: This setting controls what type of results are shown. As a reminder, cached results are results that are ready to stream immediately, and download results are results that need to be downloaded to the debrid service before they can be streamed.
+                      I select `Cached and Download`. This is because I want to see all results, even if it is not cached so that I can cache it myself by simply selecting these links.
+                        :::tip
+                        The cached links will show up as `Torbox (Instant)` and the download links will show up as just `Torbox`.
+                        :::
     
-    `Seeding Settings`: This setting controls whether torrents are seeded when you select one. I'm not sure what the difference between Auto and Always is. Never would mean that the torrent is not seeded.
-                        I select `Always`. This is because I want to help seed the torrents I watch.
+    - `Seeding Settings`: This setting controls whether torrents that you add through the Torbox addon are seeded if they weren't cached. 
+        - `Auto` : Automatically determine whether to seed or not based on the torrent health and other internal factors.
+        - `Always`: Always seed the torrent.
+        - `Never`: Never seed the torrent. 
+
+        <br/>
+
+        :::note
+        A torrent that is seeding will take up one of your concurrent slots. These are limited so if you watch a lot of content, you may want to set this to `Never`.
+        :::
+
+    - `Sort Settings`: This setting controls how the results from the Torbox Stremio addon are sorted. I have it set to `Size`.
+        - `Seeders/Age`: This sorts it by the number of seeders of the torrent or the age of the Usenet download.
+        - `Size`: This sorts it by the size of the torrent or Usenet download. This is what I have it set to, so that I get the biggest files first. These are usually of higher quality (but it does not mean it is the best quality).
+        - `Resolution`: This sorts it by the resolution of the result.
+
+        <br/>
+
+        :::note
+        Cached results are always shown first.
+        :::
     
-    `Size Limits`: The next two settings control the size of the torrents shown. You can set a minimum and maximum size. Files that are smaller or larger than these sizes will not be shown.
-                   I leave the minimum size at 0 and maximum size at 200. This is because I want to see all results.
     
-    `Show adult rated streams/searches`: This setting controls whether adult content is shown in the results. 
+    - `Size Limits`: The next two settings control the size of the torrents shown. You can set a minimum and maximum size. Files that are smaller or larger than these sizes will not be shown.
+                   I leave the minimum size at 0 and maximum size at 500. This will ensure that I will get all results, regardless of size.
+    
+    - `Show adult rated streams/searches`: This setting controls whether adult content is shown in the results. 
                                         I leave this unchecked. This is because I don't want to see adult content.
     
-    `Allow zipping content over 100 files`: This setting will zip a torrent if it has more than 100 files. You should leave this unchecked as you can't stream zipped content.
-
-9. Your configurations are updated automatically. You can now search for content in Stremio and the Torbox addon will provide results.
-:::tip
-If you want to change your configurations, you can do so at any time by going back to the `Integration Settings` and changing the settings there. 
-:::   
+    - `Allow zipping content over 100 files`: This setting will zip a torrent if it has more than 100 files. You should leave this unchecked as you can't stream zipped content.
