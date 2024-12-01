@@ -180,15 +180,15 @@ Some [forks of Aniyomi](/aniyomi/forks) do support torrent streaming, so you can
 
 ### Debrid Service
 
-I will now go through what a debrid service is and why you may want to use one. 
+I will now go through what a debrid service is and why you may want to use one.
 
-**It is not required** to use a debrid service. You will need to use a [fork of Aniyomi](/aniyomi/forks) that supports torrent streaming if you do not want to use a debrid service.
-You would still be able to stream torrents as long as it has enough seeders.
-However, using a debrid service will provide a better experience.
+**It is not required to use a debrid service**.
+You will need to use [a fork of Aniyomi](/aniyomi/forks) that supports torrent streaming if you do not want to use a debrid service.
+You would still be able to stream torrents as long as it has enough seeders. However, using a debrid service will provide a better experience.
 
 #### What is a debrid service?
 
-A debrid service is a service that allows you to generate unrestricted (up to 1gbps) download links for torrents and other files on supported hosters (It has more features that are discussed in [Debrid Services](/stremio/technical-details#debrid-services)).
+A debrid service is a service that allows you to generate unrestricted (up to 1gbps) download links for torrents and other files on supported hosters (It has more features that are discussed in [Debrid Services](technical-details#debrid-services)).
 
 It brings the following benefits:
 
@@ -197,13 +197,14 @@ It brings the following benefits:
 - If you are using a debrid service, a VPN is not required as you are streaming through HTTPS.
 - You can use it for more than just Aniyomi. You can use it to download any type of file, whether that be games, software or audio. If it is a torrent or a file on a supported hoster, you can download it through your debrid service.
     :::note
-    You can even use it with other apps like Stremio. You can utilise the debrid service to stream torrents on Stremio too. You can have a look at my [Stremio Guide](/stremio) for more information on how to set up a debrid service with Stremio.
-    ::: 
+    One such app you can use a debrid service with is Stremio. After you set it up with a couple of addons, you can stream torrents for any movie or TV show you want to watch.
+    You can find more information on how to set up a debrid service with Stremio at my [Stremio Guide](/stremio/).
+    :::
 
 However, the drawbacks of using a debrid service are that most do not seed the torrents and will also restrict usage to one IP address at a time.
 This means that you are not contributing to the torrent and that you can only use the service in one location at a time. 
 :::tip
-For more details on the one IP address rule, please see [this question in the Stremio FAQ](/stremio/faq#how-does-the-one-ip-address-rule-work).
+For more details on the one IP address rule, please see this question in the [FAQ](/stremio/faq#how-does-the-one-ip-address-rule-work).
 :::
 
 There are some exceptions to this, which I discuss below.
@@ -211,7 +212,6 @@ There are some exceptions to this, which I discuss below.
 #### Should I use a debrid service? 
 
 The answer to this question is dependent on your personal circumstances.
-If your answer is no, then you will need to use a fork of Aniyomi that supports torrent streaming.
 
 - Whether torrenting puts you at risk of receiving a notice from your ISP
 - The popularity (number of seeders) of the content you want to watch
@@ -240,30 +240,136 @@ If it does, then you may want to consider using a debrid service.
 I receive a commission (free days or small amount of money) if you sign up to a debrid service through (some of) the links provided. This is at no extra cost to you and is a way to support me.
 :::
 
-There are many debrid services available to use. Here is a list of the ones supported by, currently, the only torrent addon available for Aniyomi - Torrentio Anime:
+There are many debrid services available to use. Here is a list of some of the most popular ones. 
+If you have already chosen a debrid service, you can skip to the [setup instructions](#setting-up-a-debrid-service).
+Otherwise, I will go through the factors you should consider when choosing a debrid service.
 
-- [Real Debrid](https://real-debrid.com/?id=9483829)
-- [AllDebrid](https://alldebrid.com/?uid=3n8qa&lang=en)
+
+- [Torbox](https://torbox.app/subscription?referral=9ca21adb-dbcb-4fb0-9195-412a5f3519bc)
 - [Premiumize](https://www.premiumize.me/)
-- [Debrid-Link](https://debrid-link.com/id/EY0JO)
 - [Offcloud](https://offcloud.com/?=06202a3d)
 - [Put.io](https://put.io/)
+- [Real Debrid](https://real-debrid.com/?id=9483829) :warning:
+- [AllDebrid](https://alldebrid.com/?uid=3n8qa&lang=en) :warning:
+- [Debrid-Link](https://debrid-link.com/id/EY0JO) :warning:
+
+
+<details>
+<summary> 
+:warning: 
+**These debrid services have implemented restrictions that will affect your experience.**
+**Click here to read more.** 
+:warning:
+</summary>
+<div>
+
+<h3> What happened? </h3>
+
+Due to unavoidable circumstances, some debrid services have placed restrictions upon their services and APIs.  
+
+**Real Debrid**, **AllDebrid**, and **Debrid-Link** have removed the API endpoint that allows addons to determine if a torrent is cached on their service.
+
+<h3> What does this mean for Aniyomi?  </h3>
+
+The Torrentio extension has 2 kinds of results. Cached results which can be streamed instantly, and uncached results which need to be downloaded (to the debrid service) before they can be streamed.
+These are shown as [...+] or [... Download] with the (...) being the code of the debrid service, e.g. RD, TB, DL.
+
+With the removal of the API endpoint, Torrentio can no longer accurately determine if a torrent is cached on Real Debrid or AllDebrid.
+
+<h3> Is it possible to continue using these debrid services? </h3>
+
+Torrentio has removed the check for cached torrents using this API endpoint. 
+
+Torrentio has implemented use of a local crowdsourced caching system to determine if a torrent is cached. 
+This is not guaranteed to be accurate which would mean that the tags [...+] and [... Download] may not be accurate.
+
+By using these debrid services, you agree to some inconvenience in the form of having to try multiple streams to find one that is cached.
+However, due to some debrid services having a massive cache (like Real Debrid), it is likely that you will find a cached stream on your first attempt. 
+
+<h3> Is it recommended to continue using these debrid services? </h3>
+
+While you will still be able to use these debrid services with the addons that implement any sort of workaround, 
+it is recommended that you use another debrid service if you aren't using one of the affected debrid services already.
+
+This is because it is inconvenient to have to pick streams at random not knowing if they are cached or not.
+In the case they are not cached, you will have to wait for the torrent to download before you can watch it.
+Of course, you could just keep trying different streams until you find one that is cached, but this is not ideal.
+
+And again, not all addons have implemented this workaround.
+
+In addition to the lack of addon support, these debrid services may also implement more restrictions in the future. 
+
+<h3> Additional Restrictions </h3>
+
+<h4> Real Debrid </h4>
+
+- Blocked audiovisual files from a number of cyberlockers listed on the USTR blacklist or listed in the European "Counterfeit and Piracy Watch List"
+    - This includes several services. I'm not sure if these are the right sites, but here is what I found:
+        - [European Commission's Counterfeit and Piracy Watch List](https://circabc.europa.eu/ui/group/d0803128-7d62-40ee-8349-c43ee92745aa/library/b36f701d-2850-4768-9b3e-e487140e11e5/details)
+        - [USTR Notorious Markets List](https://ustr.gov/sites/default/files/2023_Review_of_Notorious_Markets_for_Counterfeiting_and_Piracy_Notorious_Markets_List_final.pdf)
+- Blocked any torrent hashes from French private torrent trackers like YGGTorrent
+
+</div>
+</details>
 
 When choosing a Debrid service, the factors you have to consider are cost and the value you get from it which is made up of its optimality and userbase.
 
-**TL;DR**: Most users should use Real Debrid or AllDebrid. ([Skip to the setup instructions](#setting-up-a-debrid-service))
+I recommend coming to your own conclusion by reading the information below, in addition to your own research. 
 
 **Cost**
 
+To compare the cost of each debrid service, I have created a table that compares the cost of each debrid service.
+This table is generated dynamically and the data it uses can be updated manually by you. I don't recommend modifying the data on mobile.
+ 
+<details>
+<summary>Expand me for a full table comparing the costs of all debrid services</summary>
 
-<DebridCostComparisonTable excludeServices={["torbox"]}/>
+<Admonition type="note">
 
-From the table above, we can see that AllDebrid is the cheapest debrid service available if you consider the fidelity points. Otherwise, AllDebrid and Debrid-Link are the cheapest.
+The currency rates used here are updated semi-automatically every week. 
+
+I do not update these prices if there are sales or discounts on the debrid services.
+Make sure to check for any of these before making a purchase.
+
+You may update the prices manually by clicking the `Configure Table Data` button. 
+You can also add new debrid services or remove existing ones.
+This can be useful if there are sales going on or if you are buying from a reseller where local prices have been adjusted for. 
+
+</Admonition>
+
+<DebridCostComparisonTable />
+
+<details>
+<summary>What are FP (fidelity points)?</summary>
+
+When you buy a plan from some debrid services, you will be awarded fidelity points. 
+Once you have enough fidelity points, they can be used to extend your subscription for free.
+
+For debrid services that offer fidelity points, there are 2 rows in the table above. 
+One of them takes into account the extra duration you get from the fidelity points and the other does not.
+
+<details>
+<summary>How are the fidelity points accounted for?</summary>
+
+The number of plans needed to get an amount of fidelity points that is entirely usable is calculated.
+This essentially means the lowest common multiple of the fidelity points awarded and the number of fidelity points needed to extend your subscription.
+
+For example, if you need 1000 fidelity points to extend your subscription by 30 days 
+and you are awarded 800 fidelity points when you buy a plan, then you will need to buy 5 plans to get 4000 fidelity points. 
+Then all 4000 fidelity points can be used to extend your subscription by 120 days.
+
+The cost of 5 plans with the duration of 5 plans plus the extra duration from the fidelity points is then used to calculate an average cost.
+
+</details>
+</details>
+</details>
+
 
 
 :::info
 If you are unsure if this is something you want to use, you can try a free trial or a limited free plan.
 
+- Torbox offer a limited free plan.
 - All-Debrid offer a free 7-day trial with phone number verification.
 - put.io offers a $0.99 1 day trial.
 
@@ -273,18 +379,33 @@ Alternatively, you can use the 15 day package that most debrid services offer to
 
 **Optimality**
 
+
 Optimality refers to your proximity to the service's servers. The closer you are, the faster the download speeds and thus the better the streaming experience.
-The download speeds you get directly determine the quality of the stream you can watch. Make sure to carry out speed tests to determine the best service for you.
-The speed tests for each debrid service can be found [here](/stremio/faq#where-can-i-find-the-speed-tests-for-debrid-services) and on their website too.
+The download speeds you get directly determine the quality of the stream you can watch.
+
+This is different for everyone. 
+Giving my experiences with each debrid service would not be helpful as it is dependent on your location as well as many other factors. 
+
+Therefore, make sure to carry out speed tests to determine the best service for you.
+The speed tests for each debrid service can be found [here](faq#where-can-i-find-the-speed-tests-for-debrid-services) and on their website too.
+
+While a debrid service is unlikely to be the bottleneck in your streaming experience, Torbox has the fastest servers (80gbit NVME) which no other service can offer at prices as low as theirs.
 
 **Userbase**
 
 This is important as the more users a debrid service has, the more cached torrents it will have.
-Cached torrents are what you rely on when streaming content on Aniyomi.
+Cached torrents are what you rely on when streaming content through Aniyomi.
 
-A larger userbase means more cached torrents, with Real Debrid and AllDebrid leading.
+A larger userbase means more cached torrents, with Real Debrid, Premiumize, and AllDebrid leading.
 However, the other debrid services will still have a lot of popular torrents cached.
-Other debrid services will still have a noticeably lower amount of cached torrents. 
+
+In this regard, Torbox is lacking.
+Being a relatively new service (founded in 2023), it has a smaller userbase and has had less time to build up its cache of torrents. 
+This means you may not find the content you want to watch cached on Torbox.
+However, with the recent events surrounding Real Debrid, AllDebrid and Debrid-Link, more and more people are moving to Torbox.
+This could mean that Torbox will end up having a lot of cached torrents in the future.
+
+Offcloud also has very little cached content. 
 
 **Additional Features**
 
@@ -296,7 +417,9 @@ As I said before, there are some exceptions. I will now go through them.
 
 - **IP Restrictions**:
 
-    - Premiumize also allows several IPs. However, it does operate on a storage limitation that you may reach depending on your usage.
+    - Torbox has no IP restrictions whatsoever. You can use it on as many devices as you want.
+    - Premiumize also allows several IPs. However, it does operate on a storage limitation that you may reach depending on your usage. 
+        You can find more details on this [article](https://www.premiumize.me/help/article/download-limit) and the [fair use page](https://www.premiumize.me/fairuse) (you need to be logged in for this link).
 
 - **Seeding**:
 
@@ -306,82 +429,58 @@ As I said before, there are some exceptions. I will now go through them.
     The debrid services below will seed the torrent if it hasn't been cached already. 
     In the case that its already been cached, they may not seed it, and other users can stream this cached torrent too. 
     :::
+
+    - Torbox offer a seedbox that can seed for up to an unlimited amount ratio for up to 30 days. This makes it the best debrid service for seeding. (The amount of torrents you can actively seed is dependent on your plan, referred to as your `Concurrent Slots`)
     - Debrid-Link offers a seedbox with these limits: 600 torrents and 2.5TB of data transfer per month.
     - Premiumize will seed to a 2.0 ratio or for 72 hours. Whichever comes first.
     - put.io is similar to Premiumize but the exact numbers are dependent on your plan. Check their pricing page for more information.
 
 
-**My recommendation would be Real Debrid**
+- **Usenet:**
+    - Torbox offers access to Usenet on its Pro plan ($110/year or $10/month). This is a unique feature that is not offered by any other debrid service. (Usenet is explained in more detail later. It is simply another way to access more content)
+    - Premiumize also offers access to Usenet. However, it does not support streaming, therefore it cannot be used for Aniyomi.
+
+---
+
+After considering everything, you should have a good idea of which debrid service you want to use.
 
 #### Setting up a debrid service
-
+    
 I will now cover the instructions of setting up each debrid service I previously mentioned.
 
+```mdx-code-block
+import Torbox from "@site/docs/stremio/debrid/torbox/_setup.mdx";
+import Premiumize from "@site/docs/stremio/debrid/premiumize/_setup.mdx";
+import Offcloud from "@site/docs/stremio/debrid/offcloud/_setup.mdx";
+import Putio from "@site/docs/stremio/debrid/putio/_setup.mdx";
+import RealDebrid from "@site/docs/stremio/debrid/realdebrid/_setup.mdx";
+import AllDebrid from "@site/docs/stremio/debrid/alldebrid/_setup.mdx";
+import DebridLink from "@site/docs/stremio/debrid/debridlink/_setup.mdx";
+
 <Tabs className="custom-tabs" queryString="debrid">
-<TabItem value="real-debrid" label="Real Debrid"> 
-    ![Real Debrid Payment](/img/stremio/real_debrid_payment.png)
-    
-    1. Go to [Real Debrid's website](https://real-debrid.com/?id=9483829)
-    2. Click Sign Up to create an account
-    3. Go to the Premium Offers page
-    4. Choose a package and subscribe. 
-</TabItem>
-<TabItem value="alldebrid" label="AllDebrid">
-    ![All Debrid Payment](/img/stremio/all_debrid_payment.png)
-    
-    1. Go to [AllDebrid's website](https://alldebrid.com/?uid=3n8qa&lang=en)
-    2. Click `Create an account` at the top and register for an account. 
-    3. Go to the Pricing page
-    4. Choose a package and subscribe.
+<TabItem value="torbox" label="Torbox">
+<Torbox/>
 </TabItem>
 <TabItem value="premiumize" label="Premiumize">
-    ![Premiumize Payment](/img/stremio/premiumize_payment.png)
-
-    1. Go to [Premiumize's website](https://www.premiumize.me/)
-    2. Click Sign Up in the top right corner to create an account
-    3. Click `Buy Premium` at the top of the page
-    4. Choose a package and subscribe.
-
-</TabItem>
-<TabItem value="debrid-link" label="Debrid-Link">
-    ![Debrid-Link Payment](/img/stremio/debrid_link_payment.png)
-
-    1. Go to [Debrid-Link's website](https://debrid-link.com/id/EY0JO)
-    2. Click Register in the top right corner or `Try it Free` on the home page.
-    3. Fill in the required details and click `Register`
-    4. Click `Premium` in the top right corner
-    5. Choose a package and purchase it.
-
+<Premiumize/>
 </TabItem>
 <TabItem value="offcloud" label="Offcloud">
-    ![Offcloud Payment](/img/stremio/offcloud_payment.png)
-
-    1. Go to [Offcloud's website](https://offcloud.com/?=06202a3d)
-    2. Enter your email and click `Join us for free`
-    3. You will be sent an email to set your password, set your password and log in.
-    4. Click `Shop` from the navigation bar on the left.
-    5. Choose a package and purchase it.
-
+<Offcloud/>
 </TabItem>
 <TabItem value="put.io" label="put.io">
-    ![Put.io Payment](/img/stremio/put.io_payment.png)
-
-    1. Go to [put.io's register page](https://app.put.io/register) and create an account
-    2. You will see a banner asking you to activate your account. Click the button to go to the [billing page](https://app.put.io/billing/activate-account)
-    3. Choose a package and purchase it.
-
-    <Admonition type="info">
-    Put.io offers two plans for which you can either pay monthly or yearly.
-    One plan gives you 100GB of storage and the other 1TB. Depending on the amount and size of files you will be streaming, choose the plan that suits you best.
-
-    I believe that the storage is not made up of the accumulated size of all the files you have downloaded, but rather the amount of files you have downloaded and stored currently.
-    You can delete files to make space for new ones.
-
-    However, I am unsure of the accuracy of this information. If you are considering put.io, then I would recommend contacting their support or looking at their FAQ.
-    </Admonition>
-
+<Putio/>
+</TabItem>
+<TabItem value="real-debrid" label="Real Debrid"> 
+<RealDebrid/>
+</TabItem>
+<TabItem value="alldebrid" label="AllDebrid">
+<AllDebrid/>
+</TabItem>
+<TabItem value="debrid-link" label="Debrid-Link">
+<DebridLink/>
 </TabItem>
 </Tabs>
+```
 
 ### Installing Torrent Addons 
 
