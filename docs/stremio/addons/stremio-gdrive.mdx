@@ -1,14 +1,19 @@
 ---
-title: Stremio Gdrive
+title: Stremio GDrive
 description: Stremio addon for fetching videos from your google drive.
 keywords: [stremio, addons, http, google drive, guide, setup, configuration, install, link]
 tags: [stremio-addon, stremio-addon:http-streams]
+toc_max_heading_level: 2
 ---
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+import Details from '@theme/Details';
+
 
 ```mdx-code-block
 import StremioAddonButtons from '@site/src/components/StremioAddonButtons';
 
-<StremioAddonButtons id="stremio-gdrive" source="https://github.com/ShuvamJaswal/Gdrive-Stremio-Update" /> 
+<StremioAddonButtons id="stremio-gdrive" /> 
 ```
 
 <h3>Description</h3>
@@ -18,8 +23,193 @@ Stremio-gdrive is a self-hosted Stremio addon that allows you to view files from
 For it to work, you will need to join some team drives. You can find some [here](https://t.me/s/teamdrives).
 
 <h3>Configuration</h3>
+ 
+I will go through the steps to set up this addon through a Cloudflare Worker.
 
-As mentioned earlier, this addon needs to be self-hosted.
+:::tip
+**This guide should be followed on its [dedicated page](/stremio/addons/stremio-gdrive), not from the setup page.**
 
-You can use [this GitHub repository](https://github.com/ShuvamJaswal/Gdrive-Stremio-Update) to set it up. 
+:::
+
+<h4>Setting up our Google App</h4>
+
+1. Go to the [Google Cloud Console](https://console.cloud.google.com/).
+
+    If this is your first time using Google Cloud, you will be prompted to agree to the terms of service:
+
+    ![Google Cloud Console](/img/stremio/gdrive/google_cloud_onboarding.png)
+
+2. Create a new project and select it:
+    
+    <Details summary="How?">
+    1. Click on `Select a project` in the top left:
+
+        ![Create a new project](/img/stremio/gdrive/google_cloud_create_project_1.png)
+
+    2. Click on `New Project`:
+
+        ![Create a new project](/img/stremio/gdrive/google_cloud_create_project_2.png)
+
+    3. Enter a project name and click on `Create`:
+
+        ![Create a new project](/img/stremio/gdrive/google_cloud_create_project_3.png)
+
+        - The project name can be anything you want, e.g., `Stremio-Gdrive`. Leave the `Organization` field blank.
+
+    4. Once the project has been created, you will get a notification:
+
+        ![Create a new project](/img/stremio/gdrive/google_cloud_create_project_4.png)
+
+        - Click `Select Project`. 
+
+        :::note
+        You may also use the same dropdown from step i to select the project.
+        :::
+    </Details>
+3.  Setup our Google Auth Platform 
+
+    1. Go to the [Google Cloud Console](https://console.cloud.google.com/).
+    2. In the search bar at the top, search for `Google Auth Platform` and click on the result:
+
+        ![Google OAuth Platform](/img/stremio/gdrive/google_cloud_oauth_search_results.png)
+
+    3. You should be met with a message telling you that `Google Auth Platform not configured yet`, click on `Get Started`: 
+    
+            ![Google OAuth Platform](/img/stremio/gdrive/google_auth_platform_0.png)
+        
+    4. Fill in the form: 
+
+        ![Google OAuth Platform](/img/stremio/gdrive/google_auth_platform_1.png)
+
+        1. `App Information`:
+            - Set `App Name` to `Stremio GDrive`.
+            - Set `User Support Email` to your email. It should appear in the dropdown. 
+        2. `Audience`:
+            - Set `User Type` to `External`.
+        3. `Contact Information`
+            - Add any email address, you can use the same one you used earlier for `User Support Email`.
+        4. `Finish`
+            - Check the box to agree to the `Google API Services: User Data Policy` 
+
+    
+    5. Once you have filled in the form, click on `Create`
+
+4. Enable the Google Drive API. 
+
+    1. Go to the [Google Cloud Console](https://console.cloud.google.com/).
+    2. In the search bar at the top, search for `Google Drive API` and click on the result:
+
+        ![Google Drive API](/img/stremio/gdrive/google_cloud_gdrive_api_search_results.png)
+
+    3. Click on `Enable`:
+
+        ![Google Drive API](/img/stremio/gdrive/google_cloud_gdrive_api.png)
+
+5. Create an OAuth client. 
+
+    1. Go back to the `Google Auth Platform` page.
+    2. Click on `Clients` in the sidebar and then click on `+ Create Client`:
+
+        ![Google OAuth Platform](/img/stremio/gdrive/google_cloud_auth_platform_clients.png)
+    
+    3. Fill in the form: 
+
+        ![Google OAuth Platform](/img/stremio/gdrive/google_cloud_auth_platform_clients_form.png)
+
+        - `Application Type`: Set this to `Desktop app`.
+        - `Name`: You can set this to anything such as `Stremio GDrive`.
+
+
+    4. Click on `Create`.
+
+6. Publish the app. 
+
+    1. Go back to the `Google Auth Platform` page.
+    2. Click on `Audience` in the sidebar and then click on `Publish`:
+
+        ![Google OAuth Platform](/img/stremio/gdrive/google_cloud_auth_platform_publish.png)
+
+
+<h4>Setting up the Cloudflare Worker</h4>
+
+1. Go to the [Cloudflare Workers](https://workers.cloudflare.com/) page and click `Log In` or `Sign Up` if you don't have an account.
+
+2. Once logged in, you should be taken to the Cloudflare Workers & Pages dashboard. Click on `Create`: 
+
+    ![Cloudflare Workers](/img/stremio/gdrive/cloudflare_workers_pages_overview.png)
+
+3. Once on the create page, make sure you're on the `Workers` tab and click `Create Worker`:
+
+    ![Cloudflare Workers](/img/stremio/gdrive/cloudflare_create_an_application_workers.png)
+
+4. You'll be asked to give a name to your worker. You can name it anything, this will be the URL you enter into Stremio to access your addon. Click `Deploy` once named.
+    
+        ![Cloudflare Workers](/img/stremio/gdrive/cloudflare_create_a_worker.png)
+
+5. Once its done being deployed, you should be shown a success message. Click the `Edit code` button:
+
+    ![Cloudflare Workers](/img/stremio/gdrive/cloudflare_create_a_worker_success.png)
+
+6. You should be taken to the Cloudflare Worker editor: 
+
+    ![Cloudflare Workers](/img/stremio/gdrive/cloudflare_worker_editor.png)
+
+7. Now, we will paste the Cloudflare Worker script from the [Stremio GDrive GitHub](https://github.com/Viren070/stremio-gdrive) into the editor. 
+
+    1. Go to the [worker.js file](https://github.com/Viren070/stremio-gdrive-addon/blob/main/worker.js)
+    2. Click the Copy icon 
+    3. Go back to the Cloudflare Worker editor and paste the script in the editor.
+
+
+
+
+8. Now, we need to add our Google OAuth credentials to the script.
+
+    To do this, we need to go back to the Google Cloud Console and get our `Client ID` and `Client Secret`.
+
+    1. Go to the [Google Cloud Console](https://console.cloud.google.com/).
+    2. In the search bar at the top, search for `Google Auth Platform` and click on the result:
+
+        ![Google OAuth Platform](/img/stremio/gdrive/google_cloud_oauth_search_results.png)
+
+    3. Click on `Clients` and click on the download icon for the client you created earlier:
+
+        ![Google OAuth Platform](/img/stremio/gdrive/google_auth_platform_clients_download.png)
+
+    4. A pop-up will appear with your `Client ID` and `Client Secret`. Copy these values into the inputs below at [Google OAuth Tool](#OAuth Tool).
+
+        ![Google OAuth Platform](/img/stremio/gdrive/google_auth_platform_clients_download_menu.png)
+
+    5. Click the `Get Authorisation Code` button below to get the Authorisation code. 
+    :::tip
+    You will be redirected to a Google OAuth page where you will need to sign in and allow the app to access your Google Drive.
+    You may encounter a warning page, click on `Advanced` and then `Go to... (unsafe)`.
+    :::
+
+    6. Once you have allowed the app, you will be redirected back to this page with the Authorisation code filled in. 
+        Click the `Get Credentials` button to get the credentials.
+
+    7. You will be shown a success message and a block of code will appear. Copy this code into the Cloudflare Worker script. 
+
+    8. Once you have added your credentials, your script should look something like this:
+
+    ![Cloudflare Workers](/img/stremio/gdrive/cloudflare_finished_worker_script.png)
+
+9. Click `Deploy` in the top right to save your changes and deploy the worker.
+
+11. Once deployed, you should see a green success message at the bottom. Click `Visit` next to the deploy button to go to the addon URL.
+
+12. You should be redirected to the /manifest.json. if not, append `/manifest.json` to the URL. 
+
+13. Copy the URL and [add it to Stremio](/stremio/faq#how-do-i-install-an-addon-manually).  
+
+
+
+
+### OAuth Tool
+
+import GoogleOAuth from '@site/src/components/GoogleOAuth';
+
+<GoogleOAuth />
+
 
