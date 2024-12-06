@@ -31,7 +31,7 @@ const openAuthorisationUrl = (clientId: string, redirectUrl: string) => {
     url.searchParams.append("prompt", "consent");
 
     // open the url in current tab
-
+    console.log("Opening URL: ", url.toString());
     window.open(url.toString(), "_self");
 
 };
@@ -50,6 +50,7 @@ export default function CodeGenerator(): JSX.Element {
     React.useEffect(() => {
         // set the redirect url to the current page
         setRedirectUrl(window.location.origin + callbackPath);
+        console.log("Redirect URL: ", redirectUrl);
         // load the stored values from session storage if they exist
 
         const storedClientId = sessionStorage.getItem(sessionKeys.clientId);
@@ -115,6 +116,7 @@ export default function CodeGenerator(): JSX.Element {
             redirect_uri: redirectUrl
         });
 
+        console.log("Requesting refresh token with data: ", data.toString());
         const response = fetch(tokenUrl, {
             method: "POST",
             headers: {
