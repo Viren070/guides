@@ -5,7 +5,7 @@ import { sessionKeys } from ".";
 export default function Catcher(): JSX.Element {
     const redirectUrl = useBaseUrl('/stremio/addons/stremio-gdrive#oauth-tool');
     const [message, setMessage] = useState<string>("");
-    const [sessionStorageAvailable, setSessionStorageAvailable] = useState<boolean>(false);
+    const [sessionStorageAvailable, setSessionStorageAvailable] = useState<boolean>(true);
 
     React.useEffect(() => {
         const url = new URL(window.location.href);
