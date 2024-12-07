@@ -1,16 +1,16 @@
 import { ToastContainer, toast, Slide } from 'react-toastify';
-import './styles.css';
+import styles from './styles.module.css';
 
 // Singleton showToast function
 export const showToast = (message: string, type: 'info' | 'error' | 'success', toastId?: string) => {
   toast(message, {
     type: type,
     toastId: toastId,
-    className: `wideToast`,
+    className: styles.wideToast,
   });
 };
 
-export function MyToastContainer(): JSX.Element {
+export function WideToastContainer(): JSX.Element {
   return (
     <ToastContainer
       stacked
@@ -20,10 +20,9 @@ export function MyToastContainer(): JSX.Element {
       draggablePercent={60}
       draggableDirection='y'
       draggable="touch"
-      limit={10}
       theme="colored"
       transition={Slide}
-      className="wideToastContainer"
+      className={styles.wideToastContainer}
       closeButton={false}
     />
   );
