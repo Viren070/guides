@@ -2,7 +2,7 @@
 // Url contains the code parameter. if it does we extract the code, and open 
 // the /stremio/addons/stremio-gdrive/ page with the code as a query parameter.
 
-import React from "react";
+import React, {useState} from "react";
 import useBaseUrl from "@docusaurus/useBaseUrl";
 import { sessionKeys } from ".";
 import { showToast } from "../Toasts";
@@ -25,4 +25,19 @@ export default function Catcher(): JSX.Element {
     }, []);
 
     return <></>;
+}
+
+export function CallBackUrl(): JSX.Element {
+   const callbackPath = useBaseUrl('/stremio/addons/stremio-gdrive/callback');
+   const [redirectUrl, setRedirectUrl] = useState<string>("");
+   React.useEffect(() => {
+         // set the redirect url to the current page
+         setRedirectUrl(window.location.origin + callbackPath);
+    }, []);
+
+    return <>
+        {redirectUrl}
+    </>
+
+
 }

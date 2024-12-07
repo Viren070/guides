@@ -8,7 +8,7 @@ toc_max_heading_level: 2
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import Details from '@theme/Details';
-
+import {CallBackUrl} from '@site/src/components/GoogleOAuth/Callback';
 
 ```mdx-code-block
 import StremioAddonButtons from '@site/src/components/StremioAddonButtons';
@@ -116,8 +116,9 @@ I will go through the steps to set up this addon through a Cloudflare Worker.
 
         ![Google OAuth Platform](/img/stremio/gdrive/google_cloud_auth_platform_clients_form.png)
 
-        - `Application Type`: Set this to `Desktop app`.
+        - `Application Type`: Set this to `Web application`.
         - `Name`: You can set this to anything such as `Stremio GDrive`.
+        - `Authorized redirect URIs`: Set this to <CallBackUrl />
 
 
     4. Click on `Create`.

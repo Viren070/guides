@@ -14,7 +14,7 @@ export const sessionKeys = {
     authorisationCode: "Viren070Guides_OAuthTool_authorisationCode",
     oauthError: "Viren070Guides_OAuthTool_oauthError"
 };
-
+// https://accounts.google.com/o/oauth2/v2/auth?client_id=113852005442-335efquhgv3q9qa6kv1rg50j27ema3l4.apps.googleusercontent.com&redirect_uri=http%3A%2F%2Flocalhost%3A3000%2Fstremio%2Faddons%2Fstremio-gdrive%2Fcallback&response_type=code&scope=https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fdrive&prompt=consent
 // Function to obtain the refresh token
 const openAuthorisationUrl = (clientId: string, redirectUrl: string) => {
 
@@ -29,12 +29,14 @@ const openAuthorisationUrl = (clientId: string, redirectUrl: string) => {
     url.searchParams.append("response_type", "code");
     url.searchParams.append("scope", scopes.join(" "));
     url.searchParams.append("prompt", "consent");
-
+    url.searchParams.append("access_type", "offline");
     // open the url in current tab
     console.log("Opening URL: ", url.toString());
     window.open(url.toString(), "_self");
 
 };
+
+
 
 
 
@@ -46,7 +48,6 @@ export default function CodeGenerator(): JSX.Element {
     const [redirectUrl, setRedirectUrl] = useState<string>("");
    
     const callbackPath = useBaseUrl('/stremio/addons/stremio-gdrive/callback');
-
     React.useEffect(() => {
         // set the redirect url to the current page
         setRedirectUrl(window.location.origin + callbackPath);
@@ -113,7 +114,8 @@ export default function CodeGenerator(): JSX.Element {
             client_secret: clientSecret,
             code: authorisationCode,
             grant_type: "authorization_code",
-            redirect_uri: redirectUrl
+            redirect_uri: redirectUrl,
+            scope: ''
         });
 
         console.log("Requesting refresh token with data: ", data.toString());
@@ -129,13 +131,20 @@ export default function CodeGenerator(): JSX.Element {
     }
 
     const handleResponse = (res: Response) => {
+        
         if (res.ok) {
             res.json().then((data) => {
+                console.log(data);
+                // get the refresh token by making a request to the token url
+                if (!data.refresh_token) {
+                    showToast("An unexpected error occurred", "error");
+                    return;
+                }
                 showToast("Refresh token obtained successfully. Copy the code and paste it into your script.", "success");
-                setRefreshToken(data.refresh_token);
                 // reset the authorisation code as it can no longer be used 
                 setAuthorisationCode("");
                 sessionStorage.removeItem(sessionKeys.authorisationCode);
+                setRefreshToken(data.refresh_token);
             });
         } else {
             let text = res.text();
