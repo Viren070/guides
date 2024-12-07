@@ -45,6 +45,7 @@ export default function CodeGenerator(): JSX.Element {
     const [authorisationCode, setAuthorisationCode] = useState<string>("");
     const [refreshToken, setRefreshToken] = useState<string>("");
     const [redirectUrl, setRedirectUrl] = useState<string>("");
+    const [sessionStorageAvailable, setSessionStorageAvailable] = useState<boolean>(true);
    
     const callbackPath = useBaseUrl('/stremio/addons/stremio-gdrive/callback');
     React.useEffect(() => {
@@ -52,7 +53,14 @@ export default function CodeGenerator(): JSX.Element {
         setRedirectUrl(window.location.origin + callbackPath);
         console.log("Redirect URL: ", redirectUrl);
         // load the stored values from session storage if they exist
-
+        try {
+            sessionStorage.setItem("test", "test");
+            sessionStorage.removeItem("test");
+        } catch (e) {
+            console.log("Session storage is not available: ", e);
+            setSessionStorageAvailable(false);
+            return;
+        }
         const storedClientId = sessionStorage.getItem(sessionKeys.clientId);
         const storedClientSecret = sessionStorage.getItem(sessionKeys.clientSecret);
         const storedAuthorisationCode = sessionStorage.getItem(sessionKeys.authorisationCode);
@@ -72,24 +80,33 @@ export default function CodeGenerator(): JSX.Element {
             sessionStorage.removeItem(sessionKeys.authorisationCode);
             showToast("Authorisation code obtained successfully. Click `Get Credentials` to complete the process", "success");
         }              
-    }, []);
+    }, [sessionStorageAvailable]);
 
     const handleClientIdChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         const value = e.target.value;
         setClientId(value);
-        sessionStorage.setItem(sessionKeys.clientId, value);
         // reset the authorisation code since its no longer valid with different client id
         setAuthorisationCode("");
-        sessionStorage.removeItem(sessionKeys.authorisationCode);
+        try {
+            sessionStorage.setItem(sessionKeys.clientId, value);
+            sessionStorage.removeItem(sessionKeys.authorisationCode);
+        } catch (e) {
+            console.log("Error setting client id in session storage: ", e);
+        }
+
     };
 
     const handleClientSecretChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         const value = e.target.value;
         setClientSecret(value);
-        sessionStorage.setItem(sessionKeys.clientSecret, value);
         // reset the authorisation code since its no longer valid with different client secret
         setAuthorisationCode("");
-        sessionStorage.removeItem(sessionKeys.authorisationCode);
+        try {
+            sessionStorage.setItem(sessionKeys.clientSecret, value);
+            sessionStorage.removeItem(sessionKeys.authorisationCode);
+        } catch (e) {
+            console.log("Error setting client secret in session storage: ", e);
+        }
     };
 
     const getRefreshCode = () => {
@@ -142,7 +159,11 @@ export default function CodeGenerator(): JSX.Element {
                 showToast("Refresh token obtained successfully. Copy the code and paste it into your script.", "success");
                 // reset the authorisation code as it can no longer be used 
                 setAuthorisationCode("");
-                sessionStorage.removeItem(sessionKeys.authorisationCode);
+                try {
+                    sessionStorage.removeItem(sessionKeys.authorisationCode);
+                } catch (e) {
+                    console.log("Error removing authorisation code from session storage: ", e);
+                }
                 setRefreshToken(data.refresh_token);
             });
         } else {
@@ -176,6 +197,7 @@ export default function CodeGenerator(): JSX.Element {
             <div>
                 
             </div>
+            {sessionStorageAvailable ? null : <p style={{"color": "red", "textAlign": "center"}}>Session storage is not available. The tool will not work as expected. Please try a different device.</p>}
             <div>
                 <label className={styles.googleAuthFormLabel} htmlFor="client-id">Client ID: </label>
                 <input className={styles.googleAuthFormInput}  id="client-id" type="text" placeholder="Client ID" value={clientId} onChange={handleClientIdChange} />

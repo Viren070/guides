@@ -4,22 +4,51 @@ import { sessionKeys } from ".";
 
 export default function Catcher(): JSX.Element {
     const redirectUrl = useBaseUrl('/stremio/addons/stremio-gdrive#oauth-tool');
+    const [sessionStorageAvailable, setSessionStorageAvailable] = useState<boolean>(false);
+    const [message, setMessage] = useState<string>("");
+
     React.useEffect(() => {
         const url = new URL(window.location.href);
         const code = url.searchParams.get("code");
-        if (code) {
-            sessionStorage.setItem(sessionKeys.authorisationCode, code);
-            window.location.href = redirectUrl;
-        }   
         const error = url.searchParams.get("error");
-        if (error) {
-            console.error("Google OAuth Error: ", error);
-            sessionStorage.setItem(sessionKeys.oauthError, error);
-            window.location.href = redirectUrl;
+        
+        try {
+            sessionStorage.setItem("test", "test");
+            sessionStorage.removeItem("test");
+            setSessionStorageAvailable(true);
+        } catch (e) {
+            console.error("Session storage is not available: ", e);
+            setSessionStorageAvailable(false);
         }
-    }, []);
 
-    return <></>;
+        if (code) {
+            if (sessionStorageAvailable) {
+                setMessage("You should be redirected to the OAuth Tool page.");
+                sessionStorage.setItem(sessionKeys.authorisationCode, code);
+                window.location.href = redirectUrl;
+            } else {
+                setMessage(`Please go to the OAuth Tool page and paste the code: ${code}`);
+            }
+        }
+
+        if (error) {
+            if (sessionStorageAvailable) {
+                setMessage("You should be redirected to the OAuth Tool page.");
+                console.error("Google OAuth Error: ", error);
+                sessionStorage.setItem(sessionKeys.oauthError, error);
+                window.location.href = redirectUrl;
+            } else {
+                setMessage(`Google OAuth Error: ${error}`);
+            }
+        }
+
+    }, [redirectUrl, sessionStorageAvailable]);
+
+    return (
+        <div>
+            {message}
+        </div>
+    )
 }
 
 export function CallBackUrl(): JSX.Element {
