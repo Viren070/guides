@@ -1,12 +1,12 @@
 import { ToastContainer, toast, Slide } from 'react-toastify';
-import styles from './styles.module.css';
+import './styles.css';
 
 // Singleton showToast function
 export const showToast = (message: string, type: 'info' | 'error' | 'success', toastId?: string) => {
   toast(message, {
     type: type,
     toastId: toastId,
-    className: styles.customToast,
+    className: `wideToast`,
   });
 };
 
@@ -23,7 +23,7 @@ export function MyToastContainer(): JSX.Element {
       limit={10}
       theme="colored"
       transition={Slide}
-      className={styles.customContainer}
+      className="wideToastContainer"
       closeButton={false}
     />
   );

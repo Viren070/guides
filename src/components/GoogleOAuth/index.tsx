@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import CodeBlock from "@theme/CodeBlock";
-import { showToast } from "../Toasts";
-import './styles.css';
+import { showToast } from "@site/src/components/Toasts";
+import styles from "./styles.module.css";
 import useBaseUrl from "@docusaurus/useBaseUrl";
 
 const scopes = ['https://www.googleapis.com/auth/drive'];
@@ -14,8 +14,7 @@ export const sessionKeys = {
     authorisationCode: "Viren070Guides_OAuthTool_authorisationCode",
     oauthError: "Viren070Guides_OAuthTool_oauthError"
 };
-// https://accounts.google.com/o/oauth2/v2/auth?client_id=113852005442-335efquhgv3q9qa6kv1rg50j27ema3l4.apps.googleusercontent.com&redirect_uri=http%3A%2F%2Flocalhost%3A3000%2Fstremio%2Faddons%2Fstremio-gdrive%2Fcallback&response_type=code&scope=https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fdrive&prompt=consent
-// Function to obtain the refresh token
+
 const openAuthorisationUrl = (clientId: string, redirectUrl: string) => {
 
     if (clientId.length === 0) {
@@ -173,29 +172,29 @@ export default function CodeGenerator(): JSX.Element {
 
     return (
         
-        <div className="google-auth-form-container">
+        <div className={styles.googleAuthFormContainer} >
             <div>
                 
             </div>
             <div>
-                <label className="google-auth-form-label" htmlFor="client-id">Client ID: </label>
-                <input className="google-auth-form-input" id="client-id" type="text" placeholder="Client ID" value={clientId} onChange={handleClientIdChange} />
+                <label className={styles.googleAuthFormLabel} htmlFor="client-id">Client ID: </label>
+                <input className={styles.googleAuthFormInput}  id="client-id" type="text" placeholder="Client ID" value={clientId} onChange={handleClientIdChange} />
             </div>
             <div>
-                <label className="google-auth-form-label" htmlFor="client-secret">Client Secret: </label>
-                <input className="google-auth-form-input" type="text" placeholder="Client Secret" value={clientSecret} onChange={handleClientSecretChange} />
-            </div>
-            <div>
-
-                <button className="default-themed-button google-auth-form-button" onClick={() => openAuthorisationUrl(clientId, redirectUrl)}>Get Authorisation Code</button>
+                <label className={styles.googleAuthFormLabel} htmlFor="client-secret">Client Secret: </label>
+                <input className={styles.googleAuthFormInput} type="text" placeholder="Client Secret" value={clientSecret} onChange={handleClientSecretChange} />
             </div>
             <div>
 
-                <label className="google-auth-form-label" htmlFor="authorisation-code">Authorisation Code: </label>
-                <input className="google-auth-form-input" type="text" placeholder="Authorisation Code" value={authorisationCode} onChange={(e) => setAuthorisationCode(e.target.value)} />
+                <button className={`${styles.googleAuthFormButton} default-themed-button`} onClick={() => openAuthorisationUrl(clientId, redirectUrl)}>Get Authorisation Code</button>
             </div>
             <div>
-                <button className="google-auth-form-button default-themed-button" onClick={getRefreshCode}>Get Credentials</button>
+
+                <label className={styles.googleAuthFormLabel} htmlFor="authorisation-code">Authorisation Code: </label>
+                <input className={styles.googleAuthFormInput} type="text" placeholder="Authorisation Code" value={authorisationCode} onChange={(e) => setAuthorisationCode(e.target.value)} />
+            </div>
+            <div>
+                <button className={`${styles.googleAuthFormButton} default-themed-button`} onClick={getRefreshCode}>Get Credentials</button>
             </div>
             <div>
                 {refreshToken.length > 0 && getCodeBlock()}

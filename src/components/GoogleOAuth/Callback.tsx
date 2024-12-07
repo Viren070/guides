@@ -1,11 +1,6 @@
-// this component is used to catch responses from google OAuth. Upon load, we check if the 
-// Url contains the code parameter. if it does we extract the code, and open 
-// the /stremio/addons/stremio-gdrive/ page with the code as a query parameter.
-
 import React, {useState} from "react";
 import useBaseUrl from "@docusaurus/useBaseUrl";
 import { sessionKeys } from ".";
-import { showToast } from "../Toasts";
 
 export default function Catcher(): JSX.Element {
     const redirectUrl = useBaseUrl('/stremio/addons/stremio-gdrive#oauth-tool');

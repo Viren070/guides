@@ -127,7 +127,7 @@
   box-shadow: none;
 }
 
-.custom-button:hover {
+.default-themed-button:hover {
   transform: scale(1.05);
   box-shadow: var(--button-hover-box-shadow);
   color: white;
