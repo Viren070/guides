@@ -45,6 +45,7 @@ export default function CodeGenerator(): JSX.Element {
     const [authorisationCode, setAuthorisationCode] = useState<string>("");
     const [refreshToken, setRefreshToken] = useState<string>("");
     const [redirectUrl, setRedirectUrl] = useState<string>("");
+    const [sessionStorageAvailable, setSessionStorageAvailable] = useState<boolean>(false);
    
     const callbackPath = useBaseUrl('/stremio/addons/stremio-gdrive/callback');
     React.useEffect(() => {
@@ -52,6 +53,19 @@ export default function CodeGenerator(): JSX.Element {
         setRedirectUrl(window.location.origin + callbackPath);
         console.log("Redirect URL: ", redirectUrl);
         // load the stored values from session storage if they exist
+
+        try {
+            sessionStorage.setItem("test", "test");
+            sessionStorage.removeItem("test");
+            setSessionStorageAvailable(true);
+        } catch (e) {
+            console.error("Session storage is not available: ", e);
+            setSessionStorageAvailable(false);
+        }
+
+        if (!sessionStorageAvailable) {
+            return;
+        }
 
         const storedClientId = sessionStorage.getItem(sessionKeys.clientId);
         const storedClientSecret = sessionStorage.getItem(sessionKeys.clientSecret);
@@ -72,24 +86,32 @@ export default function CodeGenerator(): JSX.Element {
             sessionStorage.removeItem(sessionKeys.authorisationCode);
             showToast("Authorisation code obtained successfully. Click `Get Credentials` to complete the process", "success");
         }              
-    }, []);
+    }, [sessionStorageAvailable, redirectUrl, callbackPath]);
 
     const handleClientIdChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         const value = e.target.value;
         setClientId(value);
-        sessionStorage.setItem(sessionKeys.clientId, value);
         // reset the authorisation code since its no longer valid with different client id
         setAuthorisationCode("");
-        sessionStorage.removeItem(sessionKeys.authorisationCode);
+        try {
+            sessionStorage.setItem(sessionKeys.clientId, value);
+            sessionStorage.removeItem(sessionKeys.authorisationCode);
+        } catch (e) {
+            console.error("Error accessing session storage: ", e);
+        }
     };
 
     const handleClientSecretChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         const value = e.target.value;
         setClientSecret(value);
-        sessionStorage.setItem(sessionKeys.clientSecret, value);
         // reset the authorisation code since its no longer valid with different client secret
         setAuthorisationCode("");
-        sessionStorage.removeItem(sessionKeys.authorisationCode);
+        try {
+            sessionStorage.setItem(sessionKeys.clientSecret, value);
+            sessionStorage.removeItem(sessionKeys.authorisationCode);
+        } catch (e) {
+            console.error("Error accessing session storage: ", e);
+        }
     };
 
     const getRefreshCode = () => {
@@ -142,8 +164,12 @@ export default function CodeGenerator(): JSX.Element {
                 showToast("Refresh token obtained successfully. Copy the code and paste it into your script.", "success");
                 // reset the authorisation code as it can no longer be used 
                 setAuthorisationCode("");
-                sessionStorage.removeItem(sessionKeys.authorisationCode);
                 setRefreshToken(data.refresh_token);
+                try {
+                    sessionStorage.removeItem(sessionKeys.authorisationCode);
+                } catch (e) {
+                    console.error("Error accessing session storage: ", e);
+                }
             });
         } else {
             let text = res.text();
