@@ -5,24 +5,26 @@ import { sessionKeys } from ".";
 export default function Catcher(): JSX.Element {
     const redirectUrl = useBaseUrl('/stremio/addons/stremio-gdrive#oauth-tool');
     const [message, setMessage] = useState<string>("");
-    const [sessionStorageAvailable, setSessionStorageAvailable] = useState<boolean>(true);
 
     React.useEffect(() => {
         const url = new URL(window.location.href);
         const code = url.searchParams.get("code");
         const error = url.searchParams.get("error");
 
+        let sessionStorageCheck = true;
         try {
             sessionStorage.setItem("test", "test");
             sessionStorage.removeItem("test");
-            setSessionStorageAvailable(true);
+            console.log("Session storage is available");
+            sessionStorageCheck = true;
         } catch (e) {
             console.error("Session storage is not available: ", e);
-            setSessionStorageAvailable(false);
+            sessionStorage
+            sessionStorageCheck = false;
         }
 
         if (code) {
-            if (sessionStorageAvailable) {
+            if (sessionStorageCheck) {
                 sessionStorage.setItem(sessionKeys.authorisationCode, code);
                 window.location.href = redirectUrl;
             } else {
@@ -38,7 +40,7 @@ export default function Catcher(): JSX.Element {
         }
         if (error) {
             console.error("Google OAuth Error: ", error);
-            if (sessionStorageAvailable) {
+            if (sessionStorageCheck) {
                 sessionStorage.setItem(sessionKeys.oauthError, error);
                 window.location.href = redirectUrl;
             } else {
@@ -51,7 +53,7 @@ export default function Catcher(): JSX.Element {
                 setMessage(`The OAuth flow could not be completed due to an error: ${error}`);
             }
         }
-    }, [sessionStorageAvailable, redirectUrl]);
+    }, [redirectUrl]);
 
     return (
         <div>

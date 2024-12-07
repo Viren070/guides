@@ -61,6 +61,7 @@ export default function CodeGenerator(): JSX.Element {
         } catch (e) {
             console.error("Session storage is not available: ", e);
             setSessionStorageAvailable(false);
+            return;
         }
 
         if (!sessionStorageAvailable) {
