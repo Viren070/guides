@@ -200,7 +200,7 @@ export default function CodeGenerator(): JSX.Element {
         
         <div className={styles.googleAuthFormContainer} >
             <div>
-                
+                {sessionStorageAvailable ? null : <p style={{"color": "red", "textAlign": "center"}}>Session storage is not available. The tool will not work as expected. Please try a different device.</p>}
             </div>
             <div>
                 <label className={styles.googleAuthFormLabel} htmlFor="client-id">Client ID: </label>
