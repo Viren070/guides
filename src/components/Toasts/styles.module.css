@@ -20,7 +20,7 @@
 }
 
 
-.customContainer {
+.wideToastContainer {
   width: auto; /* Ensure the width is auto to respect max-width */
   padding: 10px; /* Add padding to ensure space on all sides */
   left: 5vw; /* Add space on the left */
@@ -29,14 +29,14 @@
   transform: none; /* Remove transform */
   border-radius: var(--ifm-global-radius); /* Ensure the border-radius is respected */
 }
-.customToast {
+.wideToast {
   border-radius: var(--ifm-global-radius); /* Ensure the border-radius is respected */
   justify-content: center; /* Center content horizontally */
   box-shadow: var(--box-shadow); /* Use CSS variable */
 }
 
 @media only screen and (max-width : 480px) {
-  .customContainer {
+  .wideToastContainer {
     width: auto; /* Ensure the width is auto to respect max-width */
     padding: 10px; /* Add padding to ensure space on all sides */
     left: 5vw; /* Add space on the left */
@@ -45,7 +45,7 @@
     transform: none; /* Remove transform */
     border-radius: var(--ifm-global-radius); /* Ensure the border-radius is respected */
   }
-  .customToast {
+  .wideToast {
     border-radius: var(--ifm-global-radius); /* Ensure the border-radius is respected */
     justify-content: center; /* Center content horizontally */
 

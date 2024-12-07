@@ -6,11 +6,11 @@ export const showToast = (message: string, type: 'info' | 'error' | 'success', t
   toast(message, {
     type: type,
     toastId: toastId,
-    className: styles.customToast,
+    className: styles.wideToast,
   });
 };
 
-export function MyToastContainer(): JSX.Element {
+export function WideToastContainer(): JSX.Element {
   return (
     <ToastContainer
       stacked
@@ -20,10 +20,9 @@ export function MyToastContainer(): JSX.Element {
       draggablePercent={60}
       draggableDirection='y'
       draggable="touch"
-      limit={10}
       theme="colored"
       transition={Slide}
-      className={styles.customContainer}
+      className={styles.wideToastContainer}
       closeButton={false}
     />
   );

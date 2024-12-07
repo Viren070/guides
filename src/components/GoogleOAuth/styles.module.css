@@ -1,0 +1,50 @@
+
+.googleAuthFormContainer {
+    max-width: 600px;
+    margin: 0 auto;
+    outline: 1px solid var(--ifm-color-primary);
+    padding: 15px;
+    border-radius: var(--ifm-global-radius);
+}
+
+.googleAuthFormContainer > * {
+    margin-top: 10px;
+}
+
+.googleAuthFormLabel {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+    margin-left: 10px;
+}
+
+.googleAuthFormInput {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid var(--ifm-color-primary);
+    box-sizing: border-box;
+}
+
+.googleAuthFormInput:focus {
+    outline: none;
+    border-color: var(--ifm-color-primary-darkest);
+    box-shadow: 0 0 5px var(--ifm-color-primary-darkest);
+}
+
+
+.googleAuthFormButton {
+    width: 100%;
+    size: 16px;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.googleAuthFormButton:hover {
+    transform: scale(1.025);
+    box-shadow: 0 0 5px var(--ifm-color-primary-darkest);
+    border-color: 0 0 5px var(--ifm-color-primary-darkest);
+    outline: none;
+}
+
+

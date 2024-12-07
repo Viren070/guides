@@ -102,3 +102,35 @@
 .hidden-tabs {
   display: none;
 }
+
+
+.default-themed-button {
+  background: var(--ifm-color-primary);
+  color: white;
+  border: none;
+  padding: 15px;
+  cursor: pointer;
+  border-radius: var(--ifm-global-radius);
+  margin: 0 auto;
+  box-shadow: var(--button-box-shadow);
+  transition: transform 0.2s, box-shadow 0.2s, background 0.2s;
+}
+
+.default-themed-button:disabled {
+  background: #ccc;
+  cursor: not-allowed;
+  box-shadow: none;
+}
+
+.default-themed-button:disabled:hover {
+  transform: none;
+  box-shadow: none;
+}
+
+.default-themed-button:hover {
+  transform: scale(1.05);
+  box-shadow: var(--button-hover-box-shadow);
+  color: white;
+}
+
+
