@@ -45,7 +45,7 @@ export default function CodeGenerator(): JSX.Element {
     const [authorisationCode, setAuthorisationCode] = useState<string>("");
     const [refreshToken, setRefreshToken] = useState<string>("");
     const [redirectUrl, setRedirectUrl] = useState<string>("");
-    const [sessionStorageAvailable, setSessionStorageAvailable] = useState<boolean>(false);
+    const [sessionStorageAvailable, setSessionStorageAvailable] = useState<boolean>(true);
    
     const callbackPath = useBaseUrl('/stremio/addons/stremio-gdrive/callback');
     React.useEffect(() => {
