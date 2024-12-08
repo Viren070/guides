@@ -9,6 +9,7 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import Details from '@theme/Details';
 import {CallBackUrl} from '@site/src/components/GoogleOAuth/Callback';
+import Link from '@docusaurus/Link';
 
 ```mdx-code-block
 import StremioAddonButtons from '@site/src/components/StremioAddonButtons';
@@ -158,20 +159,11 @@ I will go through the steps to set up this addon through a Cloudflare Worker.
 
     ![Cloudflare Workers](/img/stremio/gdrive/cloudflare_worker_editor.png)
 
-7. Now, we will paste the Cloudflare Worker script from the [Stremio GDrive GitHub](https://github.com/Viren070/stremio-gdrive) into the editor. 
-
-    1. Go to the [worker.js file](https://github.com/Viren070/stremio-gdrive-addon/blob/main/worker.js)
-    2. Click the Copy icon 
-    3. Go back to the Cloudflare Worker editor and paste the script in the editor.
-
-
-
-
-8. Now, we need to add our Google OAuth credentials to the script.
-
-    To do this, we need to go back to the Google Cloud Console and get our `Client ID` and `Client Secret`.
+7. Now, we need to obtain the code for the addon that we will use specific to our Google Drive. 
+    First, we need to obtain our `Client ID` and `Client Secret` from the Google Cloud Console.
 
     1. Go to the [Google Cloud Console](https://console.cloud.google.com/).
+
     2. In the search bar at the top, search for `Google Auth Platform` and click on the result:
 
         ![Google OAuth Platform](/img/stremio/gdrive/google_cloud_oauth_search_results.png)
@@ -180,40 +172,43 @@ I will go through the steps to set up this addon through a Cloudflare Worker.
 
         ![Google OAuth Platform](/img/stremio/gdrive/google_auth_platform_clients_download.png)
 
-    4. A pop-up will appear with your `Client ID` and `Client Secret`. Copy these values into the inputs below at the [OAuth Tool](#oauth-tool).
+    4. A pop-up will appear with your `Client ID` and `Client Secret`. 
 
         ![Google OAuth Platform](/img/stremio/gdrive/google_auth_platform_clients_download_menu.png)
 
-    5. Click the `Get Authorisation Code` button below to get the Authorisation code. 
+    5. You can click the copy icons to copy the `Client ID` and `Client Secret` to your clipboard for the next step.
+
+8. Now, we can get the code for the Cloudflare Worker.
+
+    1. Go to the <Link to="/oauth/google" target="_blank" >OAuth Tool</Link>
+
+    2. Fill in the form with the `Client ID` and `Client Secret` from the previous step.
+
+    3. Click `Authorise`
+
+    4. Sign in with your Google account and allow the app to access your Google Drive.
     :::tip
-    You will be redirected to a Google OAuth page where you will need to sign in and allow the app to access your Google Drive.
-    You may encounter a warning page, click on `Advanced` and then `Go to... (unsafe)`.
+    You may encounter a warning page saying `Google hasn't verified this app`, click on `Advanced` and then `Go to... (unsafe)`.
+
+    This warning is because the app is not verified by Google. This is normal for self-hosted apps.
     :::
 
-    6. Once you have allowed the app, you will be redirected back to this page with the Authorisation code filled in. 
-        Click the `Get Credentials` button to get the credentials.
+    5. You will be redirected back to the OAuth Tool with a success message. Click `Get Addon Code`.
 
-    7. You will be shown a success message and a block of code will appear. Copy this code into the Cloudflare Worker script. 
+    6. You should be shown another success message. Then, make sure you're on the `Viren070` tab and you should see a block of code. Copy this code.
+    
+    7. Go back to the Cloudflare Worker editor and paste the code into the editor.
 
-    8. Once you have added your credentials, your script should look something like this:
+    8. Your code should look something like this:
 
-    ![Cloudflare Workers](/img/stremio/gdrive/cloudflare_finished_worker_script.png)
+        ![Cloudflare Workers](/img/stremio/gdrive/cloudflare_finished_worker_script.png)
 
 9. Click `Deploy` in the top right to save your changes and deploy the worker.
 
 11. Once deployed, you should see a green success message at the bottom. Click `Visit` next to the deploy button to go to the addon URL.
 
-12. You should be redirected to the /manifest.json. if not, append `/manifest.json` to the URL. 
+12. You should be redirected to the /manifest.json. if not, append `/manifest.json` to the URL in the address bar. 
 
 13. Copy the URL and [add it to Stremio](/stremio/faq#how-do-i-install-an-addon-manually).  
 
-
-
-
-### OAuth Tool
-
-import GoogleOAuth from '@site/src/components/GoogleOAuth';
-
-<GoogleOAuth />
-
-
+Done! You have now set up your own addon which will allow you to stream videos from your drives and team drives.
