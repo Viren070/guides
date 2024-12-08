@@ -2,6 +2,8 @@ import 'react-toastify/dist/ReactToastify.css';
 import styles from './styles.module.css';
 import { showToast } from '@site/src/components/Toasts';
 import Translate, { translate } from '@docusaurus/Translate';
+import useBaseUrl from '@docusaurus/useBaseUrl';
+import { useEffect, useState } from 'react';
 
 interface StremioAddonButtonsProps {
   source: string;
@@ -80,14 +82,18 @@ const SourceCodeButton = ({ source }: { source: string }) => {
   );
 };
 
-const ShareGuideButton = ({ id }: { id: string }) => {
+function ShareGuideButton({ id }: { id: string }): JSX.Element {
   const addonName = id.replace('-', ' ').replace(/\b\w/g, char => char.toUpperCase());
-  
+  const [addonUrl, setAddonUrl] = useState<string>('');
+
+  const guidePath = useBaseUrl(`/stremio/addons/${id}`);
+
+  useEffect(() => {
+    setAddonUrl(window.location.origin + guidePath);
+  });
+
   const handleShare = () => { 
-    let guideLink = `${window.location.origin}/stremio/addons/${id}`;
-    if (window.location.pathname.startsWith('/es')) {
-      guideLink = `${window.location.origin}/es/stremio/addons/${id}`;
-    }
+    const guideLink = addonUrl;
     const shareData = { title: `${addonName} Guide for Stremio`, text: `Check out this guide to the Stremio addon, ${addonName}`, url: guideLink };
     navigator.share(shareData).then(() => {
       showToast(translate({
