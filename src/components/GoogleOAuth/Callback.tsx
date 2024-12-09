@@ -126,6 +126,18 @@ function parseError(error: string): string {
     return error;
 }
 
+export function getCallbackUrl(): string {
+    const callbackPath = useBaseUrl(oauthCallbackPath);
+    
+    const [callbackUrl, setCallbackUrl] = useState<string>("");
+
+    React.useEffect(() => {
+        setCallbackUrl(window.location.origin + callbackPath);
+    }, []);
+
+    return callbackUrl;
+}
+
 export function CallBackUrl(): JSX.Element {
     const callbackPath = useBaseUrl(oauthCallbackPath);
     const [redirectUrl, setRedirectUrl] = useState<string>("");

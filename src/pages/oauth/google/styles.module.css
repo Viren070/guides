@@ -1,17 +1,32 @@
 .googleAuthPageContainer {
-    align-self: center;
     display: flex;
-    flex-direction: column; 
+    flex-direction: column;
     align-items: center;
+    justify-content: center;
     width: 100%;
     max-width: 1200px;
-    margin-top: 20px;
-    gap: 10px;  
-
+    margin: 20px auto;
+    padding: 0 20px;
+    box-sizing: border-box;
 }
 
+.googleAuthFAQContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.googleAuthFAQCodeBlockContainer {
+    max-width: 100%;
+}
 @media (max-width: 768px) {
-    .googleAuthPageContainer {
-        width: 90%;
+    .googleAuthFAQContainer {
+        width: 100%;
+        padding: 15px;
+        word-break: break-word; /* Ensure text can break at any point */
     }
 }

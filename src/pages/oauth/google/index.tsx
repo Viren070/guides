@@ -1,7 +1,7 @@
 import GDriveOAuthTool from "@site/src/components/GoogleOAuth";
 import Layout from "@theme/Layout";
 import styles from "./styles.module.css";
-import { CallBackUrl } from "@site/src/components/GoogleOAuth/Callback";
+import { getCallbackUrl } from "@site/src/components/GoogleOAuth/Callback";
 import Link from "@docusaurus/Link";
 import CodeBlock from "@theme/CodeBlock";
 import Translate from "@docusaurus/Translate";
@@ -14,7 +14,7 @@ export default function GDriveOAuth(): JSX.Element {
         >
             <div className={styles.googleAuthPageContainer}>
                 <GDriveOAuthTool />
-                <div style={{ padding: "20px", marginTop: "20px" }}>
+                <div className={styles.googleAuthFAQContainer}>
                     <h2>
                         <Translate
                             id="oauthTool.faq.title"
@@ -56,24 +56,40 @@ export default function GDriveOAuth(): JSX.Element {
                             description="FAQ answer: How do I use this tool?"
                             values={{
                                 code: <code>Web application</code>,
-                                callbackUrl: (
-                                    <><br/><br/>
-                                    <CodeBlock>
-                                        <CallBackUrl />
-                                    </CodeBlock>
-                                    </>
-                                ),
-                                link: (
-                                    <Link to="/stremio/addons/stremio-gdrive">
-                                        here
-                                    </Link>
-                                ),
                             }}
                         >
-                            {`A prerequisite for using this tool is that your OAuth client must be of the {code} type. You must also add the following URL to the list of authorised redirect URIs in the Google Cloud Console: {callbackUrl}  You can find a more detailed guide on using this tool to setup a Stremio Google Drive addon {link}.`}
-                        </Translate>
+                            {`A prerequisite for using this tool is that your OAuth client must be of the {code} type. You must also add the following URL to the list of authorised redirect URIs in the Google Cloud Console`}
+                        </Translate>:
                     </p>
-
+                    
+                    <div className={styles.googleAuthFAQCodeBlockContainer}>
+                        <CodeBlock language="javascript">
+                            {`${getCallbackUrl()}`}
+                        </CodeBlock>
+                    </div>
+                    
+                    <p>
+                    <Translate
+                        id="oauthTool.faq.howToUse.answer.continued"
+                        description="The continuation of the answer to the question: How do I use this tool?"
+                        values={{
+                            here: (
+                                <Link to="/stremio/addons/stremio-gdrive">
+                                    <Translate
+                                        id="oauthTool.faq.howToUse.answer.continued.linkTohere"
+                                        description="Link to the Stremio GDrive addon guide"
+                                    >
+                                        here
+                                    </Translate>
+                                </Link>
+                            )
+                        }}
+                        >
+                   
+                        {`You can find a more detailed guide on using this tool to setup a Stremio Google Drive addon {here}.`}
+                       
+                    </Translate>     
+                    </p>    
                     <h3>
                         <Translate
                             id="oauthTool.faq.howDoesItWork"
