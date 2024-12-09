@@ -299,7 +299,7 @@ export default function CodeGenerator(): JSX.Element {
                 setShuvamJaswalCFCode,
                 "async function handleRequest"
             );
-            fetchAddonCode(viren070GDrive, setViren070CFCode, "const CREDENTIALS");
+            fetchAddonCode(viren070GDrive, setViren070CFCode, "const CONFIG");
         } catch (e) {
             console.error("Error fetching the addon code: ", e);
         }
@@ -373,12 +373,6 @@ export default function CodeGenerator(): JSX.Element {
     };
 
     const getCodeBlock = () => {
-        const cfCredentials = {
-            client_id: clientId,
-            client_secret: clientSecret,
-            refresh_token: refreshToken,
-        };
-
         return (
             <div style={{ alignItems: "center" }}>
                 <Tabs className="custom-tabs">
@@ -413,8 +407,12 @@ export default function CodeGenerator(): JSX.Element {
                         <br />
                         <br />
                         <CodeBlock language="javascript">
-                            {`var credentials = ${JSON.stringify(
-                                cfCredentials,
+                            {`const CREDENTIALS = ${JSON.stringify(
+                                {
+                                    clientId: clientId,
+                                    clientSecret: clientSecret,
+                                    refreshToken: refreshToken,
+                                },
                                 null,
                                 4
                             )};\n\n${Viren070CFCode}`}
@@ -471,7 +469,11 @@ export default function CodeGenerator(): JSX.Element {
                         <br />
                         <CodeBlock language="javascript">
                             {`var credentials = ${JSON.stringify(
-                                cfCredentials,
+                                {
+                                    client_id: clientId,
+                                    client_secret: clientSecret,
+                                    refresh_token: refreshToken,
+                                },
                                 null,
                                 4
                             )}\n\n${ShuvamJaswalCFCode}`}
