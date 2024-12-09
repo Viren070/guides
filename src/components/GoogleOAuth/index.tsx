@@ -295,7 +295,7 @@ export default function CodeGenerator(): JSX.Element {
                 setShuvamJaswalCFCode,
                 "async function handleRequest"
             );
-            fetchAddonCode(viren070GDrive, setViren070CFCode, "// ================== CONFIG ==================");
+            fetchAddonCode(viren070GDrive, setViren070CFCode, "const CREDENTIALS");
         } catch (e) {
             console.error("Error fetching the addon code: ", e);
         }
