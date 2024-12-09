@@ -126,8 +126,8 @@ export default function GDriveOAuth(): JSX.Element {
                             Everything is run on your device, and no data is
                             sent anywhere.
                         </Translate>
-                        <br />
-                        <br />
+                    </p>
+                    <p>
                         <Translate
                             id="oauthTool.faq.isThisSafe.answer2"
                             description="FAQ answer: Is this safe? Part 2"
@@ -139,8 +139,9 @@ export default function GDriveOAuth(): JSX.Element {
                             transfer it from the callback URL back to the tool
                             to automatically fill it in for you.
                         </Translate>
-                        <br />
-                        <br />
+
+                    </p>
+                    <p>
                         <Translate
                             id="oauthTool.faq.isThisSafe.answer3"
                             description="FAQ answer: Is this safe? Part 3"
@@ -148,8 +149,8 @@ export default function GDriveOAuth(): JSX.Element {
                             As long as your device isn't already compromised,
                             this tool is safe to use.
                         </Translate>
-                        <br />
-                        <br />
+                    </p>
+                    <p>
                         <Translate
                             id="oauthTool.faq.isThisSafe.answer4"
                             description="FAQ answer: Is this safe? Part 4"
