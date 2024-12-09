@@ -192,8 +192,10 @@ export default function CodeGenerator(): JSX.Element {
     const handleClientIdChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         const value = e.target.value;
         setClientId(value);
-        // reset the authorisation code since its no longer valid with different client id
+        // reset the authorisation code, refresh token and access token since they are no longer valid if the client ID changes
         setAuthorisationCode("");
+        setRefreshToken("");
+        setAccessToken("");
         try {
             sessionStorage.setItem(sessionKeys.clientId, value);
             sessionStorage.removeItem(sessionKeys.authorisationCode);
@@ -207,8 +209,10 @@ export default function CodeGenerator(): JSX.Element {
     ) => {
         const value = e.target.value;
         setClientSecret(value);
-        // reset the authorisation code since its no longer valid with different client secret
+        // reset the authorisation code, refresh token and access token since they are no longer valid if the client secret changes
         setAuthorisationCode("");
+        setRefreshToken("");
+        setAccessToken("");
         try {
             sessionStorage.setItem(sessionKeys.clientSecret, value);
             sessionStorage.removeItem(sessionKeys.authorisationCode);
