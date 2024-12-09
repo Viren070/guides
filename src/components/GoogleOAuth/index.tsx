@@ -237,6 +237,7 @@ export default function CodeGenerator(): JSX.Element {
                 ),
                 "error"
             );
+            return;
         }
 
         if (!clientSecret || clientSecret.length === 0) {
@@ -258,6 +259,7 @@ export default function CodeGenerator(): JSX.Element {
                 ),
                 "error"
             );
+            return;
         }
 
         if (!authorisationCode || authorisationCode.length === 0) {
@@ -279,6 +281,7 @@ export default function CodeGenerator(): JSX.Element {
                 ),
                 "error"
             );
+            return;
         }
 
         try {
