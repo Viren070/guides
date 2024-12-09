@@ -3,6 +3,7 @@ import Layout from "@theme/Layout";
 import styles from "./styles.module.css";
 import { CallBackUrl } from "@site/src/components/GoogleOAuth/Callback";
 import Link from "@docusaurus/Link";
+import CodeBlock from "@theme/CodeBlock";
 import Translate from "@docusaurus/Translate";
 
 export default function GDriveOAuth(): JSX.Element {
@@ -56,9 +57,11 @@ export default function GDriveOAuth(): JSX.Element {
                             values={{
                                 code: <code>Web application</code>,
                                 callbackUrl: (
-                                    <code>
+                                    <><br/><br/>
+                                    <CodeBlock>
                                         <CallBackUrl />
-                                    </code>
+                                    </CodeBlock>
+                                    </>
                                 ),
                                 link: (
                                     <Link to="/stremio/addons/stremio-gdrive">
@@ -67,7 +70,7 @@ export default function GDriveOAuth(): JSX.Element {
                                 ),
                             }}
                         >
-                            {`A prerequisite for using this tool is that your OAuth client must be of the {code} type. You must also add {callbackUrl} to the list of authorised redirect URIs in the Google Cloud Console. You can find a more detailed guide on using this tool to setup a Stremio Google Drive addon {link}.`}
+                            {`A prerequisite for using this tool is that your OAuth client must be of the {code} type. You must also add the following URL to the list of authorised redirect URIs in the Google Cloud Console: {callbackUrl}  You can find a more detailed guide on using this tool to setup a Stremio Google Drive addon {link}.`}
                         </Translate>
                     </p>
 
