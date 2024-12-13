@@ -47,14 +47,6 @@
   100% { transform: rotate(0deg); }
 }
 
-
-.header-github-link,
-.header-kofi-link {
-  display: inline-block;
-  position: relative;
-  transition: transform 0.2s ease, background-color 0.3s ease;
-}
-
 .header-github-link::before,
 .header-kofi-link::before {
   content: '';
@@ -62,7 +54,7 @@
   height: 24px;
   display: flex;
   background-color: var(--ifm-navbar-link-color);
-  transition: background-color var(--ifm-transition-fast) var(--ifm-transition-timing-default);
+  transition: background-color 0.4s ease, opacity 0.9s;
 }
 
 .header-github-link::before {
@@ -78,12 +70,13 @@
 .header-github-link:hover::before,
 .header-kofi-link:hover::before {
   background-color: var(--ifm-navbar-link-hover-color);
-  animation: subtleRotate 0.4s ease-in-out;
+  animation: subtleRotate 0.5s ease-in-out;
   animation-iteration-count: 1;
 }
 
 .header-github-link:active,
 .header-kofi-link:active {
+  transition: transform 0.2s;
   transform: scale(0.85);
 }
 
