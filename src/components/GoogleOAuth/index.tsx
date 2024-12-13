@@ -292,7 +292,7 @@ export default function CodeGenerator(): JSX.Element {
             const shuvamGDriveCode =
                 "https://raw.githubusercontent.com/ssnjrthegr8/stremio-gdrive/main/cf_proxy.js";
             const viren070GDrive =
-                "https://raw.githubusercontent.com/Viren070/stremio-gdrive-addon/main/worker.js";
+                "https://raw.githubusercontent.com/Viren070/stremio-gdrive-addon/main/src/index.js";
 
             fetchAddonCode(
                 shuvamGDriveCode,
