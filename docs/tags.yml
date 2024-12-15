@@ -1,5 +1,8 @@
 stremio-addon:
   label: Stremio Addon
+stremio-addon:official:
+  label: Official
+  description: Addons that are officially maintained by Stremio.
 stremio-addon:usenet-streams:
   label: Usenet Streams
   description: Addons that provide Usenet links for Stremio.
