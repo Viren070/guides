@@ -264,16 +264,16 @@ However, due to Real-Debrid's massive cache, it is likely that you will find a c
 
 <h3> Is it recommended to continue using these debrid services? </h3>
 
-While you will still be able to use these debrid services with the addons that implement any sort of workaround, 
-it is recommended that you use another debrid service or Easynews if you aren't using one of the affected debrid services already.
+The only downside you see as a user, is sometimes streams that show up as cached may not actually be cached and 
+streams that show up as uncached may actually be cached.
 
-This is because it is inconvenient to have to pick streams at random not knowing if they are cached or not.
 In the case they are not cached, you will have to wait for the torrent to download before you can watch it.
-Of course, you could just keep trying different streams until you find one that is cached, but this is not ideal.
+Of course, you could just keep trying different streams until you find one that is cached. 
 
-And again, not all addons have implemented this workaround.
-
-In addition to the lack of addon support, these debrid services may also implement more restrictions in the future. 
+However, as Real Debrid has an extremely large cache, it is likely that the streams you select will be cached. 
+Therefore, it is fine to continue using Real Debrid. 
+As for other services, it is up to you to decide if the inconvenience is worth the benefits of the service.
+Especially when the cache of the other two services is not as large as Real Debrid's.
 
 <h3> Additional Restrictions </h3>
 
@@ -372,12 +372,13 @@ While a debrid service is unlikely to be the bottleneck in your streaming experi
 This is important as the more users a debrid service has, the more cached torrents it will have.
 Cached torrents are what you rely on when streaming content through Stremio.
 
-A larger userbase means more cached torrents, with Real Debrid, Premiumize, and AllDebrid leading.
+A larger userbase means more cached torrents, with Real Debrid leading, and followed by Premiumize.
 However, the other debrid services will still have a lot of popular torrents cached.
 
 In this regard, Torbox is lacking.
-Being a relatively new service (founded in 2023), it has a smaller userbase and has had less time to build up its cache of torrents. 
-This means you may not find the content you want to watch cached on Torbox.
+As a new service, it has a smaller cache, and has also been unstable for some. Therefore, I highly recommend you test Torbox on its free plan 
+to see if it has the content you want to watch and if it works well for you.
+
 However, with the recent events surrounding Real Debrid, AllDebrid and Debrid-Link, more and more people are moving to Torbox.
 This could mean that Torbox will end up having a lot of cached torrents in the future.
 
@@ -427,6 +428,13 @@ As I said before, there are some exceptions. I will now go through them.
 
 After considering everything, you should have a good idea of which debrid service you want to use.
 
+The most stable and reliable debrid services that I would recommend is Premiumize. While it is more expensive, it has one of the largest caches after Real Debrid
+and has had little issues compared to Torbox.
+
+If you are only looking to use your debrid service for Stremio, you may want to look into [EasyDebrid](https://paradise-cloud.com/products). This is a new service that seems to be using either some or all of Premiumize's cache but is much cheaper.
+However, it does only provide torrent downloads, no hoster downloads. Addon support for EasyDebrid is comparatively limited. Currently, MediaFusion and Debridio support it, along with a private version of Comet which you must pay for. 
+I recommend you do your own research into the service and whether you are comfortable with using it. 
+
 ### Setting up a debrid service
     
 I will now cover the instructions of setting up each debrid service I previously mentioned.
@@ -447,12 +455,6 @@ import DebridLink from "./debrid/debridlink/_setup.mdx";
 <TabItem value="premiumize" label="Premiumize">
 <Premiumize/>
 </TabItem>
-<TabItem value="offcloud" label="Offcloud">
-<Offcloud/>
-</TabItem>
-<TabItem value="put.io" label="put.io">
-<Putio/>
-</TabItem>
 <TabItem value="real-debrid" label="Real Debrid"> 
 <RealDebrid/>
 </TabItem>
@@ -461,6 +463,12 @@ import DebridLink from "./debrid/debridlink/_setup.mdx";
 </TabItem>
 <TabItem value="debrid-link" label="Debrid-Link">
 <DebridLink/>
+</TabItem>
+<TabItem value="offcloud" label="Offcloud">
+<Offcloud/>
+</TabItem>
+<TabItem value="put.io" label="put.io">
+<Putio/>
 </TabItem>
 </Tabs>
 ```
