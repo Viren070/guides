@@ -1,5 +1,8 @@
 stremio-addon:
   label: Stremio Addon
+stremio-addon:viren070's-addons:
+  label: Viren070's Addons
+  description: Addons that I, the creator of this website, have created for Stremio.
 stremio-addon:official:
   label: Official
   description: Addons that are officially maintained by Stremio.
