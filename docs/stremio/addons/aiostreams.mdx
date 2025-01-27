@@ -44,9 +44,12 @@ I will now go through each option in the configuration file and explain what it 
   Most of the addons will have an `Override URL` option. This option allows you to use a different URL for the addon than the default one.
   If you set this option, the credentials from the `Services` section will not be applied to this addon.
 
-  You can also reorder the addons to determine the addon priority. 
+  To get the value for the `Override URL` option or the `Addon URL` option for custom addons, you must configure the addon
+  at its configuration page and copy the installation URL from there.
 
-- `Resolutions`, `Qualities`, `Visual Tags`, `Audio Tags`, `Encodes`
+  You can also reorder the addons to determine the addon priority.  
+
+- `Stream Types`, `Resolutions`, `Qualities`, `Visual Tags`, `Audio Tags`, `Encodes`
 
   These sections allow you to extensively control results based on specific information about the streams.
   You can enable or disable the tags you want to see, and you can also change the order of the tags.
@@ -65,6 +68,7 @@ I will now go through each option in the configuration file and explain what it 
   - `language` - This option will sort the results based on the language of the stream. This only applies if you set a `Prioritised Language` later on. The order of this sort criterion determines how much priority the language has over the other criteria.
   - `size` - This option will sort the results based on the size of the stream. 
     - Descending order will prioritise streams with larger sizes, while ascending order will prioritise streams with smaller sizes.
+  - `streamType` - This option will sort the results based on the type of the stream. The priority of each stream type is determined by its order in the `Stream Types` section. e.g., if you set `P2P` as the first stream type, it will have the highest priority.
   - `visualTag` - This option will sort the results based on the visual tags of the stream. The priority of each visual tag is determined by its order in the `Visual Tags` section. e.g., if you set `HDR` as the first visual tag, it will have the highest priority.
   - `service` - This option will sort the results based on the service of the stream. The priority of each service is determined by its order in the `Services` section. e.g., if you set `Easynews` as the first service, it will have the highest priority.
     This can be used to sort services from each debrid service you have separetely.
@@ -138,10 +142,10 @@ I will now go through each option in the configuration file and explain what it 
 
   Once you have set up MediaFlow, you can enable this option to use it after providing the `MediaFlow URL` and `MediaFlow API Password`.
 
-  - Proxy Addons:
+  - `Proxy Addons`:
     - This option allows you to control which streams are proxied through MediaFlow through the addon the stream is from. 
       By default, all streams are proxied through MediaFlow. Selecting an addon here will make it so that only streams from the selected addons are proxied through MediaFlow.
-  - Proxy Services:
+  - `Proxy Services`:
     - This option allows you to control which streams are proxied through MediaFlow through the service the stream is from. 
       By default, all streams are proxied through MediaFlow. Selecting a service here will make it so that only streams from the selected services are proxied through MediaFlow.
 
