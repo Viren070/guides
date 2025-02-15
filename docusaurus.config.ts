@@ -25,7 +25,9 @@ const config: Config = {
     defaultLocale: 'en-GB',
     locales: ['en-GB', 'es'],
   },
-
+  scripts: [
+    {src: 'https://plausible.viren070.me/js/script.js', defer: true, 'data-domain': 'guides.viren070.me'}
+  ],
   future: {
     experimental_faster: {
       swcJsLoader: true,
