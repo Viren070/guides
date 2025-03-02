@@ -1,48 +1,48 @@
 :root[data-theme="dark"] {
-    --service-data-background-color: #2d2f33;
+  --service-data-background-color: #2d2f33;
 }
 
 :root[data-theme="light"] {
-    --service-data-background-color: #dadde1;
+  --service-data-background-color: #dadde1;
 }
 
 @keyframes fadeIn {
-    from {
-        opacity: 0;
-    }
-    to {
-        opacity: 1;
-    }
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
 @keyframes fadeOut {
-    from {
-        opacity: 1;
-    }
-    to {
-        opacity: 0;
-    }
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
 }
 
 @keyframes appearFromCenter {
-    from {
-        transform: scale(0);
-        opacity: 0;
-    }
-    to {
-        transform: scale(1);
-        opacity: 1;
-    }
+  from {
+    transform: scale(0);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
 }
 
 @keyframes disappearToCenter {
-    from {
-        transform: scale(1);
-        opacity: 1;
-    }
-    to {
-        transform: scale(0);
-        opacity: 0;
-    }
+  from {
+    transform: scale(1);
+    opacity: 1;
+  }
+  to {
+    transform: scale(0);
+    opacity: 0;
+  }
 }
 
 .settings-popup {
@@ -89,7 +89,9 @@
   right: 10px;
   border-radius: var(--ifm-global-radius);
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  transition: transform 0.2s, box-shadow 0.2s;
+  transition:
+    transform 0.2s,
+    box-shadow 0.2s;
 }
 
 .close-button:hover {
@@ -117,21 +119,20 @@
   transition: transform 0.5s ease-in-out;
 }
 .service-item.new-service {
-    animation: appearFromCenter 0.5s ease-in-out;
+  animation: appearFromCenter 0.5s ease-in-out;
 }
 
 .service-item.deleted-service {
-    animation: disappearToCenter 0.5s ease-in-out;
+  animation: disappearToCenter 0.5s ease-in-out;
 }
-  
+
 .service-item.slide-left {
-    transform: translateX(-100%);
-  }
-  
+  transform: translateX(-100%);
+}
+
 .service-item.slide-right {
-    transform: translateX(100%);
-  }
-  
+  transform: translateX(100%);
+}
 
 .add-new-service {
   display: flex;
@@ -143,9 +144,10 @@
   padding: 15px;
   border-radius: var(--ifm-global-radius);
   min-width: 220px;
-  transition: transform 0.2s, box-shadow 0.2s;
+  transition:
+    transform 0.2s,
+    box-shadow 0.2s;
 }
-
 
 .add-new-service-button {
   background: green;
@@ -155,9 +157,10 @@
   cursor: pointer;
   border-radius: var(--ifm-global-radius);
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  transition: transform 0.2s, box-shadow 0.2s;
+  transition:
+    transform 0.2s,
+    box-shadow 0.2s;
 }
-
 
 .add-new-service-button:hover {
   transform: scale(1.05);
@@ -177,7 +180,8 @@
   right: 10px;
 }
 
-.apply-button, .reset-button {
+.apply-button,
+.reset-button {
   background: green;
   color: white;
   border: none;
@@ -186,10 +190,13 @@
   border-radius: var(--ifm-global-radius);
   margin: 10px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  transition: transform 0.2s, box-shadow 0.2s;
+  transition:
+    transform 0.2s,
+    box-shadow 0.2s;
 }
 
-.apply-button:hover, .reset-button:hover {
+.apply-button:hover,
+.reset-button:hover {
   transform: scale(1.05);
   box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
 }
@@ -203,14 +210,16 @@
   justify-content: space-between;
 }
 
-select, input {
+select,
+input {
   padding: 10px;
   border-radius: var(--ifm-global-radius);
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   transition: box-shadow 0.2s;
 }
 
-select:focus, input:focus {
+select:focus,
+input:focus {
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.15);
 }
 
@@ -222,7 +231,9 @@ select:focus, input:focus {
   cursor: pointer;
   border-radius: var(--ifm-global-radius);
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  transition: transform 0.2s, box-shadow 0.2s;
+  transition:
+    transform 0.2s,
+    box-shadow 0.2s;
 }
 
 .delete-button:hover {

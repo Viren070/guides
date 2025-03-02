@@ -21,7 +21,7 @@
 }
 
 /* For readability concerns, you should choose a lighter palette in dark mode. */
-[data-theme='dark'] {
+[data-theme="dark"] {
   --ifm-color-primary: #ccc178;
   --ifm-color-primary-dark: #c3b660;
   --ifm-color-primary-darker: #bfb155;
@@ -36,25 +36,45 @@
 }
 
 @keyframes subtleRotate {
-  0% { transform: rotate(0deg); }
-  14% { transform: rotate(-5deg); }
-  25% { transform: rotate(-6deg); }
-  38% { transform: rotate(-7deg); }
-  50% { transform: rotate(0deg); }
-  63% { transform: rotate(7deg); }
-  75% { transform: rotate(6deg); }
-  86% { transform: rotate(5deg); }
-  100% { transform: rotate(0deg); }
+  0% {
+    transform: rotate(0deg);
+  }
+  14% {
+    transform: rotate(-5deg);
+  }
+  25% {
+    transform: rotate(-6deg);
+  }
+  38% {
+    transform: rotate(-7deg);
+  }
+  50% {
+    transform: rotate(0deg);
+  }
+  63% {
+    transform: rotate(7deg);
+  }
+  75% {
+    transform: rotate(6deg);
+  }
+  86% {
+    transform: rotate(5deg);
+  }
+  100% {
+    transform: rotate(0deg);
+  }
 }
 
 .header-github-link::before,
 .header-kofi-link::before {
-  content: '';
+  content: "";
   width: 24px;
   height: 24px;
   display: flex;
   background-color: var(--ifm-navbar-link-color);
-  transition: background-color 0.4s ease, opacity 0.9s;
+  transition:
+    background-color 0.4s ease,
+    opacity 0.9s;
 }
 
 .header-github-link::before {
@@ -96,7 +116,6 @@
   display: none;
 }
 
-
 .default-themed-button {
   background: var(--ifm-color-primary);
   color: white;
@@ -106,7 +125,10 @@
   border-radius: var(--ifm-global-radius);
   margin: 0 auto;
   box-shadow: var(--button-box-shadow);
-  transition: transform 0.2s, box-shadow 0.2s, background 0.2s;
+  transition:
+    transform 0.2s,
+    box-shadow 0.2s,
+    background 0.2s;
 }
 
 .default-themed-button:disabled {
@@ -125,5 +147,3 @@
   box-shadow: var(--button-hover-box-shadow);
   color: white;
 }
-
-

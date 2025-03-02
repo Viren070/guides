@@ -11,6 +11,7 @@
     "clear": "docusaurus clear",
     "serve": "docusaurus serve",
     "write-translations": "docusaurus write-translations",
+    "format": "prettier --write .",
     "crowdin": "crowdin",
     "crowdin:sync": "docusaurus write-translations && crowdin upload && crowdin download",
     "write-heading-ids": "docusaurus write-heading-ids",
@@ -18,10 +19,10 @@
   },
   "dependencies": {
     "@crowdin/cli": "3.19.4",
-    "@docusaurus/core": "3.6.3",
-    "@docusaurus/faster": "3.6.3",
-    "@docusaurus/plugin-sitemap": "3.6.3",
-    "@docusaurus/preset-classic": "3.6.3",
+    "@docusaurus/core": "3.7.0",
+    "@docusaurus/faster": "3.7.0",
+    "@docusaurus/plugin-sitemap": "3.7.0",
+    "@docusaurus/preset-classic": "3.7.0",
     "@mdx-js/react": "3.1.0",
     "clsx": "2.1.1",
     "prism-react-renderer": "2.4.1",
@@ -36,6 +37,7 @@
     "@docusaurus/tsconfig": "3.6.3",
     "@docusaurus/types": "3.6.3",
     "tailwindcss": "3.4.16",
+    "prettier": "^3.3.2",
     "typescript": "5.7.2"
   },
   "browserslist": {

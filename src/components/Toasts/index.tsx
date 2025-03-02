@@ -1,8 +1,12 @@
-import { ToastContainer, toast, Slide } from 'react-toastify';
-import styles from './styles.module.css';
+import { ToastContainer, toast, Slide } from "react-toastify";
+import styles from "./styles.module.css";
 
 // Singleton showToast function
-export const showToast = (message: string, type: 'info' | 'error' | 'success', toastId?: string) => {
+export const showToast = (
+  message: string,
+  type: "info" | "error" | "success",
+  toastId?: string
+) => {
   toast(message, {
     type: type,
     toastId: toastId,
@@ -18,7 +22,7 @@ export function WideToastContainer(): JSX.Element {
       autoClose={3500}
       hideProgressBar
       draggablePercent={60}
-      draggableDirection='y'
+      draggableDirection="y"
       draggable="touch"
       theme="colored"
       transition={Slide}
