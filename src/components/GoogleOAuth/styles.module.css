@@ -1,58 +1,54 @@
-
 .googleAuthFormContainer {
-    width: 100%;
-    max-width: 700px;
-    outline: 2px solid var(--ifm-color-primary);
-    padding: 20px;
-    border-radius: var(--ifm-global-radius);
-    box-shadow: 0 0 20px var(--ifm-color-primary-lightest);
+  width: 100%;
+  max-width: 700px;
+  outline: 2px solid var(--ifm-color-primary);
+  padding: 20px;
+  border-radius: var(--ifm-global-radius);
+  box-shadow: 0 0 20px var(--ifm-color-primary-lightest);
 }
 
 .googleAuthFormLabel {
-    display: block;
-    margin-bottom: 5px;
-    font-weight: bold;
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
 }
 
 .googleAuthFormInput {
-    width: 100%;
-    padding: 10px;
-    margin-bottom: 20px;
-    border: 1px solid var(--ifm-color-primary);
-    box-sizing: border-box;
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 20px;
+  border: 1px solid var(--ifm-color-primary);
+  box-sizing: border-box;
 }
 
 .googleAuthFormInput:focus {
-    outline: none;
-    border-color: var(--ifm-color-primary-darkest);
-    box-shadow: 0 0 5px var(--ifm-color-primary-darkest);
+  outline: none;
+  border-color: var(--ifm-color-primary-darkest);
+  box-shadow: 0 0 5px var(--ifm-color-primary-darkest);
 }
 
-
 .googleAuthFormButton {
-    width: 100%;
-    size: 16px;
-    font-size: 16px;
-    font-weight: bold;
-    margin-block: 15px;
+  width: 100%;
+  size: 16px;
+  font-size: 16px;
+  font-weight: bold;
+  margin-block: 15px;
 }
 
 .googleAuthFormButton:hover {
-    transform: scale(1.020);
-    box-shadow: 0 0 5px var(--ifm-color-primary-darkest);
-    border-color: 0 0 5px var(--ifm-color-primary-darkest);
-    outline: none;
+  transform: scale(1.02);
+  box-shadow: 0 0 5px var(--ifm-color-primary-darkest);
+  border-color: 0 0 5px var(--ifm-color-primary-darkest);
+  outline: none;
 }
 
 .googleAuthFormButton:active {
-    transform: scale(1);
-    box-shadow: 0 0 5px var(--ifm-color-primary-darkest);
-    border-color: 0 0 5px var(--ifm-color-primary-darkest);
-    outline: none;
+  transform: scale(1);
+  box-shadow: 0 0 5px var(--ifm-color-primary-darkest);
+  border-color: 0 0 5px var(--ifm-color-primary-darkest);
+  outline: none;
 }
 
 .googleAuthCodeTabs {
-    align-self: center;
+  align-self: center;
 }
-
-

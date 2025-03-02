@@ -1,5 +1,4 @@
-
-:root[data-theme='light'] {
+:root[data-theme="light"] {
   --toastify-color-info: #eef9fd; /* Blue */
   --toastify-color-success: #e6f6e6; /* Green */
   --toastify-color-error: #ffebec; /* Red */
@@ -9,7 +8,7 @@
   --box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow for light theme */
 }
 
-:root[data-theme='dark'] {
+:root[data-theme="dark"] {
   --toastify-color-info: #193c47; /* Dark blue */
   --toastify-color-success: #003100; /* Dark green */
   --toastify-color-error: #4b1113; /* Dark red */
@@ -19,7 +18,6 @@
   --box-shadow: 0 2px 4px rgba(0, 0, 0, 0.6); /* Stronger shadow for dark theme */
 }
 
-
 .wideToastContainer {
   width: auto; /* Ensure the width is auto to respect max-width */
   padding: 10px; /* Add padding to ensure space on all sides */
@@ -27,15 +25,19 @@
   right: 5vw; /* Add space on the right */
   top: 10px; /* Add space on the top */
   transform: none; /* Remove transform */
-  border-radius: var(--ifm-global-radius); /* Ensure the border-radius is respected */
+  border-radius: var(
+    --ifm-global-radius
+  ); /* Ensure the border-radius is respected */
 }
 .wideToast {
-  border-radius: var(--ifm-global-radius); /* Ensure the border-radius is respected */
+  border-radius: var(
+    --ifm-global-radius
+  ); /* Ensure the border-radius is respected */
   justify-content: center; /* Center content horizontally */
   box-shadow: var(--box-shadow); /* Use CSS variable */
 }
 
-@media only screen and (max-width : 480px) {
+@media only screen and (max-width: 480px) {
   .wideToastContainer {
     width: auto; /* Ensure the width is auto to respect max-width */
     padding: 10px; /* Add padding to ensure space on all sides */
@@ -43,12 +45,14 @@
     right: 5vw; /* Add space on the right */
     top: 10px; /* Add space on the top */
     transform: none; /* Remove transform */
-    border-radius: var(--ifm-global-radius); /* Ensure the border-radius is respected */
+    border-radius: var(
+      --ifm-global-radius
+    ); /* Ensure the border-radius is respected */
   }
   .wideToast {
-    border-radius: var(--ifm-global-radius); /* Ensure the border-radius is respected */
+    border-radius: var(
+      --ifm-global-radius
+    ); /* Ensure the border-radius is respected */
     justify-content: center; /* Center content horizontally */
-
   }
 }
-  

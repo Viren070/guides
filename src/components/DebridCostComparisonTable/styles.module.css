@@ -13,11 +13,13 @@
   background-color: var(--ifm-color-primary);
   color: white;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  transition: border-color 0.3s, box-shadow 0.3s;
+  transition:
+    border-color 0.3s,
+    box-shadow 0.3s;
 }
 
 .currency-select {
-  color: var(--ifm-color-primary-darkest)
+  color: var(--ifm-color-primary-darkest);
 }
 
 .settingsButton {
@@ -33,12 +35,14 @@
   align-self: flex-end;
   border-radius: var(--ifm-global-radius);
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  transition: transform 0.2s, box-shadow 0.2s, opacity 0.2s;
+  transition:
+    transform 0.2s,
+    box-shadow 0.2s,
+    opacity 0.2s;
 }
-
 
 .settingsButton:hover {
   transform: scale(1.01) translateY(-2px);
   opacity: 0.9;
-  box-shadow: var(--button-hover-box-shadow); 
+  box-shadow: var(--button-hover-box-shadow);
 }

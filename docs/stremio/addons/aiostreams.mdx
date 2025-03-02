@@ -1,14 +1,22 @@
 ---
 title: AIOStreams
 description: Combine all your streams with all your services into one addon and display them with consistent formatting, sorting, and filtering after removing duplicates.
-keywords: [stremio, addons, aiostreams, guide, setup, configuration, install, link]
-tags: [stremio-addon, stremio-addon:debrid-streams, stremio-addon:torrent-streams, stremio-addon:http-streams, stremio-addon:viren070's-addons]
+keywords:
+  [stremio, addons, aiostreams, guide, setup, configuration, install, link]
+tags:
+  [
+    stremio-addon,
+    stremio-addon:debrid-streams,
+    stremio-addon:torrent-streams,
+    stremio-addon:http-streams,
+    stremio-addon:viren070's-addons,
+  ]
 ---
 
 ```mdx-code-block
 import StremioAddonButtons from '@site/src/components/StremioAddonButtons';
 
-<StremioAddonButtons id="aiostreams" manifest="https://aiostreams.elfhosted.com/manifest.json" source="https://github.com/Viren070/AIOStreams" configurable configurationRequired/> 
+<StremioAddonButtons id="aiostreams" manifest="https://aiostreams.elfhosted.com/manifest.json" source="https://github.com/Viren070/AIOStreams" configurable configurationRequired/>
 ```
 
 <h3>Description</h3>
@@ -17,28 +25,28 @@ Combine all your streams with all your services into one addon and display them 
 
 <h3>Configuration</h3>
 
-:::warning 
-Torrentio is disabled on the public ElfHosted instance. 
+:::warning
+Torrentio is disabled on the public ElfHosted instance.
 :::
 
 I would highly recommend self-hosting this addon.
-It is very easy to do, and you can use the guides on the [GitHub Repository](https://github.com/Viren070/AIOStreams) to do it. 
-I wrote these guides myself, and they should be very simple to follow. 
+It is very easy to do, and you can use the guides on the [GitHub Repository](https://github.com/Viren070/AIOStreams) to do it.
+I wrote these guides myself, and they should be very simple to follow.
 
-I will now go through each option in the configuration file and explain what it does and how it affects your results.  
+I will now go through each option in the configuration file and explain what it does and how it affects your results.
 
 - `Services`
 
-  This section allows you to enter your credentials for the services you want to use, like debrid services, easynews, or Orion. 
-  The credentials you enter here are automatically applied to the addons that support them, as long as you don't override the addon URL later. 
+  This section allows you to enter your credentials for the services you want to use, like debrid services, easynews, or Orion.
+  The credentials you enter here are automatically applied to the addons that support them, as long as you don't override the addon URL later.
 
   You can change the order of the services to determine the priority. I will explain how the priority affects your results at the relevant settings.
-  
+
   - `Only show cached streams` - This option will filter out all the streams that are uncached from any of your services.
 
 - `Addons`
 
-  This section allows you to configure the addons you want to use. 
+  This section allows you to configure the addons you want to use.
   You have to select an addon from the list, and then click the `Add addon` button to add it to the list.
 
   Most of the addons will have an `Override URL` option. This option allows you to use a different URL for the addon than the default one.
@@ -47,7 +55,7 @@ I will now go through each option in the configuration file and explain what it 
   To get the value for the `Override URL` option or the `Addon URL` option for custom addons, you must configure the addon
   at its configuration page and copy the installation URL from there.
 
-  You can also reorder the addons to determine the addon priority.  
+  You can also reorder the addons to determine the addon priority.
 
 - `Stream Types`, `Resolutions`, `Qualities`, `Visual Tags`, `Audio Tags`, `Encodes`
 
@@ -55,18 +63,18 @@ I will now go through each option in the configuration file and explain what it 
   You can enable or disable the tags you want to see, and you can also change the order of the tags.
 
   If you disable a tag, any stream detected with that tag will be removed from the results.
-  Changing the order of the tags will change each tag's priority. 
+  Changing the order of the tags will change each tag's priority.
 
 - `Sort By`
 
-  This section allows you to sort the results based on specific criteria. 
+  This section allows you to sort the results based on specific criteria.
   You can change the order of the sorting options to determine the priority.
 
-  - `cached` - This option will sort the results based on whether the stream is cached or not. 
+  - `cached` - This option will sort the results based on whether the stream is cached or not.
     - Descending order will prioritise cached streams, while ascending order will prioritise uncached streams.
-  - `resolution` - This option will sort the results based on the resolution of the stream. The priority of each resolution is determined by its order in the `Resolutions` section. e.g., if you set `2160p` as the first resolution, it will have the highest priority.  
+  - `resolution` - This option will sort the results based on the resolution of the stream. The priority of each resolution is determined by its order in the `Resolutions` section. e.g., if you set `2160p` as the first resolution, it will have the highest priority.
   - `language` - This option will sort the results based on the language of the stream. This only applies if you set a `Prioritised Language` later on. The order of this sort criterion determines how much priority the language has over the other criteria.
-  - `size` - This option will sort the results based on the size of the stream. 
+  - `size` - This option will sort the results based on the size of the stream.
     - Descending order will prioritise streams with larger sizes, while ascending order will prioritise streams with smaller sizes.
   - `streamType` - This option will sort the results based on the type of the stream. The priority of each stream type is determined by its order in the `Stream Types` section. e.g., if you set `P2P` as the first stream type, it will have the highest priority.
   - `visualTag` - This option will sort the results based on the visual tags of the stream. The priority of each visual tag is determined by its order in the `Visual Tags` section. e.g., if you set `HDR` as the first visual tag, it will have the highest priority.
@@ -79,86 +87,86 @@ I will now go through each option in the configuration file and explain what it 
     - Descending order will prioritise streams with more seeders, while ascending order will prioritise streams with fewer seeders.
   - `addon` - This option will sort the results based on the addon of the stream. The priority of each addon is determined by its order in the `Addons` section. e.g., if you set `ThePirateBay` as the first addon, it will have the highest priority.
 
-
   Reorder the sorting options to determine the priority of each sorting criterion. For example, if you want all cached results first, then sorted by resolution, then by quality, then by size, you would set the order as `cached`, `resolution`, `quality`, `size`.
 
 - `Languages`
 
-  This section allows you to set prioritised languages and excluded languages 
-  - `Prioritised Language` - This option allows you to set a language that you want to prioritise. 
+  This section allows you to set prioritised languages and excluded languages
+
+  - `Prioritised Language` - This option allows you to set a language that you want to prioritise.
     - If you set a language here, the `language` sorting option will sort the results based on this language.
-  - `Excluded Languages` - This option allows you to exclude languages from the results. 
+  - `Excluded Languages` - This option allows you to exclude languages from the results.
     - If you set a language here, any stream whose languages are **ALL** in this list will be removed from the results.
 
-- `Keyword Filter` 
+- `Keyword Filter`
 
-  This section allows you to filter out streams based on specific keywords. 
-  - `Include Keywords` - This option allows you to include streams that contain any of the keywords in the list. 
+  This section allows you to filter out streams based on specific keywords.
+
+  - `Include Keywords` - This option allows you to include streams that contain any of the keywords in the list.
     - If you set a keyword here, any stream whose title contains that keyword will be included in the results.
-  - `Exclude Keywords` - This option allows you to exclude streams that contain any of the keywords in the list. 
+  - `Exclude Keywords` - This option allows you to exclude streams that contain any of the keywords in the list.
     - If you set a keyword here, any stream whose title contains that keyword will be removed from the results.
-  
+
   The keywords are case-insensitive. Your keyword can contain spaces, and it will match any stream that contains the keyword (using a slightly strict regular expression)
 
 - `Size Filter`
 
-  This section allows you to filter out streams based on specific sizes. 
+  This section allows you to filter out streams based on specific sizes.
   You can set a minimum and maximum size for both movies and episodes.
 
-- `Limit results per resolution` 
+- `Limit results per resolution`
 
-  This option allows you to limit the number of results per resolution. 
+  This option allows you to limit the number of results per resolution.
   If you set this option, only the top `n` results per resolution will be shown.
   The top results are determined by the sorting options you set earlier.
 
 - `Formatter`
 
   This section allows you to choose how the results are formatted from a list of predefined formats.
-  You can find examples of each format at the [GitHub Repository](https://github.com/Viren070/AIOStreams). 
+  You can find examples of each format at the [GitHub Repository](https://github.com/Viren070/AIOStreams).
 
 - `Move Addon Name to Description`
 
-  This option allows you to move the addon name to the description of the stream. 
-  By default, we show the name of the addon that the stream is from in the title of the stream. 
+  This option allows you to move the addon name to the description of the stream.
+  By default, we show the name of the addon that the stream is from in the title of the stream.
   If you enable this option, the addon name will be moved to the description of the stream,
   and the title will instead contain `AIOStreams` (or the value of the `ADDON_NAME` environment variable).
 
 - `Clean Results`
 
-  This option allows you to clean the results by removing duplicates. 
+  This option allows you to clean the results by removing duplicates.
 
   It removes duplicates based on the hash of the torrent and the filename. The filenames are normalised before comparing to account for minor differences.
 
   When a given file is found in multiple streams, we keep the following streams in this order of priority:
+
   - 1 cached stream from the highest priority addon and service
   - 1 uncached stream per service from the highest priority addon
   - 1 P2P stream from the highest priority addon
 
 - `MediaFlow`
 
-  This option allows you to enable MediaFlow support. 
+  This option allows you to enable MediaFlow support.
   MediaFlow is a service that allows you to proxy your streams through one IP address.
   This can be useful if you are using a service that has a limit on the number of streams you can access from different IP addresses.
 
   Once you have set up MediaFlow, you can enable this option to use it after providing the `MediaFlow URL` and `MediaFlow API Password`.
 
   - `Proxy Addons`:
-    - This option allows you to control which streams are proxied through MediaFlow through the addon the stream is from. 
+    - This option allows you to control which streams are proxied through MediaFlow through the addon the stream is from.
       By default, all streams are proxied through MediaFlow. Selecting an addon here will make it so that only streams from the selected addons are proxied through MediaFlow.
   - `Proxy Services`:
-    - This option allows you to control which streams are proxied through MediaFlow through the service the stream is from. 
+    - This option allows you to control which streams are proxied through MediaFlow through the service the stream is from.
       By default, all streams are proxied through MediaFlow. Selecting a service here will make it so that only streams from the selected services are proxied through MediaFlow.
-
 
 :::tip
 If you are self-hosting, have a look at all the [environment variables](https://github.com/Viren070/AIOStreams/blob/main/CONFIGURING.md) you can set to configure the addon.
 :::
 
-
 <h3>Need Help?</h3>
 
 If you need help in configuring this addon, feel free to ask in the [Stremio Addons Discord](/stremio/faq#what-are-the-official-links-for-stremio-and-the-stremioaddons-community)
-or in the [r/StremioAddons subreddit](https://www.reddit.com/r/StremioAddons/) in a new post or at one of these posts related to AIOStreams: 
+or in the [r/StremioAddons subreddit](https://www.reddit.com/r/StremioAddons/) in a new post or at one of these posts related to AIOStreams:
 
 - [Reddit: AIOStreams: Combine all your streams into one addon and display them with consistent and customisable formatting, sorting, and filtering](https://www.reddit.com/r/StremioAddons/comments/1hwlt7q/aiostreams_combine_all_your_streams_into_one/)
 - [Reddit: AIOStreams v1.7.0 Released - Duplicate file removal, MediaFlow support, Easynews addons and more!](https://www.reddit.com/r/StremioAddons/comments/1i0iu1u/aiostreams_v170_released_duplicate_file_removal/)

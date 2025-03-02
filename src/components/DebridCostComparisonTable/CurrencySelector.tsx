@@ -1,14 +1,17 @@
-import React from 'react';
-import styles from './styles.module.css';
-import { CurrencySelect } from './CurrencySelect';
-import Translate from '@docusaurus/Translate';
+import React from "react";
+import styles from "./styles.module.css";
+import { CurrencySelect } from "./CurrencySelect";
+import Translate from "@docusaurus/Translate";
 
 interface CurrencySelectorProps {
   primaryCurrency: string;
   setPrimaryCurrency: (currency: string) => void;
 }
 
-const CurrencySelector: React.FC<CurrencySelectorProps> = ({ primaryCurrency, setPrimaryCurrency }) => {
+const CurrencySelector: React.FC<CurrencySelectorProps> = ({
+  primaryCurrency,
+  setPrimaryCurrency,
+}) => {
   return (
     <div className={styles["currency-select-container"]}>
       <div className={styles["currency-select-box"]}>
@@ -26,12 +29,15 @@ const CurrencySelector: React.FC<CurrencySelectorProps> = ({ primaryCurrency, se
             id="currencySelector.description"
             description="Description for the currency selector"
           >
-            The currency that all other prices are converted to. Leave blank to see original prices.
+            The currency that all other prices are converted to. Leave blank to
+            see original prices.
           </Translate>
-
         </label>
 
-        <CurrencySelect setCurrency={setPrimaryCurrency} currency={primaryCurrency} />
+        <CurrencySelect
+          setCurrency={setPrimaryCurrency}
+          currency={primaryCurrency}
+        />
       </div>
     </div>
   );

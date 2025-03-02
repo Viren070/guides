@@ -1,33 +1,33 @@
 .googleAuthPageContainer {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    width: 100%;
-    max-width: 1200px;
-    margin: 20px auto;
-    padding: 0 20px;
-    box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  max-width: 1200px;
+  margin: 20px auto;
+  padding: 0 20px;
+  box-sizing: border-box;
 }
 
 .googleAuthFAQContainer {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    width: 100%;
-    padding: 20px;
-    box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  width: 100%;
+  padding: 20px;
+  box-sizing: border-box;
 }
 
 .googleAuthFAQCodeBlockContainer {
-    max-width: 100%;
+  max-width: 100%;
 }
 @media (max-width: 768px) {
-    .googleAuthFAQContainer {
-        width: 100%;
-        padding: 15px;
-        word-break: break-word; /* Ensure text can break at any point */
-    }
+  .googleAuthFAQContainer {
+    width: 100%;
+    padding: 15px;
+    word-break: break-word; /* Ensure text can break at any point */
+  }
 }

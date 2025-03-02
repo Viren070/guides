@@ -2,7 +2,7 @@ name: Update Exchange Rates
 
 on:
   schedule:
-    - cron: '23 7 * * 4'
+    - cron: "23 7 * * 4"
   workflow_dispatch:
 
 jobs:
@@ -16,7 +16,7 @@ jobs:
       - name: Set up Python
         uses: actions/setup-python@v5
         with:
-          python-version: '3.12'
+          python-version: "3.12"
 
       - name: Install dependencies
         run: |
@@ -32,9 +32,9 @@ jobs:
       - name: Create Pull Request
         uses: peter-evans/create-pull-request@v7
         with:
-          commit-message: 'feat: update currency rates'
+          commit-message: "feat: update currency rates"
           branch: feat/update-currency-rates
           signoff: true
-          title: 'feat: update currency rates'
-          body: 'This PR updates the currency rates.'
+          title: "feat: update currency rates"
+          body: "This PR updates the currency rates."
           base: main
