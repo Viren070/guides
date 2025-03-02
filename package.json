@@ -11,6 +11,7 @@
     "clear": "docusaurus clear",
     "serve": "docusaurus serve",
     "write-translations": "docusaurus write-translations",
+    "format": "prettier --write .",
     "crowdin": "crowdin",
     "crowdin:sync": "docusaurus write-translations && crowdin upload && crowdin download",
     "write-heading-ids": "docusaurus write-heading-ids",
@@ -36,6 +37,7 @@
     "@docusaurus/tsconfig": "3.6.3",
     "@docusaurus/types": "3.6.3",
     "tailwindcss": "3.4.16",
+    "prettier": "^3.3.2",
     "typescript": "5.7.2"
   },
   "browserslist": {

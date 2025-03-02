@@ -15,25 +15,26 @@ Before you can run or contribute to this project, you need to have Node.js and n
    ```sh
    node --version
    npm --version
-    ```
+   ```
 
-### Setting up the project 
+### Setting up the project
 
-After installing Node.js and npm, you can set up the project on your local machine. 
+After installing Node.js and npm, you can set up the project on your local machine.
 
-1. **Clone the repository:** First, clone the repisitory to your local machine using the following command: 
-    ```
-    git clone https://github.com/Viren070/guides.git 
-    ```
+1. **Clone the repository:** First, clone the repisitory to your local machine using the following command:
+   ```
+   git clone https://github.com/Viren070/guides.git
+   ```
 2. **Navigate to the directory that contains the repository**
-    ```
-    cd guides 
-    ```
-3. **Install dependencies**: Install all the necessary dependencies by running: 
-    ```
-    npm install
-    ```
-## Local development 
+   ```
+   cd guides
+   ```
+3. **Install dependencies**: Install all the necessary dependencies by running:
+   ```
+   npm install
+   ```
+
+## Local development
 
 ```
 $ npm start
@@ -44,10 +45,11 @@ This command starts a local development server and opens up a browser window. Mo
 ## Build
 
 To generate static content into the `build` directory, which can be served using any static contents hosting service, run:
+
 ```
 $ npm run build
 ```
 
-## Contributing 
+## Contributing
 
 If you wish to contribute or make changes to a specific page, fork the repository, locate the page within the `docs` folder, make your changes, and create a pull request.

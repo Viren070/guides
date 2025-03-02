@@ -32,16 +32,15 @@ keywords:
     stremio configuration,
     addons,
     viren070,
-    viren070's stremio guide
+    viren070's stremio guide,
   ]
 toc_min_heading_level: 2
 toc_max_heading_level: 4
 ---
+
 import Tabs from "@theme/Tabs";
 import TabItem from "@theme/TabItem";
 import Admonition from "@theme/Admonition";
-
-
 
 import DebridCostComparisonTable from "@site/src/components/DebridCostComparisonTable";
 import KoFiWidgetWrapper from "@site/src/components/KoFiWidgetWrapper";
@@ -62,11 +61,11 @@ Head over to [Stremio](https://stremio.com/) and either [sign up for an account]
 
 ## Downloading Stremio
 
-Here are the instructions for each platform, if you are viewing on a mobile phone, you will need to scroll horizontally to see all the different platform instructions. 
+Here are the instructions for each platform, if you are viewing on a mobile phone, you will need to scroll horizontally to see all the different platform instructions.
 
 :::tip
-Some devices (such as iPhones) do not have a Stremio app. 
-In this case, it may be possible to use Stremio through Stremio Web. 
+Some devices (such as iPhones) do not have a Stremio app.
+In this case, it may be possible to use Stremio through Stremio Web.
 
 In the [Web](?platform=web#downloading-stremio) tab below, you will find device specific instructions on how to use Stremio through Stremio Web.
 :::
@@ -87,7 +86,7 @@ import MetaQuest from "./platform/setup/_meta-quest.mdx";
 	<TabItem value="web" label="Web" default>
 
         <Web/>
-		
+
 	</TabItem>
 
 	<TabItem value="pc" label="PC">
@@ -97,7 +96,7 @@ import MetaQuest from "./platform/setup/_meta-quest.mdx";
 	</TabItem>
 
 	<TabItem value="android" label="Android">
-		
+
         <Android/>
 
 	</TabItem>
@@ -109,13 +108,13 @@ import MetaQuest from "./platform/setup/_meta-quest.mdx";
 	</TabItem>
 
 	<TabItem value="android-tv" label="Android TV">
-    
+
         <AndroidTv/>
 
 	</TabItem>
 
 	<TabItem value="samsung-tv" label="Samsung TVs">
-		
+
         <SamsungTv/>
 
 	</TabItem>
@@ -167,14 +166,14 @@ It brings the following benefits:
 - You can use it for more than just Stremio. You can use it to download any type of file, whether that be games, software or audio. If it is a torrent or a file on a supported hoster, you can download it through your debrid service.
 
 However, the drawbacks of using a debrid service are that most do not seed the torrents and will also restrict usage to one IP address at a time.
-This means that you are not contributing to the torrent and that you can only use the service in one location at a time. 
+This means that you are not contributing to the torrent and that you can only use the service in one location at a time.
 :::tip
 For more details on the one IP address rule, please see this question in the [FAQ](faq#how-does-the-one-ip-address-rule-work).
 :::
 
 There are some exceptions to this, which I discuss below.
 
-### Should I use a debrid service? 
+### Should I use a debrid service?
 
 The answer to this question is dependent on your personal circumstances.
 
@@ -196,7 +195,7 @@ If your internet speed is already slow, then a debrid service will not help you 
 You need to have a fast internet speed yourself to capitalise on the benefits of a debrid service.
 
 With all that being said, if torrenting is not an issue, the best way to determine whether you need a debrid service is to try streaming without one.
-You can then try watching the content you want to watch and see if it buffers at the quality you want to watch in. 
+You can then try watching the content you want to watch and see if it buffers at the quality you want to watch in.
 If it does, then you may want to consider using a debrid service.
 
 ### Which debrid service do I use?
@@ -205,10 +204,9 @@ If it does, then you may want to consider using a debrid service.
 I receive a commission (free days or small amount of money) if you sign up to a debrid service through (some of) the links provided. This is at no extra cost to you and is a way to support me.
 :::
 
-There are many debrid services available to use. Here is a list of some of the most popular ones. 
+There are many debrid services available to use. Here is a list of some of the most popular ones.
 If you have already chosen a debrid service, you can skip to the [setup instructions](#setting-up-a-debrid-service).
 Otherwise, I will go through the factors you should consider when choosing a debrid service.
-
 
 - [Torbox](https://torbox.app/subscription?referral=9ca21adb-dbcb-4fb0-9195-412a5f3519bc)
 - [Premiumize](https://www.premiumize.me/)
@@ -229,11 +227,11 @@ Otherwise, I will go through the factors you should consider when choosing a deb
 
 <h3> What happened? </h3>
 
-Due to unavoidable circumstances, some debrid services have placed restrictions upon their services and APIs.  
+Due to unavoidable circumstances, some debrid services have placed restrictions upon their services and APIs.
 
 **Real Debrid**, **AllDebrid**, and **Debrid-Link** have removed the API endpoint that allows addons to determine if a torrent is cached on their service.
 
-<h3> What does this mean for Stremio?  </h3>
+<h3> What does this mean for Stremio? </h3>
 
 Most addons will return 2 kinds of results. Cached results which can be streamed instantly, and uncached results which need to be downloaded (to the debrid service) before they can be streamed.
 With the removal of the API endpoint, addons can no longer determine if a torrent is cached on Real Debrid or AllDebrid.
@@ -245,29 +243,29 @@ If addons do not adapt to the removal of this API endpoint, these addons will br
 However, some addons have implemented workarounds to remove the check for cached torrents.
 This means that you would have to configure your addons to show uncached results.
 
-The [addon debrid support table](faq#which-debrid-services-are-supported-by-each-addon) will tell you which addons will work with your debrid service. 
+The [addon debrid support table](faq#which-debrid-services-are-supported-by-each-addon) will tell you which addons will work with your debrid service.
 
 If you configure your addons to show uncached results, you will be able to continue using these debrid services.
 
-By showing both uncached and cached results, the addon will return a list of torrents which you will have to try to stream. 
+By showing both uncached and cached results, the addon will return a list of torrents which you will have to try to stream.
 If the torrent is cached, you will be able to stream it instantly. If it is not cached, you will have to wait for the torrent to download before you can stream it.
 
 Note that some addons may try and implement some sort of local caching system to try and get a somewhat accurate database of torrents that are cached.
-This is not guaranteed to be accurate. 
+This is not guaranteed to be accurate.
 
 By using these debrid services, you agree to some inconvenience in the form of having to try multiple streams to find one that is cached.
-However, due to Real-Debrid's massive cache, it is likely that you will find a cached stream on your first attempt. 
+However, due to Real-Debrid's massive cache, it is likely that you will find a cached stream on your first attempt.
 
 <h3> Is it recommended to continue using these debrid services? </h3>
 
-The only downside you see as a user, is sometimes streams that show up as cached may not actually be cached and 
+The only downside you see as a user, is sometimes streams that show up as cached may not actually be cached and
 streams that show up as uncached may actually be cached.
 
 In the case they are not cached, you will have to wait for the torrent to download before you can watch it.
-Of course, you could just keep trying different streams until you find one that is cached. 
+Of course, you could just keep trying different streams until you find one that is cached.
 
-However, as Real Debrid has an extremely large cache, it is likely that the streams you select will be cached. 
-Therefore, it is fine to continue using Real Debrid. 
+However, as Real Debrid has an extremely large cache, it is likely that the streams you select will be cached.
+Therefore, it is fine to continue using Real Debrid.
 As for other services, it is up to you to decide if the inconvenience is worth the benefits of the service.
 Especially when the cache of the other two services is not as large as Real Debrid's.
 
@@ -276,9 +274,9 @@ Especially when the cache of the other two services is not as large as Real Debr
 <h4> Real Debrid </h4>
 
 - Blocked audiovisual files from a number of cyberlockers listed on the USTR blacklist or listed in the European "Counterfeit and Piracy Watch List"
-    - This includes several services. I'm not sure if these are the right sites, but here is what I found:
-        - [European Commission's Counterfeit and Piracy Watch List](https://circabc.europa.eu/ui/group/d0803128-7d62-40ee-8349-c43ee92745aa/library/b36f701d-2850-4768-9b3e-e487140e11e5/details)
-        - [USTR Notorious Markets List](https://ustr.gov/sites/default/files/2023_Review_of_Notorious_Markets_for_Counterfeiting_and_Piracy_Notorious_Markets_List_final.pdf)
+  - This includes several services. I'm not sure if these are the right sites, but here is what I found:
+    - [European Commission's Counterfeit and Piracy Watch List](https://circabc.europa.eu/ui/group/d0803128-7d62-40ee-8349-c43ee92745aa/library/b36f701d-2850-4768-9b3e-e487140e11e5/details)
+    - [USTR Notorious Markets List](https://ustr.gov/sites/default/files/2023_Review_of_Notorious_Markets_for_Counterfeiting_and_Piracy_Notorious_Markets_List_final.pdf)
 - Blocked any torrent hashes from French private torrent trackers like YGGTorrent
 
 </div>
@@ -286,26 +284,26 @@ Especially when the cache of the other two services is not as large as Real Debr
 
 When choosing a Debrid service, the factors you have to consider are cost and the value you get from it which is made up of its optimality and userbase.
 
-I recommend coming to your own conclusion by reading the information below, in addition to your own research. 
+I recommend coming to your own conclusion by reading the information below, in addition to your own research.
 
 **Cost**
 
 To compare the cost of each debrid service, I have created a table that compares the cost of each debrid service.
 This table is generated dynamically and the data it uses can be updated manually by you. I don't recommend modifying the data on mobile.
- 
+
 <details>
 <summary>Expand me for a full table comparing the costs of all debrid services</summary>
 
 <Admonition type="note">
 
-The currency rates used here are updated semi-automatically every week. 
+The currency rates used here are updated semi-automatically every week.
 
 I do not update these prices if there are sales or discounts on the debrid services.
 Make sure to check for any of these before making a purchase.
 
-You may update the prices manually by clicking the `Configure Table Data` button. 
+You may update the prices manually by clicking the `Configure Table Data` button.
 You can also add new debrid services or remove existing ones.
-This can be useful if there are sales going on or if you are buying from a reseller where local prices have been adjusted for. 
+This can be useful if there are sales going on or if you are buying from a reseller where local prices have been adjusted for.
 
 </Admonition>
 
@@ -314,10 +312,10 @@ This can be useful if there are sales going on or if you are buying from a resel
 <details>
 <summary>What are FP (fidelity points)?</summary>
 
-When you buy a plan from some debrid services, you will be awarded fidelity points. 
+When you buy a plan from some debrid services, you will be awarded fidelity points.
 Once you have enough fidelity points, they can be used to extend your subscription for free.
 
-For debrid services that offer fidelity points, there are 2 rows in the table above. 
+For debrid services that offer fidelity points, there are 2 rows in the table above.
 One of them takes into account the extra duration you get from the fidelity points and the other does not.
 
 <details>
@@ -326,8 +324,8 @@ One of them takes into account the extra duration you get from the fidelity poin
 The number of plans needed to get an amount of fidelity points that is entirely usable is calculated.
 This essentially means the lowest common multiple of the fidelity points awarded and the number of fidelity points needed to extend your subscription.
 
-For example, if you need 1000 fidelity points to extend your subscription by 30 days 
-and you are awarded 800 fidelity points when you buy a plan, then you will need to buy 5 plans to get 4000 fidelity points. 
+For example, if you need 1000 fidelity points to extend your subscription by 30 days
+and you are awarded 800 fidelity points when you buy a plan, then you will need to buy 5 plans to get 4000 fidelity points.
 Then all 4000 fidelity points can be used to extend your subscription by 120 days.
 
 The cost of 5 plans with the duration of 5 plans plus the extra duration from the fidelity points is then used to calculate an average cost.
@@ -335,8 +333,6 @@ The cost of 5 plans with the duration of 5 plans plus the extra duration from th
 </details>
 </details>
 </details>
-
-
 
 :::info
 If you are unsure if this is something you want to use, you can try a free trial or a limited free plan.
@@ -348,15 +344,13 @@ If you are unsure if this is something you want to use, you can try a free trial
 Alternatively, you can use the 15 day package that most debrid services offer to test them out.
 :::
 
-
 **Optimality**
-
 
 Optimality refers to your proximity to the service's servers. The closer you are, the faster the download speeds and thus the better the streaming experience.
 The download speeds you get directly determine the quality of the stream you can watch.
 
-This is different for everyone. 
-Giving my experiences with each debrid service would not be helpful as it is dependent on your location as well as many other factors. 
+This is different for everyone.
+Giving my experiences with each debrid service would not be helpful as it is dependent on your location as well as many other factors.
 
 Therefore, make sure to carry out speed tests to determine the best service for you.
 The speed tests for each debrid service can be found [here](faq#where-can-i-find-the-speed-tests-for-debrid-services) and on their website too.
@@ -372,13 +366,13 @@ A larger userbase means more cached torrents, with Real Debrid leading, and foll
 However, the other debrid services will still have a lot of popular torrents cached.
 
 In this regard, Torbox is lacking.
-As a new service, it has a smaller cache, and has also been unstable for some. Therefore, I highly recommend you test Torbox on its free plan 
+As a new service, it has a smaller cache, and has also been unstable for some. Therefore, I highly recommend you test Torbox on its free plan
 to see if it has the content you want to watch and if it works well for you.
 
 However, with the recent events surrounding Real Debrid, AllDebrid and Debrid-Link, more and more people are moving to Torbox.
 This could mean that Torbox will end up having a lot of cached torrents in the future.
 
-Offcloud also has very little cached content. 
+Offcloud also has very little cached content.
 
 **Addon Support**
 
@@ -394,31 +388,29 @@ Another thing to consider is the additional features that some debrid services o
 I previously discussed some of the limitations of debrid services, namely the lack of seeding and the restriction to one IP address.
 As I said before, there are some exceptions. I will now go through them.
 
-
 - **IP Restrictions**:
 
-    - Torbox has no IP restrictions whatsoever. You can use it on as many devices as you want.
-    - Premiumize also allows several IPs. However, it does operate on a storage limitation that you may reach depending on your usage. 
-        You can find more details on this [article](https://www.premiumize.me/help/article/download-limit) and the [fair use page](https://www.premiumize.me/fairuse) (you need to be logged in for this link).
+  - Torbox has no IP restrictions whatsoever. You can use it on as many devices as you want.
+  - Premiumize also allows several IPs. However, it does operate on a storage limitation that you may reach depending on your usage.
+    You can find more details on this [article](https://www.premiumize.me/help/article/download-limit) and the [fair use page](https://www.premiumize.me/fairuse) (you need to be logged in for this link).
 
 - **Seeding**:
 
-    :::warning
-    With the way debrid services work, debrid services will always be taking more than they are giving.
+  :::warning
+  With the way debrid services work, debrid services will always be taking more than they are giving.
 
-    The debrid services below will seed the torrent if it hasn't been cached already. 
-    In the case that its already been cached, they may not seed it, and other users can stream this cached torrent too. 
-    :::
+  The debrid services below will seed the torrent if it hasn't been cached already.
+  In the case that its already been cached, they may not seed it, and other users can stream this cached torrent too.
+  :::
 
-    - Torbox offer a seedbox that can seed for up to an unlimited amount ratio for up to 30 days. This makes it the best debrid service for seeding. (The amount of torrents you can actively seed is dependent on your plan, referred to as your `Concurrent Slots`)
-    - Debrid-Link offers a seedbox with these limits: 600 torrents and 2.5TB of data transfer per month.
-    - Premiumize will seed to a 2.0 ratio or for 72 hours. Whichever comes first.
-    - put.io is similar to Premiumize but the exact numbers are dependent on your plan. Check their pricing page for more information.
-
+  - Torbox offer a seedbox that can seed for up to an unlimited amount ratio for up to 30 days. This makes it the best debrid service for seeding. (The amount of torrents you can actively seed is dependent on your plan, referred to as your `Concurrent Slots`)
+  - Debrid-Link offers a seedbox with these limits: 600 torrents and 2.5TB of data transfer per month.
+  - Premiumize will seed to a 2.0 ratio or for 72 hours. Whichever comes first.
+  - put.io is similar to Premiumize but the exact numbers are dependent on your plan. Check their pricing page for more information.
 
 - **Usenet:**
-    - Torbox offers access to Usenet on its Pro plan ($110/year or $10/month). This is a unique feature that is not offered by any other debrid service. (Usenet is explained in more detail later. It is simply another way to access more content)
-    - Premiumize also offers access to Usenet. However, it does not support streaming, therefore it cannot be used for Stremio.
+  - Torbox offers access to Usenet on its Pro plan ($110/year or $10/month). This is a unique feature that is not offered by any other debrid service. (Usenet is explained in more detail later. It is simply another way to access more content)
+  - Premiumize also offers access to Usenet. However, it does not support streaming, therefore it cannot be used for Stremio.
 
 ---
 
@@ -428,11 +420,11 @@ The most stable and reliable debrid services that I would recommend is Premiumiz
 and has had little issues compared to Torbox.
 
 If you are only looking to use your debrid service for Stremio, you may want to look into [EasyDebrid](https://paradise-cloud.com/products). This is a new service that seems to be using either some or all of Premiumize's cache but is much cheaper.
-However, it does only provide torrent downloads, no hoster downloads. Addon support for EasyDebrid is comparatively limited. Currently, MediaFusion and Debridio support it, along with a private version of Comet which you must pay for. 
-I recommend you do your own research into the service and whether you are comfortable with using it. 
+However, it does only provide torrent downloads, no hoster downloads. Addon support for EasyDebrid is comparatively limited. Currently, MediaFusion and Debridio support it, along with a private version of Comet which you must pay for.
+I recommend you do your own research into the service and whether you are comfortable with using it.
 
 ### Setting up a debrid service
-    
+
 I will now cover the instructions of setting up each debrid service I previously mentioned.
 
 ```mdx-code-block
@@ -451,7 +443,7 @@ import DebridLink from "./debrid/debridlink/_setup.mdx";
 <TabItem value="premiumize" label="Premiumize">
 <Premiumize/>
 </TabItem>
-<TabItem value="real-debrid" label="Real Debrid"> 
+<TabItem value="real-debrid" label="Real Debrid">
 <RealDebrid/>
 </TabItem>
 <TabItem value="alldebrid" label="AllDebrid">
@@ -469,7 +461,7 @@ import DebridLink from "./debrid/debridlink/_setup.mdx";
 </Tabs>
 ```
 
-## Usenet 
+## Usenet
 
 I will now go through what Usenet is and why you may want to use it.
 
@@ -477,8 +469,8 @@ Usenet is completely optional, and for the average user, it is not needed and sh
 
 ### What is Usenet?
 
-Usenet is a form of decentralised internet communication that consists of various different "newsgroups". 
-You can think of a newsgroup as a forum where people can post messages and files. 
+Usenet is a form of decentralised internet communication that consists of various different "newsgroups".
+You can think of a newsgroup as a forum where people can post messages and files.
 For the purpose of Stremio, the files we are interested in are the binaries (NZB files) for video content that are posted to the newsgroups.
 
 Each different newsgroup is dedicated to a specific topic. These newsgroups can have their own moderators and rules.
@@ -495,8 +487,9 @@ The content on different Usenet providers is theoretically the same as the conte
 However, due to issues like data corruption, takedowns, and different retention periods, some content may not be available on all providers.
 
 For this guide, we will only be considering Easynews and Torbox as Usenet providers as they are the only ones that have addons for Stremio.
-However, generally, the factors to consider when choosing a Usenet provider: 
-- Data Limits: Depending on your plan, you may have a fixed amount of data you can download per month. You will have to consider how much data you will be downloading and choose a plan accordingly. 
+However, generally, the factors to consider when choosing a Usenet provider:
+
+- Data Limits: Depending on your plan, you may have a fixed amount of data you can download per month. You will have to consider how much data you will be downloading and choose a plan accordingly.
 - Retention: This is the amount of time that the provider will store the content for. The longer the retention, the better.
 - Connections: This is the number of connections you can have to the server at the same time. The more connections you have, the more devices you can use the service on at the same time, as well as the number of files you can download at the same time.
 
@@ -505,17 +498,17 @@ However, generally, the factors to consider when choosing a Usenet provider:
 Usenet has a lot of content, and to search for this content, most providers will have some sort of search engine that you can use.
 However, you may not be satisfied with the search engine provided by your Usenet provider. There may be content on the newsgroups that you cannot find through their search engine.
 
-This is where indexers come in. Indexers are websites that index the content on the newsgroups and allow you to search for content. 
+This is where indexers come in. Indexers are websites that index the content on the newsgroups and allow you to search for content.
 As independent, dedicated services to search for content, they are usually better than the search engine on your Usenet provider.
 
-You can use multiple indexers at the same time to increase the chances of finding the content you want. 
-Different indexers may specialise in different types of content. 
+You can use multiple indexers at the same time to increase the chances of finding the content you want.
+Different indexers may specialise in different types of content.
 
 ### Should I use Usenet?
 
 The main reason to use Usenet is to access more niche content as well as getting files of larger sizes (and thus higher quality, usually) than what is available through torrents.
 
-Just like with debrid services: 
+Just like with debrid services:
 
 - Usenet providers offer extremely fast download speeds, which mean that only your internet speed will limit the quality of the content you can watch.
 - The content is aquired through HTTP with SSL encryption, so you are not at risk of receiving a notice from your ISP.
@@ -526,8 +519,8 @@ Even if you may need to use Usenet, you will most likely use it as a backup to y
 
 However, in some cases, where torrents are not sufficient - such as for German content - Usenet may be the only way to access the content you want.
 
-If you are currently satisfied with your debrid service, then I do not recommend using Usenet. 
-However, it can act as a backup to your debrid service if you want to be prepared for any situation. 
+If you are currently satisfied with your debrid service, then I do not recommend using Usenet.
+However, it can act as a backup to your debrid service if you want to be prepared for any situation.
 
 ### How do I use Usenet with Stremio?
 
@@ -536,13 +529,13 @@ There are only two ways to access Usenet content through Stremio.
 One way is through Easynews.
 Easynews is a Usenet provider and there are two addons for Stremio that allow you to access their content.
 
-The other way is through Torbox. 
-Torbox is a debrid service that offers access to Usenet content. 
+The other way is through Torbox.
+Torbox is a debrid service that offers access to Usenet content.
 Their Usenet service is only available on their highest tier package - the `Pro` package.
 They have undisclosed providers and indexers that they use to provide access to Usenet content.
 Torbox have their own Stremio addon that allows you to access their Usenet content, alongside torrents.
 
-I will now go through the setup for each of these services. 
+I will now go through the setup for each of these services.
 
 ```mdx-code-block
 import Easynews from "./usenet/_easynews.mdx";
@@ -578,15 +571,15 @@ If you are attempting to install addons on your **iPhone** or using **Stremio We
 
 ![Default Addons](/img/stremio/default_addon_catalogues.png)
 
-The first picture above shows that when you click on a movie, Stremio will display links to third party streaming services that provide the selected content. 
+The first picture above shows that when you click on a movie, Stremio will display links to third party streaming services that provide the selected content.
 The addon that does this is called WatchHub.
 
-The second picture shows catalogues from two different addons - YouTube and Public Domain Movies. 
-The YouTube addon will show popular YouTube channels and allow you to view their latest videos. 
-The Public Domain Movies addon will show movies that are now in the [Public Domain](https://en.wikipedia.org/wiki/Public_domain). 
+The second picture shows catalogues from two different addons - YouTube and Public Domain Movies.
+The YouTube addon will show popular YouTube channels and allow you to view their latest videos.
+The Public Domain Movies addon will show movies that are now in the [Public Domain](https://en.wikipedia.org/wiki/Public_domain).
 Most of these movies are quite old and released in the 1900s.
 
-These addons are not required so it is recommended that they be removed. 
+These addons are not required so it is recommended that they be removed.
 If, however, you prefer to keep them, then you may do so.
 
 To remove these addons, go to the addons page (the puzzle icon on the navigation menu on the left of the screen) and click Uninstall on the following addons.
@@ -597,45 +590,43 @@ To remove these addons, go to the addons page (the puzzle icon on the navigation
 
 I will now go through some addons that provide content to Stremio.
 
-These addons are the backbone to our on-demand streaming experience. 
+These addons are the backbone to our on-demand streaming experience.
 They provide the video content that allows us to watch anything we want.
 
 You can have a look at this [community hosted addon list](https://stremio-addons.com/) to view all the available addons.
 This list will have more addons listed than the ones shown in the Stremio app.
 
+Please refer to the key below to understand the different types of addons.
 
-Please refer to the key below to understand the different types of addons. 
-
-|  Key                      |  Addon Type  | Explanation     |
-| :---------------------:   | :----------: | :--------------- |
-|   :busts_in_silhouette:   |   Torrent    | Torrent addons rely on a peer to peer network consisting of seeders - people who have the file and are uploading it, and peers - other people who are also downloading the torrent from seeders <br/><br/>The quality available through torrents is much higher as no centralised server is required to host the content or pay for bandwidth.|
-|   :globe_with_meridians:  |    HTTP      | HTTP addons provide direct links to content on a centralised server.<br/><br/>These are usually of lower quality due to hosting and bandwidth costs. |
-|   :cloud:                 |    Debrid    | An addon that supports debrid services allow you to stream torrents through HTTPS without the need to torrent. <br/><br/>The quality of content is much higher due to it being based on torrents, a decentralised network, thus avoiding the bandwidth and hosting costs. The debrid service itself, however, is centralised. With the debrid service storing the files on their high speed server. This allows streaming without buffering and without exposing your IP. | 
-|   :newspaper:             |    Usenet    | These are addons that show links from Usenet newsgroups. <br/><br/>You can usually find niche content or higher sized files on Usenet, and as it is a paid service, the speeds are also very high, only being limited by your own internet speeds.             |
+|          Key           | Addon Type | Explanation                                                                                                                                                                                                                                                                                                                                                                                                                                                               |
+| :--------------------: | :--------: | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| :busts_in_silhouette:  |  Torrent   | Torrent addons rely on a peer to peer network consisting of seeders - people who have the file and are uploading it, and peers - other people who are also downloading the torrent from seeders <br/><br/>The quality available through torrents is much higher as no centralised server is required to host the content or pay for bandwidth.                                                                                                                            |
+| :globe_with_meridians: |    HTTP    | HTTP addons provide direct links to content on a centralised server.<br/><br/>These are usually of lower quality due to hosting and bandwidth costs.                                                                                                                                                                                                                                                                                                                      |
+|        :cloud:         |   Debrid   | An addon that supports debrid services allow you to stream torrents through HTTPS without the need to torrent. <br/><br/>The quality of content is much higher due to it being based on torrents, a decentralised network, thus avoiding the bandwidth and hosting costs. The debrid service itself, however, is centralised. With the debrid service storing the files on their high speed server. This allows streaming without buffering and without exposing your IP. |
+|      :newspaper:       |   Usenet   | These are addons that show links from Usenet newsgroups. <br/><br/>You can usually find niche content or higher sized files on Usenet, and as it is a paid service, the speeds are also very high, only being limited by your own internet speeds.                                                                                                                                                                                                                        |
 
 :::tip
 If an addon only has the :busts_in_silhouette: icon, then it is a torrent addon, and you cannot use it with a debrid service
 
-If an addon only has the :cloud: icon, then it requires a debrid service. 
+If an addon only has the :cloud: icon, then it requires a debrid service.
 
 An addon that has both the :busts_in_silhouette: and :cloud: icons is a torrent addon that supports debrid services. So you may use it without a debrid service.
 :::
 
 If you are curious about which debrid services are supported by each addon, you can find a table [here](faq#which-debrid-services-are-supported-by-each-addon).
 
-
 #### General Addons
 
 These addons provide general content such as movies, shows and anime.
- 
-It is not required for you to install all of these addons. 
-For most users, only installing the Torrentio addon will be sufficient. 
 
-As Stremio addons are hosted on a server, an influx of users or other potential issues can cause the server to go down. 
+It is not required for you to install all of these addons.
+For most users, only installing the Torrentio addon will be sufficient.
+
+As Stremio addons are hosted on a server, an influx of users or other potential issues can cause the server to go down.
 Torrentio has a history of going down due to the large number of users.
 You may want to install a backup addon, such as Comet, in case Torrentio goes down.
 
-In this guide, I will be providing public instances of addons. 
+In this guide, I will be providing public instances of addons.
 Some of these are hosted by ElfHosted, but they have put in place a rate limit to prevent abuse.
 However, you most likely will not hit this rate limit.
 
@@ -700,23 +691,21 @@ import ArgentinaTv from "./addons/argentina-tv.mdx";
 ```
 
 - [Mediafusion](/stremio/addons/mediafusion) provides streams for live sports and replays. It also has a few live TV channels.
-   The live streams are direct streams but the replays are torrents. You can find more information above, where I covered it previously.
+  The live streams are direct streams but the replays are torrents. You can find more information above, where I covered it previously.
 - The [MammaMia](/stremio/addons/mammamia) addon also provides live TV channels.
 - If you have an IPTV provider, you can use the [xtremio](https://xtremio.elfhosted.com/configure) addon to watch content from your IPTV provider.
 
-
-----
+---
 
 The basic setup for Stremio has now been completed. You can now search for a movie and you will be provided with high quality links to stream from.
 
-However, your home page will be quite empty. 
+However, your home page will be quite empty.
 The next section will go through how to populate your home page with popular movies and shows.
 You will also not have any subtitles, so I highly recommend that you continue to read this guide to the end to get the full experience.
 
 It is also possible to populate your homepage with customised lists such as recommendations or a list that dynamically updates according to strict filters that you can customise.
-I will go through this in the [Using Trakt](extras/trakt) section of this guide. 
+I will go through this in the [Using Trakt](extras/trakt) section of this guide.
 I highly recommend that you read this section as it will provide you with a more personalised experience.
-
 
 ### Catalogue Addons
 
@@ -726,9 +715,9 @@ There is one built-in addon called cinemeta which provides Popular and Featured 
 However, there may be some shows that provide more results with the TMDB addon, so I highly recommend that you install the TMDB addon.
 
 :::tip
-It is possible to see ratings on the posters of the movies and shows. 
+It is possible to see ratings on the posters of the movies and shows.
 
-Please see [this question in the FAQ](faq#is-it-possible-to-see-the-ratings-of-movies-and-shows-on-the-posters). 
+Please see [this question in the FAQ](faq#is-it-possible-to-see-the-ratings-of-movies-and-shows-on-the-posters).
 :::
 
 :::warning
@@ -781,14 +770,15 @@ Scroll up to the [Stream Provider Addons section](#stream-provider-addons) to se
 
 :::note
 
-I personally find that Stremio is lacking for anime. 
+I personally find that Stremio is lacking for anime.
 
-Tracking integration with services like MAL, AniList etc. is limited and keeping track of all the anime you watch on Stremio can be difficult if you have a larger library.  
+Tracking integration with services like MAL, AniList etc. is limited and keeping track of all the anime you watch on Stremio can be difficult if you have a larger library.
 
-I recommend trying these apps for anime instead: 
+I recommend trying these apps for anime instead:
+
 - [Aniyomi](/aniyomi) - Android only anime app with a Torrentio extension for debrid support
-- [Seanime Desktop](https://seanime.rahim.app) - A desktop app (can watch on mobile through web app) for watching anime. Has Torbox and Real Debrid support. Requires a player like MPV to be installed. Tip: use scoop on windows 
-:::
+- [Seanime Desktop](https://seanime.rahim.app) - A desktop app (can watch on mobile through web app) for watching anime. Has Torbox and Real Debrid support. Requires a player like MPV to be installed. Tip: use scoop on windows
+  :::
 
 ```mdx-code-block
 import AnimeKitsu from "./addons/anime-kitsu.mdx";
@@ -803,7 +793,7 @@ import MALStremioAddon from "./addons/mal-stremio-addon.mdx";
 <StremioAddon name="MAL Stremio Addon" addonComponent={MALStremioAddon} />
 ```
 
-#### Other Catalogues 
+#### Other Catalogues
 
 ```mdx-code-block
 import PopularPeople from "./addons/popular-people.mdx";
@@ -843,4 +833,4 @@ This includes using tracking services such as Trakt to get personalised recommen
 
 You can also check the [FAQ](faq) for any questions you may have or the [Troubleshooting](troubleshooting) page if you encounter any issues.
 
-<KoFiWidgetWrapper widgetType="button"/>
+<KoFiWidgetWrapper widgetType="button" />

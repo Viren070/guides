@@ -15,16 +15,15 @@ updates:
         applies-to: version-updates
         dependency-type: production
         patterns:
-        - "@docusaurus*"
+          - "@docusaurus*"
         update-types:
-        - "minor"
-        - "patch"
+          - "minor"
+          - "patch"
       docusaurusDev:
         applies-to: version-updates
         dependency-type: development
-        patterns: 
-        - "@docusaurus*"
+        patterns:
+          - "@docusaurus*"
         update-types:
-        - "minor"
-        - "patch"
-
+          - "minor"
+          - "patch"
