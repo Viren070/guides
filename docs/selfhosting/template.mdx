@@ -233,24 +233,18 @@ the .env file with the necessary environment variables.
    needing to create one DNS record.
    :::
 
-9. After you have filled in the environment variables, you can now deploy the services. However, the command you use will depend on which services you want to deploy.
+9. After you have filled in the environment variables, you can now deploy the services. You should make sure you defined the `COMPOSE_PROFILES` environment variables
+   as this will determine which profiles are started. If you did not set it, then only the services in the default profile would be started.
 
-   - If you want to deploy only the default services, you can run the following command:
+   Then, you can run the following command:
 
+   ```bash
+   docker compose up -d
+   ```
+
+   - You can also specify the profiles through the `--profile` flag, e.g.
      ```bash
-     sudo docker compose up -d
-     ```
-
-   - If you want to deploy the stremio profile services, you can run the following command:
-
-     ```bash
-     sudo docker compose up -d --profile stremio
-     ```
-
-   - If you want to deploy multiple profiles, you can run the following command:
-
-     ```bash
-     sudo docker compose up -d --profile stremio --profile nzbhydra2
+     docker compose --profile stremio --profile seanime up -d
      ```
 
 10. After running the command, it may take some time for the services to start up. Once it is done, you should be able to access them at the hostnames you
