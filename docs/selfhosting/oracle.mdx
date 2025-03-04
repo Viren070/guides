@@ -20,7 +20,7 @@ To use the Oracle Cloud Free Tier, you need a valid credit/debit card. Virtual/P
 
 ## Setup
 
-### Setting up our VM instance
+### Creating our VM instance
 
 1.  Sign up for an Oracle Cloud account.
 
@@ -171,7 +171,7 @@ It can take up to 24 hours for the upgrade to take effect. You will receive an e
 9. Your instance will now begin provisioning. This can take a few minutes. Once it is done, make your way to the dashboard of your instance. You should
    already be on the dashboard, but if you aren't, you can find it by clicking on the hamburger menu in the top left corner and scrolling down to `Compute` and then `Instances`.
 
-### Connecting to our VM instance
+### Connecting to our VPS
 
 10. Copy the public IP address of your instance.
 
@@ -273,3 +273,25 @@ By default, all ports are closed on your Oracle VPS. You will need to open the p
    - `Destination Port Range`: The port you want to open, such as `443` for HTTPS.
    - `Description`: A description of the rule, such as `Allow HTTPS traffic`.
 6. Click on `Add Ingress Rules`, or `Another Ingress Rule` if you want to add more rules.
+
+### Using SCP to transfer files
+
+If you need to transfer files to and from your Oracle VPS, you can use SCP.
+
+1. Open a terminal on your local machine.
+2. Run the following command to transfer a file from your local machine to your Oracle VPS, replacing `your_ip` with the public IP address of your instance and `file.txt` with the file you want to transfer.
+
+   ```bash
+   scp file.txt ubuntu@your_ip:/path/to/destination
+   ```
+
+3. Run the following command to transfer a file from your Oracle VPS to your local machine, replacing `your_ip` with the public IP address of your instance and `/path/to/file.txt` with the path to the file you want to transfer.
+
+   ```bash
+   scp ubuntu@your_ip:/path/to/file.txt /path/to/destination
+   ```
+
+:::tip
+Your user folder - the folder you are in when you first connect to your Oracle VPS - is located at `/home/ubuntu`. You can use the `~` symbol to represent your user folder, so `/home/ubuntu` is the same as `~`.
+e.g., `scp file.txt ubuntu@your_ip:~/file.txt` will transfer `file.txt` to your user folder on your Oracle VPS.
+:::
