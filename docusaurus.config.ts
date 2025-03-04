@@ -98,6 +98,13 @@ const config: Config = {
           title: "Support me on Ko-fi",
           "aria-label": "Ko-fi",
         },
+        {
+          href: "https://discord.viren070.me",
+          position: "right",
+          className: "header-discord-link",
+          title: "Join the Discord server",
+          "aria-label": "Discord server",
+        },
       ],
     },
     footer: {
@@ -140,6 +147,10 @@ const config: Config = {
               label: "Ko-fi",
               href: "https://ko-fi.com/viren070",
             },
+            {
+              label: "Discord",
+              href: "https://discord.viren070.me",
+            },
           ],
         },
       ],
@@ -150,7 +161,7 @@ const config: Config = {
       respectPrefersColorScheme: false,
     },
     prism: {
-      theme: prismThemes.github,
+      theme: prismThemes.dracula,
       darkTheme: prismThemes.dracula,
     },
     docs: {
