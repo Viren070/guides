@@ -96,6 +96,19 @@ const sidebars: SidebarsConfig = {
     },
     {
       type: "category",
+      label: "Self Hosting",
+      link: {
+        type: "doc",
+        id: "selfhosting/index",
+      },
+      items: [
+        "selfhosting/oracle",
+        "selfhosting/docker",
+        "selfhosting/template",
+      ],
+    },
+    {
+      type: "category",
       label: "Reading",
       link: {
         type: "generated-index",

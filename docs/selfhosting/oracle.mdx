@@ -1,0 +1,275 @@
+---
+title: Oracle VPS
+description: A guide on setting up an Oracle VPS.
+keywords: [viren070, guides, viren070's guides]
+---
+
+# Free Oracle VPS
+
+## Introduction
+
+Oracle Cloud offers a Compute Instance with 4 OCPUs, 24GB RAM, and 200GB storage within their "Always Free" resources.
+This guide will show you how to set that up.
+
+A VPS can be used for a variety of purposes, such as hosting a website, running a game server, or even as a remote desktop.
+You can even use it to host all your [Stremio](/stremio/) addons and a debrid media server.
+
+:::info
+To use the Oracle Cloud Free Tier, you need a valid credit/debit card. Virtual/Prepaid cards are not accepted.
+:::
+
+## Setup
+
+### Setting up our VM instance
+
+1.  Sign up for an Oracle Cloud account.
+
+    1.  Go to the [Oracle Cloud website](https://www.oracle.com/cloud/free/) and click on "Start for free".
+    2.  Sign up for an account by filling in your details.
+
+        :::tip
+        Many people tend to have issues with the verification process when
+        signing up for Oracle Cloud. If you face any issues, try one of the
+        following:
+
+            - Ensure your billing address matches the address **exactly** as it appears on your bank statement or banking app.
+            - Use an inPrivate window on [Microsoft Edge](https://www.microsoft.com/en-us/edge)
+            - Use a different email address.
+            - Use a different card.
+            - Disable any adblockers/VPNs.
+
+        If you still face issues, you can try using a contacting Oracle support
+        through the live chat widget in the bottom right corner of the Oracle
+        Cloud website.
+
+        :::
+
+2.  Once you have signed up, you will be taken to the Oracle Cloud dashboard. Click on `Create a VM instance` under the `Build` section.
+
+    ![Oracle Cloud Dashboard](/img/oracle/dashboard.png)
+
+3.  Give your instance a name.
+
+4.  Configure the image and shape
+
+    1. Scroll down to `Image and shape`, and click on `Change Image`. Select the 'Ubuntu' image and 'Canonical Ubuntu 24.04' image name.
+
+       ![Change Image](/img/oracle/select_image.png)
+
+    2. Just below the image, you will see the `Shape` section. Click on `Change Shape` and select the `Ampere` series `VM.Standard.A1.Flex` shape. Set the OCPUs to 4, and the memory to 24GB.
+       ![Change Shape](/img/oracle/select_shape.png)
+
+5.  Generate an SSH key pair. If you already have an SSH key pair, you can skip this step.
+
+    1. Open a terminal on your local machine.
+    2. Run the following command to generate an SSH key pair, replacing `your_email@example.com` with your email address.
+
+       ```bash
+       ssh-keygen -t ed25519 -C "your_email@example.com"
+       ```
+
+       - When prompted for which file to save the key in, press `Enter` to save it in the default location. If you already have an SSH key pair, you can save it in a different location. But make sure to remember where you saved it.
+       - When prompted to enter a passphrase, you **should** enter one. You can generate a passphrase using a password manager like [Bitwarden](https://bitwarden.com/) or [Proton Pass](https://proton.me/pass).
+
+       <br/ >
+       :::info
+       On older systems, where the ed25519 algorithm is not supported, you can use the rsa algorithm:
+
+       ```bash
+       ssh-keygen -t rsa -b 4096 -C "your_email@example.com"
+       ```
+
+       :::
+
+    3. We will now need to add our SSH key to our SSH agent. Before we do that, we need to start the SSH agent. Open a new **Administrator** PowerShell window and run the following commands:
+       ```
+       Get-Service -Name ssh-agent | Set-Service -StartupType Manual
+       Start-Service ssh-agent
+       ```
+    4. Run the following command in your **non-administrator** terminal to add your SSH key to the SSH agent:
+
+       ```bash
+       ssh-add C:/Users/your_username/.ssh/id_ed25519
+       ```
+
+       - If you saved your SSH key in a different location, replace `C:/Users/your_username/.ssh/id_ed25519` with the path to your SSH key.
+
+    5. You will now have two files in your `~/.ssh` directory: `id_ed25519` and `id_ed25519.pub`. The `.pub` file is your public key, which you will need for the next step.
+
+6.  In the `Add SSH keys` section, click the `Upload public key files (.pub)` button and upload the `.pub` file you generated in the previous step.
+
+7.  Configure our boot volume.
+
+    1. Scroll down to `Boot volume` and check the `Specify a custom boot volume size` box.
+    2. Set the boot volume size to 200.
+    3. Set the `Boot volume performance to `120`.
+
+8.  Finally, click on `Create` to create your VM instance.
+
+:::tip
+You may encounter an `Out of capacity` error when creating your VM instance. This is because the free tier has a limited number of instances available:
+![Out of capacity error](/img/oracle/availability_error.png)
+
+You can try again later, or you can try creating the instance in a different `Availability Domain` by scrolling back up to the top to the `Placement` section.
+
+You can also switch to a PAYG account, which will allow you to create instances without any restrictions. As long as you stay within the free tier limits, you won't be charged.
+You can also set up a $1 budget alert to ensure you don't go over the free tier limits.
+
+  <details>
+  <summary>How to upgrade to a PAYG account</summary>
+  <div>
+
+1. Go back to the Oracle Cloud dashboard.
+2. Click on the hamburger menu in the top left corner and scroll down to `Billing and Cost Management`.
+3. Under the `Billing` section, click on `Upgrade and Manage Payment`
+4. Click on `Upgrade to Pay-As-You-Go` and follow the instructions.
+
+It can take up to 24 hours for the upgrade to take effect. You will receive an email once the upgrade is complete.
+
+  </div>
+  </details>
+
+  <details>
+  <summary>How to set up a $1 budget alert</summary>
+    <div>
+
+      1. Go back to the Oracle Cloud dashboard.
+      2. Click on the hamburger menu in the top left corner and scroll down to `Billing and Cost Management`.
+      3. Under the `Cost Management` section, click on `Budgets`.
+      4. Click on `Create Budget`.
+      5. Use the following settings:
+        - Budget Name: `dont_charge_me`
+        - Budget Amount: `1`
+        - Day of the month to begin budget processing: `1`
+        - Threshold Metric: `Forecast Spend`
+        - Threshhold Type: `Percentage of Budget`
+        - Threshold: `1%`
+        - Email Recipients: Your email address
+        - Email message: `Your current usage exceeds Always Free resources. Please check your usage to avoid charges.`
+      6. Click on `Create`.
+     </div>
+    </details>
+
+  <details>
+  <summary>How to check if my current usage is forecast to exceed the free tier limits</summary>
+    <div>
+
+      1. Go back to the Oracle Cloud dashboard.
+      2. Click on the hamburger menu in the top left corner and scroll down to `Billing and Cost Management`.
+      3. Under the `Cost Management` section, click on `Cost Analysis`.
+      4. Check the `Show Forecast` box.
+      5. Set the `End Date` to a future date, such as after a few months.
+      6. Click on `Apply`.
+      7. You will now see a forecast of your usage. There will be a graph showing your usage over time, and a table showing your usage by service.
+      8. Ensure it is all 0.
+    </div>
+
+   </details>
+
+:::
+
+9. Your instance will now begin provisioning. This can take a few minutes. Once it is done, make your way to the dashboard of your instance. You should
+   already be on the dashboard, but if you aren't, you can find it by clicking on the hamburger menu in the top left corner and scrolling down to `Compute` and then `Instances`.
+
+### Connecting to our VM instance
+
+10. Copy the public IP address of your instance.
+
+    ![Instance Dashboard](/img/oracle/instance_dashboard.png)
+
+11. Open a terminal on your local machine and run the following command, replacing `your_ip` with the public IP address of your instance.
+
+        ```bash
+        ssh ubuntu@your_ip
+        ```
+
+        - If you are prompted to add the host to your list of known hosts, type `yes` and press `Enter`.
+        - If you set a passphrase for your SSH key, you will be prompted to enter it. (You will not see any characters as you type, but it is being entered.)
+          :::tip
+          To avoid having to type the IP address every time you want to connect to your instance, you can create a Windows Terminal Profile.
+
+          <details>
+            <summary>How to create a Windows Terminal Profile</summary>
+            <div>
+                To do this:
+
+                1.  Open Windows Terminal and click on the down arrow next to the tabs. Then, while holding down the `Shift` key, click on `Settings`.
+                2.  This will open the `settings.json` file in your default text editor. It will look something like this:
+
+                    ```json
+                    {
+                        "$help": ...,
+                        "$schema":  ...,
+                        "actions": ...,
+                        ...
+                        "profiles": {
+                          "defaults": {},
+                          "list": [
+                            ...
+                          ]
+                        }
+                    }
+                    ```
+
+                3.  Add the following profile to the `list` array in the `profiles` object, replacing `your_ip` with the public IP address of your instance:
+
+                    ```json
+                    {
+                      "closeOnExit": "never",
+                      "name": "Oracle VPS",
+                      "commandline": "ssh ubuntu@your_ip",
+                    },
+                    ```
+                    It should look something like this (the `...` represents other objects in the file, that are abstracted for brevity):
+                    ```json
+                    {
+                        "$help": ...,
+                        "$schema":  ...,
+                        "actions": ...,
+                        ...
+                        "profiles": {
+                          "defaults": {},
+                          "list": [
+                            {
+                              "closeOnExit": "never",
+                              "name": "Oracle VPS",
+                              "commandline": "ssh ubuntu@your_ip",
+                            },
+                            ...
+                          ]
+                        }
+                    }
+                    ```
+                4.  Save the file and close the text editor.
+                5.  Close Windows Terminal and reopen it. When you click on the down arrow next to the tabs, you should see a new profile called `Oracle VPS`. Click on it to connect to your instance.
+
+            </div>
+          </details>
+          :::
+
+12. You are now connected to your VM instance. You can now install any software you need, set up a web server, or do anything
+    else you need to do.
+
+## Extra guides
+
+### Hosting Stremio addons
+
+If you are interesting in self hosting Stremio addons, you can use my [template compose.yaml](https://github.com/Viren070/stremio-addons-docker-compose-template).
+The template contains more than just Stremio addons, so ensure you modify it to your needs.
+
+### Opening ports
+
+By default, all ports are closed on your Oracle VPS. You will need to open the ports you want to use.
+
+1. Go to the dashboard of your instance.
+2. Under `Primary VNIC`, click on the link next to `Subnet:`.
+3. Under `Security Lists`, click on the `Default Security List for vcn-...`.
+4. Click on `Add Ingress Rules`.
+5. Fill in the following details:
+   - `Source Type`: `CIDR`
+   - `Source CIDR`: `0.0.0.0/0`
+   - `IP Protocol`: `TCP`
+   - `Source Port Range`: `All`
+   - `Destination Port Range`: The port you want to open, such as `443` for HTTPS.
+   - `Description`: A description of the rule, such as `Allow HTTPS traffic`.
+6. Click on `Add Ingress Rules`, or `Another Ingress Rule` if you want to add more rules.
