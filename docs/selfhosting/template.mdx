@@ -9,7 +9,7 @@ keywords: [viren070, guides, viren070's guides]
 This guide will show you how to use my template Docker Compose file to quickly deploy services.
 
 Having followed my previous guides, you should have a basic understanding of how to deploy services with Docker Compose.
-This section will focus on using [my template `compose.yaml`](https://github.com/Viren070/stremio-addons-docker-compose-template).
+This section will focus on using [my template `compose.yaml`](https://github.com/Viren070/docker-compose-vps-template).
 
 ## What is it for?
 
@@ -21,29 +21,88 @@ This `compose.yaml` uses [Traefik](https://traefik.io) as a reverse proxy to rou
 All our services are put behind Traefik, which allows us to access all services on the same port (80/443) and Traefik will route the traffic to the correct service.
 This means that port 80 and 443 are the only ports that need to be open on your server.
 
+A quick summary of what is included in this template is:
+
+- Default server management services
+- Stremio related services
+- Seanime
+- Minecraft server
+- Plausible analytics
+- Vaultwarden
+- SearXNG
+
 <details>
-<summary>What services are available in the template?</summary>
+<summary>What is the full list of services that are available in the template?</summary>
   <div>
-      **Stremio related services:**
 
-      - [AIOStreams](https://github.com/Viren070/AIOStreams)
-      - [AIOStremio](https://github.com/Viren070/AIOStremio)
-      - [Comet](https://github.com/g0ldyy/comet)
-      - [MediaFusion](https://github.com/mhdzumair/MediaFusion)
-      - [StremThru](https://github.com/MunifTanjim/stremthru)
-      - [Stremio-Jackett](https://github.com/aymene69/stremio-jackett)
-      - [Jackettio](https://github.com/arvida42/jackettio)
-      - [EasyNews+](https://github.com/sleeyax/stremio-easynews-addon)
-      - [MediaFlow Proxy](https://github.com/mhdzumair/mediaflow-proxy)
-      - [Catalog Providers](https://github.com/redd-ravenn/stremio-catalog-providers)
-      - [TMDB Addon](https://github.com/mrcanelas/tmdb-addon)
-      - [Stremio Trakt Addon](https://github.com/redd-ravenn/stremio-trakt-addon)
-      - [Stremio Server](https://github.com/Stremio/server-docker)
-        - This is the official Stremio server docker image. This handles the downloading and transcoding of streams. This is useful if you use Stremio on devices
-          that don't have a server bundled with it, like on iOS on Stremio Web. It will allow you to stream torrents on those devices. Debrid streams may not be transcoded on all clients, however.
-      - [Addon Manager](https://github.com/redd-ravenn/stremio-addon-manager)
+    [Traefik](https://github.com/traefik/traefik) is included as our reverse proxy. It is used to route traffic to the correct service. It means that you can access all services on the same port (80/443) and Traefik will route the traffic to the correct service.
+    It also allows for automatic SSL certificate generation using Let's Encrypt, which is required for Stremio addons as Stremio requires HTTPS to install addons.
 
-      **Supporting services:**
+
+    To help with managing the server, the following services are included:
+
+    - [Dozzle](https://github.com/amir20/dozzle) - A simple real time log viewer for docker containers with a web based UI.
+    - [Watchtower](https://github.com/containrrr/watchtower) - Automatically update your Docker containers to the latest version.
+    - [Uptime Kuma](https://github.com/louislam/uptime-kuma) - A self-hosted monitoring tool for your services.
+      - This is useful for monitoring the status of your services and receiving alerts. You do have to set up your services manually, but this can be done through the web interface.
+    - [Dash.](https://github.com/MauriceNino/dashdot) - A simple dashboard to monitor your server.
+    - [Honey](https://github.com/dani3l0/honey) - Beautiful, customisable, startpage for your server to access all your services.
+    - [Flame](https://github.com/pawelmalak/flame) - A simple startpage, requiring minimal setup, for your server.
+
+    I have provided 2 startpages, Honey and Flame. You can choose which one you want to use. You can also use both if you want.
+    The reason being that Honey requires a bit more setup, as you need to edit honey's config.json file and replace the urls with your own.
+    I have provided my template which has all the images, so its not too hard to do. Flame is a bit more simple and requires no setup.
+    But, it also has no images and you would have to provide that yourself for each service. Honey, IMO, looks far better.
+
+    <details>
+    <summary>Stremio Addons and Utilities</summary>
+    <div>
+
+        - [AIOStreams](https://github.com/Viren070/AIOStreams)
+        - [AIOStremio](https://github.com/Viren070/AIOStremio)
+        - [Comet](https://github.com/g0ldyy/comet)
+        - [MediaFusion](https://github.com/mhdzumair/MediaFusion)
+        - [StremThru](https://github.com/MunifTanjim/stremthru)
+        - [Stremio-Jackett](https://github.com/aymene69/stremio-jackett)
+        - [Jackettio](https://github.com/arvida42/jackettio)
+        - [EasyNews+](https://github.com/sleeyax/stremio-easynews-addon)
+        - [MediaFlow Proxy](https://github.com/mhdzumair/mediaflow-proxy)
+        - [Catalog Providers](https://github.com/redd-ravenn/stremio-catalog-providers)
+        - [TMDB Addon](https://github.com/mrcanelas/tmdb-addon)
+        - [Stremio Trakt Addon](https://github.com/redd-ravenn/stremio-trakt-addon)
+        - [OMG TV Stremio Addon](https://github.com/mccoy88f/OMG-Premium-TV/blob/main/README-EN.md)
+        - [Stremio Server](https://github.com/Stremio/server-docker)
+          - This is the official Stremio server docker image. This handles the downloading and transcoding of streams. This is useful if you use Stremio on devices
+            that don't have a server bundled with it, like on iOS on Stremio Web. It will allow you to stream torrents on those devices. Debrid streams may not be transcoded on all clients, however.
+        - [Addon Manager](https://github.com/redd-ravenn/stremio-addon-manager)
+
+    </div>
+    </details>
+
+    <details>
+    <summary>Debrid Media Server</summary>
+    <div>
+        :::danger
+        These services require a lot of work to set up, and documentation for it is not finished yet, I suggest only using
+        this template as a reference
+        :::
+
+        - [Blackholes](https://github.com/westsurname/scripts)
+        - [Radarr](https://github.com/Radarr/Radarr)
+        - [Sonarr](https://github.com/Sonarr/Sonarr)
+        - [Recyclarr](https://github.com/Recyclarr/Recyclarr)
+        - [Plex](https://github.com/plexinc/pms-docker)
+        - [Zurg](https://github.com/yowmamasita/zurg)
+        - [RClone](https://github.com/rclone/rclone)
+        - [Jellyfin](https://github.com/jellyfin/jellyfin)
+        - [JellySeer](https://github.com/fallenbagel/jellyseerr)
+
+    </div>
+    </details>
+
+    <details>
+    <summary>Indexers and Utilities</summary>
+    <div>
 
       - [Prowlarr](https://github.com/Prowlarr/Prowlarr)
       - [Jackett](https://github.com/Jackett/Jackett)
@@ -56,34 +115,17 @@ This means that port 80 and 443 are the only ports that need to be open on your 
       - [Cloudflare Warp](https://github.com/cmj2002/warp-docker)
         - This is a Cloudflare Warp client. It allows you to bypass blocks. For example, Torrentio blocks requests from some VPS providers (like Oracle Cloud).
           In this case, you can use Cloudflare Warp to proxy your requests through it which can be used for AIOStreams, Prowlarr, etc.
-      - [Traefik](https://github.com/traefik/traefik)
-        - This is a reverse proxy. It is used to route traffic to the correct service. It means that you can access all services on the same port (80/443) and Traefik will route the traffic to the correct service.
-          It also allows for automatic SSL certificate generation using Let's Encrypt, which is required for Stremio addons as Stremio requires HTTPS to install addons.
 
-      **Server management services:**
+    </div>
+    </details>
 
-      To help with managing the server, the following services are included:
+    This template also includes other applications:
 
-      - [Dozzle](https://github.com/amir20/dozzle) - A simple real time log viewer for docker containers with a web based UI.
-      - [Watchtower](https://github.com/containrrr/watchtower) - Automatically update your Docker containers to the latest version.
-      - [Uptime Kuma](https://github.com/louislam/uptime-kuma) - A self-hosted monitoring tool for your services.
-        - This is useful for monitoring the status of your services and receiving alerts. You do have to set up your services manually, but this can be done through the web interface.
-      - [Dash.](https://github.com/MauriceNino/dashdot) - A simple dashboard to monitor your server.
-      - [Honey](https://github.com/dani3l0/honey) - Beautiful, customisable, startpage for your server to access all your services.
-      - [Flame](https://github.com/pawelmalak/flame) - A simple startpage, requiring minimal setup, for your server.
-
-      I have provided 2 startpages, Honey and Flame. You can choose which one you want to use. You can also use both if you want.
-      The reason being that Honey requires a bit more setup, as you need to edit honey's config.json file and replace the urls with your own.
-      I have provided my template which has all the images, so its not too hard to do. Flame is a bit more simple and requires no setup.
-      But, it also has no images and you would have to provide that yourself for each service. Honey, IMO, looks far better.
-
-      **Other services:**
-
-      This template also includes other services:
-
-      - [Seanime](https://github.com/5rahim/seanime) - Beautiful open-source media server with a web interface and desktop app for anime and manga.
-      - [SearXNG](https://github.com/searxng/searxng) - Privacy-respecting metasearch engine.
-      - [Plausible Analytics](https://github.com/plausible/analytics/) - Simple, privacy-friendly and open-source web analytics. (Used on this site)
+    - [Seanime](https://github.com/5rahim/seanime) - Beautiful open-source media server with a web interface and desktop app for anime and manga.
+    - [SearXNG](https://github.com/searxng/searxng) - Privacy-respecting metasearch engine.
+    - [Plausible Analytics](https://github.com/plausible/analytics/) - Simple, privacy-friendly and open-source web analytics. (Used on this site)
+    - Minecraft server
+    - [Vaultwarden](https://github.com/dani-garcia/vaultwarden) - An unofficial Bitwarden compatible server written in Rust.
 
   </div>
 </details>
@@ -182,18 +224,18 @@ the .env file with the necessary environment variables.
    ssh ubuntu@your-server-ip
    ```
 
-4. I would recommend creating another directory to store the files in. You can replace `server` with any name you want. This will be the name that docker uses for the "project" name.
+4. Next, you should clone the repository by running the following command:
 
    ```bash
-   mkdir server
-   cd server
+   git clone https://github.com/Viren070/docker-compose-vps-template.git docker-apps
    ```
 
-5. Then, we run the following command to download the necessary files. This script
-   will download the files and place them in the correct directories.
+   This will clone the repository into a directory called `docker-apps`.
+
+5. Next, you should navigate into the directory by running the following command:
 
    ```bash
-   curl https://raw.githubusercontent.com/Viren070/stremio-addons-docker-compose-template/refs/heads/main/install.sh | bash
+   cd docker-apps
    ```
 
 6. You can now confirm that the files have been downloaded by running the following command:
