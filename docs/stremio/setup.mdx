@@ -219,9 +219,10 @@ Otherwise, I will go through the factors you should consider when choosing a deb
 <details>
 <summary> 
 :warning: 
-**These debrid services have implemented restrictions that will affect your experience.**
-**Click here to read more.** 
+**These debrid services have implemented restrictions that may affect your experience.**
+**Click here to read more.**
 :warning:
+
 </summary>
 <div>
 
@@ -233,41 +234,33 @@ Due to unavoidable circumstances, some debrid services have placed restrictions 
 
 <h3> What does this mean for Stremio? </h3>
 
-Most addons will return 2 kinds of results. Cached results which can be streamed instantly, and uncached results which need to be downloaded (to the debrid service) before they can be streamed.
-With the removal of the API endpoint, addons can no longer determine if a torrent is cached on Real Debrid or AllDebrid.
+Debrid addons generally return 2 types of results, cached and uncached. Cached results can be streamed instantly, and uncached results which need to be downloaded (to the debrid service) before they can be streamed.
+With the removal of the API endpoint, addons can no longer determine if a torrent is cached on these debrid services.
 
 <h3> Is it possible to continue using these debrid services? </h3>
 
-If addons do not adapt to the removal of this API endpoint, these addons will break for these debrid services.
-
-However, some addons have implemented workarounds to remove the check for cached torrents.
-This means that you would have to configure your addons to show uncached results.
-
+Most addons have implemented workarounds to at least continue working with these debrid services.
 The [addon debrid support table](faq#which-debrid-services-are-supported-by-each-addon) will tell you which addons will work with your debrid service.
 
-If you configure your addons to show uncached results, you will be able to continue using these debrid services.
+Torrentio, the most popular Stremio addon, now uses its own cache database that is built from users' usage of the addon.
+MediaFusion has implemented a similar system.
 
-By showing both uncached and cached results, the addon will return a list of torrents which you will have to try to stream.
-If the torrent is cached, you will be able to stream it instantly. If it is not cached, you will have to wait for the torrent to download before you can stream it.
+StremThru has also implemented a similar system, and it shares this information with other addons. Comet and Formulio rely on it.
 
-Note that some addons may try and implement some sort of local caching system to try and get a somewhat accurate database of torrents that are cached.
-This is not guaranteed to be accurate.
+These workarounds are not perfect and may not be accurate. It is reliant on users using the addon to build up the cache database.
+When a user attempts to play a link, these addons can then determine whether that link was cached or not and store that information.
 
-By using these debrid services, you agree to some inconvenience in the form of having to try multiple streams to find one that is cached.
-However, due to Real-Debrid's massive cache, it is likely that you will find a cached stream on your first attempt.
+Addons cannot know for certain the exact time items would remain cached for, and for unpopular items, they may show as uncached due to not being
+played as much and as a result, not having its cache information stored.
 
-<h3> Is it recommended to continue using these debrid services? </h3>
+Due to it not being accurate, some cached streams may actually be uncached and some uncached streams may actually be cached.
 
-The only downside you see as a user, is sometimes streams that show up as cached may not actually be cached and
-streams that show up as uncached may actually be cached.
+By using these debrid services, you agree to some potential inconvenience. You may have to try multiple streams before you find a cached one.
+However, **if you are using Real Debrid, due to its massive cache, it is likely that you will find a cached stream on your first attempt, and
+the inconvenience will likely be minimal.**
 
-In the case they are not cached, you will have to wait for the torrent to download before you can watch it.
-Of course, you could just keep trying different streams until you find one that is cached.
-
-However, as Real Debrid has an extremely large cache, it is likely that the streams you select will be cached.
-Therefore, it is fine to continue using Real Debrid.
-As for other services, it is up to you to decide if the inconvenience is worth the benefits of the service.
-Especially when the cache of the other two services is not as large as Real Debrid's.
+On the other hand, Debrid-Link which has far fewer users, may not have as accurate of a cache database across addons as Real Debrid.
+I would recommend configuring your addons to show uncached streams as well, as it is likely that some of these streams are actually cached.
 
 <h3> Additional Restrictions </h3>
 
@@ -278,6 +271,8 @@ Especially when the cache of the other two services is not as large as Real Debr
     - [European Commission's Counterfeit and Piracy Watch List](https://circabc.europa.eu/ui/group/d0803128-7d62-40ee-8349-c43ee92745aa/library/b36f701d-2850-4768-9b3e-e487140e11e5/details)
     - [USTR Notorious Markets List](https://ustr.gov/sites/default/files/2023_Review_of_Notorious_Markets_for_Counterfeiting_and_Piracy_Notorious_Markets_List_final.pdf)
 - Blocked any torrent hashes from French private torrent trackers like YGGTorrent
+
+As a result of this, you may see an increased amount of 'Infringing file' errors when trying to play some streams, especially with French content.
 
 </div>
 </details>
