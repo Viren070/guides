@@ -12,31 +12,7 @@ const sidebars: SidebarsConfig = {
         description: "Guides on downloading and setting up games / emulators",
         keywords: ["games", "free", "download"],
       },
-      items: [
-        {
-          type: "category",
-          label: "Minecraft",
-          link: {
-            type: "doc",
-            id: "minecraft/index",
-          },
-          items: [
-            {
-              type: "category",
-              label: "Java",
-              link: { type: "doc", id: "minecraft/java/index" },
-              items: [],
-            },
-            {
-              type: "category",
-              label: "Bedrock",
-              link: { type: "doc", id: "minecraft/bedrock/index" },
-              items: ["minecraft/bedrock/windows", "minecraft/bedrock/android"],
-            },
-          ],
-        },
-        "plutonium/index",
-      ],
+      items: ["plutonium/index"],
     },
     {
       type: "category",
