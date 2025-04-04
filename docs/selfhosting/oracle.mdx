@@ -83,7 +83,7 @@ To use the Oracle Cloud Free Tier, you need a valid credit/debit card. Virtual/P
 
     3. We will now need to add our SSH key to our SSH agent. Before we do that, we need to start the SSH agent. Open a new **Administrator** PowerShell window and run the following commands:
        ```
-       Get-Service -Name ssh-agent | Set-Service -StartupType Manual
+       Get-Service -Name ssh-agent | Set-Service -StartupType Automatic
        Start-Service ssh-agent
        ```
     4. Run the following command in your **non-administrator** terminal to add your SSH key to the SSH agent:
