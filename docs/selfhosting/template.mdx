@@ -13,23 +13,37 @@ This section will focus on using [my template `compose.yaml`](https://github.com
 
 ## What is it for?
 
-The "template" is just a standard `compose.yaml` file that contains a bunch of services in one file.
-It makes use of environment variables so that the `compose.yaml` file can be used by anyone without having to edit the file itself.
-Only the `.env` file needs to be edited to fill in the necessary environment variables.
+The "template" makes use of a Docker Compose project and its [include](https://docs.docker.com/reference/compose-file/include/) feature to
+allow you to easily use and maintain a large number of services.
+
+Each individual app has its own `compose.yaml` file, which will usually have its own `.env` file for configuration,
+and then the main `compose.yaml` file **includes** all of them.
+
+The `.env` files handle most of the configuration for the services, which means you usually don't have to ever edit the `compose.yaml` file itself,
+just the documented `.env` files.
+
+This means that when using the compose project, it counts as one single file with all the services in it. This makes it easy
+to reference other containers, and not having to deal with multiple networks, etc.
 
 This `compose.yaml` uses [Traefik](https://traefik.io) as a reverse proxy to route traffic to the correct service.
 All our services are put behind Traefik, which allows us to access all services on the same port (80/443) and Traefik will route the traffic to the correct service.
 This means that port 80 and 443 are the only ports that need to be open on your server.
 
+We use Authelia as an authentication service, which allows us to protect our services. Authelia is not applied
+to every single service, but only to the ones that require authentication. This is done through Traefik labels.
+I will discuss how to add Authelia to a service later on.
+
 A quick summary of what is included in this template is:
 
 - Default server management services
 - Stremio related services
+- Debrid media server services
 - Seanime
 - Minecraft server
 - Plausible analytics
 - Vaultwarden
 - SearXNG
+- Zipline
 
 <details>
 <summary>What is the full list of services that are available in the template?</summary>
@@ -38,6 +52,7 @@ A quick summary of what is included in this template is:
     [Traefik](https://github.com/traefik/traefik) is included as our reverse proxy. It is used to route traffic to the correct service. It means that you can access all services on the same port (80/443) and Traefik will route the traffic to the correct service.
     It also allows for automatic SSL certificate generation using Let's Encrypt, which is required for Stremio addons as Stremio requires HTTPS to install addons.
 
+    Authelia is included for authentication.
 
     To help with managing the server, the following services are included:
 
@@ -70,6 +85,7 @@ A quick summary of what is included in this template is:
         - [Catalog Providers](https://github.com/redd-ravenn/stremio-catalog-providers)
         - [TMDB Addon](https://github.com/mrcanelas/tmdb-addon)
         - [Stremio Trakt Addon](https://github.com/redd-ravenn/stremio-trakt-addon)
+        - [Stremio Catalog Addon](https://github.com/redd-ravenn/stremio-catalog-providers)
         - [OMG TV Stremio Addon](https://github.com/mccoy88f/OMG-Premium-TV/blob/main/README-EN.md)
         - [Stremio Server](https://github.com/Stremio/server-docker)
           - This is the official Stremio server docker image. This handles the downloading and transcoding of streams. This is useful if you use Stremio on devices
@@ -87,15 +103,21 @@ A quick summary of what is included in this template is:
         this template as a reference
         :::
 
-        - [Blackholes](https://github.com/westsurname/scripts)
+        - [Wests Scripts](https://github.com/westsurname/scripts)
+          - Includes blackhole, repair, plex requests, plex watchlist.
         - [Radarr](https://github.com/Radarr/Radarr)
         - [Sonarr](https://github.com/Sonarr/Sonarr)
+        - [AutoSync](https://github.com/Pukabyte/AutoSync)
         - [Recyclarr](https://github.com/Recyclarr/Recyclarr)
         - [Plex](https://github.com/plexinc/pms-docker)
         - [Zurg](https://github.com/yowmamasita/zurg)
         - [RClone](https://github.com/rclone/rclone)
         - [Jellyfin](https://github.com/jellyfin/jellyfin)
         - [JellySeer](https://github.com/fallenbagel/jellyseerr)
+        - Plex
+        - Overseerr
+        - Tautulli
+        - Kometa
 
     </div>
     </details>
@@ -115,7 +137,10 @@ A quick summary of what is included in this template is:
       - [Cloudflare Warp](https://github.com/cmj2002/warp-docker)
         - This is a Cloudflare Warp client. It allows you to bypass blocks. For example, Torrentio blocks requests from some VPS providers (like Oracle Cloud).
           In this case, you can use Cloudflare Warp to proxy your requests through it which can be used for AIOStreams, Prowlarr, etc.
-
+      - Gluetun
+      - Tweakio
+        - A torrentio indexer built to work with the *arrs.
+      - Torbox Manager
     </div>
     </details>
 
@@ -130,84 +155,36 @@ A quick summary of what is included in this template is:
   </div>
 </details>
 
-### Profiles
+## Customising the template
+
+The template is designed to be easily customisable. You can add your own services, remove services, and modify the configuration of the services.
 
 My compose.yaml makes use of profiles to make it easier to deploy only specific services.
-A profile is a group of services that are related to each other. For example, the `stremio` profile contains services that are related to Stremio.
+Each individual service has its own profile, so seanime has a profile called `seanime`, and so on.
 
-The profiles are as follows:
+There are also profiles that are a group of services that are related to each other. For example, the `stremio` profile contains services that are related to Stremio.
 
-- `default`
+The grouped profiles are as follows:
+
 - `stremio`
 - `debrid_media_server`
-- `nzbhydra2`
-- `indexers`
-- `seanime`
-- `plausible`
-- `searxng`
+- `indexers` (includes Prowlarr, Jackett, NZBHydra2)
 - `all`
 
-The default profile cannot be specified, it will always be included no matter what profiles you choose or don't choose.
-Other profiles contain services that are related to the profile name.
+The individual profiles are simply the names of the folder names in the `apps` directory.
 
-<details>
-<summary>What services are included in each profile?</summary>
-  <div>
+There are also services that are not specified in a profile. These services can be referred to as the **default** services.
+They will always be included in the deployment, no matter what profiles you choose or don't choose.
 
-      The obvious ones are as follows:
-        - `all` includes all services.
-        - `nzbhydra2` only includes NZBHydra2.
-        - `seanime` only includes Seanime.
-        - `plausible` only includes Plausible.
-        - `searxng` only includes SearXNG.
+The default profile contains the following services:
 
-      The rest can be seen in the table below:
-
-      | Service / Profile |       default      |       stremio      | debrid_media_server |      indexers      |
-      |:-----------------:|:------------------:|:------------------:|:-------------------:|:------------------:|
-      |      Traefik      | :white_check_mark: |          -         |          -          |          -         |
-      |       Flame       | :white_check_mark: |          -         |          -          |          -         |
-      |       dash.       | :white_check_mark: |          -         |          -          |          -         |
-      |       honey       | :white_check_mark: |          -         |          -          |          -         |
-      |    Uptime Kuma    | :white_check_mark: |          -         |          -          |          -         |
-      |     Watchtower    | :white_check_mark: |          -         |          -          |          -         |
-      |       Dozzle      | :white_check_mark: |          -         |          -          |          -         |
-      |     AIOStreams    |         :x:        | :white_check_mark: |         :x:         |         :x:        |
-      |     TMDB Addon    |         :x:        | :white_check_mark: |         :x:         |         :x:        |
-      |     Easynews+     |         :x:        | :white_check_mark: |         :x:         |         :x:        |
-      |       Comet       |         :x:        | :white_check_mark: |         :x:         |         :x:        |
-      |  MediaFlow Proxy  |         :x:        | :white_check_mark: |         :x:         |         :x:        |
-      |    MediaFusion    |         :x:        | :white_check_mark: |         :x:         |         :x:        |
-      |     StremThru     |         :x:        | :white_check_mark: |         :x:         |         :x:        |
-      |  Stremio-Jackett  |         :x:        | :white_check_mark: |         :x:         |         :x:        |
-      |     Jackettio     |         :x:        | :white_check_mark: |         :x:         |         :x:        |
-      |       Zilean      |         :x:        | :white_check_mark: |  :white_check_mark: |         :x:        |
-      |      Prowlarr     |         :x:        | :white_check_mark: |  :white_check_mark: | :white_check_mark: |
-      |      Jackett      |         :x:        | :white_check_mark: |         :x:         | :white_check_mark: |
-      |     NZBHydra2     |         :x:        |         :x:        |         :x:         | :white_check_mark: |
-      |    Flaresolverr   |         :x:        | :white_check_mark: |  :white_check_mark: |         :x:        |
-      |       Byparr      |         :x:        | :white_check_mark: |  :white_check_mark: |         :x:        |
-      |   Stremio Server  |         :x:        | :white_check_mark: |         :x:         |         :x:        |
-      |        Warp       |         :x:        | :white_check_mark: |  :white_check_mark: |         :x:        |
-      |     AIOStremio    |         :x:        | :white_check_mark: |         :x:         |         :x:        |
-      |    OMG TV Addon   |         :x:        | :white_check_mark: |         :x:         |         :x:        |
-      |   Addon Manager   |         :x:        | :white_check_mark: |         :x:         |         :x:        |
-      |  Stremio Catalogs |         :x:        | :white_check_mark: |         :x:         |         :x:        |
-      |   Stremio Trakt   |         :x:        | :white_check_mark: |         :x:         |         :x:        |
-      |      Seanime      |         :x:        |         :x:        |         :x:         |         :x:        |
-      |      SearXNG      |         :x:        |         :x:        |         :x:         |         :x:        |
-      |     Plausible     |         :x:        |         :x:        |         :x:         |         :x:        |
-      |     Blackholes    |         :x:        |         :x:        |  :white_check_mark: |         :x:        |
-      |   Radarr/Sonarr   |         :x:        |         :x:        |  :white_check_mark: |         :x:        |
-      |        Plex       |         :x:        |         :x:        |  :white_check_mark: |         :x:        |
-      |        Zurg       |         :x:        |         :x:        |  :white_check_mark: |         :x:        |
-      |       RClone      |         :x:        |         :x:        |  :white_check_mark: |         :x:        |
-
-  </div>
-</details>
+- Traefik, Authelia, Flame, Dash., Honey, Uptime Kuma, Watchtower, Dozzle.
 
 After you have chosen which profiles you are going to use, keep them in mind, as you will now need to fill in
 the .env file with the necessary environment variables.
+
+Other than choosing the profiles, you could also modify the root `compose.yaml` file and remove a compose.yaml from the include list.
+e.g. If you wanted to use the stremio profile, but not the TMDB addon, you could remove the `- tmdb-addon/compose.yaml` line under the `include:` section.
 
 ## Setup
 
@@ -227,15 +204,16 @@ the .env file with the necessary environment variables.
 4. Next, you should clone the repository by running the following command:
 
    ```bash
-   git clone https://github.com/Viren070/docker-compose-vps-template.git docker-apps
+   cd /opt
+   git clone https://github.com/Viren070/docker-compose-vps-template.git docker
    ```
 
-   This will clone the repository into a directory called `docker-apps`.
+   This will clone the repository into a directory called `docker` located in `/opt/docker`.
 
-5. Next, you should navigate into the directory by running the following command:
+5. Next, you should navigate into the directory that contains the `compose.yaml` file.
 
    ```bash
-   cd docker-apps
+   cd docker/apps
    ```
 
 6. You can now confirm that the files have been downloaded by running the following command:
@@ -244,35 +222,44 @@ the .env file with the necessary environment variables.
    ls -a
    ```
 
-   You should see the following files and directories:
+   You should see a list of folders, an .env file, and a `compose.yaml` file.
 
-   ```bash
-   . ..  .env  compose.yaml  data
-   ```
+7. Next, you should edit the `.env` files to fill in the necessary environment variables. Start off with the root `.env` file.
 
-7. Next, you should edit the `.env` file to fill in the necessary environment variables. You can do this by running the following command.
+   There are many ways to fill these values in, you could:
 
-   ```bash
-   nano .env
-   ```
+   - use a CLI text editor like `nano` or `vim` to edit the file directly through the terminal.
+     ```
+     nano .env
+     ```
+   - Use VS Code to edit the file directly on the server using the `Remote - SSH` extension. (**recommended**)
 
-   - You should only fill in the environment variables for the services you are going to deploy.
-     However, note that if you want to omit a service from a profile, you will have to edit the `compose.yaml` file. This is detailed later.
-     Otherwise, the full profile environment variables will be required. e.g. If you are using the stremio profile,
-     all the environment variables under the stremio profile will be required, unless you edit the `compose.yaml` file.
+     1. Install the `Remote - SSH` extension in VS Code.
+     2. Open the command palette (Ctrl + Shift + P) and type `Remote-SSH: Connect to Host...`.
+     3. Enter the SSH connection string for your server (e.g. `ubuntu@your-server-ip`).
+     4. Once connected, navigate to the `/opt/docker/apps` directory (`Ctrl + K` + `Ctrl + O` / `File` > `Open Folder...`).
+     5. You will be able to see all the files and folders in the sidebar. Edit the `.env` files for each service from here
+        by simply clicking on them and then editing them. You can also use the terminal in VS Code to run commands on the server.
+        Make sure to save the files after editing them. (`Ctrl + S` / `File` > `Save`).
 
-   :::tip
-   If you are having issues using a CLI text editor like nano, you can instead edit the file on your local machine using a text editor like Notepad++ or Visual Studio Code.
-   And then upload the file to your server using `scp` or simply copy-pasting the contents.
+   - Edit all the files locally (so clone the repository to your local machine first) using your preferred method
+     and then upload them to your server using `scp`.
+
+   :::info
+   You should only fill in the environment variables for the services you are going to deploy.
+   If you add a profile, the full set of environment variables for each app under that profile will be required.
    :::
 
-8. Now, you should ensure that for every hostname you set in the `.env` file, you have a DNS `A record` handling it pointing it to your servers **public IP**.
+8. Now, you should ensure that for every hostname you set in the `.env` files, you have a DNS `A record` handling it pointing it to your servers **public IP**.
    :::warning
    If you are using Cloudflare, you should disable the proxy (orange cloud) for the DNS record. This is because Traefik needs to connect directly to your server.
    :::
    :::tip
    You can create a wildcard DNS by using an A record with `*` as the subdomain. e.g. `*.yourdomain.com`. This will allow you to use any subdomain while only
    needing to create one DNS record.
+
+   However, this can cause issues and will cause any subdomain to be routed to your server.
+   For example, if you're running a minecraft server, it will mean that any subdomain will be routed to your server.
    :::
 
 9. After you have filled in the environment variables, you can now deploy the services. You should make sure you defined the `COMPOSE_PROFILES` environment variables
@@ -284,85 +271,153 @@ the .env file with the necessary environment variables.
    docker compose up -d
    ```
 
-   - You can also specify the profiles through the `--profile` flag, e.g.
-     ```bash
-     docker compose --profile stremio --profile seanime up -d
-     ```
+- You can also specify the profiles through the `--profile` flag, e.g.
+  ```bash
+  docker compose --profile stremio --profile seanime up -d
+  ```
 
-10. After running the command, it may take some time for the services to start up. Once it is done, you should be able to access them at the hostnames you
+11. After running the command, it may take some time for the services to start up. Once it is done, you should be able to access them at the hostnames you
     set in the `.env` file.
 
 ## Modifying the profiles
 
-You may want to deploy only 1 or 2 services from a profile, or maybe you want to omit a few services from a profile.
-
-This section will show you how to do that.
+You may want to omit some services from the profiles, this is possible by removing the profile from the service in the `compose.yaml` file.
 
 <details>
 <summary>I want to use the stremio profile but don't want the TMDB Addon</summary>
   <div>
   
-    Within the `compose.yaml` file, you can remove the `stremio` profile from the `tmdb-addon` service.
+    Within the `compose.yaml` file, you can remove the `stremio` profile from the `tmdb-addon` and `tmdb-addon_mongo` services.
+    Remove the highlighted lines below:
 
-      ```graphql
-        services:
-          tmdb-addon:
-            image: mrcanelas/tmdb-addon:latest
-            container_name: tmdb-addon
-            restart: unless-stopped
-            expose:
-              - 3232
-            environment:
-              - PORT=3232
-              - TMDB_API=${TMDB_API_KEY?}  # https://www.themoviedb.org/settings/api
-              - FANART_API=${FANART_API_KEY?}  # https://fanart.tv/get-an-api-key/
-              - HOST_NAME=tmdb-${TMDB_ADDON_HOSTNAME?}
-              - MONGODB_URI=mongodb://mongodb:27017/tmdb
-              - META_TTL=604800  # 1 week
-              - CATALOG_TTL=86400  # 1 day
-              - NO_CACHE=false  # Enable cache, set to true to disable
-            labels:
-              - "traefik.enable=true"
-              - "traefik.http.routers.tmdb.rule=Host(`${TMDB_ADDON_HOSTNAME?}`)"
-              - "traefik.http.routers.tmdb.entrypoints=websecure"
-              - "traefik.http.routers.tmdb.tls.certresolver=myresolver"
-              - "traefik.http.services.tmdb.loadbalancer.server.port=3232"
-              - "flame.type=app"
-              - "flame.name=TMDB Addon"
-              - "flame.url=https://${TMDB_ADDON_HOSTNAME?}"
-            depends_on:
-              mongodb:
-                condition: service_healthy
-            profiles:
-              - stremio  <--- Remove this line to not deploy the TMDB Addon in the stremio profile
-              - all
+      ```yaml title="/opt/docker/apps/tmdb-addon/compose.yaml"
+      services:
+        tmdb-addon:
+          image: viren070/tmdb-addon:latest
+          container_name: tmdb-addon
+          restart: unless-stopped
+          expose:
+            - 3232
+          environment:
+            - PORT=3232
+            - TMDB_API=${TMDB_API_KEY?}  # https://www.themoviedb.org/settings/api
+            - FANART_API=${FANART_API_KEY?}  # https://fanart.tv/get-an-api-key/
+            - HOST_NAME=${TMDB_ADDON_HOSTNAME?}
+            - MONGODB_URI=mongodb://mongodb:27017/tmdb
+            - META_TTL=604800  # 1 week
+            - CATALOG_TTL=86400  # 1 day
+            - NO_CACHE=false  # Enable cache, set to true to disable
+          labels:
+            - "traefik.enable=true"
+            - "traefik.http.routers.tmdb.rule=Host(`${TMDB_ADDON_HOSTNAME?}`)"
+            - "traefik.http.routers.tmdb.entrypoints=websecure"
+            - "traefik.http.routers.tmdb.tls.certresolver=letsencrypt"
+            - "traefik.http.services.tmdb.loadbalancer.server.port=3232"
+            - "flame.type=app"
+            - "flame.name=TMDB Addon"
+            - "flame.url=https://${TMDB_ADDON_HOSTNAME?}"
+          depends_on:
+            tmdb-addon_mongo:
+              condition: service_healthy
+          profiles:
+            - tmdb-addon
+            // highlight-next-line
+            - stremio
+            - all
+
+        tmdb-addon_mongo:
+          image: mongo:latest
+          container_name: tmdb-addon_mongo
+          restart: unless-stopped
+          volumes:
+            - ${DOCKER_DATA_DIR}/tmdb-addon/db:/data/db
+          healthcheck:
+            test: echo 'db.runCommand("ping").ok' | mongosh localhost:27017/test --quiet
+            interval: 10s
+            timeout: 10s
+            retries: 5
+            start_period: 40s
+          profiles:
+            - tmdb-addon
+            // highlight-next-line
+            - stremio
+            - all
+
         ```
 
-  </div>
-</details>
+      You could instead remove the include line from the root `compose.yaml` for the `tmdb-addon` service.
+      This would mean that the service would not be included in the deployment at all.
+      Adding the 'tmdb-addon' profile to the `DOCKER_COMPOSE_PROFILES` environment variable would also not work unless this line is added back.
 
-<details>
-  <summary>
-    I only want to deploy AIOStreams and MediaFlow
-  </summary>
+      ```yaml title="/opt/docker/apps/compose.yaml"
 
-  <div>
-    You can start by only deploying the default services 
-    ```bash
-    sudo docker compose up -d
-    ```
 
-    Then you can deploy the services you want by specifying the services you want to deploy using their service names which can be found in the `compose.yaml` file.
-    ```bash
-    sudo docker compose up -d aiostreams mediaflow
-    ```
+      include:
+        ...
+        - tautulli/compose.yaml
+        // highlight-next-line
+        - tmdb-addon/compose.yaml
+        - torbox-manager/compose.yaml
+        ...
+      networks:
+        default:
+          name: ${DOCKER_NETWORK:-aio_default}
+          external: ${DOCKER_NETWORK_EXTERNAL:-false}
 
-    :::warning
-    For this specific example, you would also have to edit the environment variables for AIOStreams to not refer to
-    the self hosted instances of the other addons.
-
-    If your VPS is blocked by Torrentio, so include that as well.
-    :::
+      ```
 
   </div>
 </details>
+
+## Adding Authelia to a service
+
+As mentioned before, Authelia is included in the template, but not every service is protected by it.
+This is because some services already have their own authentication system.
+
+For example, Uptime Kuma has its own authentication system, so it doesn't need Authelia.
+But, you may want to add Authelia anyways, so I will show you how to do that.
+
+You will have to edit the `compose.yaml` file for the service you want to add Authelia to.
+
+For this example, we will use Uptime Kuma. You simply need to add one line defining the Authelia middleware to the router.
+
+```yaml title="/opt/docker/apps/uptime-kuma/compose.yaml"
+services:
+  uptime-kuma:
+    image: louislam/uptime-kuma:latest
+    container_name: kuma
+    restart: unless-stopped
+    environment:
+      PUID: ${PUID}
+      PGID: ${PGID}
+    expose:
+      - 3001
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.uptime-kuma.rule=Host(`${UPTIME_KUMA_HOSTNAME?}`)"
+      - "traefik.http.routers.uptime-kuma.entrypoints=websecure"
+      - "traefik.http.routers.uptime-kuma.tls.certresolver=letsencrypt"
+      // highlight-next-line
+      - "traefik.http.routers.uptime-kuma.middlewares=authelia@docker"
+      - "flame.type=app"
+      - "flame.name=Uptime Kuma"
+      - "flame.url=https://${UPTIME_KUMA_HOSTNAME?}"
+    volumes:
+      - ${DOCKER_DATA_DIR}/uptime-kuma:/app/data
+      - /var/run/docker.sock:/var/run/docker.sock
+```
+
+## Removing built-in authentication from the \*arrs
+
+The \*arrs have their own authentication system, which is enabled by default.
+Since these services are behind Authelia, you may want to disable the in-built authentication system.
+This cannot be done through the web UI, you must edit the config files.
+
+To make this easier, you can simply run this command to disable the authentication system. This depends on the current Authentication being set to `None`.
+i.e. You must run this before setting up the \*arrs.
+
+```bash
+find /opt/docker/data -type f -name "*.xml" -exec sed -i 's|<AuthenticationMethod>None</AuthenticationMethod>|<AuthenticationMethod>External</AuthenticationMethod>|g' {} +
+```
+
+- This will find all the XML files in the `/opt/docker/data` directory and replace the `None` authentication method with `External`.
