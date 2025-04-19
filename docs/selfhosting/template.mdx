@@ -17,7 +17,7 @@ The "template" makes use of a Docker Compose project and its [include](https://d
 allow you to easily use and maintain a large number of services.
 
 Each individual app has its own `compose.yaml` file, which will usually have its own `.env` file for configuration,
-and then the main `compose.yaml` file **includes** all of them.
+and then the main `compose.yaml` file **includes** all of them. Each individual app will also have its own [`profile`](https://docs.docker.com/compose/how-tos/profiles/).
 
 The `.env` files handle most of the configuration for the services, which means you usually don't have to ever edit the `compose.yaml` file itself,
 just the documented `.env` files.
@@ -62,12 +62,6 @@ A quick summary of what is included in this template is:
       - This is useful for monitoring the status of your services and receiving alerts. You do have to set up your services manually, but this can be done through the web interface.
     - [Dash.](https://github.com/MauriceNino/dashdot) - A simple dashboard to monitor your server.
     - [Honey](https://github.com/dani3l0/honey) - Beautiful, customisable, startpage for your server to access all your services.
-    - [Flame](https://github.com/pawelmalak/flame) - A simple startpage, requiring minimal setup, for your server.
-
-    I have provided 2 startpages, Honey and Flame. You can choose which one you want to use. You can also use both if you want.
-    The reason being that Honey requires a bit more setup, as you need to edit honey's config.json file and replace the urls with your own.
-    I have provided my template which has all the images, so its not too hard to do. Flame is a bit more simple and requires no setup.
-    But, it also has no images and you would have to provide that yourself for each service. Honey, IMO, looks far better.
 
     <details>
     <summary>Stremio Addons and Utilities</summary>
@@ -163,22 +157,14 @@ My compose.yaml makes use of profiles to make it easier to deploy only specific 
 Each individual service has its own profile, so seanime has a profile called `seanime`, and so on.
 
 There are also profiles that are a group of services that are related to each other. For example, the `stremio` profile contains services that are related to Stremio.
-
-The grouped profiles are as follows:
-
-- `stremio`
-- `debrid_media_server`
-- `indexers` (includes Prowlarr, Jackett, NZBHydra2)
-- `all`
+Currently there are only 2 grouped profiles - `stremio` and `indexers`.
 
 The individual profiles are simply the names of the folder names in the `apps` directory.
 
-There are also services that are not specified in a profile. These services can be referred to as the **default** services.
-They will always be included in the deployment, no matter what profiles you choose or don't choose.
+As every single service has a profile, you must define a profile, either in the `COMPOSE_PROFILES` environment variable or through the `--profile` flag when running the `docker compose` command.
+Otherwise, no services will be started.
 
-The default profile contains the following services:
-
-- Traefik, Authelia, Flame, Dash., Honey, Uptime Kuma, Watchtower, Dozzle.
+However, there is a 'required' profile which includes Traefik and Authelia, which is required for external access to the services.
 
 After you have chosen which profiles you are going to use, keep them in mind, as you will now need to fill in
 the .env file with the necessary environment variables.
@@ -188,35 +174,54 @@ e.g. If you wanted to use the stremio profile, but not the TMDB addon, you could
 
 ## Setup
 
-1. First, you should ensure Docker is installed per https://get.docker.com/ (If you followed my previous guides, you should already have Docker installed).
+### Requirements:
 
-2. Next, you should make sure both port 80 and 443 are open on your server. This is required for Traefik to work correctly.
-   :::tip
-   If you are using Oracle Cloud, you can follow [these steps](/selfhosting/oracle#opening-ports) to open the ports.
-   :::
+- A server with Docker installed per https://get.docker.com/. (Other methods like snap are not recommended).
+- A domain with name servers preferably changed to Cloudflares.
+  - You may use free subdomains from services like [DuckDNS](https://www.duckdns.org/), [Afraid.org](https://freedns.afraid.org/) or [No-IP](https://www.noip.com/), but I recommend using a domain you own.
+    :::note
+    Should you choose to use these free services, you most likely will not be able to change name servers. This means
+    you will have to manually create DNS records for each subdomain you want to use.
+    :::
+- Ports 80 and 443 open on your server. This is required for Traefik to work correctly.
+  :::tip
+  If you are using Oracle Cloud, you can follow [these steps](/selfhosting/oracle#opening-ports) to open the ports.
+  :::
 
-3. Then, connect to your server on a terminal. Typically using the command below, or if you created a Windows Terminal profile, you can use that.
+1. Connect to your server, typically done using the following command:
 
    ```bash
    ssh ubuntu@your-server-ip
    ```
 
-4. Next, you should clone the repository by running the following command:
+   :::tip
+   If you are using a different user, you should change the `ubuntu` part of the command to your username.
+   :::
+
+2. The first step is to download the template, preferably to `/opt/docker`.
 
    ```bash
    cd /opt
    git clone https://github.com/Viren070/docker-compose-vps-template.git docker
+   cd docker
    ```
 
-   This will clone the repository into a directory called `docker` located in `/opt/docker`.
-
-5. Next, you should navigate into the directory that contains the `compose.yaml` file.
+   :::tip
+   You can change the permissions of the `/opt/docker` directory to your user using the following command:
 
    ```bash
-   cd docker/apps
+   sudo chown $(id -u):$(id -g) /opt/docker
    ```
 
-6. You can now confirm that the files have been downloaded by running the following command:
+   :::
+
+3. Next, you should navigate into the directory that contains the `compose.yaml` file.
+
+   ```bash
+   cd apps
+   ```
+
+4. You can now confirm that the files have been downloaded by running the following command:
 
    ```bash
    ls -a
@@ -224,7 +229,7 @@ e.g. If you wanted to use the stremio profile, but not the TMDB addon, you could
 
    You should see a list of folders, an .env file, and a `compose.yaml` file.
 
-7. Next, you should edit the `.env` files to fill in the necessary environment variables. Start off with the root `.env` file.
+5. Next, you should edit the `.env` files to fill in the necessary environment variables. I'd recommend that you start with the root `.env` file only.
 
    There are many ways to fill these values in, you could:
 
@@ -242,6 +247,15 @@ e.g. If you wanted to use the stremio profile, but not the TMDB addon, you could
         by simply clicking on them and then editing them. You can also use the terminal in VS Code to run commands on the server.
         Make sure to save the files after editing them. (`Ctrl + S` / `File` > `Save`).
 
+   - Use XPipe as a remote file explorer and then use your preferred text editor to edit the files. (**also recommended**)
+
+     1. Download and install XPipe from [here](https://xpipe.io/download).
+     2. Open XPipe and click on the `+` button to add a new connection.
+     3. You can either let XPipe search automaticallly using the SSH config files or manually add a Remote Host connection.
+     4. After adding the connection, you can go to the file browser tab on the right (or `Ctrl + 2`) and navigate to the `/opt/docker/apps` directory.
+     5. You can then right click on the `.env` file and select `Open with...` and select your preferred text editor.
+     6. After editing the file, make sure to save it.
+
    - Edit all the files locally (so clone the repository to your local machine first) using your preferred method
      and then upload them to your server using `scp`.
 
@@ -250,7 +264,22 @@ e.g. If you wanted to use the stremio profile, but not the TMDB addon, you could
    If you add a profile, the full set of environment variables for each app under that profile will be required.
    :::
 
-8. Now, you should ensure that for every hostname you set in the `.env` files, you have a DNS `A record` handling it pointing it to your servers **public IP**.
+6. After filling in the root .env, you should start the 'required' profile, this allows you to check that Traefik and Authelia are working correctly.
+
+   ```bash
+   docker compose --profile required up -d
+   ```
+
+   This will start the Traefik and Authelia services. You can check the logs for any errors by running:
+
+   ```bash
+   docker compose --profile required logs -f
+   ```
+
+7. You can then start adding and configuring more services, either by adding more profiles or using the 'all' profile and manually removing the compose files you don't want to use from the
+   `include:` section of the root `compose.yaml` file. Make sure to fill in any `.env` files for the other services if they exist within the folder for that app.
+
+8. If you are not using cloudflare-ddns (which automatically creates the DNS records), you should ensure that for every hostname in the root `.env` files, you have a DNS `A record` handling it pointing it to your servers **public IP**.
    :::warning
    If you are using Cloudflare, you should disable the proxy (orange cloud) for the DNS record. This is because Traefik needs to connect directly to your server.
    :::
@@ -263,7 +292,7 @@ e.g. If you wanted to use the stremio profile, but not the TMDB addon, you could
    :::
 
 9. After you have filled in the environment variables, you can now deploy the services. You should make sure you defined the `COMPOSE_PROFILES` environment variables
-   as this will determine which profiles are started. If you did not set it, then only the services in the default profile would be started.
+   as this will determine which profiles are started. If you did not set it, no services will be started.
 
    Then, you can run the following command:
 
@@ -273,11 +302,11 @@ e.g. If you wanted to use the stremio profile, but not the TMDB addon, you could
 
 - You can also specify the profiles through the `--profile` flag, e.g.
   ```bash
-  docker compose --profile stremio --profile seanime up -d
+  docker compose --profile required --profile stremio --profile seanime up -d
   ```
 
-11. After running the command, it may take some time for the services to start up. Once it is done, you should be able to access them at the hostnames you
-    set in the `.env` file.
+11. After running the command, it may take some time for the services to start up. Once it is done, you should be able to access them at the hostnames that are defined in
+    the root `.env` file.
 
 ## Modifying the profiles
 
@@ -368,56 +397,3 @@ You may want to omit some services from the profiles, this is possible by removi
 
   </div>
 </details>
-
-## Adding Authelia to a service
-
-As mentioned before, Authelia is included in the template, but not every service is protected by it.
-This is because some services already have their own authentication system.
-
-For example, Uptime Kuma has its own authentication system, so it doesn't need Authelia.
-But, you may want to add Authelia anyways, so I will show you how to do that.
-
-You will have to edit the `compose.yaml` file for the service you want to add Authelia to.
-
-For this example, we will use Uptime Kuma. You simply need to add one line defining the Authelia middleware to the router.
-
-```yaml title="/opt/docker/apps/uptime-kuma/compose.yaml"
-services:
-  uptime-kuma:
-    image: louislam/uptime-kuma:latest
-    container_name: kuma
-    restart: unless-stopped
-    environment:
-      PUID: ${PUID}
-      PGID: ${PGID}
-    expose:
-      - 3001
-    labels:
-      - "traefik.enable=true"
-      - "traefik.http.routers.uptime-kuma.rule=Host(`${UPTIME_KUMA_HOSTNAME?}`)"
-      - "traefik.http.routers.uptime-kuma.entrypoints=websecure"
-      - "traefik.http.routers.uptime-kuma.tls.certresolver=letsencrypt"
-      // highlight-next-line
-      - "traefik.http.routers.uptime-kuma.middlewares=authelia@docker"
-      - "flame.type=app"
-      - "flame.name=Uptime Kuma"
-      - "flame.url=https://${UPTIME_KUMA_HOSTNAME?}"
-    volumes:
-      - ${DOCKER_DATA_DIR}/uptime-kuma:/app/data
-      - /var/run/docker.sock:/var/run/docker.sock
-```
-
-## Removing built-in authentication from the \*arrs
-
-The \*arrs have their own authentication system, which is enabled by default.
-Since these services are behind Authelia, you may want to disable the in-built authentication system.
-This cannot be done through the web UI, you must edit the config files.
-
-To make this easier, you can simply run this command to disable the authentication system. This depends on the current Authentication being set to `None`.
-i.e. You must run this before setting up the \*arrs.
-
-```bash
-find /opt/docker/data -type f -name "*.xml" -exec sed -i 's|<AuthenticationMethod>None</AuthenticationMethod>|<AuthenticationMethod>External</AuthenticationMethod>|g' {} +
-```
-
-- This will find all the XML files in the `/opt/docker/data` directory and replace the `None` authentication method with `External`.
