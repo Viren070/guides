@@ -174,7 +174,7 @@ e.g. If you wanted to use the stremio profile, but not the TMDB addon, you could
 
 ## Setup
 
-### Requirements:
+### Requirements
 
 - A server with Docker installed per https://get.docker.com/. (Other methods like snap are not recommended).
 - A domain with name servers preferably changed to Cloudflares.
@@ -188,7 +188,9 @@ e.g. If you wanted to use the stremio profile, but not the TMDB addon, you could
   If you are using Oracle Cloud, you can follow [these steps](/selfhosting/oracle#opening-ports) to open the ports.
   :::
 
-1. Connect to your server, typically done using the following command:
+### Steps
+
+1. Connect to your server, typically done using the following command, replacing `your-server-ip` with your server's IP address:
 
    ```bash
    ssh ubuntu@your-server-ip
@@ -198,11 +200,17 @@ e.g. If you wanted to use the stremio profile, but not the TMDB addon, you could
    If you are using a different user, you should change the `ubuntu` part of the command to your username.
    :::
 
-2. The first step is to download the template, preferably to `/opt/docker`.
+2. The first step is to download the template, preferably to `/opt/docker`, using the following commands:
 
    ```bash
    cd /opt
+   ```
+
+   ```bash
    git clone https://github.com/Viren070/docker-compose-vps-template.git docker
+   ```
+
+   ```bash
    cd docker
    ```
 
@@ -210,8 +218,10 @@ e.g. If you wanted to use the stremio profile, but not the TMDB addon, you could
    You can change the permissions of the `/opt/docker` directory to your user using the following command:
 
    ```bash
-   sudo chown $(id -u):$(id -g) /opt/docker
+   sudo chown $(id -u):$(id -g) -R /opt/docker
    ```
+
+   This will allow you to edit files in the directory without needing to use `sudo`.
 
    :::
 
