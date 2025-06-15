@@ -4,7 +4,7 @@ import styles from "./styles.module.css";
 // Singleton showToast function
 export const showToast = (
   message: string,
-  type: "info" | "error" | "success",
+  type: "info" | "error" | "success" | "warning" = "info",
   toastId?: string
 ) => {
   toast(message, {
