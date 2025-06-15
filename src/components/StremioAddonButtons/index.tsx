@@ -14,6 +14,67 @@ interface StremioAddonButtonsProps {
   id: string;
 }
 
+function copyToClipboard(
+  text: string,
+  successMessage: string,
+  failureMessage: string
+): void {
+  if (!navigator.clipboard) {
+    // Fallback for browsers that do not support the Clipboard API
+    const textArea = document.createElement("textarea");
+    textArea.value = text;
+    textArea.style.position = "fixed"; // Prevent scrolling to bottom of page in MS Edge.
+    textArea.style.opacity = "0"; // Make it invisible
+    document.body.appendChild(textArea);
+    textArea.focus();
+    textArea.select();
+    try {
+      document.execCommand("copy");
+      showToast(
+        translate({
+          message: successMessage,
+          id: "stremio.copyToClipboard.toast.success",
+          description: "Toast message for successful copy to clipboard",
+        }),
+        "success"
+      );
+    } catch (err) {
+      showToast(
+        translate({
+          message: failureMessage,
+          id: "stremio.copyToClipboard.toast.error",
+          description: "Toast message for failed copy to clipboard",
+        }),
+        "error"
+      );
+    }
+    document.body.removeChild(textArea);
+    return;
+  }
+  navigator.clipboard
+    .writeText(text)
+    .then(() => {
+      showToast(
+        translate({
+          message: successMessage,
+          id: "stremio.copyToClipboard.toast.success",
+          description: "Toast message for successful copy to clipboard",
+        }),
+        "success"
+      );
+    })
+    .catch(() => {
+      showToast(
+        translate({
+          message: failureMessage,
+          id: "stremio.copyToClipboard.toast.error",
+          description: "Toast message for failed copy to clipboard",
+        }),
+        "error"
+      );
+    });
+}
+
 const ConfigureButton = ({
   manifest,
   configureOverride,
@@ -156,48 +217,78 @@ function ShareGuideButton({ id }: { id: string }): JSX.Element {
       text: `Check out this guide to the Stremio addon, ${addonName}`,
       url: guideLink,
     };
-    navigator
-      .share(shareData)
-      .then(() => {
-        showToast(
-          translate({
-            message: "The addon guide was shared successfully!",
-            id: "stremio.shareGuideButton.toast.success",
-            description: "Toast message for successful share",
-          }),
-          "success"
-        );
-      })
-      .catch(() => {
-        navigator.clipboard
-          .writeText(guideLink)
-          .then(() => {
-            showToast(
-              translate({
-                message: "The addon guide link was copied to your clipboard!",
-                id: "stremio.shareGuideButton.toast.copied",
-                description: "Toast message for copied link",
-              }),
-              "success"
-            );
-          })
-          .catch(() => {
-            showToast(
-              translate(
-                {
-                  message:
-                    "Failed to share or copy the addon guide link! {guideLink}",
-                  id: "stremio.shareGuideButton.toast.error",
-                  description: "Toast message for failed share or copy",
-                },
-                {
-                  guideLink: guideLink,
-                }
-              ),
-              "error"
-            );
-          });
-      });
+    if (!navigator.share) {
+      showToast(
+        translate({
+          message:
+            "Sharing is not supported in your browser. The addon guide link will be copied to your clipboard instead.",
+          id: "stremio.shareGuideButton.toast.unsupported",
+          description: "Toast message for unsupported share feature",
+        }),
+        "warning"
+      );
+      copyToClipboard(
+        guideLink,
+        translate({
+          message: "The addon guide link was copied to your clipboard!",
+          id: "stremio.shareGuideButton.toast.copied",
+          description: "Toast message for copied link",
+        }),
+        translate(
+          {
+            message:
+              "Failed to copy the addon guide link to your clipboard! {guideLink}",
+            id: "stremio.shareGuideButton.toast.error",
+            description: "Toast message for failed copy",
+          },
+          { guideLink: guideLink }
+        )
+      );
+      return;
+    }
+    navigator.share &&
+      navigator
+        .share(shareData)
+        .then(() => {
+          showToast(
+            translate({
+              message: "The addon guide was shared successfully!",
+              id: "stremio.shareGuideButton.toast.success",
+              description: "Toast message for successful share",
+            }),
+            "success"
+          );
+        })
+        .catch(() => {
+          navigator.clipboard
+            .writeText(guideLink)
+            .then(() => {
+              showToast(
+                translate({
+                  message: "The addon guide link was copied to your clipboard!",
+                  id: "stremio.shareGuideButton.toast.copied",
+                  description: "Toast message for copied link",
+                }),
+                "success"
+              );
+            })
+            .catch(() => {
+              showToast(
+                translate(
+                  {
+                    message:
+                      "Failed to share or copy the addon guide link! {guideLink}",
+                    id: "stremio.shareGuideButton.toast.error",
+                    description: "Toast message for failed share or copy",
+                  },
+                  {
+                    guideLink: guideLink,
+                  }
+                ),
+                "error"
+              );
+            });
+        });
   };
 
   return (
@@ -222,21 +313,48 @@ function ShareGuideButton({ id }: { id: string }): JSX.Element {
 }
 
 const CopyManifestUrlButton = ({ manifest }: { manifest: string }) => {
-  const handleCopy = () => {
-    navigator.clipboard
-      .writeText(manifest)
-      .then(() => {
-        showToast(
+  // const handleCopy = () => {
+  //   navigator.clipboard
+  //     .writeText(manifest)
+  //     .then(() => {
+  //       showToast(
+  //         translate({
+  //           message: "The manifest URL was copied to your clipboard!",
+  //           id: "stremio.copyManifestUrlButton.toast.success",
+  //           description: "Toast message for successful copy",
+  //         }),
+  //         "success"
+  //       );
+  //     })
+  //     .catch(() => {
+  //       showToast(
+  //         translate(
+  //           {
+  //             message:
+  //               "Failed to copy the manifest URL to your clipboard! {manifest}",
+  //             id: "stremio.copyManifestUrlButton.toast.error",
+  //             description: "Toast message for failed copy",
+  //           },
+  //           {
+  //             manifest: manifest,
+  //           }
+  //         ),
+  //         "error"
+  //       );
+  //     });
+  // };
+
+  return (
+    <button
+      className={`${styles.button} ${styles.copyManifestUrlButton}`}
+      onClick={() =>
+        copyToClipboard(
+          manifest,
           translate({
             message: "The manifest URL was copied to your clipboard!",
             id: "stremio.copyManifestUrlButton.toast.success",
             description: "Toast message for successful copy",
           }),
-          "success"
-        );
-      })
-      .catch(() => {
-        showToast(
           translate(
             {
               message:
@@ -247,16 +365,9 @@ const CopyManifestUrlButton = ({ manifest }: { manifest: string }) => {
             {
               manifest: manifest,
             }
-          ),
-          "error"
-        );
-      });
-  };
-
-  return (
-    <button
-      className={`${styles.button} ${styles.copyManifestUrlButton}`}
-      onClick={handleCopy}
+          )
+        )
+      }
       title={translate({
         message: "Copy the addon manifest URL",
         id: "stremio.copyManifestUrlButton.title",
