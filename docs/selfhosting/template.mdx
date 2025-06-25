@@ -225,21 +225,15 @@ e.g. If you wanted to use the stremio profile, but not the TMDB addon, you could
 
    :::
 
-3. Next, you should navigate into the directory that contains the `compose.yaml` file.
-
-   ```bash
-   cd apps
-   ```
-
-4. You can now confirm that the files have been downloaded by running the following command:
+3. You can now confirm that the files have been downloaded by running the following command:
 
    ```bash
    ls -a
    ```
 
-   You should see a list of folders, an .env file, and a `compose.yaml` file.
+   You should see the the apps and data directories as well as the "root" `compose.yaml` file and the `.env` file.
 
-5. Next, you should edit the `.env` files to fill in the necessary environment variables. I'd recommend that you start with the root `.env` file only.
+4. Next, you should edit the `.env` files to fill in the necessary environment variables. I'd recommend that you start with the root `.env` file only.
 
    There are many ways to fill these values in, you could:
 
@@ -274,7 +268,7 @@ e.g. If you wanted to use the stremio profile, but not the TMDB addon, you could
    If you add a profile, the full set of environment variables for each app under that profile will be required.
    :::
 
-6. After filling in the root .env, you should start the 'required' profile, this allows you to check that Traefik and Authelia are working correctly.
+5. After filling in the root .env, you should start the 'required' profile, this allows you to check that Traefik and Authelia are working correctly.
 
    ```bash
    docker compose --profile required up -d
@@ -286,10 +280,10 @@ e.g. If you wanted to use the stremio profile, but not the TMDB addon, you could
    docker compose --profile required logs -f
    ```
 
-7. You can then start adding and configuring more services, either by adding more profiles or using the 'all' profile and manually removing the compose files you don't want to use from the
+6. You can then start adding and configuring more services, either by adding more profiles or using the 'all' profile and manually removing the compose files you don't want to use from the
    `include:` section of the root `compose.yaml` file. Make sure to fill in any `.env` files for the other services if they exist within the folder for that app.
 
-8. If you are not using cloudflare-ddns (which automatically creates the DNS records), you should ensure that for every hostname in the root `.env` files, you have a DNS `A record` handling it pointing it to your servers **public IP**.
+7. If you are not using cloudflare-ddns (which automatically creates the DNS records), you should ensure that for every hostname in the root `.env` files, you have a DNS `A record` handling it pointing it to your servers **public IP**.
    :::warning
    If you are using Cloudflare, you should disable the proxy (orange cloud) for the DNS record. This is because Traefik needs to connect directly to your server.
    :::
@@ -301,7 +295,7 @@ e.g. If you wanted to use the stremio profile, but not the TMDB addon, you could
    For example, if you're running a minecraft server, it will mean that any subdomain will be routed to your server.
    :::
 
-9. After you have filled in the environment variables, you can now deploy the services. You should make sure you defined the `COMPOSE_PROFILES` environment variables
+8. After you have filled in the environment variables, you can now deploy the services. You should make sure you defined the `COMPOSE_PROFILES` environment variables
    as this will determine which profiles are started. If you did not set it, no services will be started.
 
    Then, you can run the following command:
@@ -315,8 +309,8 @@ e.g. If you wanted to use the stremio profile, but not the TMDB addon, you could
   docker compose --profile required --profile stremio --profile seanime up -d
   ```
 
-11. After running the command, it may take some time for the services to start up. Once it is done, you should be able to access them at the hostnames that are defined in
-    the root `.env` file.
+9. After running the command, it may take some time for the services to start up. Once it is done, you should be able to access them at the hostnames that are defined in
+   the root `.env` file.
 
 ## Modifying the profiles
 
