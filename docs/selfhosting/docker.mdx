@@ -190,25 +190,25 @@ The steps are copied here for convenience:
 1. Download the script:
 
    ```bash
-   $ curl -fsSL https://get.docker.com -o install-docker.sh
+   curl -fsSL https://get.docker.com -o install-docker.sh
    ```
 
 2. Verify the script's content (optional):
 
    ```bash
-   $ cat install-docker.sh
+   cat install-docker.sh
    ```
 
 3. Run the script with `--dry-run` to verify the steps it executes (optional):
 
    ```bash
-   $ sh install-docker.sh --dry-run
+   sh install-docker.sh --dry-run
    ```
 
 4. Run the script either as root, or using `sudo` to perform the installation:
 
    ```bash
-   $ sudo sh install-docker.sh
+   sudo sh install-docker.sh
    ```
 
 After running the script, Docker should be installed on your VPS.
@@ -216,7 +216,7 @@ After running the script, Docker should be installed on your VPS.
 You can verify the installation by running the following command:
 
 ```bash
-$ docker --version
+docker --version
 ```
 
 This should output the version of Docker installed on your VPS.
