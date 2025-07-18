@@ -64,11 +64,14 @@ This is why it is recommended that you connect Stremio Web to a streaming server
 
 There are a few ways to set up a streaming server for Stremio Web.
 You can either run it on your desktop or on your android device.
+It can also be run as a docker container on any device that supports docker.
 I recommend using an android device as it can be left on 24/7 more easily than a desktop.
 
 ```mdx-code-block
 import ServerDesktop from "@site/docs/stremio/platform/setup/web/server/_desktop.mdx";
 import ServerAndroid from "@site/docs/stremio/platform/setup/web/server/_android.mdx";
+import ServerDocker from "@site/docs/stremio/platform/setup/web/server/_docker.mdx";
+
 
 <Tabs queryString="server-device">
     <TabItem value="desktop" label="Desktop">
@@ -78,6 +81,10 @@ import ServerAndroid from "@site/docs/stremio/platform/setup/web/server/_android
 
         <ServerAndroid />
 
+    </TabItem>
+    <TabItem value="docker" label="Docker">
+
+        <ServerDocker />
     </TabItem>
 </Tabs>
 ```

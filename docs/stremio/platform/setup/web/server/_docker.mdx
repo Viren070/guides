@@ -1,0 +1,33 @@
+To run the Stremio Server as a docker container, you will first need to have Docker installed on your system.
+You can find instructions on how to install Docker on the [official Docker website](https://docs.docker.com/get-docker/).
+
+Once you have Docker installed, you can run the Stremio Server container with the following command:
+
+```bash
+docker run -d \
+    --name stremio-server \
+    -p 11470:11470 \
+    -p 12470:12470 \
+    stremio/server:latest
+```
+
+Or if you prefer to use Docker Compose, you can create a `compose.yaml` file with the following content:
+
+```yaml
+services:
+  stremio-server:
+    image: stremio/server:latest
+    container_name: stremio-server
+    ports:
+      - "11470:11470"
+      - "12470:12470"
+    restart: unless-stopped
+```
+
+and start the compose project with:
+
+```bash
+docker compose up -d
+```
+
+This will start the Stremio Server in a detached mode, letting you access it at http://localhost:11470 (http) and http://localhost:12470 (https).

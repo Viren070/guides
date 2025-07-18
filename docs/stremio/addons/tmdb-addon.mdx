@@ -19,7 +19,7 @@ tags: [stremio-addon, stremio-addon:catalogues]
 ```mdx-code-block
 import StremioAddonButtons from '@site/src/components/StremioAddonButtons';
 
-<StremioAddonButtons id="tmdb-addon" manifest="https://94c8cb9f702d-tmdb-addon.baby-beamup.club/manifest.json" configurable source="https://github.com/mrcanelas/tmdb-addon" />
+<StremioAddonButtons id="tmdb-addon" manifest="https://tmdb.elfhosted.com/manifest.json" configurable source="https://github.com/mrcanelas/tmdb-addon" />
 ```
 
 <h3>Description</h3>
@@ -29,17 +29,20 @@ The TMDB addon that will fetch data from The Movie Database to display Popular a
 You should use this addon instead of Cinemeta as in some cases, it may have more up-to-date metadata, resulting in more links.
 TMDB also supports catalogues in several languages, whereas Cinemeta only supports English.
 
+The TMDB addon also provides several more integrations such as:
+
+- **Streaming Catalogs**: Allows you to see catalogues of movies and series from various streaming services.
+- **Gemini AI Search**: Allows you to search for movies and series using Gemini AI. This lets you search things like "Movies about space" and it would return relevant results.
+
 <h3>Configuration</h3>
 
 ![TMDB Configuration](/img/stremio/tmdb_setup_1.png)
 
-1. Head to the [TMDB Addon Configuration page](https://94c8cb9f702d-tmdb-addon.baby-beamup.club/configure)
-2. Configure the catalogue settings:
+1. Head to the TMDB Addon Configuration page using the `Configure` button above.
+2. You'll be presented with an option to choose your language. Choose your preferred language from the dropdown menu.
+3. To proceed with the configuration/installation, you need to access the sidebar. This may not show up on mobile devices, in which case you'll need to set this up on a desktop.
+
    - `Ratings on Posters`: This will show the ratings on the posters of the movies and series. ([How do I obtain a RPDB API Key?](/stremio/faq#how-do-i-obtain-a-rpdb-api-key))
-   - `Show Adult Content`: This will show adult content in the catalogue if enabled.
-3. Select your language
-4. Click Install.
-5. Stremio should now open and a prompt asking you to install should appear, click Install again.
 
 ![TMDB Installation](/img/stremio/tmdb_setup_2.png)
 

@@ -1,0 +1,50 @@
+---
+title: StremThru Store
+description: Stremio Addon to search downloads and torrents in your Debrid account.
+keywords:
+  [
+    stremio,
+    addons,
+    addon,
+    debrid,
+    torrent,
+    guide,
+    setup,
+    configuration,
+    install,
+    link,
+  ]
+tags: [stremio-addon, stremio-addon:debrid-streams]
+---
+
+```mdx-code-block
+import StremioAddonButtons from '@site/src/components/StremioAddonButtons';
+
+<StremioAddonButtons id="stremthru-store" manifest="https://stremthru.elfhosted.com/stremio/manifest.json" source="https://github.com/MunifTanjim/stremthru" configurable configurationRequired/>
+```
+
+<h3>Description</h3>
+
+The StremThru Store addon is a part of the suite of addons that StremThru provides. This one in particular is designed to provide
+streams and catalogues for content that you have in your debrid account.
+
+It can either show up as streams for other titles, and it also provides its own catalogue which lets you index
+the content in your debrid account.
+
+<h3>Configuration</h3>
+
+To install the StremThru Store addon, go to the configuration page by clicking the `Configure` button above.
+
+There, you'll be met with the list of addons/tools that StremThru provides. Scroll down to the `StremThru Store` section and click `Configure`.
+
+- `Store Name` - Choose your debrid service.
+- `Store Token` - Obtain your API key from your debrid provider and paste it here. (Struggling to find your API key? [Click here](/stremio/faq#where-can-i-find-my-debrid-api-key))
+
+Additionally, you can choose to enable or disable the following options:
+
+- `Hide Catalogs`- If you don't want to see the catalogues for your debrid account, check this box to remove it.
+- `Hide Streams` - If you don't want to see the streams for your debrid account, check this box to remove it.
+- `Enable WebDL` - Enable this option if you want to include hoster download links in StremThru Store. (This includes downloads from services like RapidGator, Uploaded, etc.)
+
+Now, simply click `Install` to open Stremio with a prompt to install the addon. If that doesn't work, you'll see a  
+`Manifest URL` field where you'll be able to click the `Copy`, use the copied manifest URL to [install the addon manually](/stremio/faq#how-do-i-install-an-addon-manually).

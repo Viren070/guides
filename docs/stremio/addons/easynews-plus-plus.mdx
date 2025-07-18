@@ -1,0 +1,45 @@
+---
+title: Easynews++
+description: Provides content and a search catalog from the Usenet service, Easynews, within Stremio. Requires an Easynews account.
+keywords:
+  [
+    stremio,
+    addons,
+    addon,
+    easynews,
+    usenet,
+    guide,
+    setup,
+    configuration,
+    install,
+    link,
+  ]
+tags: [stremio-addon, stremio-addon:usenet-streams]
+---
+
+```mdx-code-block
+import StremioAddonButtons from '@site/src/components/StremioAddonButtons';
+
+<StremioAddonButtons id="easynews-plus-plus" manifest="https://en.pantelx.com/manifest.json" configurable configurationRequired source="https://github.com/panteLx/easynews-plus-plus"/>
+```
+
+<h3>Description</h3>
+
+The Easynews++ addon is a fork of Easynews+ with some additional features - mainly the ability to perform title matching.
+
+Same as the original Easynews addon, Easynews Plus requires an Easynews account to work.
+
+<h3>Configuration</h3>
+
+To configure and install the Easynews Plus addon:
+
+1. Click the "Configure" button above.
+2. Enter your Easynews username and password.
+3. Here, you can now configure some of the additional features:
+   - **Title Matching**: This allows the addon to filter out results whose titles do not match the requested title. This helps in preventing irrelevant results from showing up. I recommend enabling this.
+   - **Preferred Audio Language**: If you prefer a specific audio language, you can set it here, the addon will push results with that audio language detected to the top of the results.
+   - **Sort Method**: This option lets you control how results are sorted. If you've set a preferred audio language, change this to `Preferred language, then quality`. Otherwise I recommend leaving it as `Quality`.
+   - **Qualities to show**: This lets you filter out results based on their quality. I recommend just leaving it as `All Qualities`.
+   - **Max results per quality**: This option lets you control how many results are shown for each quality. I recommend leaving it blank to show all results, but if you don't want to see too many results, you can set it to a number like 10 or 20.
+   - **Max file size**: This option lets you filter out results based on their file size. I recommend leaving it blank to show all results. If you have a lower internet speed, you can set it to 40, which will filter out results larger than 40 GB.
+4. Then you can either click `+ Add to Stremio` to install the addon, or if [installing the addon manually](/stremio/faq#how-do-i-install-an-addon-manually), you can click `Copy Configuration`.

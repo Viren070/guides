@@ -1,0 +1,47 @@
+---
+title: StremThru Torz
+description: Stremio addon that provides torrent streams from scraped torrent providers.
+keywords:
+  [
+    stremio,
+    addons,
+    torrentio,
+    torrent,
+    guide,
+    setup,
+    configuration,
+    install,
+    link,
+  ]
+tags: [stremio-addon, stremio-addon:debrid-streams]
+---
+
+```mdx-code-block
+import StremioAddonButtons from '@site/src/components/StremioAddonButtons';
+
+<StremioAddonButtons id="stremthru-torz" manifest="https://stremthru.elfhosted.com/stremio/manifest.json" source="https://github.com/MunifTanjim/stremthru" configurable configurationRequired/>
+```
+
+<h3>Description</h3>
+
+StremThru Torz is a part of the suite of addons that StremThru provides. This addon provides torrent/debrid streams
+from StremThru's crowdsourced torrent database as well as scraped [Debrid Media Manager](/stremio/extras/debrid-media-manager) public hashlists.
+
+<h3>Configuration</h3>
+
+To install the StremThru Torz addon, go to the configuration page by clicking the `Configure` button above.
+
+There, you'll be met with the list of addons/tools that StremThru provides. Scroll down to the `StremThru Torz` section and click `Configure`.
+
+Here, you'll be able to provide your credentails for any debrid services you use. StremThru Torz supports multiple debrid services
+in one installation of the addon if you have multiple debrid services. It also supports P2P torrenting if you do not use a debrid service.
+
+Click `Store Name` and choose your debrid service from the dropdown menu. Then, click `Store Token` and paste your API key from your debrid provider. (Struggling to find your API key? [Click here](/stremio/faq#where-can-i-find-my-debrid-api-key))
+If you are using multiple debrid services, simply click the `+ Add` button at the bottom right to add another debrid service and repeat the process.
+
+StremThru Torz also allows you to:
+
+- `Only show Cached content`: This would filter out results that are not cached.
+
+Now, simply click `Install` to open Stremio with a prompt to install the addon. If that doesn't work, you'll see a  
+`Manifest URL` field where you'll be able to click the `Copy`, use the copied manifest URL to [install the addon manually](/stremio/faq#how-do-i-install-an-addon-manually).

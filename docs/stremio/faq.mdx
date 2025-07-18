@@ -111,14 +111,18 @@ These are available [here](setup#which-debrid-service-do-i-use).
 :::
 
 - [Real Debrid](https://real-debrid.com/speedtest)
+- [Torbox](https://torbox.app/speedtest)
 - [AllDebrid](https://alldebrid.com/speedtest)
 - [Premiumize](https://www.premiumize.me/speedtest)
 - [Debrid-Link](https://debrid-link.fr/webapp/speedtest)
 - [put.io](https://app.put.io/settings/route)
-- [Torbox](https://speedtest.torbox.app/)
 
 For offcloud, there is no speedtest available, however you can test the speed by checking each proxy manually and attempting to download a file.
 This does require you to have a premium account.
+
+While EasyNews is not a debrid service, you can find a route selector tool which can help improve speeds:
+
+- [EasyNews Route Selector](https://members.easynews.com/1.0/route/)
 
 For other Debrid services, you can try to find the speed test on their website.
 
@@ -137,6 +141,9 @@ import PutioApi from "@site/docs/stremio/debrid/putio/_api.mdx";
 import TorboxApi from "@site/docs/stremio/debrid/torbox/_api.mdx";
 
 <Tabs className="custom-tabs" queryString="debrid-service">
+<TabItem value="torbox" label="Torbox">
+<TorboxApi />
+</TabItem>
 <TabItem value="real-debrid" label="Real Debrid">
 <RealDebridApi />
 </TabItem>
@@ -155,9 +162,6 @@ import TorboxApi from "@site/docs/stremio/debrid/torbox/_api.mdx";
 <TabItem value="put-io" label="Put.io">
 <PutioApi />
 </TabItem>
-<TabItem value="torbox" label="Torbox">
-<TorboxApi />
-</TabItem>
 </Tabs>
 ```
 
@@ -165,35 +169,20 @@ import TorboxApi from "@site/docs/stremio/debrid/torbox/_api.mdx";
 
 Use this table below to see debrid compatability for each addon.
 
-:::warning
-With AllDebrid, RealDebrid, and Debrid-Link's recent removal of the API endpoint to see if a torrent is cached, this table may not be accurate.
-
-Please let me know if an addon is not working / working with AllDebrid or Real Debrid.
-
-Any column that has the :exclamation: emoji means that the debrid service has imposed limitations that would affect all addons.
-If you see a :white_check_mark: in that column, that addon has adapted to these limitations and should work fine.
-If you see a :exclamation: in the column, the addon may not work due to these limitations.
-
-If a cell is marked as :exclamation:, it means the addon is supported, but may not work due to recent limitations. With every addon being coded differently, some may work while others may not.
-
-**This table takes into account the latest available version of the addon. The public ElfHosted instance may not be up to date.**
-:::
-
-| Addon/Debrid Service      |    Real-Debrid     |     All-Debrid     |    Debrid-Link     |     Premiumize     |      Offcloud      |       Put.io       |       Torbox       |     EasyDebrid     |     StremThru      |
-| ------------------------- | :----------------: | :----------------: | :----------------: | :----------------: | :----------------: | :----------------: | :----------------: | :----------------: | :----------------: |
-| Torrentio                 | :white_check_mark: | :white_check_mark: | :white_check_mark: | :white_check_mark: | :white_check_mark: | :white_check_mark: | :white_check_mark: | :white_check_mark: |        :x:         |
-| KnightCrawler :warning:   |   :exclamation:    |   :exclamation:    |   :exclamation:    | :white_check_mark: | :white_check_mark: | :white_check_mark: |        :x:         |        :x:         |        :x:         |
-| MediaFusion               | :white_check_mark: | :white_check_mark: | :white_check_mark: | :white_check_mark: | :white_check_mark: |        :x:         | :white_check_mark: | :white_check_mark: | :white_check_mark: |
-| Stremio-Jackett :warning: | :white_check_mark: | :white_check_mark: |        :x:         | :white_check_mark: |        :x:         |        :x:         | :white_check_mark: |        :x:         |        :x:         |
-| Comet                     | :white_check_mark: | :white_check_mark: | :white_check_mark: | :white_check_mark: | :white_check_mark: |        :x:         | :white_check_mark: | :white_check_mark: |        :x:         |
-| Jackettio                 | :white_check_mark: | :white_check_mark: | :white_check_mark: | :white_check_mark: |        :x:         |        :x:         |        :x:         |        :x:         |        :x:         |
-| Orion                     | :white_check_mark: |   :exclamation:    |   :exclamation:    | :white_check_mark: | :white_check_mark: |        :x:         | :white_check_mark: | :white_check_mark: |        :x:         |
-| Debrid Search             | :white_check_mark: | :white_check_mark: | :white_check_mark: | :white_check_mark: |        :x:         |        :x:         | :white_check_mark: |        :x:         |        :x:         |
-| DMM Cast                  | :white_check_mark: |        :x:         |        :x:         |        :x:         |        :x:         |        :x:         |        :x:         |        :x:         |        :x:         |
-| Torbox Addon              |        :x:         |        :x:         |        :x:         |        :x:         |        :x:         |        :x:         | :white_check_mark: |        :x:         |        :x:         |
-| Debridio                  |        :x:         |        :x:         |        :x:         |        :x:         |        :x:         |        :x:         |        :x:         | :white_check_mark: |        :x:         |
-| Formulio                  | :white_check_mark: | :white_check_mark: | :white_check_mark: | :white_check_mark: | :white_check_mark: |        :x:         | :white_check_mark: | :white_check_mark: |        :x:         |
-| StremThru                 | :white_check_mark: | :white_check_mark: | :white_check_mark: | :white_check_mark: | :white_check_mark: |        :x:         | :white_check_mark: | :white_check_mark: |         -          |
+| Addon/Debrid Service |    Real-Debrid     |     All-Debrid     |    Debrid-Link     |     Premiumize     |      Offcloud      |       Put.io       |       TorBox       |     EasyDebrid     |
+| -------------------- | :----------------: | :----------------: | :----------------: | :----------------: | :----------------: | :----------------: | :----------------: | :----------------: |
+| Torrentio            | :white_check_mark: | :white_check_mark: | :white_check_mark: | :white_check_mark: | :white_check_mark: | :white_check_mark: | :white_check_mark: | :white_check_mark: |
+| MediaFusion          | :white_check_mark: | :white_check_mark: | :white_check_mark: | :white_check_mark: | :white_check_mark: |        :x:         | :white_check_mark: | :white_check_mark: |
+| Comet                | :white_check_mark: | :white_check_mark: | :white_check_mark: | :white_check_mark: | :white_check_mark: |        :x:         | :white_check_mark: | :white_check_mark: |
+| StremThru Torz/Store | :white_check_mark: | :white_check_mark: | :white_check_mark: | :white_check_mark: | :white_check_mark: |        :x:         | :white_check_mark: | :white_check_mark: |
+| Jackettio            | :white_check_mark: | :white_check_mark: | :white_check_mark: | :white_check_mark: |        :x:         |        :x:         |        :x:         |        :x:         |
+| Debridio             | :white_check_mark: | :white_check_mark: | :white_check_mark: | :white_check_mark: | :white_check_mark: |        :x:         | :white_check_mark: | :white_check_mark: |
+| Orion                | :white_check_mark: |   :exclamation:    |   :exclamation:    | :white_check_mark: | :white_check_mark: |        :x:         | :white_check_mark: | :white_check_mark: |
+| Debrid Search        | :white_check_mark: | :white_check_mark: | :white_check_mark: | :white_check_mark: |        :x:         |        :x:         | :white_check_mark: |        :x:         |
+| DMM Cast             | :white_check_mark: |        :x:         |        :x:         |        :x:         |        :x:         |        :x:         |        :x:         |        :x:         |
+| TorBox Addon         |        :x:         |        :x:         |        :x:         |        :x:         |        :x:         |        :x:         | :white_check_mark: |        :x:         |
+| TorrentsDB           | :white_check_mark: | :white_check_mark: | :white_check_mark: | :white_check_mark: | :white_check_mark: | :white_check_mark: | :white_check_mark: | :white_check_mark: |
+| Formulio             | :white_check_mark: | :white_check_mark: | :white_check_mark: | :white_check_mark: | :white_check_mark: |        :x:         | :white_check_mark: | :white_check_mark: |
 
 :::note
 StremThru is not a debrid service, but addons that have support for StremThru have support for services that StremThru supports.
@@ -209,6 +198,28 @@ I only included the debrid services that were covered in my guide. However, even
 The only row that would change is the MediaFusion addon. This is because this addon also supports PikPak and Seedr.cc which are not covered in this guide.
 All other addons only support some of the debrid services covered in this guide.
 :::
+
+### What exactly does not having an accurate cache indicator mean?
+
+Results from debrid services are generally of two types. Cached results are already available and downloaded to the debrid service's servers.
+These can be streamead instantly by you.
+
+Uncached results, however, are streams that upon clicking, send that torrent/file to the debrid service's servers to be downloaded.
+Depending on the debrid service, this can take anywhere from a few seconds to possible not being cached at all. For a torrent to become cached,
+the debrid service connects to the torrent network and downloads the torrent file to their servers. This process is dependent on the number and quality of seeders available for that torrent.
+
+Addons are what bring you the results. They ususually "ask" the debrid service for each result whether it is available on their servers or not.
+The issue is that some debrid services, specifically Real Debrid, AllDebrid and Debrid-Link, do not have a way for addons to check if a result is cached or not.
+What this means is that addons are simply making an educated guess based on crowdsourced databases on whether a result is cached or not.
+
+For services like Debrid-Link, whose userbase is essentailly non-existent, everything will likely show up as uncached and you would just be playing
+Russian roulette with your streams, hoping that one is cached. Which is not ideal for most users.
+
+For popular content, it's likely not an issue as most content is probably cached ayways. But with less popular content,
+even on Real Debrid, the cache indicators are not going to be as accurate.
+
+This is a problem if you wanted to, for example, filter out uncached results for a smoother experience to the end user. Because a result that shows up as cached,
+may not actually be cached - and the stream wouldn't instantly play (you would have to exit the stream, wait for it to be cached, and then play it again).
 
 ### What do I do if I encounter buffering issues with a Debrid service?
 
@@ -237,7 +248,7 @@ You will have to uninstall the old version of the addon as you would otherwise h
 
 ### Where can I find more addons?
 
-Through the Community addons tab in the Addons menu of the Stremio app or the [community hosted addon list](https://stremio-addons.com/)
+Through the Community addons tab in the Addons menu of the Stremio app or the [community hosted addon list](https://beta.stremio-addons.net/)
 
 ### Is [insert addon here] down?
 

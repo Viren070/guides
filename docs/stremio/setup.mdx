@@ -70,6 +70,20 @@ In this case, it may be possible to use Stremio through Stremio Web.
 In the [Web](?platform=web#downloading-stremio) tab below, you will find device specific instructions on how to use Stremio through Stremio Web.
 :::
 
+You can also choose your platform below to jump to the instructions for that platform.
+
+- [Web](?platform=web#downloading-stremio)
+- [PC](?platform=pc#downloading-stremio)
+- [Android](?platform=android#downloading-stremio)
+- [Android TV](?platform=android-tv#downloading-stremio)
+- [Fire TV](?platform=fire-tv#downloading-stremio)
+- [Samsung TV](?platform=samsung-tv#downloading-stremio)
+- [LG TV](?platform=lg-tv#downloading-stremio)
+- [Hisense TV](?platform=hisense-tv#downloading-stremio)
+- [Phillips TV (2024+)](?platform=phillips-tv#downloading-stremio)
+- [Raspberry Pi](?platform=rasberry-pi#downloading-stremio)
+- [Meta Quest](?platform=meta-quest#downloading-stremio)
+
 ```mdx-code-block
 import Web from "./platform/setup/web/_web.mdx";
 import Pc from "./platform/setup/_pc.mdx";
@@ -78,6 +92,8 @@ import AndroidTv from "./platform/setup/_android-tv.mdx";
 import FireTv from "./platform/setup/_fire-tv.mdx";
 import SamsungTv from "./platform/setup/_samsung-tv.mdx";
 import LgTv from "./platform/setup/_lg-tv.mdx";
+import HisenseTv from "./platform/setup/_hisense-tv.mdx";
+import PhillipsTv from "./platform/setup/_phillips-tv.mdx";
 import RasberryPi from "./platform/setup/_rasberry-pi.mdx";
 import MetaQuest from "./platform/setup/_meta-quest.mdx";
 
@@ -125,6 +141,18 @@ import MetaQuest from "./platform/setup/_meta-quest.mdx";
 
 	</TabItem>
 
+        <TabItem value="hisense-tv" label="Hisense TVs">
+
+        <HisenseTv/>
+
+        </TabItem>
+
+        <TabItem value="phillips-tv" label="Phillips TVs">
+
+        <PhillipsTv/>
+
+        </TabItem>
+
 	<TabItem value="rasberry-pi" label="Rasberry Pi">
 
         <RasberryPi/>
@@ -145,6 +173,7 @@ import MetaQuest from "./platform/setup/_meta-quest.mdx";
 Although Stremio is mostly ready to use out of the box, one setting you should turn on is hardware accelerated decoding. This can avoid issues relating to crashing while playing content.
 
 And if you are planning on torrenting, then set the torrent profile to Ultra Fast and the cache size to 10GB or infinite.
+If you want an explanation of what these settings do, you can find more info [here](https://github.com/Viren070/guides/issues/121#issuecomment-2727522366).
 
 ## Debrid Service
 
@@ -196,7 +225,7 @@ You need to have a fast internet speed yourself to capitalise on the benefits of
 
 With all that being said, if torrenting is not an issue, the best way to determine whether you need a debrid service is to try streaming without one.
 You can then try watching the content you want to watch and see if it buffers at the quality you want to watch in.
-If it does, then you may want to consider using a debrid service.
+If it does (and your speeds are not the limiting factor), then you may want to consider using a debrid service.
 
 ### Which debrid service do I use?
 
@@ -208,7 +237,7 @@ There are many debrid services available to use. Here is a list of some of the m
 If you have already chosen a debrid service, you can skip to the [setup instructions](#setting-up-a-debrid-service).
 Otherwise, I will go through the factors you should consider when choosing a debrid service.
 
-- [Torbox](https://torbox.app/subscription?referral=9ca21adb-dbcb-4fb0-9195-412a5f3519bc)
+- [TorBox](https://torbox.app/subscription?referral=9ca21adb-dbcb-4fb0-9195-412a5f3519bc)
 - [Premiumize](https://www.premiumize.me/)
 - [Offcloud](https://offcloud.com/?=06202a3d)
 - [Put.io](https://put.io/)
@@ -332,7 +361,7 @@ The cost of 5 plans with the duration of 5 plans plus the extra duration from th
 :::info
 If you are unsure if this is something you want to use, you can try a free trial or a limited free plan.
 
-- Torbox offer a limited free plan.
+- TorBox offer a limited free plan and a $1 24 hour trial for their Pro plan.
 - All-Debrid offer a free 7-day trial with phone number verification.
 - put.io offers a $0.99 1 day trial.
 
@@ -350,7 +379,7 @@ Giving my experiences with each debrid service would not be helpful as it is dep
 Therefore, make sure to carry out speed tests to determine the best service for you.
 The speed tests for each debrid service can be found [here](faq#where-can-i-find-the-speed-tests-for-debrid-services) and on their website too.
 
-While a debrid service is unlikely to be the bottleneck in your streaming experience, Torbox has the fastest servers (80gbit NVME) which no other service can offer at prices as low as theirs.
+While a debrid service is unlikely to be the bottleneck in your streaming experience, TorBox has the fastest servers (80gbit NVME) which no other service can offer at prices as low as theirs.
 
 **Userbase**
 
@@ -360,19 +389,15 @@ Cached torrents are what you rely on when streaming content through Stremio.
 A larger userbase means more cached torrents, with Real Debrid leading, and followed by Premiumize.
 However, the other debrid services will still have a lot of popular torrents cached.
 
-In this regard, Torbox is lacking.
-As a new service, it has a smaller cache, and has also been unstable for some. Therefore, I highly recommend you test Torbox on its free plan
-to see if it has the content you want to watch and if it works well for you.
-
-However, with the recent events surrounding Real Debrid, AllDebrid and Debrid-Link, more and more people are moving to Torbox.
-This could mean that Torbox will end up having a lot of cached torrents in the future.
+In this regard, TorBox is not as good as Real Debrid or Premiumize. It has a smaller userbase due to being a newer service.  
+However, many people are now switching to TorBox due to being cheaper, addons having accurate cache indicators, and not having IP restrictions.
+Most popular content will be cached on TorBox, but if you look for stuff that is not as popular, you may not find it cached.
 
 Offcloud also has very little cached content.
 
 **Addon Support**
 
-Support for debrid services varies among addons, with Real Debrid, AllDebrid, Debrid-Link and Premiumize being the most supported.
-However, all debrid services supported by Torrentio, the most popular Stremio addon, and usually the only one you need.
+Addon support should not generally be an issue as almost every addon supports most major debrid services.
 
 Find a full table of addons and supported debrid services [here](faq#which-debrid-services-are-supported-by-each-addon).
 
@@ -385,52 +410,63 @@ As I said before, there are some exceptions. I will now go through them.
 
 - **IP Restrictions**:
 
-  - Torbox has no IP restrictions whatsoever. You can use it on as many devices as you want.
+  - TorBox has no IP restrictions whatsoever. You can use it on as many devices as you want.
   - Premiumize also allows several IPs. However, it does operate on a storage limitation that you may reach depending on your usage.
     You can find more details on this [article](https://www.premiumize.me/help/article/download-limit) and the [fair use page](https://www.premiumize.me/fairuse) (you need to be logged in for this link).
 
 - **Seeding**:
 
   :::warning
-  With the way debrid services work, debrid services will always be taking more than they are giving.
+  With the way debrid services work, debrid services will almost always be taking more than they are giving.
 
   The debrid services below will seed the torrent if it hasn't been cached already.
   In the case that its already been cached, they may not seed it, and other users can stream this cached torrent too.
   :::
 
-  - Torbox offer a seedbox that can seed for up to an unlimited amount ratio for up to 30 days. This makes it the best debrid service for seeding. (The amount of torrents you can actively seed is dependent on your plan, referred to as your `Concurrent Slots`)
+  - TorBox offer a seedbox that can seed for up to an unlimited amount ratio for up to 30 days. This makes it the best debrid service for seeding. (The amount of torrents you can actively seed is dependent on your plan, referred to as your `Concurrent Slots`)
   - Debrid-Link offers a seedbox with these limits: 600 torrents and 2.5TB of data transfer per month.
   - Premiumize will seed to a 2.0 ratio or for 72 hours. Whichever comes first.
   - put.io is similar to Premiumize but the exact numbers are dependent on your plan. Check their pricing page for more information.
 
 - **Usenet:**
-  - Torbox offers access to Usenet on its Pro plan ($110/year or $10/month). This is a unique feature that is not offered by any other debrid service. (Usenet is explained in more detail later. It is simply another way to access more content)
+
+  - TorBox offers access to Usenet on its Pro plan ($110/year or $10/month). This is a unique feature that is not offered by any other debrid service. (Usenet is explained in more detail later. It is simply another way to access more content)
   - Premiumize also offers access to Usenet. However, it does not support streaming, therefore it cannot be used for Stremio.
+
+- **Custom Indexers:**
+  - TorBox allows you to add your own instances of Prowlarr/Jackett/NZBHydra2 to be used for searching of content, this can be enabled for their Stremio addon too. This lets you use your private trackers/indexers easily with Stremio.
 
 ---
 
 After considering everything, you should have a good idea of which debrid service you want to use.
 
-The most stable and reliable debrid services that I would recommend is Premiumize. While it is more expensive, it has one of the largest caches after Real Debrid
-and has had little issues compared to Torbox.
+Real Debrid is the most popular choice due to having the largest cache and fast loading times for most users. However, its
+issues with cache indicators not being accurate may not be ideal for some users. (You can read more about this in the [FAQ](faq#which-debrid-services-are-supported-by-each-addon).)
 
-If you are only looking to use your debrid service for Stremio, you may want to look into [EasyDebrid](https://paradise-cloud.com/products).
-This is a new service that uses Premiumize's cache, which is the biggest after Real Debrid, at a much lower price.
-It also does not have any IP restrictions.
+The most stable and reliable debrid service that I would recommend is Premiumize. While it is more expensive, it has one of the largest caches after Real Debrid. Having an accurate cache indicator is also a big plus, as it means you can be sure that something that says its cached is actually cached,
+and not something that requires you to wait for it to be cached.
+
+However, if you are looking for a cheaper alternative, TorBox is a great choice.
+
+TorBox is another good choice, but due to the cache not being as great, it may not be the best choice for those looking for a simple
+click and play solution for
+
+[EasyDebrid](https://paradise-cloud.com/products) is a new service that uses Premiumize's cache at a lower price. It also does not have any IP restrictions.
 It is supported by most popular addons (Torrentio, Comet, MediaFusion, StremThru) as well as Debridio, so addon support should not be an issue.
 
 However, It's only feature, currently, is to provide torrent downloads that are already cached on Premiumize.
-There are: no additional features like on Premiumize (VPN, Usenet, WebDAV etc.), no hoster downloads, no way to cache torrents yourself.
+There are: no additional features like on Premiumize (VPN, Usenet, WebDAV etc.), no hoster downloads.
+The only way to add torrents to the cache on EasyDebrid would be through the Downloader app - https://downloader.hostyour.app/.
 
-In my opinion, if you are only going to use your debrid service for Stremio, EasyDebrid can be a good choice. As the drawbacks don't really affect Stremio users.
-I recommend you do your own research into the service and whether you are comfortable with using it, with it being a new service.
+Many users have also been complaining about buffering on EasyDebrid and they seem to be getting DDOSed frequently. Therefore,
+I would not recommend it if you are looking for a stable and reliable debrid service.
 
 ### Setting up a debrid service
 
 I will now cover the instructions of setting up each debrid service I previously mentioned.
 
 ```mdx-code-block
-import Torbox from "./debrid/torbox/_setup.mdx";
+import TorBox from "./debrid/torbox/_setup.mdx";
 import Premiumize from "./debrid/premiumize/_setup.mdx";
 import Offcloud from "./debrid/offcloud/_setup.mdx";
 import Putio from "./debrid/putio/_setup.mdx";
@@ -439,8 +475,8 @@ import AllDebrid from "./debrid/alldebrid/_setup.mdx";
 import DebridLink from "./debrid/debridlink/_setup.mdx";
 
 <Tabs className="custom-tabs" queryString="debrid">
-<TabItem value="torbox" label="Torbox">
-<Torbox/>
+<TabItem value="torbox" label="TorBox">
+<TorBox/>
 </TabItem>
 <TabItem value="premiumize" label="Premiumize">
 <Premiumize/>
@@ -467,7 +503,8 @@ import DebridLink from "./debrid/debridlink/_setup.mdx";
 
 I will now go through what Usenet is and why you may want to use it.
 
-Usenet is completely optional, and for the average user, it is not needed and should not be considered. You may read the [Should I use Usenet?](#should-i-use-usenet) section to determine if you need it.
+Usenet is completely optional, and for the average user, it is not needed and should not be considered, simply skip to [Setting up your addons](#setting-up-addons).
+You may read the [Should I use Usenet?](#should-i-use-usenet) section to determine if you need it.
 
 ### What is Usenet?
 
@@ -476,7 +513,7 @@ You can think of a newsgroup as a forum where people can post messages and files
 For the purpose of Stremio, the files we are interested in are the binaries (NZB files) for video content that are posted to the newsgroups.
 
 Each different newsgroup is dedicated to a specific topic. These newsgroups can have their own moderators and rules.
-This is very similar to subreddits on Reddit.
+This is very similar to subreddits on Reddit, for example.
 
 #### Providers
 
@@ -488,7 +525,7 @@ Usenet providers will be paid services due to the real costs of hosting the serv
 The content on different Usenet providers is theoretically the same as the content on all newsgroups is mirrored across all providers.
 However, due to issues like data corruption, takedowns, and different retention periods, some content may not be available on all providers.
 
-For this guide, we will only be considering Easynews and Torbox as Usenet providers as they are the only ones that have addons for Stremio.
+For this guide, we will only be considering Easynews and TorBox as Usenet providers as they are the only ones that have addons for Stremio.
 However, generally, the factors to consider when choosing a Usenet provider:
 
 - Data Limits: Depending on your plan, you may have a fixed amount of data you can download per month. You will have to consider how much data you will be downloading and choose a plan accordingly.
@@ -528,14 +565,17 @@ However, it can act as a backup to your debrid service if you want to be prepare
 
 There are only two ways to access Usenet content through Stremio.
 
-One way is through Easynews.
-Easynews is a Usenet provider and there are two addons for Stremio that allow you to access their content.
+There are two ways to access Usenet content through Stremio:
 
-The other way is through Torbox.
-Torbox is a debrid service that offers access to Usenet content.
-Their Usenet service is only available on their highest tier package - the `Pro` package.
-They have undisclosed providers and indexers that they use to provide access to Usenet content.
-Torbox have their own Stremio addon that allows you to access their Usenet content, alongside torrents.
+1. **Easynews**  
+   Easynews is a Usenet provider with three Stremio addons available. These addons allow you to access content found through Easynews' internal search engine. However, you are limited to the content that their search engine can locate.
+
+   - Easynews allow you to stream the usenet files directly from them. This does, however, mean that Easynews streams can take a long time to initially load, but once loaded, it usually doesn't buffer.
+
+2. **TorBox**  
+   TorBox is a debrid service that includes Usenet access as part of its `Pro` package. It uses undisclosed providers and indexers to offer Usenet content and provides its own Stremio addon for accessing both Usenet and torrent content.
+   - TorBox allows integration with your own NZBHydra2 instance, enabling the use of custom indexers.
+   - Usenet downloads via TorBox must be cached before streaming, similar to torrents. However, Usenet downloads typically cache much faster, often within a few minutes, as they are not dependent on seeders.
 
 I will now go through the setup for each of these services.
 
@@ -547,21 +587,26 @@ import TorboxUsenet from "./usenet/_torbox.mdx";
 <TabItem value="easynews" label="Easynews">
 <Easynews/>
 </TabItem>
-<TabItem value="torbox" label="Torbox">
+<TabItem value="torbox" label="TorBox">
 <TorboxUsenet/>
 </TabItem>
 </Tabs>
 ```
 
 These steps only cover the setup of services that provide access to Usenet content.
-To access the content, you will need to use the Stremio addons for Easynews and Torbox.
-I will now go through the setup of these addons. Look for the Easynews and Torbox addons.
+To access the content, you will need to use the Stremio addons for Easynews and TorBox.
+I will now go through the setup of these addons. Look for the Easynews and TorBox addons.
 
 ## Setting up Addons
 
 As I mentioned before, the intial setup should be done on a laptop/desktop or an android device. Once you have set up the addons, you can log in to Stremio on any device and your configuration will be synced to that device.
 
 Before we install the addons, we need to go through some of the pre-installed addons.
+
+:::tip
+While you can install the addons separately to Stremio, you may also be interested in an addon I've developed called [AIOStreams](https://github.com/Viren070/AIOStreams).
+It's designed to simplify the process of installing and managing addons, making it a good choice for anyone who's managing other peoples Stremio accounts.
+:::
 
 :::info
 If you are attempting to install addons on your **iPhone** or using **Stremio Web** then you will need to use the [manual method of adding addons through a link](faq#how-do-i-install-an-addon-manually).
@@ -595,7 +640,7 @@ I will now go through some addons that provide content to Stremio.
 These addons are the backbone to our on-demand streaming experience.
 They provide the video content that allows us to watch anything we want.
 
-You can have a look at this [community hosted addon list](https://stremio-addons.com/) to view all the available addons.
+You can have a look at this [community hosted addon list](https://beta.stremio-addons.net/) to view all the available addons.
 This list will have more addons listed than the ones shown in the Stremio app.
 
 Please refer to the key below to understand the different types of addons.
@@ -632,50 +677,42 @@ In this guide, I will be providing public instances of addons.
 Some of these are hosted by ElfHosted, but they have put in place a rate limit to prevent abuse.
 However, you most likely will not hit this rate limit.
 
-:::tip
-I would recommend using my [AIOStreams](/stremio/addons/aiostreams) addon if you are looking to install multiple addons for streams.
-:::
-
 ```mdx-code-block
 import Torrentio from "./addons/torrentio.mdx";
 import Comet from "./addons/comet.mdx";
 import MediaFusion from "./addons/mediafusion.mdx";
 import Jackettio from "./addons/jackettio.mdx";
+import StremThruTorz from "./addons/stremthru-torz.mdx";
 import OrionStremioAddon from "./addons/orion-stremio-addon.mdx";
 import DmmCast from "./addons/dmm-cast.mdx";
+import StremThruStore from "./addons/stremthru-store.mdx";
 import DebridSearch from "./addons/debrid-search.mdx";
-import KnightCrawler from "./addons/knightcrawler.mdx";
-import StremioJackett from "./addons/stremio-jackett.mdx";
 import Peerflix from "./addons/peerflix.mdx";
-import CometFR from "./addons/cometfr.mdx";
+import StremioFR from "./addons/stremiofr.mdx";
 import TorboxAddon from "./addons/torbox.mdx";
 import EasynewsAddon from "./addons/easynews.mdx";
 import EasynewsPlusAddon from "./addons/easynews-plus.mdx";
-import Stremify from "./addons/stremify.mdx";
-import JaMovies from "./addons/jamovies.mdx";
-import DramaCool from "./addons/dramacool.mdx";
+import EasynewsPlusPlusAddon from "./addons/easynews-plus-plus.mdx";
+import StreamAsia from "./addons/streamasia.mdx";
 import StremioGDrive from "./addons/stremio-gdrive.mdx";
-import MammaMia from "./addons/mammamia.mdx";
 
 <StremioAddon name="Torrentio" addonComponent={Torrentio} debrid torrent />
 <StremioAddon name="Comet" addonComponent={Comet} debrid torrent/>
-<StremioAddon name="MediaFusion" addonComponent={MediaFusion} http torrent debrid/>
+<StremioAddon name="MediaFusion" addonComponent={MediaFusion} torrent debrid/>
+<StremioAddon name="StremThru Torz" addonComponent={StremThruTorz} torrent debrid />
 <StremioAddon name="Jackettio" addonComponent={Jackettio} debrid />
 <StremioAddon name="Orion Stremio Addon" addonComponent={OrionStremioAddon} torrent debrid/>
 <StremioAddon name="DMM Cast" addonComponent={DmmCast} debrid />
+<StremioAddon name="StremThru Store" addonComponent={StremThruStore} debrid />
 <StremioAddon name="Debrid Search" addonComponent={DebridSearch} debrid />
-<StremioAddon name="KnightCrawler" addonComponent={KnightCrawler} torrent debrid deprecated/>
-<StremioAddon name="Stremio-Jackett" addonComponent={StremioJackett} torrent debrid deprecated />
 <StremioAddon name="Peerflix" addonComponent={Peerflix} torrent flag="Spain" />
-<StremioAddon name="CometFR" addonComponent={CometFR} debrid flag="France"/>
-<StremioAddon name="Torbox"  addonComponent={TorboxAddon} debrid usenet />
+<StremioAddon name="StremioFR" addonComponent={StremioFR} debrid flag="France"/>
+<StremioAddon name="TorBox"  addonComponent={TorboxAddon} debrid usenet />
 <StremioAddon name="Easynews" addonComponent={EasynewsAddon} usenet />
 <StremioAddon name="Easynews+" addonComponent={EasynewsPlusAddon} usenet />
-<StremioAddon name="Stremify" addonComponent={Stremify} http/>
-<StremioAddon name="JaMovies" addonComponent={JaMovies} http/>
-<StremioAddon name="DramaCool" addonComponent={DramaCool} http debrid />
+<StremioAddon name="Easynews++" addonComponent={EasynewsPlusPlusAddon} usenet />
+<StremioAddon name="StreamAsia" addonComponent={StreamAsia} http debrid />
 <StremioAddon name="Stremio GDrive" addonComponent={StremioGDrive} http/>
-<StremioAddon name="MammaMia" addonComponent={MammaMia} http flag="Italy" />
 ```
 
 #### Live TV & Sports
@@ -748,16 +785,14 @@ import NewestMovies from "./addons/newest-movies.mdx";
 
 These addons will provide catalogues that pull movies and shows from popular streaming services (e.g. Netflix, Prime, Hulu, Disney+ etc.).
 
-I recommend only installing one of them. If you install multiple, you may see the same content multiple times on your homepage.
-You can try both to see which you prefer but I recommend Streaming Catalogs.
+While you can use one of these separate addons to get the catalogues, it's also available in the TMDB addon which you may prefer as it also allows
+using a separate language for metadata.
 
 ```mdx-code-block
 import StreamingCatalogs from "./addons/streaming-catalogs.mdx";
-import CyberFlix from "./addons/cyberflix.mdx";
 import Networks from "./addons/networks.mdx";
 
 <StremioAddon name="Streaming Catalogs" addonComponent={StreamingCatalogs} />
-<StremioAddon name="CyberFlix" addonComponent={CyberFlix} />
 <StremioAddon name="Networks" addonComponent={Networks} />
 ```
 
@@ -766,9 +801,7 @@ import Networks from "./addons/networks.mdx";
 I will now go through some Anime catalogue addons. A reminder that these addons are only catalogue addons and do not provide any links themselves.
 However, Torrentio with the NyaaSi and AniDex providers enabled should provide you the necessary links.
 
-The Stremify addon also provides streams from Gogoanime if you are looking for http streams.
-
-Scroll up to the [Stream Provider Addons section](#stream-provider-addons) to see how to configure Torrentio and Stremify.
+Scroll up to the [Stream Provider Addons section](#stream-provider-addons) to see how to configure Torrentio.
 
 :::note
 
@@ -779,7 +812,7 @@ Tracking integration with services like MAL, AniList etc. is limited and keeping
 I recommend trying these apps for anime instead:
 
 - [Aniyomi](/aniyomi) - Android only anime app with a Torrentio extension for debrid support
-- [Seanime Desktop](https://seanime.rahim.app) - A desktop app (can watch on mobile through web app) for watching anime. Has Torbox and Real Debrid support. Requires a player like MPV to be installed. Tip: use scoop on windows
+- [Seanime Desktop](https://seanime.rahim.app) - A desktop app (can watch on mobile through web app) for watching anime. Has TorBox and Real Debrid support. Requires a player like MPV to be installed. Tip: use scoop on windows
   :::
 
 ```mdx-code-block
@@ -805,7 +838,7 @@ import PopularPeople from "./addons/popular-people.mdx";
 
 ### Subtitle Addons
 
-Here are a list of working subtitle addons. This list may become outdated, please check the [community addons list with the subtitle filter](https://stremio-addons.com/?label=subtitles) if none of these work.
+Here are a list of working subtitle addons. This list may become outdated, please check the [community addons list with the subtitle filter](https://beta.stremio-addons.net/addons?categories=subtitles&sort=popular) if none of these work.
 
 ```mdx-code-block
 import OpenSubtitles from "./addons/opensubtitles-v3.mdx";
