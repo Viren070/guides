@@ -23,7 +23,19 @@ const config: Config = {
   // may want to replace "en" with "zh-Hans".
   i18n: {
     defaultLocale: "en-GB",
-    locales: ["en-GB"],
+    locales: ["en-GB", "es"],
+    localeConfigs: {
+      "en-GB": {
+        label: "English",
+        direction: "ltr",
+        htmlLang: "en-GB",
+      },
+      es: {
+        label: "Español",
+        direction: "ltr",
+        htmlLang: "es",
+      },
+    },
   },
   scripts: [
     {
@@ -71,6 +83,10 @@ const config: Config = {
         src: "img/viren070_pfp.svg",
       },
       items: [
+        {
+          type: "localeDropdown",
+          position: "right",
+        },
         // add widget here as navbar is always loaded regardless of page
         {
           type: "custom-kofi",

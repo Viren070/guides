@@ -1,0 +1,46 @@
+{
+  "version.label": {
+    "message": "Siguiente",
+    "description": "The label for version current"
+  },
+  "sidebar.guides.category.Gaming": {
+    "message": "Juegos",
+    "description": "The label for category Gaming in sidebar guides"
+  },
+  "sidebar.guides.category.Gaming.link.generated-index.title": {
+    "message": "Juegos / Emulación",
+    "description": "The generated-index page title for category Gaming in sidebar guides"
+  },
+  "sidebar.guides.category.Gaming.link.generated-index.description": {
+    "message": "Guías sobre descarga y configuración de juegos / emuladores",
+    "description": "The generated-index page description for category Gaming in sidebar guides"
+  },
+  "sidebar.guides.category.Streaming": {
+    "message": "Streaming",
+    "description": "The label for category Streaming in sidebar guides"
+  },
+  "sidebar.guides.category.Streaming.link.generated-index.title": {
+    "message": "Películas / TV / Anime",
+    "description": "The generated-index page title for category Streaming in sidebar guides"
+  },
+  "sidebar.guides.category.Streaming.link.generated-index.description": {
+    "message": "Guías sobre el uso de aplicaciones que se pueden usar para transmitir películas / programas de TV / anime",
+    "description": "The generated-index page description for category Streaming in sidebar guides"
+  },
+  "sidebar.guides.category.Stremio": {
+    "message": "Stremio",
+    "description": "The label for category Stremio in sidebar guides"
+  },
+  "sidebar.guides.category.Extras": {
+    "message": "Extras",
+    "description": "The label for category Extras in sidebar guides"
+  },
+  "sidebar.guides.category.Aniyomi": {
+    "message": "Aniyomi",
+    "description": "The label for category Aniyomi in sidebar guides"
+  },
+  "sidebar.guides.category.Self Hosting": {
+    "message": "Auto-hospedaje",
+    "description": "The label for category Self Hosting in sidebar guides"
+  }
+}
