@@ -1,0 +1,599 @@
+---
+title: Preguntas Frecuentes
+sidebar_label: FAQ
+sidebar_position: 4
+description: Preguntas frecuentes sobre Stremio, servicios debrid, VPN, configuración y más.
+keywords: [stremio, faq, preguntas frecuentes, debrid, vpn, configuración, problemas, soluciones]
+---
+
+```mdx-code-block
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+import Admonition from '@theme/Admonition';
+```
+
+# Preguntas Frecuentes
+
+## Preguntas sobre Debrid/VPN
+
+### ¿Necesito una VPN para usar Stremio?
+
+No. No necesitas una VPN para usar Stremio.
+
+Sin embargo, si estás usando addons de torrents sin un servicio debrid, entonces sí necesitarás una VPN.
+
+### ¿Necesito un servicio debrid para usar Stremio?
+
+No. No necesitas un servicio debrid para usar Stremio.
+
+Sin embargo, es altamente recomendado ya que mejorará significativamente tu experiencia.
+
+### ¿Puedo usar una VPN con un servicio debrid?
+
+Sí. Puedes usar una VPN con un servicio debrid.
+
+Sin embargo, algunos servicios debrid tienen restricciones de IP y pueden no funcionar con una VPN.
+
+Consulta la [tabla de compatibilidad de servicios debrid](faq#debrid-service-compatibility-table) para más información.
+
+### ¿Qué servicio debrid debería usar?
+
+Esto depende de tus necesidades. Consulta la [sección de servicios debrid](technical-details#debrid-services) para más información.
+
+### ¿Puedo usar múltiples servicios debrid al mismo tiempo?
+
+Sí. Puedes usar múltiples servicios debrid al mismo tiempo.
+
+Sin embargo, no es recomendado ya que es innecesario y costoso.
+
+### ¿Puedo compartir mi cuenta de servicio debrid con otros?
+
+Esto depende del servicio debrid que estés usando.
+
+Algunos servicios debrid permiten múltiples direcciones IP, mientras que otros no.
+
+Consulta la [tabla de compatibilidad de servicios debrid](faq#debrid-service-compatibility-table) para más información.
+
+### ¿Los servicios debrid tienen pagos recurrentes?
+
+Sí. La mayoría de los servicios debrid tienen pagos recurrentes.
+
+Sin embargo, algunos servicios debrid ofrecen planes de por vida.
+
+### ¿Dónde puedo encontrar las reglas de direcciones IP para mi servicio debrid?
+
+Consulta la [tabla de compatibilidad de servicios debrid](faq#debrid-service-compatibility-table) para más información.
+
+### ¿Cómo puedo probar la velocidad de mi servicio debrid?
+
+Puedes probar la velocidad de tu servicio debrid usando los siguientes enlaces:
+
+```mdx-code-block
+<Tabs>
+<TabItem value="torbox" label="TorBox">
+```
+
+[Prueba de velocidad de TorBox](https://torbox.app/speedtest)
+
+```mdx-code-block
+</TabItem>
+<TabItem value="premiumize" label="Premiumize">
+```
+
+[Prueba de velocidad de Premiumize](https://www.premiumize.me/speedtest)
+
+```mdx-code-block
+</TabItem>
+<TabItem value="realdebrid" label="Real Debrid">
+```
+
+[Prueba de velocidad de Real Debrid](https://real-debrid.com/speedtest)
+
+```mdx-code-block
+</TabItem>
+<TabItem value="alldebrid" label="AllDebrid">
+```
+
+[Prueba de velocidad de AllDebrid](https://alldebrid.com/speedtest/)
+
+```mdx-code-block
+</TabItem>
+<TabItem value="easydebrid" label="EasyDebrid">
+```
+
+EasyDebrid no tiene una prueba de velocidad oficial.
+
+```mdx-code-block
+</TabItem>
+</Tabs>
+```
+
+### ¿Dónde puedo encontrar mi clave API?
+
+Puedes encontrar tu clave API en la configuración de tu cuenta del servicio debrid.
+
+```mdx-code-block
+<Tabs>
+<TabItem value="torbox" label="TorBox">
+```
+
+[Configuración de TorBox](https://torbox.app/settings)
+
+```mdx-code-block
+</TabItem>
+<TabItem value="premiumize" label="Premiumize">
+```
+
+[Configuración de Premiumize](https://www.premiumize.me/account)
+
+```mdx-code-block
+</TabItem>
+<TabItem value="realdebrid" label="Real Debrid">
+```
+
+[Configuración de Real Debrid](https://real-debrid.com/apitoken)
+
+```mdx-code-block
+</TabItem>
+<TabItem value="alldebrid" label="AllDebrid">
+```
+
+[Configuración de AllDebrid](https://alldebrid.com/apikeys/)
+
+```mdx-code-block
+</TabItem>
+<TabItem value="easydebrid" label="EasyDebrid">
+```
+
+[Configuración de EasyDebrid](https://easydebrid.com/client_api.php)
+
+```mdx-code-block
+</TabItem>
+</Tabs>
+```
+
+## Tabla de compatibilidad de servicios debrid y addons {#debrid-service-compatibility-table}
+
+Usa esta tabla a continuación para ver la compatibilidad debrid para cada addon.
+
+| Addon/Servicio Debrid |    Real-Debrid     |     All-Debrid     |    Debrid-Link     |     Premiumize     |      Offcloud      |       Put.io       |       TorBox       |     EasyDebrid     |
+| -------------------- | :----------------: | :----------------: | :----------------: | :----------------: | :----------------: | :----------------: | :----------------: | :----------------: |
+| Torrentio            | :white_check_mark: | :white_check_mark: | :white_check_mark: | :white_check_mark: | :white_check_mark: | :white_check_mark: | :white_check_mark: | :white_check_mark: |
+| MediaFusion          | :white_check_mark: | :white_check_mark: | :white_check_mark: | :white_check_mark: | :white_check_mark: |        :x:         | :white_check_mark: | :white_check_mark: |
+| Comet                | :white_check_mark: | :white_check_mark: | :white_check_mark: | :white_check_mark: | :white_check_mark: |        :x:         | :white_check_mark: | :white_check_mark: |
+| StremThru Torz/Store | :white_check_mark: | :white_check_mark: | :white_check_mark: | :white_check_mark: | :white_check_mark: |        :x:         | :white_check_mark: | :white_check_mark: |
+| Jackettio            | :white_check_mark: | :white_check_mark: | :white_check_mark: | :white_check_mark: | :white_check_mark: |        :x:         | :white_check_mark: | :white_check_mark: |
+| Debridio             | :white_check_mark: | :white_check_mark: | :white_check_mark: | :white_check_mark: | :white_check_mark: |        :x:         | :white_check_mark: | :white_check_mark: |
+| Orion                | :white_check_mark: |   :exclamation:    |   :exclamation:    | :white_check_mark: | :white_check_mark: |        :x:         | :white_check_mark: | :white_check_mark: |
+| Debrid Search        | :white_check_mark: | :white_check_mark: | :white_check_mark: | :white_check_mark: |        :x:         |        :x:         | :white_check_mark: |        :x:         |
+| DMM Cast             | :white_check_mark: |        :x:         |        :x:         |        :x:         |        :x:         |        :x:         |        :x:         |        :x:         |
+| TorBox Addon         |        :x:         |        :x:         |        :x:         |        :x:         |        :x:         |        :x:         | :white_check_mark: |        :x:         |
+| TorrentsDB           | :white_check_mark: | :white_check_mark: | :white_check_mark: | :white_check_mark: | :white_check_mark: | :white_check_mark: | :white_check_mark: | :white_check_mark: |
+| Formulio             | :white_check_mark: | :white_check_mark: | :white_check_mark: | :white_check_mark: | :white_check_mark: |        :x:         | :white_check_mark: | :white_check_mark: |
+
+:::note
+StremThru no es un servicio debrid, pero los addons que tienen soporte para StremThru tienen soporte para servicios que StremThru soporta.
+:::
+
+:warning: - Addon obsoleto
+
+:exclamation: - Soportado pero puede no funcionar debido a [limitaciones recientes](/stremio/setup#which-debrid-service-do-i-use)
+
+:::info
+Solo incluí los servicios debrid que fueron cubiertos en mi guía. Sin embargo, incluso si tuviera una columna para cada uno, esto no cambiaría mucho la tabla.
+
+La única fila que cambiaría es el addon MediaFusion. Esto es porque este addon también soporta PikPak y Seedr.cc que no están cubiertos en esta guía.
+Todos los otros addons solo soportan algunos de los servicios debrid cubiertos en esta guía.
+:::
+
+## Preguntas sobre indicadores de caché
+
+### ¿Qué significan los indicadores de caché?
+
+Los indicadores de caché te muestran si un torrent está disponible en tu servicio debrid.
+
+- ✅ = Disponible en caché
+- ⏳ = Parcialmente en caché
+- ❌ = No disponible en caché
+
+### ¿Por qué no veo indicadores de caché?
+
+Los indicadores de caché solo están disponibles para ciertos addons.
+
+Los addons que soportan indicadores de caché son:
+
+- Torrentio
+- KnightCrawler
+- Comet
+- Annatar
+
+### ¿Por qué algunos torrents muestran ⏳?
+
+⏳ significa que el torrent está parcialmente en caché.
+
+Esto significa que algunos archivos del torrent están disponibles en tu servicio debrid, pero no todos.
+
+### ¿Puedo reproducir un torrent que muestra ❌?
+
+Sí. Puedes reproducir un torrent que muestra ❌.
+
+Sin embargo, tu servicio debrid tendrá que descargar el torrent primero, lo que puede tomar algún tiempo.
+
+## Preguntas sobre buffering
+
+### ¿Por qué mi stream está haciendo buffering?
+
+Hay varias razones por las que tu stream puede estar haciendo buffering:
+
+- Tu conexión a internet es demasiado lenta
+- El servidor del servicio debrid está sobrecargado
+- El torrent no está completamente en caché
+- Estás usando una VPN que está ralentizando tu conexión
+
+### ¿Cómo puedo arreglar el buffering?
+
+Puedes intentar lo siguiente:
+
+- Cambiar a una calidad más baja
+- Cambiar a un torrent diferente
+- Cambiar a un servicio debrid diferente
+- Desactivar tu VPN
+- Reiniciar tu router
+
+### ¿Qué addons de anime necesito?
+
+Los únicos 2 addons que necesitas son Torrentio y Anime Kitsu.
+
+Asegúrate de que los proveedores NyaaSi y AniDex estén habilitados en Torrentio.
+También deberías asegurarte de estar usando el addon Anime Kitsu para obtener los mejores resultados.
+
+## Preguntas sobre Stremio
+
+### ¿Tendré que repetir el proceso de configuración en todos mis dispositivos?
+
+No. Tu cuenta y sus addons están almacenados en los servidores de Stremio.
+Esto significa que todo está en la nube.
+Mientras inicies sesión con la misma cuenta en un dispositivo diferente, sincronizará los addons que están vinculados con tu cuenta y no necesitas repetir el proceso de configuración.
+
+### Mi dispositivo no estaba listado en la lista de dispositivos compatibles. ¿Aún puedo usarlo?
+
+Sí. A través de [Stremio Web](https://web.stremio.com), cualquier dispositivo puede usar Stremio siempre que inicies sesión en tu cuenta.
+
+### ¿Puedo usar Stremio en mi Smart TV?
+
+Sí. Stremio funcionará en cualquier smart TV basado en Android. Se puede descargar desde Google Play Store.
+Stremio también está disponible en LG WebOS (solo modelos 2020+) y Samsung Tizen (solo modelos 2019+).
+Puedes descargarlo desde las respectivas tiendas de aplicaciones.
+
+### ¿Se actualizará Stremio automáticamente?
+
+Si Stremio está instalado desde Google Play Store, se actualizará automáticamente.
+
+Si Stremio fue instalado manualmente / descargado del sitio web, no se actualizará automáticamente. Tendrás que actualizarlo manualmente.
+
+### ¿Puedo usar Stremio en mi iPhone o iPad?
+
+Sí. Stremio (Lite) está disponible en el App Store. Esta es una versión limitada que no soporta streaming de torrents - aún funciona con servicios debrid.
+
+También puedes usar Stremio Web, lee la [pestaña iOS](setup?platform=web-ios#downloading-stremio) bajo la categoría Web para más información
+
+### ¿Puedo usar Stremio en mi iPhone o iPad sin un servicio debrid?
+
+Sí. Tendrás que configurar un servidor de streaming en tu computadora o teléfono Android.
+
+Lee la guía del [servidor stremio](setup?platform=web#downloading-stremio) para más información.
+
+### ¿Qué dispositivo de streaming debería usar para Stremio?
+
+El Chromecast 4K con Google TV, Fire TV Stick 4K, o el ONN 4K Box Pro son los mejores dispositivos en términos de relación calidad-precio.
+
+El ONN solo está disponible en América desde Walmart pero es el mejor valor, por lo que es altamente recomendado.
+
+Los Amazon Fire TV Sticks se están volviendo cada vez más restrictivos y muchos han tenido problemas con ellos.
+Se estarán moviendo de un OS basado en Android a un OS personalizado y esto hará imposible la instalación manual de Stremio.
+Sin embargo, actualmente, sigue siendo una buena opción si no estás en América.
+
+El Chromecast 4K con Google TV es el más personalizable y ofrece la mejor experiencia.
+
+Sin embargo, el dispositivo más potente que puedes usar es el NVIDIA Shield TV Pro.
+Es el más caro pero es el más potente. Aunque es viejo, sigue siendo una buena opción.
+También puedes considerar el Fire Cube.
+
+En mi opinión personal (recomiendo investigar esto tú mismo):
+
+- el mejor dispositivo en términos de relación calidad-precio es el ONN 4K Box Pro si estás en América o el más barato entre el Fire Stick 4K y Chromecast 4K si no estás en América.
+- el mejor dispositivo en términos de rendimiento es el NVIDIA Shield TV Pro.
+
+### ¿Puedo usar Stremio en mi Apple TV o Roku?
+
+No. Stremio no está disponible en Apple TV o Roku.
+
+### ¿Puedo usar Stremio en mi Raspberry Pi?
+
+Sí. El equipo de Stremio ha lanzado Stremio OS para el Raspberry Pi 4 y 5 que tiene Stremio preinstalado.
+Puedes encontrar el enlace de descarga e instrucciones [aquí](https://blog.stremio.com/stremio-os-is-now-available-for-raspberry-pi-5-4/)
+
+### ¿Cómo cambio el reproductor predeterminado?
+
+Las instrucciones son diferentes dependiendo del dispositivo que estés usando.
+No estoy seguro de las instrucciones para cada dispositivo pero deberían ser algo similar.
+
+```mdx-code-block
+import WebPlayer from "@site/docs/stremio/platform/player/_web.mdx";
+import WindowsPlayer from "@site/docs/stremio/platform/player/_windows.mdx";
+import AndroidPlayer from "@site/docs/stremio/platform/player/_android.mdx";
+
+<Tabs>
+<TabItem value="web" label="Stremio Web" default>
+<WebPlayer />
+</TabItem>
+<TabItem value="windows" label="Windows">
+<WindowsPlayer />
+</TabItem>
+<TabItem value="android" label="Android">
+<AndroidPlayer />
+</TabItem>
+</Tabs>
+```
+
+### ¿Puedo descargar un stream de Stremio?
+
+Si estás usando un servicio debrid, entonces solo necesitas empezar a ver el video.
+Luego aparecerá en el sitio web de tu servicio debrid donde puedes descargarlo.
+
+De lo contrario también puedes intentar lo siguiente:
+
+Sí. Puedes descargar un video haciendo clic en los 3 puntos dentro del reproductor y luego haciendo clic en `Descargar este video`.
+
+También puedes usar [Stremio Downloader](extras/stremio-downloader).
+
+### ¿Hay una función de ver juntos?
+
+Aunque no hay una función oficial de ver juntos, puedes usar varias soluciones:
+
+- [Peario](https://peario.xyz/) es un servicio de ver juntos que funciona específicamente con Stremio.
+  Desplázate hacia abajo a la sección `Bonus: Movies are better with popcorn... and friends` de [este post de reddit](https://www.reddit.com/r/StremioAddons/comments/17833ms/stremio_all_you_need_to_know/) para más información.
+  :::danger
+  Peario simplemente comparte el enlace de streaming en el que haces clic con tus amigos.
+  Esto significa que si estás **usando un servicio Debrid**, tus amigos contarán como una dirección IP adicional y puedes hacer que tu cuenta sea **terminada**. (Este no es el caso para Premiumize)
+  Esto ha sido confirmado por el desarrollador en [este issue de GitHub](https://github.com/tymmesyde/peario-client/issues/67)
+  :::
+- [Discord](https://discord.com/) tiene una función de compartir pantalla que se puede usar para ver contenido juntos.
+  Sin embargo, estarás limitado a la calidad del stream que Discord puede manejar, que es 720p@30fps o 4k@60fps para usuarios de Nitro.
+  :::info
+  Puedes usar modificaciones de cliente como [Vencord](https://vencord.dev/) o [BetterDiscord](https://betterdiscord.app/) para aumentar la calidad del stream sin tener que pagar por Nitro
+  :::
+- [Parsec](https://parsec.app/) es un servicio de compartir pantalla que se puede usar para ver contenido juntos.
+  No está limitado por la calidad del stream que Discord tiene.
+
+### ¿Puedo importar mi historial de Netflix?
+
+Sí. Puedes usar [Netflix-To-Trakt-Import](https://github.com/jensb89/Netflix-to-Trakt-Import) para importar tu historial de Netflix a Trakt.
+Luego puedes importar tu historial de Trakt a Stremio.
+
+### ¿Es posible ver las calificaciones de películas y shows en los pósters?
+
+Sí. Hay servicios que pueden proporcionar pósters con calificaciones.
+
+Repasaré dos de estos servicios, [RPDB](https://ratingposterdb.com/) y [aioratings](https://aioratings.com/).
+
+Estos servicios son bases de datos de pósters de películas con calificaciones. Proporcionan una API que los desarrolladores de addons pueden usar para obtener los pósters con calificaciones.
+Solo podrás usar estos servicios con addons que los soporten.
+
+Mientras estos servicios proporcionan un nivel gratuito, estos son limitados y dependiendo de tus necesidades, podrías querer pagar por un nivel superior.
+
+```mdx-code-block
+import RPDB from "@site/docs/stremio/poster-ratings/_rpdb.mdx";
+import AioRatings from "@site/docs/stremio/poster-ratings/_aioratings.mdx";
+
+<Tabs queryString="ratings" className="custom-tabs">
+<TabItem value="rpdb" label="RPDB">
+<RPDB />
+</TabItem>
+<TabItem value="aioratings" label="aioratings">
+<AioRatings />
+</TabItem>
+</Tabs>
+```
+
+### ¿Puedo usar Stremio para ver archivos locales, como en Plex o Jellyfin?
+
+Aunque hay un addon de archivos locales, no se recomienda usar Stremio para este propósito.
+Stremio no está diseñado para ser un servidor de medios y no es tan bueno como Plex o Jellyfin para este propósito.
+
+Sin embargo, puedes usar el [addon Plexio](/stremio/addons/plexio) para ver tu contenido de Plex directamente dentro de Stremio.
+
+### ¿Es posible ver contenido de mi biblioteca de Plex en Stremio?
+
+Sí. Puedes usar el [addon Plexio](/stremio/addons/plexio) para ver tu contenido de Plex directamente dentro de Stremio.
+
+### ¿Es posible compartir lo que estoy viendo en Discord?
+
+Sí. Hay múltiples formas de hacer esto. Lee la [sección de Discord](extras/discord-integration) para más información.
+
+### ¿Puedo usar mis propios subtítulos?
+
+Sí. Arrastra tu archivo de subtítulos al reproductor y debería reproducirse con el video.
+También puedes usar el addon MSubtitles para usar tus propios subtítulos.
+
+### ¿Puedo hacer mi propio addon para Stremio?
+
+Sí. El [Stremio Addon SDK](https://github.com/Stremio/stremio-addon-sdk/) se puede usar para desarrollar addons con Node.js.
+Los addons también se pueden desarrollar con cualquier otro lenguaje que soporte crear un servidor HTTP.
+Aquí hay algunos [ejemplos](https://github.com/Stremio/stremio-addon-sdk/blob/ff10a5a66ff6a592d6145baba117515041aa33ab/docs/examples.md)
+
+### ¿Puedo usar Stremio para ver TV en vivo?
+
+Stremio sí soporta streams en vivo. Sin embargo, su interfaz no está diseñada para esto y hay muy pocos addons que funcionen.
+
+- El [USA TV Addon](https://848b3516657c-usatv.baby-beamup.club/) se puede usar para ver TV en vivo para canales en EE.UU.
+- [MediaFusion](https://mediafusion.elfhosted.com/configure) sí proporciona streams en vivo y repeticiones para deportes.
+- El [addon xtremio](https://xtremio.elfhosted.com/configure) se puede usar para hacer streaming de contenido de tu suscripción IPTV pagada.
+
+Por favor ve la [sección de TV en vivo](setup#stream-provider-addons) para más información.
+
+### ¿Puedo tener mis listas de Letterboxd o Simkl en Stremio?
+
+Sí. Hay addons que se pueden usar para importar tus listas de estos servicios.
+
+- [Addon de Letterboxd](https://letterboxd.almosteffective.com/configure/)
+- [Addons de Simkl](https://simkl.com/apps/stremio/)
+
+### ¿Hay una forma de obtener recomendaciones basadas en lo que he visto?
+
+Sí. Puedes usar Trakt para lograr esto. Lee la [sección de Trakt](extras/trakt) para más información.
+
+### ¿Es posible hacer que Stremio se abra automáticamente en pantalla completa al iniciar?
+
+Sí. Para Windows, otro usuario ha creado un script de AutoHotkey que automáticamente pondrá Stremio en pantalla completa cuando se abra.
+
+Ve cómo hacer esto en [este comentario de reddit](https://www.reddit.com/r/StremioAddons/comments/1d42tbq/comment/lvnw5sg/).
+
+### ¿Cuáles son los enlaces oficiales para Stremio y la comunidad StremioAddons? {#what-are-the-official-links-for-stremio-and-the-stremioaddons-community}
+
+Enlaces oficiales:
+
+- [Sitio web de Stremio](https://www.stremio.com/)
+- [Stremio Zendesk](http://stremio.zendesk.com/)
+- [Stremio GitHub](https://github.com/Stremio)
+- [/r/Stremio](https://www.reddit.com/r/Stremio/)
+- [Stremio Twitter](https://twitter.com/Stremio)
+- [Stremio Facebook](https://www.facebook.com/stremio/)
+
+Enlaces de la comunidad:
+
+- [Discord de /r/StremioAddons](https://discord.com/invite/zNRf6YF)
+- [/r/StremioAddons](https://www.reddit.com/r/StremioAddons/)
+
+### ¿Cómo funciona la regla de una dirección IP? {#how-does-the-one-ip-address-rule-work}
+
+Los servicios debrid típicamente permiten acceso desde solo una dirección IP a la vez.
+Esto significa que no puedes usar el servicio desde múltiples direcciones IP simultáneamente.
+
+En una red, todos los dispositivos comparten la misma dirección IP pública, permitiendo que múltiples dispositivos en la misma red usen el servicio concurrentemente.
+Sin embargo, esto puede estar limitado por tu ancho de banda y velocidad de internet.
+
+Si el servicio debrid se está usando en casa, no se puede usar en un dispositivo fuera de tu red doméstica al mismo tiempo, y viceversa.
+
+Usar una VPN cambia tu dirección IP, así que si estás en una VPN, otros en tu red no pueden usar el servicio Debrid simultáneamente, ya que aparecería como múltiples direcciones IP accediendo al servicio.
+
+### ¿Dónde puedo encontrar las pruebas de velocidad para servicios debrid? {#where-can-i-find-the-speed-tests-for-debrid-services}
+
+Aquí puedes encontrar los enlaces a las pruebas de velocidad para diferentes servicios Debrid.
+Estas pruebas de velocidad te darán una idea de la velocidad que puedes esperar al hacer streaming a través de estos servicios.
+
+:::warning
+Es posible que necesites estar conectado para acceder a estas páginas.
+Si obtienes algún error al intentar acceder a estas páginas, intenta iniciar sesión en el servicio Debrid primero, luego haz clic en el enlace nuevamente.
+
+Considera usar mis enlaces de afiliado para registrarte si aún no has creado una cuenta.
+Estos están disponibles [aquí](setup#which-debrid-service-do-i-use).
+:::
+
+- [Real Debrid](https://real-debrid.com/speedtest)
+- [Torbox](https://torbox.app/speedtest)
+- [AllDebrid](https://alldebrid.com/speedtest)
+- [Premiumize](https://www.premiumize.me/speedtest)
+- [Debrid-Link](https://debrid-link.fr/webapp/speedtest)
+- [put.io](https://app.put.io/settings/route)
+
+Para offcloud, no hay una prueba de velocidad disponible, sin embargo puedes probar la velocidad verificando cada proxy manualmente e intentando descargar un archivo.
+Esto sí requiere que tengas una cuenta premium.
+
+Aunque EasyNews no es un servicio debrid, puedes encontrar una herramienta de selector de ruta que puede ayudar a mejorar las velocidades:
+
+- [Selector de Ruta de EasyNews](https://members.easynews.com/1.0/route/)
+
+Para otros servicios Debrid, puedes intentar encontrar la prueba de velocidad en su sitio web.
+
+También puedes usar [SamKnows](https://www.samknows.com/realspeed) para probar tu propia velocidad de internet.
+Esto te permitirá saber si un servicio debrid está limitando tu velocidad.
+
+### ¿Dónde puedo encontrar mi clave API de Debrid? {#where-can-i-find-my-debrid-api-key}
+
+```mdx-code-block
+import RealDebridApi from "@site/docs/stremio/debrid/realdebrid/_api.mdx";
+import AllDebridApi from "@site/docs/stremio/debrid/alldebrid/_api.mdx";
+import PremiumizeApi from "@site/docs/stremio/debrid/premiumize/_api.mdx";
+import DebridLinkApi from "@site/docs/stremio/debrid/debridlink/_api.mdx";
+import OffcloudApi from "@site/docs/stremio/debrid/offcloud/_api.mdx";
+import PutioApi from "@site/docs/stremio/debrid/putio/_api.mdx";
+import TorboxApi from "@site/docs/stremio/debrid/torbox/_api.mdx";
+
+<Tabs className="custom-tabs" queryString="debrid-service">
+<TabItem value="torbox" label="Torbox">
+<TorboxApi />
+</TabItem>
+<TabItem value="real-debrid" label="Real Debrid">
+<RealDebridApi />
+</TabItem>
+<TabItem value="alldebrid" label="AllDebrid">
+<AllDebridApi />
+</TabItem>
+<TabItem value="premiumize" label="Premiumize">
+<PremiumizeApi />
+</TabItem>
+<TabItem value="debrid-link" label="Debrid-Link">
+<DebridLinkApi />
+</TabItem>
+<TabItem value="offcloud" label="Offcloud">
+<OffcloudApi />
+</TabItem>
+<TabItem value="put-io" label="Put.io">
+<PutioApi />
+</TabItem>
+</Tabs>
+```
+
+### ¿Cómo instalo un addon manualmente? {#how-do-i-install-an-addon-manually}
+
+Para instalar un addon manualmente, necesitarás la URL del manifiesto del addon.
+
+Hay 3 formas posibles de obtener esta URL:
+
+1. La página de configuración del addon tiene un botón `Copiar URL` o una caja con la URL en ella.
+2. La página de configuración del addon copiará la URL a tu portapapeles automáticamente cuando hagas clic en instalar
+3. Puedes hacer clic derecho / mantener presionado el botón de instalar y hacer clic en `Copiar enlace`
+
+Para evitar problemas, cuando pegues el enlace reemplaza stremio:// con https://
+
+Ahora que tienes la URL, puedes instalar el addon en tu dispositivo siguiendo estos pasos dependiendo de la plataforma que estés usando:
+
+```mdx-code-block
+import WebInstallation from "@site/docs/stremio/platform/addon-installation/_web.mdx";
+import AppInstallation from "@site/docs/stremio/platform/addon-installation/_apps.mdx";
+
+<Tabs groupId="platform" className="custom-tabs">
+<TabItem value="web" label="Stremio Web">
+<WebInstallation />
+</TabItem>
+<TabItem value="app" label="Stremio Apps">
+<AppInstallation />
+</TabItem>
+</Tabs>
+```
+
+## Otras Preguntas
+
+### ¿Cómo obtener una clave API de TMDB? {#how-to-obtain-a-tmdb-api-key}
+
+1. Ve al [sitio web de TMDB](https://www.themoviedb.org/)
+2. Haz clic en `Únete a TMDB` en la esquina superior derecha
+3. Llena la información requerida y haz clic en `Registrarse`
+4. Ve a la [página de API](https://www.themoviedb.org/settings/api).
+5. Ahora puedes llenar la información requerida. Esta puede ser toda información falsa pero para evitar cualquier problema, puedes llenar la información de manera algo precisa.
+6. Después de que tu clave API sea generada, regresa a la [página de API](https://www.themoviedb.org/settings/api) y resalta y copia la `Clave API`.
+
+### ¿Cómo obtengo una clave API de RPDB? {#how-do-i-obtain-a-rpdb-api-key}
+
+Si solo quieres acceso gratuito, entonces usa esta Clave API: `t0-free-rpdb`
+
+Si quieres acceder a algunas de las características premium, tendrás que suscribirte al Patreon de RPDB:
+
+1. [Inicia sesión en tu cuenta de Patreon](https://www.patreon.com/login)
+2. Ve a la [página de Patreon de RPDB](https://www.patreon.com/rpdb)
+3. Haz clic en `Únete Gratis`
+4. Luego, ve al [Sitio Web de RPDB](https://ratingposterdb.com/) y haz clic en [Iniciar Sesión](https://ratingposterdb.com/login) en la esquina superior derecha
+5. RPDB te pedirá que inicies sesión con Patreon, haz clic en `Permitir`
+6. Ahora verás tu Clave API. Resáltala toda y presiona `Ctrl + C` para copiarla.
+7. Ahora puedes usar esta clave API en los addons que soporten RPDB.

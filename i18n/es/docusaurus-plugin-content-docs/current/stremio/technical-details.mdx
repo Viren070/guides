@@ -1,0 +1,141 @@
+---
+title: Detalles Técnicos
+sidebar_label: Detalles Técnicos
+sidebar_position: 5
+description: Detalles técnicos sobre cómo funciona Stremio, tipos de addons y sus ventajas y desventajas.
+keywords: [stremio, técnico, addons, http, torrent, debrid, metadatos, streaming]
+---
+
+```mdx-code-block
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+```
+
+# Detalles Técnicos
+
+## ¿Qué es Stremio?
+
+Stremio es un reproductor multimedia que te permite ver contenido de varias fuentes.
+
+Stremio en sí mismo no proporciona ningún contenido. En su lugar, utiliza addons para obtener contenido de varias fuentes.
+
+## Tipos de Addons
+
+Hay varios tipos de addons que puedes usar con Stremio:
+
+### Addons HTTP
+
+Los addons HTTP proporcionan enlaces directos a archivos multimedia.
+
+Estos addons no requieren ninguna configuración adicional y funcionan inmediatamente.
+
+#### Ventajas
+
+- No requiere configuración adicional
+- Funciona inmediatamente
+- No requiere servicios de terceros
+
+#### Desventajas
+
+- Calidad limitada
+- Disponibilidad limitada
+- Puede ser lento
+- Los enlaces pueden estar caídos
+
+### Addons de Torrent
+
+Los addons de torrent proporcionan enlaces de torrent a archivos multimedia.
+
+Estos addons requieren un cliente de torrent para descargar el contenido.
+
+#### Ventajas
+
+- Alta calidad
+- Gran disponibilidad
+- Rápido (con una buena conexión a internet)
+
+#### Desventajas
+
+- Requiere un cliente de torrent
+- Puede ser ilegal en algunos países
+- Puede ser lento (con una mala conexión a internet)
+- Requiere una VPN en algunos países
+
+### Addons de Metadatos
+
+Los addons de metadatos proporcionan información sobre películas y programas de TV.
+
+Estos addons no proporcionan ningún contenido, solo información.
+
+#### Ventajas
+
+- Proporciona información detallada sobre películas y programas de TV
+- Puede proporcionar calificaciones y reseñas
+- Puede proporcionar trailers y clips
+
+#### Desventajas
+
+- No proporciona ningún contenido
+- Puede ser lento
+- Puede no tener información para todo el contenido
+
+## Servicios Debrid {#debrid-services}
+
+Los servicios debrid generan enlaces HTTPS sin restricciones y de alta velocidad a torrents o archivos en alojadores de archivos compatibles (como Mega, 1fichier, etc.) descargando primero el torrent o archivo a sus servidores.
+Una vez que un archivo se descarga a sus servidores, permanece allí por cierto tiempo (dependiente del servicio debrid) y está disponible para que cualquier usuario lo descargue.
+Si otro usuario accede al mismo archivo, reinicia el temporizador para que el archivo sea eliminado de los servidores del servicio debrid.
+
+Esto es útil porque te permite eliminar las limitaciones de velocidad y restricciones de descarga impuestas por los alojadores de archivos.
+También te permite acceder a torrents sin exponer tu dirección IP a los trackers del torrent y arriesgar un aviso DMCA a través de tu ISP.
+Esto significa que una VPN no es necesaria cuando usas un servicio debrid.
+
+Una vez que un torrent o archivo ha sido "cacheado", elimina la necesidad de seeders ya que el archivo ya está descargado en los servidores del servicio debrid.
+La mayoría de torrents ya están cacheados y se están descargando constantemente.
+Esto efectivamente significa que permanecerán cacheados y no necesitarás esperar a que el servicio debrid descargue el torrent primero.
+Puedes simplemente descargar o hacer streaming del archivo instantáneamente.
+
+### Beneficios sobre una VPN
+
+- Dado que los servicios debrid son basados en web, pueden ser accedidos desde cualquier dispositivo con un navegador web.
+  No necesitas instalar nada para usar un servicio debrid, solo pega el enlace al torrent o archivo y generará un enlace de descarga para ti.
+  Esto lo hace súper conveniente de usar.
+
+- No necesitas preocuparte por configurar kill switches o vincular VPNs, ya que no se hace torrenting en tu dispositivo.
+
+- Con una VPN, dependes de los seeders al descargar un torrent. Sin embargo, debido al hecho de que la mayoría de torrents en un servicio debrid ya están cacheados, no necesitas depender del número o velocidad de seeders para que un torrent haga streaming o descargue rápidamente.
+  Podrás descargar o hacer streaming del archivo a la velocidad máxima de tu conexión a internet.
+  :::note
+  En casos donde un torrent no está cacheado, aún necesitarás depender de los seeders para que el torrent se descargue con un servicio debrid.
+  :::
+
+- Los servicios debrid usualmente son más baratos que las VPN.
+
+## Integración de Servicios Debrid con Stremio
+
+Como se mencionó antes, Stremio tiene 2 tipos de addons que proporcionan streams: addons HTTP y de Torrent.
+
+Los servicios debrid pueden proporcionar archivos de alojadores de archivos y torrents.
+
+Los addons de torrent pueden ser configurados para ejecutar los torrents que rasparon a través de un servicio debrid.
+Puede verificar si el torrent está cacheado en el servicio debrid y si lo está, proporcionará el enlace al archivo en los servidores del servicio debrid.
+Si no lo está, puede proporcionar un enlace que envía una solicitud al servicio debrid para cachear el torrent.
+
+Los addons que hacen uso de las capacidades de alojador de archivos de los servicios debrid son esencialmente inexistentes en Stremio.
+Solo existe 1 addon ([StreamAsia](/stremio/addons/streamasia)) y solo soporta Real Debrid.
+
+## ¿Por qué usar servicios debrid en lugar de una VPN?
+
+Los servicios debrid tienen varias ventajas sobre las VPN:
+
+- **Velocidad**: Los servicios debrid suelen ser más rápidos que las VPN ya que no tienes que descargar el torrent completo.
+- **Conveniencia**: Los servicios debrid no requieren ninguna configuración adicional. Solo necesitas proporcionar tu clave API.
+- **Legalidad**: Los servicios debrid son legales en la mayoría de países ya que no estás descargando el torrent directamente.
+- **Costo**: Los servicios debrid suelen ser más baratos que las VPN.
+
+## ¿Cómo se integran los servicios debrid con Stremio?
+
+Los servicios debrid se integran con Stremio a través de addons.
+
+Estos addons toman los enlaces de torrent y los convierten en enlaces directos usando tu servicio debrid.
+
+Esto significa que puedes ver contenido inmediatamente sin tener que esperar a que se descargue el torrent.

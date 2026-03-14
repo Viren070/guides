@@ -1,0 +1,616 @@
+---
+title: Configuración | Aniyomi
+sidebar_label: Configuración
+description: La única guía de Aniyomi que necesitarás.
+toc_max_heading_level: 5
+---
+
+import Tabs from "@theme/Tabs";
+import TabItem from "@theme/TabItem";
+import Admonition from "@theme/Admonition";
+
+import DebridCostComparisonTable from "@site/src/components/DebridCostComparisonTable";
+
+# Configuración
+
+## Descargar Aniyomi
+
+Aniyomi no está disponible en Google Play Store, así que debes descargarlo desde el [sitio oficial](https://aniyomi.org/).
+
+:::note
+Antes de descargar Aniyomi, quizá quieras revisar los [forks de Aniyomi](/aniyomi/forks) para ver si existe alguno que se adapte mejor a tus necesidades.
+
+Las mismas instrucciones a continuación se aplican para descargar e instalar un fork de Aniyomi; simplemente usa el APK del fork que quieras instalar.  
+:::
+
+1. Ve a la [página de descargas](https://aniyomi.org/download) en el sitio de Aniyomi.
+
+    ![Aniyomi Downloads Page](/img/aniyomi/downloads.jpg)
+
+2. Haz clic en `Stable` o `Preview` para descargar el archivo APK de Aniyomi.
+    :::note
+    La versión `Stable` es la versión más estable de Aniyomi, mientras que la versión `Preview` es la más reciente con nuevas funciones.
+
+    A menos que estés dispuesto a encontrarte con errores, te recomiendo descargar la versión `Stable`.
+    :::
+
+3. El archivo comenzará a descargarse. Puedes revisar tus notificaciones o la sección de descargas del navegador para ver el progreso.
+
+    ![Aniyomi Downloading](/img/aniyomi/downloading.jpg)
+
+4. Cuando la descarga termine, verás una notificación en la barra de notificaciones. Tócala para abrir el archivo.
+
+    ![Aniyomi Download Complete](/img/aniyomi/downloaded.jpg)
+
+5. Si es la primera vez que instalas un archivo APK, puede que veas una advertencia como esta:
+
+    ![Aniyomi Install Warning](/img/aniyomi/unknown_apps_1.jpg)
+
+    Pulsa `Settings` para permitir la instalación de archivos APK desde esta fuente.
+
+6. Se abrirá la pantalla `Install unknown apps`.
+
+    ![Aniyomi Install Unknown Apps](/img/aniyomi/unknown_apps_2.jpg)
+
+    Activa el interruptor `Allow Permission` junto a tu navegador para permitir la instalación de APKs.
+
+7. Verás el cuadro de instalación. Pulsa `Install` para instalar Aniyomi.
+    :::note
+    Si el cuadro no aparece automáticamente, regresa a la página de descargas en tu navegador y toca el archivo descargado para abrir el cuadro de instalación.
+    También puedes ir a tu gestor de archivos y tocar el archivo descargado para abrir el cuadro de instalación.
+    :::
+
+    ![Aniyomi Install Prompt](/img/aniyomi/install.jpg)
+
+8. Cuando la instalación termine, verás un mensaje como este:
+
+        ![Aniyomi Install Complete](/img/aniyomi/installed.jpg)
+
+        Pulsa `Open` para abrir Aniyomi.
+
+9. Ya has instalado Aniyomi en tu dispositivo.
+
+## Configurar Aniyomi
+
+### Onboarding
+
+1. Al abrir Aniyomi por primera vez, verás la pantalla de bienvenida.
+
+   ![Aniyomi Welcome Screen](/img/aniyomi/onboarding_1.jpg)
+
+   Puedes elegir entre varios temas. Cuando elijas tu tema, pulsa `Next`.
+
+2. Ahora se te pedirá seleccionar una carpeta de almacenamiento. Aquí es donde Aniyomi guardará descargas, copias de seguridad y más.
+
+   ![Aniyomi Storage Folder](/img/aniyomi/onboarding_2.jpg)
+
+   Pulsa `Select Folder` para elegir una carpeta. Recomiendo crear una carpeta llamada `Aniyomi` en tu almacenamiento interno o tarjeta SD.
+   Debería quedar `/storage/emulated/0/Aniyomi`
+
+3. Al seleccionar una carpeta, Android te pedirá permiso para que Aniyomi acceda al almacenamiento. Pulsa `Allow`.
+
+4. Ahora se te pedirá conceder los permisos necesarios a Aniyomi.
+
+   ![Aniyomi Permissions](/img/aniyomi/onboarding_3.jpg)
+
+   Pulsa `Grant` para conceder los permisos.
+
+5. El onboarding ya está completo. Pulsa `Get Started` para empezar a usar Aniyomi.
+
+### Seguimiento
+
+Para llevar seguimiento de tu anime y manga, puedes usar los distintos servicios de tracking disponibles en Aniyomi.
+
+1. Pulsa la pestaña `More` en la parte inferior y luego `Settings`.
+
+   ![Aniyomi More Tab](/img/aniyomi/more_tab.jpg)
+
+2. En el menú de ajustes, pulsa `Tracking`.
+
+3. Verás una lista de servicios de seguimiento disponibles. Pulsa el servicio que quieras usar e inicia sesión con tu cuenta.
+
+## Añadir repositorios de extensiones
+
+Aniyomi funciona mediante extensiones. Las extensiones son como plugins que permiten a Aniyomi obtener anime y manga desde distintas fuentes.
+Por ejemplo, si tienes un sitio específico, podrías crear una extensión para él y añadirla a Aniyomi. Esa extensión obtendría anime de ese sitio y lo mostraría en Aniyomi.
+
+Podemos usar repositorios de extensiones de terceros mantenidos por la comunidad. Estos repositorios contienen extensiones para una variedad de sitios.
+
+Usaremos el repositorio [Kohi Den](https://github.com/Kohi-den/extensions) para anime y el repositorio [Keiyoushi](https://github.com/keiyoushi/extensions) para manga.
+
+Para añadir los repositorios, simplemente pulsa los siguientes enlaces:
+
+- [Kohi Den](aniyomi://add-repo?url=https%3A%2F%2Fraw.githubusercontent.com%2Fkohi-den%2Fextensions%2Fmain%2Findex.min.json)
+- [Keiyoushi](aniyomi://add-repo?url=https%3A%2F%2Fraw.githubusercontent.com%2Fkeiyoushi%2Fextensions%2Frepo%2Findex.min.json)
+
+Si los enlaces no funcionan, puedes añadirlos manualmente siguiendo estos pasos:
+
+1. Abre Aniyomi y pulsa la pestaña `More` abajo; luego `Settings`.
+
+   ![Aniyomi More Tab](/img/aniyomi/more_tab.jpg)
+
+2. En el menú de ajustes, pulsa `Browse`.
+
+   ![Aniyomi Settings Menu](/img/aniyomi/settings.jpg)
+
+3. Verás `Anime extension repos` y `Manga extension repos`.
+   Dependiendo de cuál quieras añadir, pulsa la sección correspondiente.
+
+   ![Aniyomi Extension Repos](/img/aniyomi/browse_settings.jpg)
+
+4. Pulsa `+ Add` en la esquina inferior derecha y pega una de las siguientes URL en la caja de texto:
+
+   **Kohi Den (Anime):**
+
+   ```
+   https://raw.githubusercontent.com/kohi-den/extensions/main/index.min.json
+   ```
+
+   **Keiyoushi (Manga):**
+
+   ```
+   https://raw.githubusercontent.com/keiyoushi/extensions/repo/index.min.json
+   ```
+
+   ![Aniyomi Add Repo](/img/aniyomi/adding_repo.jpg)
+
+5. Pulsa `Add` para añadir el repositorio.
+
+Ahora, cuando vayas a `Browse` > `Anime Extensions` o `Manga Extensions`, verás las extensiones de los repositorios añadidos.
+
+Puedes empezar a probar diferentes extensiones y ver cuál funciona mejor para ti.
+
+:::tip
+Debido a la naturaleza de las extensiones de terceros, debes pulsar la extensión para confiar en ella. Aniyomi no obtendrá datos de una extensión en la que no hayas confiado.
+Cada vez que una extensión se actualice, tendrás que confiar en ella nuevamente.
+:::
+
+## Usar torrents
+
+Ahora explicaré cómo ver anime usando torrents en Aniyomi.
+
+Para ver los beneficios de usar torrents, consulta esta [guía de torrenting de thewiki.moe](https://thewiki.moe/getting-started/torrenting/)
+Ten en cuenta que, con Aniyomi, transmitiremos torrents, no los descargaremos.
+
+Aunque Aniyomi actualmente no soporta la transmisión de torrents, aún es posible usar Torrentio Anime en Aniyomi mediante un servicio de debrid.
+Algunos [forks de Aniyomi](/aniyomi/forks) sí soportan streaming de torrents, por lo que puedes usar Torrentio Anime en esos forks sin un servicio de debrid.
+
+### Servicio de debrid
+
+Ahora explicaré qué es un servicio de debrid y por qué podrías querer usar uno.
+
+**No es obligatorio usar un servicio de debrid**.
+Necesitarás usar [un fork de Aniyomi](/aniyomi/forks) que soporte streaming de torrents si no quieres usar un servicio de debrid.
+Aun así podrás transmitir torrents siempre que tengan suficientes seeders. Sin embargo, usar un servicio de debrid proporciona una mejor experiencia.
+
+#### ¿Qué es un servicio de debrid?
+
+Un servicio de debrid permite generar enlaces de descarga sin restricciones (hasta 1gbps) para torrents y otros archivos en hosters compatibles (tiene más funciones que se tratan en [Servicios de Debrid](/stremio/technical-details#debrid-services)).
+
+Aporta estos beneficios:
+
+- Te permite transmitir torrents sin riesgo de recibir avisos de tu ISP, ya que transmites por HTTPS.
+- Mientras transmites, no dependes del número de seeders y puedes hacerlo hasta 1gbps. Esto hace posible ver contenido de máxima calidad (4K, DV, HDR, Dolby Atmos, etc.) sin buffering, siempre que tu conexión lo soporte.
+- Si usas un servicio de debrid, no necesitas VPN, ya que transmites por HTTPS.
+- Puedes usarlo para más que Aniyomi. Puedes descargar cualquier tipo de archivo, ya sean juegos, software o audio. Si es un torrent o un archivo en un hoster compatible, puedes descargarlo mediante tu servicio de debrid.
+  :::note
+  Una app con la que puedes usar un servicio de debrid es Stremio. Tras configurarlo con algunos addons, podrás transmitir torrents de cualquier película o serie.
+  Puedes encontrar más información para configurar un servicio de debrid con Stremio en mi [Guía de Stremio](/stremio/).
+  :::
+
+Sin embargo, las desventajas de usar un servicio de debrid son que la mayoría no hacen seed de los torrents y también restringen el uso a una dirección IP a la vez.
+Esto significa que no contribuyes al torrent y que solo puedes usar el servicio en una ubicación a la vez.
+:::tip
+Para más detalles sobre la regla de una sola IP, consulta esta pregunta en el [FAQ](/stremio/faq#how-does-the-one-ip-address-rule-work).
+:::
+
+Hay algunas excepciones, que se analizan a continuación.
+
+#### ¿Debería usar un servicio de debrid?
+
+La respuesta depende de tus circunstancias personales.
+
+- Si el torrenting supone riesgo de recibir avisos de tu ISP.
+- La popularidad (número de seeders) del contenido que quieres ver.
+- Si tu velocidad de internet justifica un servicio de debrid.
+
+La razón principal para usar un servicio de debrid es evitar los riesgos del torrenting.
+Como se explicó antes, transmites por HTTPS y el servicio de debrid actúa como intermediario.
+Sin embargo, si estás en un país donde el torrenting no es problemático, entonces un servicio de debrid o VPN no es necesario para evitar avisos del ISP.
+
+La siguiente razón es evitar el buffering.
+Sin embargo, si hay buffering o no depende del tipo de contenido y tu velocidad de internet.
+Si el contenido que quieres ver es popular y tiene muchos seeders, podrás transmitirlo a alta calidad sin buffering.
+No obstante, torrents de contenido de calidad extremadamente alta pueden bufferizar incluso con muchos seeders.
+
+Algo que se ignora a menudo es que un servicio de debrid no puede aumentar tu velocidad de descarga.
+Si tu conexión ya es lenta, un servicio de debrid no te ayudará a transmitir contenido de mayor calidad.
+Necesitas tener una conexión rápida para aprovechar los beneficios.
+
+Con todo esto, si el torrenting no es un problema, la mejor forma de determinar si necesitas un servicio de debrid es probar sin él.
+Intenta ver el contenido deseado y comprueba si bufferiza a la calidad deseada.
+Si lo hace, quizá quieras considerar usar un servicio de debrid.
+
+#### ¿Qué servicio de debrid uso? {#which-debrid-service-do-i-use}
+
+:::info
+Recibo una comisión (días gratis o pequeñas cantidades) si te registras en un servicio de debrid mediante algunos de los enlaces proporcionados. No tiene coste adicional y es una forma de apoyarme.
+:::
+
+Hay muchos servicios de debrid disponibles. Aquí hay una lista de algunos de los más populares.
+Si ya has elegido uno, puedes saltar a las [instrucciones de configuración](#setting-up-a-debrid-service).
+De lo contrario, revisaré los factores a considerar al elegir un servicio.
+
+- [Torbox](https://torbox.app/subscription?referral=9ca21adb-dbcb-4fb0-9195-412a5f3519bc)
+- [Premiumize](https://www.premiumize.me/)
+- [Offcloud](https://offcloud.com/?=06202a3d)
+- [Put.io](https://put.io/)
+- [Real Debrid](https://real-debrid.com/?id=9483829) :warning:
+- [AllDebrid](https://alldebrid.com/?uid=3n8qa&lang=en) :warning:
+- [Debrid-Link](https://debrid-link.com/id/EY0JO) :warning:
+
+<details>
+<summary> 
+:warning: 
+**Estos servicios de debrid han implementado restricciones que afectarán tu experiencia.**
+**Haz clic aquí para leer más.** 
+:warning:
+</summary>
+<div>
+
+<h3> ¿Qué ocurrió? </h3>
+
+Debido a circunstancias inevitables, algunos servicios de debrid han aplicado restricciones a sus servicios y APIs.
+
+**Real Debrid**, **AllDebrid** y **Debrid-Link** han eliminado el endpoint de API que permite a los addons determinar si un torrent está en caché en su servicio.
+
+<h3> ¿Qué significa esto para Aniyomi? </h3>
+
+La extensión Torrentio tiene 2 tipos de resultados: resultados en caché que pueden transmitirse al instante, y resultados no en caché que deben descargarse (al servicio de debrid) antes de poder transmitirse.
+Se muestran como [...+] o [... Download] donde (...) es el código del servicio de debrid, por ejemplo RD, TB, DL.
+
+Con la eliminación del endpoint de API, Torrentio ya no puede determinar con precisión si un torrent está en caché en Real Debrid o AllDebrid.
+
+<h3> ¿Es posible seguir usando estos servicios de debrid? </h3>
+
+Torrentio ha eliminado la verificación de torrents en caché usando ese endpoint.
+
+Torrentio ha implementado un sistema local de caché colaborativa para intentar determinar si un torrent está en caché.
+Esto no garantiza precisión, por lo que las etiquetas [...+] y [... Download] pueden no ser correctas.
+
+Al usar estos servicios, aceptas cierta molestia en forma de tener que probar múltiples streams hasta encontrar uno en caché.
+Sin embargo, debido a que algunos servicios de debrid tienen una caché masiva (como Real Debrid), es probable que encuentres uno en caché al primer intento.
+
+<h3> ¿Se recomienda seguir usando estos servicios de debrid? </h3>
+
+Aun podrás usar estos servicios con addons que implementen algún tipo de solución alternativa,
+pero se recomienda usar otro servicio si no estás usando uno de los afectados.
+
+Esto se debe a la incomodidad de tener que escoger streams al azar sin saber si están en caché.
+Si no lo están, tendrás que esperar a que el torrent se descargue antes de poder verlo.
+Claro que podrías seguir probando diferentes streams hasta encontrar uno en caché, pero no es lo ideal.
+
+Y no todos los addons han implementado esta solución.
+
+Además de la falta de soporte en addons, estos servicios pueden aplicar más restricciones en el futuro.
+
+<h3> Restricciones adicionales </h3>
+
+<h4> Real Debrid </h4>
+
+- Bloqueo de archivos audiovisuales de varios cyberlockers incluidos en la lista de la USTR o en la "Counterfeit and Piracy Watch List" europea
+  - Incluye varios servicios. No estoy seguro si son los correctos, pero esto es lo que encontré:
+    - [European Commission's Counterfeit and Piracy Watch List](https://circabc.europa.eu/ui/group/d0803128-7d62-40ee-8349-c43ee92745aa/library/b36f701d-2850-4768-9b3e-e487140e11e5/details)
+    - [USTR Notorious Markets List](https://ustr.gov/sites/default/files/2023_Review_of_Notorious_Markets_for_Counterfeiting_and_Piracy_Notorious_Markets_List_final.pdf)
+- Bloqueo de hashes de torrents de trackers privados franceses como YGGTorrent
+
+</div>
+</details>
+
+Al elegir un servicio de debrid, debes considerar el coste y el valor que obtienes, compuesto por su optimalidad y base de usuarios.
+
+Recomiendo llegar a tu propia conclusión leyendo la información siguiente, además de tu propia investigación.
+
+**Coste**
+
+Para comparar el coste de cada servicio, he creado una tabla que compara los precios.
+Esta tabla se genera dinámicamente y los datos pueden actualizarse manualmente. No recomiendo modificar los datos en móvil.
+
+<details>
+<summary>Despliega para ver la tabla completa comparando costes de todos los servicios</summary>
+
+<Admonition type="note">
+
+Los tipos de cambio usados aquí se actualizan de forma semi-automática cada semana.
+
+No actualizo estos precios si hay ofertas o descuentos en los servicios.
+Asegúrate de revisarlos antes de hacer una compra.
+
+Puedes actualizar los precios manualmente pulsando el botón `Configure Table Data`.
+También puedes añadir nuevos servicios o eliminar existentes.
+Esto puede ser útil si hay ofertas en curso o si compras a un reseller con precios locales ajustados.
+
+</Admonition>
+
+<DebridCostComparisonTable />
+
+<details>
+<summary>¿Qué son los FP (fidelity points)?</summary>
+
+Cuando compras un plan en algunos servicios, se te otorgan puntos de fidelidad.
+Cuando tengas suficientes puntos, puedes usarlos para extender tu suscripción gratis.
+
+En los servicios que ofrecen puntos de fidelidad, hay 2 filas en la tabla.
+Una de ellas toma en cuenta la duración extra por los puntos y la otra no.
+
+<details>
+<summary>¿Cómo se contabilizan los puntos de fidelidad?</summary>
+
+Se calcula el número de planes necesarios para obtener una cantidad de puntos totalmente utilizable.
+Es decir, el mínimo común múltiplo de los puntos otorgados y los puntos necesarios para extender la suscripción.
+
+Por ejemplo, si necesitas 1000 puntos para extender 30 días
+y recibes 800 puntos al comprar un plan, necesitarás comprar 5 planes para obtener 4000 puntos.
+Entonces los 4000 puntos pueden usarse para extender la suscripción 120 días.
+
+El coste de 5 planes con la duración de 5 planes más la duración extra por los puntos se usa para calcular un coste promedio.
+
+</details>
+</details>
+</details>
+
+:::info
+Si no estás seguro de si esto es algo que quieres usar, puedes probar con un plan gratuito o prueba limitada.
+
+- Torbox ofrece un plan gratuito limitado.
+- All-Debrid ofrece una prueba gratuita de 7 días con verificación por número de teléfono.
+- put.io ofrece una prueba de 1 día por $0.99.
+
+Alternativamente, puedes usar el paquete de 15 días que la mayoría ofrece para probarlos.
+:::
+
+**Optimalidad**
+
+La optimalidad se refiere a tu proximidad a los servidores del servicio. Cuanto más cerca estés, mayores velocidades y mejor experiencia.
+Las velocidades determinan directamente la calidad de transmisión que puedes ver.
+
+Esto es diferente para cada persona.
+Dar mis experiencias con cada servicio no sería útil, ya que depende de tu ubicación y otros factores.
+
+Por lo tanto, asegúrate de realizar pruebas de velocidad para determinar el mejor servicio para ti.
+Las pruebas de velocidad de cada servicio están [aquí](/stremio/faq#where-can-i-find-the-speed-tests-for-debrid-services) y también en sus sitios.
+
+Aunque es poco probable que el servicio sea el cuello de botella, Torbox tiene los servidores más rápidos (80gbit NVME), algo que ningún otro ofrece a precios tan bajos.
+
+**Base de usuarios**
+
+Esto es importante ya que, cuanto más usuarios tenga un servicio, más torrents en caché tendrá.
+Los torrents en caché son lo que se usa al transmitir contenido con Aniyomi.
+
+Una base de usuarios grande significa más torrents en caché, con Real Debrid, Premiumize y AllDebrid liderando.
+Sin embargo, los otros servicios también tendrán muchos torrents populares en caché.
+
+En este aspecto, Torbox está por detrás.
+Al ser relativamente nuevo (fundado en 2023), tiene menos usuarios y menos tiempo para construir su caché.
+Esto significa que puede que no encuentres en caché el contenido que busques en Torbox.
+Sin embargo, con los eventos recientes alrededor de Real Debrid, AllDebrid y Debrid-Link, más personas se están mudando a Torbox.
+Esto podría significar que Torbox acabe teniendo muchos torrents en caché en el futuro.
+
+Offcloud también tiene muy poco contenido en caché.
+
+**Funciones adicionales**
+
+Otra cosa a considerar son las funciones extra que algunos servicios ofrecen.
+
+Anteriormente mencioné algunas limitaciones: la falta de seeding y la restricción a una IP.
+Como dije, hay algunas excepciones. A continuación las explico.
+
+- **Restricciones de IP**:
+
+  - Torbox no tiene restricciones de IP. Puedes usarlo en tantos dispositivos como quieras.
+  - Premiumize también permite varias IPs. Sin embargo, funciona con una limitación de almacenamiento que podrías alcanzar según tu uso.
+    Puedes ver más detalles en este [artículo](https://www.premiumize.me/help/article/download-limit) y la [página de fair use](https://www.premiumize.me/fairuse) (debes iniciar sesión).
+
+- **Seeding**:
+
+  :::warning
+  Por cómo funcionan los servicios de debrid, siempre tomarán más de lo que aportan.
+
+  Los servicios siguientes harán seed del torrent si no ha sido cacheado.
+  Si ya está en caché, puede que no hagan seed, y otros usuarios podrán transmitirlo también.
+  :::
+
+  - Torbox ofrece un seedbox que puede hacer seed hasta un ratio ilimitado durante hasta 30 días. Esto lo convierte en el mejor servicio para seeding. (La cantidad de torrents que puedes seedear activamente depende de tu plan, denominado `Concurrent Slots`)
+  - Debrid-Link ofrece un seedbox con estos límites: 600 torrents y 2.5TB de transferencia mensual.
+  - Premiumize hará seed hasta un ratio 2.0 o durante 72 horas. Lo que ocurra primero.
+  - put.io es similar a Premiumize, pero los números exactos dependen de tu plan. Comprueba su página de precios.
+
+- **Usenet:**
+  - Torbox ofrece acceso a Usenet en su plan Pro ($110/año o $10/mes). Es una función única no ofrecida por otros servicios. (Usenet se explica más adelante. Es simplemente otra forma de acceder a más contenido)
+  - Premiumize también ofrece acceso a Usenet. Sin embargo, no soporta streaming, por lo tanto no se puede usar con Aniyomi.
+
+---
+
+Tras considerar todo, deberías tener una idea de qué servicio usar.
+
+#### Configurar un servicio de debrid {#setting-up-a-debrid-service}
+
+Ahora cubriré las instrucciones para configurar cada servicio mencionado antes.
+
+```mdx-code-block
+import Torbox from "@site/docs/stremio/debrid/torbox/_setup.mdx";
+import Premiumize from "@site/docs/stremio/debrid/premiumize/_setup.mdx";
+import Offcloud from "@site/docs/stremio/debrid/offcloud/_setup.mdx";
+import Putio from "@site/docs/stremio/debrid/putio/_setup.mdx";
+import RealDebrid from "@site/docs/stremio/debrid/realdebrid/_setup.mdx";
+import AllDebrid from "@site/docs/stremio/debrid/alldebrid/_setup.mdx";
+import DebridLink from "@site/docs/stremio/debrid/debridlink/_setup.mdx";
+
+<Tabs className="custom-tabs" queryString="debrid">
+<TabItem value="torbox" label="Torbox">
+<Torbox/>
+</TabItem>
+<TabItem value="premiumize" label="Premiumize">
+<Premiumize/>
+</TabItem>
+<TabItem value="offcloud" label="Offcloud">
+<Offcloud/>
+</TabItem>
+<TabItem value="put.io" label="put.io">
+<Putio/>
+</TabItem>
+<TabItem value="real-debrid" label="Real Debrid">
+<RealDebrid/>
+</TabItem>
+<TabItem value="alldebrid" label="AllDebrid">
+<AllDebrid/>
+</TabItem>
+<TabItem value="debrid-link" label="Debrid-Link">
+<DebridLink/>
+</TabItem>
+</Tabs>
+```
+
+### Instalar addons de torrents
+
+Ahora podemos ver el proceso de instalar y configurar un addon de torrents en Aniyomi.
+
+Si has usado [Stremio](/stremio/) antes, seguramente has oído hablar de Torrentio.
+
+Torrentio es un addon de Stremio que devuelve resultados de torrents para películas y series.
+Para una explicación más detallada de cómo funciona, puedes leer [este comentario de Reddit](https://www.reddit.com/r/StremioAddons/comments/19fmjlp/comment/kjlnwru/)
+
+Torrentio Anime es una extensión que usa el addon de Stremio Torrentio para obtener resultados solo de anime.
+
+Por el momento, solo hay un addon de torrents disponible para Aniyomi: Torrentio Anime (y Torrentio, que serviría para películas y series, no solo anime).
+
+Usaré la extensión Torrentio Anime del repositorio Kohi Den.
+
+1. Ve a `Browse` > `Anime Extensions` en Aniyomi y busca `Torrentio Anime`.
+
+   ![Aniyomi Browse Anime Extensions](/img/aniyomi/search_torrentio.jpg)
+
+2. Pulsa el botón de descarga para instalar la extensión.
+
+3. Cuando esté instalada, pulsa el icono de ajustes para configurarla.
+
+4. Luego pulsa de nuevo el icono de ajustes junto a `Multi` para configurarlo.
+
+   ![Aniyomi Torrentio Anime Settings](/img/aniyomi/torrentio_settings.jpg)
+
+- `Debrid Provider` - Elige tu proveedor de debrid de la lista.
+
+- `Token` - Introduce aquí la clave API de tu servicio de debrid si usas uno; si no, déjalo en blanco.
+
+<details>
+<summary>¿Dónde encuentro mi clave API de debrid?</summary>
+<div>
+```mdx-code-block
+import RealDebridApi from "@site/docs/stremio/debrid/realdebrid/_api.mdx";
+import AllDebridApi from "@site/docs/stremio/debrid/alldebrid/_api.mdx";
+import PremiumizeApi from "@site/docs/stremio/debrid/premiumize/_api.mdx";
+import DebridLinkApi from "@site/docs/stremio/debrid/debridlink/_api.mdx";
+import OffcloudApi from "@site/docs/stremio/debrid/offcloud/_api.mdx";
+import PutioApi from "@site/docs/stremio/debrid/putio/_api.mdx";
+import TorboxApi from "@site/docs/stremio/debrid/torbox/_api.mdx";
+
+<Tabs queryString="debrid">
+<TabItem value="real-debrid" label="Real Debrid">
+<RealDebridApi />
+</TabItem>
+<TabItem value="alldebrid" label="AllDebrid">
+<AllDebridApi />
+</TabItem>
+<TabItem value="premiumize" label="Premiumize">
+<PremiumizeApi />
+</TabItem>
+<TabItem value="debrid-link" label="Debrid-Link">
+<DebridLinkApi />
+</TabItem>
+<TabItem value="offcloud" label="Offcloud">
+<OffcloudApi />
+</TabItem>
+<TabItem value="put.io" label="Put.io">
+<PutioApi />
+</TabItem>
+<TabItem value="torbox" label="Torbox">
+<TorboxApi />
+</TabItem>
+</Tabs>
+```
+</div>
+</details>
+
+- `Enable/Disable Providers`:
+
+  Aquí puedes elegir los diferentes proveedores de los que Torrentio obtendrá torrents. Puedes activarlos o desactivarlos pulsando sobre ellos. Recomiendo activarlos todos para obtener más resultados.
+
+- `Exclude Qualties/Resolutions` - Puedes excluir ciertas calidades de los resultados. Como estamos en móvil, donde tu teléfono probablemente no soporte 4K, recomiendo excluir:
+
+  - HDR/HDR10+/Dolby Vision
+  - Dolby Vision
+  - 4k
+  - Screener
+  - CAM
+
+- `Priority Foreign Language` - Aquí puedes elegir el idioma preferido de los resultados. Recomiendo dejarlo en blanco.
+
+- `Sorting`: Puedes elegir cómo ordenar los resultados.
+
+      - Si usas un servicio de debrid, recomiendo `By quality then size`.
+
+  Normalmente, a mayor tamaño mejor calidad, por lo que esto da los mejores resultados.
+
+      - Si no usas servicio de debrid, querrás ordenar `By quality then seeders`.
+
+  Sin servicio de debrid dependes de los seeders, así que cuantos más, mejor.
+
+- `Preferred Title` - Aquí puedes elegir el título preferido. Es cuestión de preferencias, pero yo prefiero el título en inglés.
+
+  - Romaji - Shingei no Kyojin
+  - English - Attack on Titan
+  - Native - 進撃の巨人
+
+- `Show upcoming episodes` - Si está activado, mostrará episodios por estrenar en la lista. Recomiendo dejarlo desactivado.
+
+- `Dubbed video Priority` - Si está activado, los vídeos doblados se mostrarán primero. Actívalo si prefieres anime doblado.
+
+- `Efficient Video Priority` - Si está activado, se priorizan vídeos más eficientes de transmitir (x265, HEVC). Si tu conexión es lenta o tienes datos limitados, quizá quieras activarlo.
+
+Una vez configurados los ajustes, reinicia Aniyomi para aplicar los cambios.
+
+:::tip
+Recomiendo fijar la fuente Torrentio Anime. Aniyomi solo buscará en las fuentes fijadas al principio.
+
+Para fijarla, pulsa `Browse`, luego `Anime Sources` y toca el icono de pin junto a `Torrentio Anime`.
+:::
+
+## Usar Aniyomi
+
+Hay 5 secciones principales en Aniyomi:
+
+- Anime: Tu biblioteca de anime donde ves el contenido añadido.
+- Manga: Tu biblioteca de manga donde ves el contenido añadido.
+- Updates: Cuando la extensión del anime/manga en tu biblioteca tenga un episodio/capítulo nuevo, aparecerá aquí.
+- Browse: Donde puedes explorar nuevos anime y manga para añadir.
+- More: Donde encuentras menús adicionales como ajustes, historial, estadísticas, copias de seguridad y más.
+
+![Aniyomi Home Screen](/img/aniyomi/app.jpg)
+
+### Añadir anime a tu biblioteca
+
+Para añadir anime a tu biblioteca, puedes hacer una búsqueda global pulsando el icono del globo en la esquina superior derecha de la pestaña `Browse`, o pulsar una fuente específica y buscar allí.
+
+Cuando encuentres el anime que quieras añadir, púlsalo para abrir su página.
+
+Luego puedes pulsar `Add to Library` para añadirlo a tu biblioteca, o `Tracking` para habilitar los servicios de seguimiento para ese anime.
+
+Puedes deslizar hacia abajo en la pantalla para actualizar la página y comprobar nuevos episodios.
+
+### Ver anime
+
+Para ver anime, dentro de la página del título que quieres ver, pulsa el episodio deseado.
+
+Se abrirá el reproductor y el episodio comenzará a reproducirse automáticamente.
+
+Para cambiar servidores/enlaces, subtítulos y audio, pulsa el icono del reproductor con un engranaje en la esquina superior derecha.

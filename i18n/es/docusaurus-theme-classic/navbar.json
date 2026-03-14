@@ -1,0 +1,10 @@
+{
+  "title": {
+    "message": "Guías de Viren070",
+    "description": "The title in the navbar"
+  },
+  "logo.alt": {
+    "message": "Logo de Guías",
+    "description": "The alt text of navbar logo"
+  }
+}
