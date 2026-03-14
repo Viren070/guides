@@ -1,0 +1,33 @@
+---
+title: AIOpicks
+description: History-driven recommendation addon that uses Trakt watch history.
+keywords: [stremio, addon, aiopicks, recommendations, trakt, history, catalogs]
+tags: [stremio-addon, stremio-addon:catalogues]
+---
+
+import StremioAddonButtons from "@site/src/components/StremioAddonButtons";
+
+```mdx-code-block
+<StremioAddonButtons
+  id="aiopicks"
+  configurable
+  configurationRequired
+  configureOverride="https://aiopicks.fusionapp.dev/config"
+  manifest="https://aiopicks.fusionapp.dev/manifest.json"
+/>
+```
+
+<h3>Description</h3>
+
+AIOpicks is a recommendation addon that uses your Trakt history to generate personalised picks.
+
+This is a good option if you want recommendations without manually curating many lists.
+
+<h3>Before you configure</h3>
+
+- Enable Trakt scrobbling in Stremio first: [Trakt](/stremio/extras/trakt#enabling-trakt-scrobbling)
+- Make sure your Trakt history has enough watched items for meaningful recommendations
+
+<h3>Configuration</h3>
+
+1. Click the `Configure` button above to open the configuration page.

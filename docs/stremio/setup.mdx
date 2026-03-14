@@ -61,7 +61,9 @@ Head over to [Stremio](https://stremio.com/) and either [sign up for an account]
 
 ## Downloading Stremio
 
-Here are the instructions for each platform, if you are viewing on a mobile phone, you will need to scroll horizontally to see all the different platform instructions.
+Simply download the correct file from the [Stremio Download Page](https://www.stremio.com/downloads) and install it on your device.
+
+You can find device specific instructions below if needed. If you are viewing on a mobile phone, you will need to scroll horizontally to see all the different platform instructions.
 
 :::tip
 Some devices (such as the Vision Pro) do not have a Stremio app.
@@ -70,67 +72,94 @@ However, it may still be possible to use Stremio through Stremio Web.
 In the [Web](?platform=web#downloading-stremio) tab below, you will find device specific instructions on how to use Stremio Web.
 :::
 
-You can also choose your platform below to jump to the instructions for that platform.
-
-- [PC](?platform=pc#downloading-stremio)
-- [iOS / iPadOS](?platform=apple#downloading-stremio)
-- [Android](?platform=android#downloading-stremio)
-- [Android TV](?platform=android-tv#downloading-stremio)
-- [Fire TV](?platform=fire-tv#downloading-stremio)
-- [Samsung TV](?platform=samsung-tv#downloading-stremio)
-- [LG TV](?platform=lg-tv#downloading-stremio)
-- [Hisense TV](?platform=hisense-tv#downloading-stremio)
-- [Phillips TV (2024+)](?platform=phillips-tv#downloading-stremio)
-- [Raspberry Pi](?platform=rasberry-pi#downloading-stremio)
-- [Meta Quest](?platform=meta-quest#downloading-stremio)
-- [Stremio Web](?platform=web#downloading-stremio)
-
+```mdx-code-block
 import Web from "./platform/setup/web/_web.mdx";
-import Pc from "./platform/setup/_pc.mdx";
-import Apple from "./platform/setup/_ios.mdx";
-import Android from "./platform/setup/_android.mdx";
-import AndroidTv from "./platform/setup/_android-tv.mdx";
-import FireTv from "./platform/setup/_fire-tv.mdx";
-import SamsungTv from "./platform/setup/_samsung-tv.mdx";
-import LgTv from "./platform/setup/_lg-tv.mdx";
-import HisenseTv from "./platform/setup/_hisense-tv.mdx";
-import PhillipsTv from "./platform/setup/_phillips-tv.mdx";
-import RasberryPi from "./platform/setup/_rasberry-pi.mdx";
-import MetaQuest from "./platform/setup/_meta-quest.mdx";
+import Windows from "./platform/setup/desktop/_windows.mdx";
+import Macos from "./platform/setup/desktop/_macos.mdx";
+import Linux from "./platform/setup/desktop/_linux.mdx";
+import Apple from "./platform/setup/mobile/_ios.mdx";
+import Android from "./platform/setup/mobile/_android.mdx";
+import AndroidTv from "./platform/setup/tv/_android-tv.mdx";
+import FireTv from "./platform/setup/tv/_fire-tv.mdx";
+import SamsungTv from "./platform/setup/tv/_samsung-tv.mdx";
+import LgTv from "./platform/setup/tv/_lg-tv.mdx";
+import HisenseTv from "./platform/setup/tv/_hisense-tv.mdx";
+import PhillipsTv from "./platform/setup/tv/_phillips-tv.mdx";
+import SonyTv from "./platform/setup/tv/_sony-tv.mdx";
+import RasberryPi from "./platform/setup/other/_rasberry-pi.mdx";
+import SteamDeck from "./platform/setup/other/_steam-deck.mdx";
+import MetaQuest from "./platform/setup/vr/_meta-quest.mdx";
+import Pico from "./platform/setup/vr/_pico.mdx";
+```
 
-<Tabs className="custom-tabs" queryString="platform">
-  <TabItem value="pc" label="PC">
-    <Pc />
+<Tabs className="custom-tabs" queryString="device-type">
+  <TabItem value="desktop" label="Desktop">
+    <Tabs className="custom-tabs" queryString="desktop-os">
+      <TabItem value="windows" label="Windows">
+        <Windows />
+      </TabItem>
+      <TabItem value="macos" label="macOS">
+        <Macos />
+      </TabItem>
+      <TabItem value="linux" label="Linux">
+        <Linux />
+      </TabItem>
+    </Tabs>
   </TabItem>
-  <TabItem value="android" label="Android">
-    <Android />
+  <TabItem value="mobile" label="Mobile">
+    <Tabs className="custom-tabs" queryString="mobile-os">
+      <TabItem value="android" label="Android">
+        <Android />
+      </TabItem>
+      <TabItem value="ios" label="iOS">
+        <Apple />
+      </TabItem>
+    </Tabs>
   </TabItem>
-  <TabItem value="apple" label="Apple">
-    <Apple />
+  <TabItem value="tv" label="TV">
+    <Tabs className="custom-tabs" queryString="tv-os">
+      <TabItem value="android-tv" label="Android TV / Google TV">
+        <AndroidTv />
+      </TabItem>
+      <TabItem value="fire-tv" label="Fire TV">
+        <FireTv />
+      </TabItem>
+      <TabItem value="samsung-tv" label="Samsung TV">
+        <SamsungTv />
+      </TabItem>
+      <TabItem value="lg-tv" label="LG TV">
+        <LgTv />
+      </TabItem>
+      <TabItem value="sony-tv" label="Sony TV">
+        <SonyTv />
+      </TabItem>
+      <TabItem value="philips-tv" label="Philips TV">
+        <PhillipsTv />
+      </TabItem>
+      <TabItem value="hisense-tv" label="Hisense TV">
+        <HisenseTv />
+      </TabItem>
+    </Tabs>
   </TabItem>
-  <TabItem value="fire-tv" label="Fire TV">
-    <FireTv />
+  <TabItem value="vr" label="VR">
+    <Tabs className="custom-tabs" queryString="vr-os">
+      <TabItem value="meta-quest" label="Meta Quest">
+        <MetaQuest />
+      </TabItem>
+      <TabItem value="pico" label="Pico">
+        <Pico />
+      </TabItem>
+    </Tabs>
   </TabItem>
-  <TabItem value="android-tv" label="Android TV">
-    <AndroidTv />
-  </TabItem>
-  <TabItem value="samsung-tv" label="Samsung TVs">
-    <SamsungTv />
-  </TabItem>
-  <TabItem value="lg-tv" label="LG TVs">
-    <LgTv />
-  </TabItem>
-  <TabItem value="hisense-tv" label="Hisense TVs">
-    <HisenseTv />
-  </TabItem>
-  <TabItem value="phillips-tv" label="Phillips TVs">
-    <PhillipsTv />
-  </TabItem>
-  <TabItem value="rasberry-pi" label="Rasberry Pi">
-    <RasberryPi />
-  </TabItem>
-  <TabItem value="meta-quest" label="Meta Quest">
-    <MetaQuest />
+  <TabItem value="other-devices" label="Other">
+    <Tabs className="custom-tabs" queryString="other-os">
+      <TabItem value="steam-deck" label="Steam Deck">
+        <SteamDeck />
+      </TabItem>
+      <TabItem value="raspberry-pi" label="Raspberry Pi (4/5)">
+        <RasberryPi />
+      </TabItem>
+    </Tabs>
   </TabItem>
   <TabItem value="web" label="Web">
     <Web />
@@ -210,7 +239,6 @@ Otherwise, I will go through the factors you should consider when choosing a deb
 
 - [TorBox](https://torbox.app/subscription?referral=9ca21adb-dbcb-4fb0-9195-412a5f3519bc)
 - [Premiumize](https://www.premiumize.me/)
-- [Offcloud](https://offcloud.com/?=06202a3d)
 - [Put.io](https://put.io/)
 - [Real Debrid](https://real-debrid.com/?id=9483829) :warning:
 - [AllDebrid](https://alldebrid.com/?uid=3n8qa&lang=en) :warning:
@@ -364,8 +392,6 @@ In this regard, TorBox is not as good as Real Debrid or Premiumize. It has a sma
 However, many people are now switching to TorBox due to being cheaper, addons having accurate cache indicators, and not having IP restrictions.
 Most popular content will be cached on TorBox, but if you look for stuff that is not as popular, you may not find it cached.
 
-Offcloud also has very little cached content.
-
 **Addon Support**
 
 Addon support should not generally be an issue as almost every addon supports most major debrid services.
@@ -424,16 +450,6 @@ AllDebrid is a service I would not recommend. As mentioned earlier, it has issue
 is smaller than Real Debrid, crowdsourced cache databases are even less accurate than they already are (This is even truer for Debrid-Link). You will also encounter issues with using third-party addons as each IP
 address has to be permitted by you through an email they send you.
 
-[EasyDebrid](https://paradise-cloud.com/products) is a new service that uses Premiumize's cache at a lower price. It also does not have any IP restrictions.
-It is supported by most popular addons (Torrentio, Comet, MediaFusion, StremThru) as well as Debridio, so addon support should not be an issue.
-
-However, It's only feature, currently, is to provide torrent downloads that are already cached on Premiumize.
-There are: no additional features like on Premiumize (VPN, Usenet, WebDAV etc.), no hoster downloads.
-The only way to add torrents to the cache on EasyDebrid would be through the Downloader app - https://downloader.hostyour.app/.
-
-Many users have also been complaining about buffering on EasyDebrid and they seem to be getting DDOSed frequently. Therefore,
-I would not recommend it if you are looking for a stable and reliable debrid service.
-
 ### Setting up a debrid service
 
 I will now cover the instructions of setting up each debrid service I previously mentioned.
@@ -441,7 +457,6 @@ I will now cover the instructions of setting up each debrid service I previously
 ```mdx-code-block
 import TorBox from "./debrid/torbox/_setup.mdx";
 import Premiumize from "./debrid/premiumize/_setup.mdx";
-import Offcloud from "./debrid/offcloud/_setup.mdx";
 import Putio from "./debrid/putio/_setup.mdx";
 import RealDebrid from "./debrid/realdebrid/_setup.mdx";
 import AllDebrid from "./debrid/alldebrid/_setup.mdx";
@@ -462,9 +477,6 @@ import DebridLink from "./debrid/debridlink/_setup.mdx";
 </TabItem>
 <TabItem value="debrid-link" label="Debrid-Link">
 <DebridLink/>
-</TabItem>
-<TabItem value="offcloud" label="Offcloud">
-<Offcloud/>
 </TabItem>
 <TabItem value="put.io" label="put.io">
 <Putio/>
@@ -498,8 +510,7 @@ Usenet providers will be paid services due to the real costs of hosting the serv
 The content on different Usenet providers is theoretically the same as the content on all newsgroups is mirrored across all providers.
 However, due to issues like data corruption, takedowns, and different retention periods, some content may not be available on all providers.
 
-For this guide, we will only be considering Easynews and TorBox as Usenet providers as they are the only ones that have addons for Stremio.
-However, generally, the factors to consider when choosing a Usenet provider:
+Generally, the factors to consider when choosing a Usenet provider:
 
 - Data Limits: Depending on your plan, you may have a fixed amount of data you can download per month. You will have to consider how much data you will be downloading and choose a plan accordingly.
 - Retention: This is the amount of time that the provider will store the content for. The longer the retention, the better.
@@ -523,7 +534,7 @@ The main reason to use Usenet is to access more niche content as well as getting
 Just like with debrid services:
 
 - Usenet providers offer extremely fast download speeds, which mean that only your internet speed will limit the quality of the content you can watch.
-- The content is aquired through HTTP with SSL encryption, so you are not at risk of receiving a notice from your ISP.
+- The content is acquired through HTTP with SSL encryption, so you are not at risk of receiving a notice from your ISP.
 - Usenet can be used for more than just Stremio. You can download any type of file, it doesn't have to be video files. If it is on Usenet, you can download it.
 
 Most people will not need to use Usenet. Torrents are usually sufficient.
@@ -536,50 +547,81 @@ However, it can act as a backup to your debrid service if you want to be prepare
 
 ### How do I use Usenet with Stremio?
 
-There are only two ways to access Usenet content through Stremio.
+There are multiple ways to access Usenet content through Stremio.
 
-There are two ways to access Usenet content through Stremio:
+<Tabs className="custom-tabs" queryString="usenet-method">
+<TabItem value="native-nntp" label="Native NNTP (Stremio)">
 
-1. **Easynews**  
-   Easynews is a Usenet provider with three Stremio addons available. These addons allow you to access content found through Easynews' internal search engine. However, you are limited to the content that their search engine can locate.
+This is the most direct method.
 
-   - Easynews allow you to stream the usenet files directly from them. This does, however, mean that Easynews streams can take a long time to initially load, but once loaded, it usually doesn't buffer.
+Stremio can natively download and stream NZBs using your Usenet provider credentials.
 
-2. **TorBox**  
-   TorBox is a debrid service that includes Usenet access as part of its `Pro` package. It uses undisclosed providers and indexers to offer Usenet content and provides its own Stremio addon for accessing both Usenet and torrent content.
-   - TorBox allows integration with your own NZBHydra2 instance, enabling the use of custom indexers.
-   - Usenet downloads via TorBox must be cached before streaming, similar to torrents. However, Usenet downloads typically cache much faster, often within a few minutes, as they are not dependent on seeders.
+:::info
+Native NNTP streaming is currently available on Stremio desktop (v5) and in beta on Android TV.
+:::
 
-I will now go through the setup for each of these services.
+To use this in practice, use an addon that can return NZB results and pass NNTP details to the client (for example, [AIOStreams](/stremio/addons/aiostreams) configured with **Stremio NNTP** in Services or the more focused/simpler [NZB Addon](https://stremio-addons.net/addons/nzb)).
 
-```mdx-code-block
-import Easynews from "./usenet/_easynews.mdx";
-import TorboxUsenet from "./usenet/_torbox.mdx";
+Typical setup:
 
-<Tabs className="custom-tabs" queryString="usenet">
-<TabItem value="easynews" label="Easynews">
-<Easynews/>
+1. Add your NNTP server details (host, port, username, password, SSL).
+2. Install/configure your Usenet search addons (Newznab, NZBHydra2, Prowlarr, etc.).
+3. Play an NZB result in Stremio.
+
 </TabItem>
-<TabItem value="torbox" label="TorBox">
-<TorboxUsenet/>
+
+<TabItem value="torbox" label="TorBox Pro">
+
+TorBox Pro can be used as an all-in-one Usenet method on all devices.
+
+- TorBox handles providers/indexers server-side.
+- You can also search via TorBox internal indexers or your own indexers through supported addons.
+- Playback is usually reliable because files are first downloaded/cached by TorBox, then streamed to you.
+
+If you use AIOStreams, add your TorBox API key in **Services**.
+
+</TabItem>
+
+<TabItem value="self-hosted" label="Self-Hosted (Advanced)">
+
+For full control, you can self-host one of the following and connect it to an addon such as AIOStreams:
+
+- [nzbDAV](https://github.com/nzbdav-dev/nzbdav)
+- [AltMount](https://github.com/javi11/altmount)
+- [StremThru](https://github.com/stremthru/stremthru)
+
+These tools mount/process NZBs and expose streamable endpoints that Stremio can play through addon-generated HTTP links.
+
+This method works across platforms, but setup is more technical.
+
+</TabItem>
+
+<TabItem value="easynews" label="Easynews">
+
+Easynews can still be used through its Stremio addons.
+
+- Results come from Easynews search.
+- Streams are direct HTTP streams from Easynews.
+- Initial loading time may be longer for some files.
+
 </TabItem>
 </Tabs>
-```
 
-These steps only cover the setup of services that provide access to Usenet content.
-To access the content, you will need to use the Stremio addons for Easynews and TorBox.
-I will now go through the setup of these addons. Look for the Easynews and TorBox addons.
+#### Notes on indexers and IP matching
+
+Some indexers may flag requests when the search IP and NZB grab IP are different.
+
+- Proxying both search and grabs through the same server usually avoids this.
+- NZBHydra2 commonly works well because it can proxy NZB grabs.
+- Prowlarr often redirects grabs, which can create an IP mismatch depending on setup.
+
+Always check your indexer's policies and terms before configuring remote/public instances.
 
 ## Setting up Addons
 
 As I mentioned before, the intial setup should be done on a laptop/desktop or an android device. Once you have set up the addons, you can log in to Stremio on any device and your configuration will be synced to that device.
 
 Before we install the addons, we need to go through some of the pre-installed addons.
-
-:::tip
-While you can install the addons separately to Stremio, you may also be interested in an addon I've developed called [AIOStreams](https://github.com/Viren070/AIOStreams).
-It's designed to simplify the process of installing and managing addons, making it a good choice for anyone who's managing other peoples Stremio accounts.
-:::
 
 :::info
 If you are attempting to install addons on your **iPhone** or using **Stremio Web** then you will need to use the [manual method of adding addons through a link](faq#how-do-i-install-an-addon-manually).
@@ -621,7 +663,7 @@ Please refer to the key below to understand the different types of addons.
 |          Key           | Addon Type | Explanation                                                                                                                                                                                                                                                                                                                                                                                                                                                               |
 | :--------------------: | :--------: | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 | :busts_in_silhouette:  |  Torrent   | Torrent addons rely on a peer to peer network consisting of seeders - people who have the file and are uploading it, and peers - other people who are also downloading the torrent from seeders <br/><br/>The quality available through torrents is much higher as no centralised server is required to host the content or pay for bandwidth.                                                                                                                            |
-| :globe_with_meridians: |    HTTP    | HTTP addons provide direct links to content on a centralised server.<br/><br/>These are usually of lower quality due to hosting and bandwidth costs.                                                                                                                                                                                                                                                                                                                      |
+| :globe_with_meridians: |    HTTP    | HTTP addons provide direct links to content on a centralised server.<br/><br/>These are usually of lower quality due to hosting and bandwidth costs. These are almost always free and do not require a debrid service.                                                                                                                                                                                                                                                    |
 |        :cloud:         |   Debrid   | An addon that supports debrid services allow you to stream torrents through HTTPS without the need to torrent. <br/><br/>The quality of content is much higher due to it being based on torrents, a decentralised network, thus avoiding the bandwidth and hosting costs. The debrid service itself, however, is centralised. With the debrid service storing the files on their high speed server. This allows streaming without buffering and without exposing your IP. |
 |      :newspaper:       |   Usenet   | These are addons that show links from Usenet newsgroups. <br/><br/>You can usually find niche content or higher sized files on Usenet, and as it is a paid service, the speeds are also very high, only being limited by your own internet speeds.                                                                                                                                                                                                                        |
 
@@ -639,48 +681,47 @@ If you are curious about which debrid services are supported by each addon, you 
 
 These addons provide general content such as movies, shows and anime.
 
-It is not required for you to install all of these addons.
-For most users, only installing the Torrentio addon will be sufficient.
+There are many addons you can use, but less is more when it comes to addons. Installing too many addons can lead to a cluttered experience
+but too little addons can lead to not finding the content you want to watch. Torrentio, being the most popular addon,
+tends to go down more than others - this is because addons are hosted on a server.
 
-As Stremio addons are hosted on a server, an influx of users or other potential issues can cause the server to go down.
-Torrentio has a history of going down due to the large number of users.
-You may want to install a backup addon, such as Comet, in case Torrentio goes down.
+- StremThru Torz
+- Comet
+- Torrentio
 
 A good way of utilising multiple addons is to use [AIOStreams](/stremio/addons/aiostreams). This addon lets you combine multiple addons
-into one, allowing you to merge their results together while removing duplicates. AIOStreams offers many more features but it is out of scope for this section of the guide.
+into one, allowing you to merge their results together while removing duplicates, keeping a consistently sorted, nicely formatted list.
+AIOStreams offers many more features but it is out of scope for this section of the guide, and I'd recommend only giving it a go
+after you have tried using addons without it.
 
-In this guide, I will be providing public instances of addons.
-Some of these are hosted by ElfHosted, but they have put in place a rate limit to prevent abuse.
-However, you most likely will not hit this rate limit.
+In this guide, I will be providing public instances of addons, most addons are also available to self-host, but it is not required and only
+recommended for advanced users. (See my [guide on self-hosting](/selfhosting) for more information).
 
 import Torrentio from "./addons/torrentio.mdx";
 import Comet from "./addons/comet.mdx";
 import MediaFusion from "./addons/mediafusion.mdx";
-import Jackettio from "./addons/jackettio.mdx";
 import StremThruTorz from "./addons/stremthru-torz.mdx";
 import OrionStremioAddon from "./addons/orion-stremio-addon.mdx";
 import DmmCast from "./addons/dmm-cast.mdx";
 import StremThruStore from "./addons/stremthru-store.mdx";
-import DebridSearch from "./addons/debrid-search.mdx";
 import Peerflix from "./addons/peerflix.mdx";
 import StremioFR from "./addons/stremiofr.mdx";
 import TorboxAddon from "./addons/torbox.mdx";
 import EasynewsAddon from "./addons/easynews.mdx";
 import EasynewsPlusAddon from "./addons/easynews-plus.mdx";
 import EasynewsPlusPlusAddon from "./addons/easynews-plus-plus.mdx";
-import StreamAsia from "./addons/streamasia.mdx";
+import Webstreamr from "./addons/webstreamr.mdx";
 import StremioGDrive from "./addons/stremio-gdrive.mdx";
 
 <StremioAddon name="Torrentio" addonComponent={Torrentio} debrid torrent />
-<StremioAddon name="Comet" addonComponent={Comet} debrid torrent />
-<StremioAddon name="MediaFusion" addonComponent={MediaFusion} torrent debrid />
 <StremioAddon
   name="StremThru Torz"
   addonComponent={StremThruTorz}
   torrent
   debrid
 />
-<StremioAddon name="Jackettio" addonComponent={Jackettio} debrid />
+<StremioAddon name="Comet" addonComponent={Comet} debrid torrent />
+<StremioAddon name="MediaFusion" addonComponent={MediaFusion} torrent debrid />
 <StremioAddon
   name="Orion Stremio Addon"
   addonComponent={OrionStremioAddon}
@@ -689,7 +730,6 @@ import StremioGDrive from "./addons/stremio-gdrive.mdx";
 />
 <StremioAddon name="DMM Cast" addonComponent={DmmCast} debrid />
 <StremioAddon name="StremThru Store" addonComponent={StremThruStore} debrid />
-<StremioAddon name="Debrid Search" addonComponent={DebridSearch} debrid />
 <StremioAddon name="Peerflix" addonComponent={Peerflix} torrent flag="Spain" />
 <StremioAddon
   name="StremioFR"
@@ -701,7 +741,7 @@ import StremioGDrive from "./addons/stremio-gdrive.mdx";
 <StremioAddon name="Easynews" addonComponent={EasynewsAddon} usenet />
 <StremioAddon name="Easynews+" addonComponent={EasynewsPlusAddon} usenet />
 <StremioAddon name="Easynews++" addonComponent={EasynewsPlusPlusAddon} usenet />
-<StremioAddon name="StreamAsia" addonComponent={StreamAsia} http debrid />
+<StremioAddon name="Webstreamr" addonComponent={Webstreamr} http />
 <StremioAddon name="Stremio GDrive" addonComponent={StremioGDrive} http />
 
 #### Live TV & Sports
@@ -732,7 +772,8 @@ The next section will go through how to populate your home page with popular mov
 You will also not have any subtitles, so I highly recommend that you continue to read this guide to the end to get the full experience.
 
 It is also possible to populate your homepage with customised lists such as recommendations or a list that dynamically updates according to strict filters that you can customise.
-I will go through this in the [Using Trakt](extras/trakt) section of this guide.
+I will go through this in the [StremThru Lists](/stremio/addons/stremthru-lists) and [AIOpicks](/stremio/addons/aiopicks) sections.
+For history-driven recommendations, enable [Trakt scrobbling](extras/trakt#enabling-trakt-scrobbling).
 I highly recommend that you read this section as it will provide you with a more personalised experience.
 
 ### Catalogue Addons
@@ -742,7 +783,7 @@ These are the addons that provide the different catalogues (the rows of movies/s
 There is one built-in addon called cinemeta which provides Popular and Featured Movies and Series.
 However, there may be some shows that provide more results with the TMDB addon, so I highly recommend that you install the TMDB addon.
 
-Much of these catalogue addons can be replaced by using lists from [MDBList](https://mdblist.com/). This is expanded on in the [Trakt](/stremio/extras/trakt) section of this guide.
+Much of these catalogue addons can be replaced by using lists from [MDBList](https://mdblist.com/). This is expanded on in the [StremThru Lists](/stremio/addons/stremthru-lists) section of this guide.
 I recommend looking into it as catalogues from MDBList can be highly customised as well as refreshing more often.
 
 :::warning
@@ -774,7 +815,7 @@ These addons will provide catalogues that pull movies and shows from popular str
 While you can use one of these separate addons to get the catalogues, it's also available in the TMDB addon which you may prefer as it also allows
 using a separate language for metadata.
 
-I also recommend using lists from [MBDList](https://mdblist.com/), particularly from [Snoak](https://mdblist.com/lists/snoak), for this, as I expand upon in the [Trakt](/stremio/extras/trakt) section of this guide as they will be more accurate and up to date.
+I also recommend using lists from [MDBList](https://mdblist.com/), particularly from [Snoak](https://mdblist.com/lists/snoak), for this, as I expand upon in the [StremThru Lists](/stremio/addons/stremthru-lists) section of this guide as they will be more accurate and up to date.
 
 ```mdx-code-block
 import StreamingCatalogs from "./addons/streaming-catalogs.mdx";
@@ -855,7 +896,7 @@ Done!
 You have now setup Stremio and have one of the best on demand streaming experiences available.
 
 I highly recommend checking out the [Extras](extras) section for more information on how to get the most out of Stremio.
-This includes using tracking services such as Trakt to get personalised recommendations and customised lists.
+This includes using advanced list/catalog addons such as StremThru Lists to get personalised recommendations and customised lists.
 
 You can also check the [FAQ](faq) for any questions you may have or the [Troubleshooting](troubleshooting) page if you encounter any issues.
 

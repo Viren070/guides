@@ -1,0 +1,87 @@
+---
+title: StremThru Lists
+description: Flexible Stremio catalog addon that supports lists from multiple providers.
+keywords:
+  [
+    stremio,
+    addon,
+    lists,
+    stremthru,
+    mdblist,
+    trakt,
+    letterboxd,
+    tmdb,
+    anilist,
+    thetvdb,
+    aiometadata,
+    simkl,
+  ]
+tags: [stremio-addon, stremio-addon:catalogues]
+---
+
+import Tabs from "@theme/Tabs";
+import TabItem from "@theme/TabItem";
+import MDBListBuildOwn from "./_mdblist-build-own.mdx";
+import MDBListPublic from "./_mdblist-public.mdx";
+
+```mdx-code-block
+import StremioAddonButtons from '@site/src/components/StremioAddonButtons';
+
+<StremioAddonButtons id="stremthru-lists" source="https://github.com/MunifTanjim/stremthru" configurable configurationRequired manifest="https://stremthru.13377001.xyz/stremio/list/manifest.json"/>
+```
+
+<h3>Description</h3>
+
+StremThru Lists is a catalog addon for building a personalised Stremio homepage with lists from multiple providers.
+
+Supported providers include:
+
+- AniList
+- Letterboxd
+- MDBList
+- TMDB
+- Trakt
+- TheTVDB
+
+<h3>Configuration</h3>
+
+Click the `Configure` button above to get started.
+
+You can click on the various provider badges to see what URL formats are supported for each provider.
+
+1. If you are planning on using lists from MDBList, provide your MDBList [API Key](https://mdblist.com/preferences/#api) (Ensure you are [signed in](https://mdblist.com/signin) to access your API key).
+2. If you are planning on using lists from TMDB, click the `Authorize` button next to the TMDB Auth code and follow the flow to obtain the Auth code, and then paste it in the `TMDB Auth Code` field.
+3. Do the same for Trakt if you want to use Trakt lists.
+
+4. Now, you can add your URLs for your lists from your preferred providers. For each list:
+
+   - Provide the URL (use one of the supported URL formats for that provider).
+   - You can **optionally** override the `Name` and the `Type` (Movie/Series) of that catalogue. This is what shows up in Stremio. The exact way is different per platform, but generally it shows \<name\> - \<type\> (e.g. "My List - Movies", "Watchlist - Series", etc.).
+   - You can check the `Shuffle Items` box if you want the items in that catalogue to be shuffled randomly every time you open Stremio. If you want to shuffle every catalog, there is a convenience `Shuffle Items for All Lists` option at the bottom of the config page you may use instead.
+   - Then, click the `+ Add` button on the bottom right if you want to add more lists.
+
+5. The next two config fields relate to the poster. RPDB and Top Poster are two services that provide posters with ratings overlaid on them. I discuss these in more detail [here](stremio/faq#is-it-possible-to-see-the-ratings-of-movies-and-shows-on-the-posters). If you want to use either of these services, simply input your API key for the service in the relevant field. If you don't want to use either of these services, simply leave these fields blank.
+
+6. You can leave the `Preferred Meta ID` section as is.
+
+7. Now, simply click `Install`. This will open Stremio with a prompt to install the addon. If that doesn't work, you'll see a `Manifest URL` field where you'll be able to click the `Copy` button, use the copied manifest URL to [install the addon manually](/stremio/faq#how-do-i-install-an-addon-manually).
+
+<h4>Using MDBList with StremThru Lists</h4>
+
+MDBList is one of the easiest ways to build high-quality custom catalogs.
+
+<details>
+  <summary>
+    <strong>MDBList workflows (optional)</strong>
+  </summary>
+  <div>
+    <Tabs queryString="mdblist-workflow">
+      <TabItem value="build-my-own" label="Build my own lists">
+        <MDBListBuildOwn />
+      </TabItem>
+      <TabItem value="use-public" label="Use public lists">
+        <MDBListPublic />
+      </TabItem>
+    </Tabs>
+  </div>
+</details>

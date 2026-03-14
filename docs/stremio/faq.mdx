@@ -117,9 +117,6 @@ These are available [here](setup#which-debrid-service-do-i-use).
 - [Debrid-Link](https://debrid-link.fr/webapp/speedtest)
 - [put.io](https://app.put.io/settings/route)
 
-For offcloud, there is no speedtest available, however you can test the speed by checking each proxy manually and attempting to download a file.
-This does require you to have a premium account.
-
 While EasyNews is not a debrid service, you can find a route selector tool which can help improve speeds:
 
 - [EasyNews Route Selector](https://members.easynews.com/1.0/route/)
@@ -136,7 +133,6 @@ import RealDebridApi from "@site/docs/stremio/debrid/realdebrid/_api.mdx";
 import AllDebridApi from "@site/docs/stremio/debrid/alldebrid/_api.mdx";
 import PremiumizeApi from "@site/docs/stremio/debrid/premiumize/_api.mdx";
 import DebridLinkApi from "@site/docs/stremio/debrid/debridlink/_api.mdx";
-import OffcloudApi from "@site/docs/stremio/debrid/offcloud/_api.mdx";
 import PutioApi from "@site/docs/stremio/debrid/putio/_api.mdx";
 import TorboxApi from "@site/docs/stremio/debrid/torbox/_api.mdx";
 
@@ -156,9 +152,6 @@ import TorboxApi from "@site/docs/stremio/debrid/torbox/_api.mdx";
 <TabItem value="debrid-link" label="Debrid-Link">
 <DebridLinkApi />
 </TabItem>
-<TabItem value="offcloud" label="Offcloud">
-<OffcloudApi />
-</TabItem>
 <TabItem value="put-io" label="Put.io">
 <PutioApi />
 </TabItem>
@@ -169,20 +162,20 @@ import TorboxApi from "@site/docs/stremio/debrid/torbox/_api.mdx";
 
 Use this table below to see debrid compatability for each addon.
 
-| Addon/Debrid Service |    Real-Debrid     |     All-Debrid     |    Debrid-Link     |     Premiumize     |      Offcloud      |       Put.io       |       TorBox       |     EasyDebrid     |
-| -------------------- | :----------------: | :----------------: | :----------------: | :----------------: | :----------------: | :----------------: | :----------------: | :----------------: |
-| Torrentio            | :white_check_mark: | :white_check_mark: | :white_check_mark: | :white_check_mark: | :white_check_mark: | :white_check_mark: | :white_check_mark: | :white_check_mark: |
-| MediaFusion          | :white_check_mark: | :white_check_mark: | :white_check_mark: | :white_check_mark: | :white_check_mark: |        :x:         | :white_check_mark: | :white_check_mark: |
-| Comet                | :white_check_mark: | :white_check_mark: | :white_check_mark: | :white_check_mark: | :white_check_mark: |        :x:         | :white_check_mark: | :white_check_mark: |
-| StremThru Torz/Store | :white_check_mark: | :white_check_mark: | :white_check_mark: | :white_check_mark: | :white_check_mark: |        :x:         | :white_check_mark: | :white_check_mark: |
-| Jackettio            | :white_check_mark: | :white_check_mark: | :white_check_mark: | :white_check_mark: | :white_check_mark: |        :x:         | :white_check_mark: | :white_check_mark: |
-| Debridio             | :white_check_mark: | :white_check_mark: | :white_check_mark: | :white_check_mark: | :white_check_mark: |        :x:         | :white_check_mark: | :white_check_mark: |
-| Orion                | :white_check_mark: |   :exclamation:    |   :exclamation:    | :white_check_mark: | :white_check_mark: |        :x:         | :white_check_mark: | :white_check_mark: |
-| Debrid Search        | :white_check_mark: | :white_check_mark: | :white_check_mark: | :white_check_mark: |        :x:         |        :x:         | :white_check_mark: |        :x:         |
-| DMM Cast             | :white_check_mark: |        :x:         |        :x:         |        :x:         |        :x:         |        :x:         |        :x:         |        :x:         |
-| TorBox Addon         |        :x:         |        :x:         |        :x:         |        :x:         |        :x:         |        :x:         | :white_check_mark: |        :x:         |
-| TorrentsDB           | :white_check_mark: | :white_check_mark: | :white_check_mark: | :white_check_mark: | :white_check_mark: | :white_check_mark: | :white_check_mark: | :white_check_mark: |
-| Formulio             | :white_check_mark: | :white_check_mark: | :white_check_mark: | :white_check_mark: | :white_check_mark: |        :x:         | :white_check_mark: | :white_check_mark: |
+| Addon/Debrid Service |    Real-Debrid     |     All-Debrid     |    Debrid-Link     |     Premiumize     |       Put.io       |       TorBox       |     EasyDebrid     |
+| -------------------- | :----------------: | :----------------: | :----------------: | :----------------: | :----------------: | :----------------: | :----------------: |
+| Torrentio            | :white_check_mark: | :white_check_mark: | :white_check_mark: | :white_check_mark: | :white_check_mark: | :white_check_mark: | :white_check_mark: |
+| MediaFusion          | :white_check_mark: | :white_check_mark: | :white_check_mark: | :white_check_mark: |        :x:         | :white_check_mark: | :white_check_mark: |
+| Comet                | :white_check_mark: | :white_check_mark: | :white_check_mark: | :white_check_mark: |        :x:         | :white_check_mark: | :white_check_mark: |
+| StremThru Torz/Store | :white_check_mark: | :white_check_mark: | :white_check_mark: | :white_check_mark: |        :x:         | :white_check_mark: | :white_check_mark: |
+| Jackettio            | :white_check_mark: | :white_check_mark: | :white_check_mark: | :white_check_mark: |        :x:         | :white_check_mark: | :white_check_mark: |
+| Debridio             | :white_check_mark: | :white_check_mark: | :white_check_mark: | :white_check_mark: |        :x:         | :white_check_mark: | :white_check_mark: |
+| Orion                | :white_check_mark: |   :exclamation:    |   :exclamation:    | :white_check_mark: |        :x:         | :white_check_mark: | :white_check_mark: |
+| Debrid Search        | :white_check_mark: | :white_check_mark: | :white_check_mark: | :white_check_mark: |        :x:         | :white_check_mark: |        :x:         |
+| DMM Cast             | :white_check_mark: |        :x:         |        :x:         |        :x:         |        :x:         |        :x:         |        :x:         |
+| TorBox Addon         |        :x:         |        :x:         |        :x:         |        :x:         |        :x:         | :white_check_mark: |        :x:         |
+| TorrentsDB           | :white_check_mark: | :white_check_mark: | :white_check_mark: | :white_check_mark: | :white_check_mark: | :white_check_mark: | :white_check_mark: |
+| Formulio             | :white_check_mark: | :white_check_mark: | :white_check_mark: | :white_check_mark: |        :x:         | :white_check_mark: | :white_check_mark: |
 
 :::note
 StremThru is not a debrid service, but addons that have support for StremThru have support for services that StremThru supports.
@@ -499,7 +492,7 @@ Yes. There are addons that can be used to import your lists from these services.
 
 ### Is there a way to get recommendations based on what I have watched?
 
-Yes. You can use Trakt to achieve this. Read the [Trakt section](extras/trakt) for more information.
+Yes. You can use list/catalog addons to achieve this. See [StremThru Lists](/stremio/addons/stremthru-lists) for custom list catalogs, and [AIOpicks](/stremio/addons/aiopicks) for history-driven picks. Make sure Trakt scrobbling is enabled first.
 
 ### Is it possible to have Stremio automatically open on fullscreen on boot?
 
