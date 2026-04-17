@@ -1,0 +1,94 @@
+import Tabs from "@theme/Tabs";
+import TabItem from "@theme/TabItem";
+import Admonition from "@theme/Admonition";
+
+[Stremio Web](https://web.stremio.com) es una versión web de Stremio que no requiere registro ni instalación.
+
+**Los siguientes pasos son solo para usar Stremio Web**.
+Si tu dispositivo tiene una aplicación dedicada, entonces deberías usar esa en su lugar.
+Verás una pestaña separada si tu dispositivo tiene una aplicación independiente disponible.
+
+```mdx-code-block
+import WebIos from "@site/i18n/es/docusaurus-plugin-content-docs/current/stremio/platform/setup/web/_ios.mdx";
+import WebAndroid from "@site/i18n/es/docusaurus-plugin-content-docs/current/stremio/platform/setup/web/_android.mdx";
+import WebPc from "@site/i18n/es/docusaurus-plugin-content-docs/current/stremio/platform/setup/web/_pc.mdx";
+import WebVisionPro from "@site/i18n/es/docusaurus-plugin-content-docs/current/stremio/platform/setup/web/_vision-pro.mdx";
+
+<Tabs className="custom-tabs" queryString="web-platform">
+
+    <TabItem value="ios" label="iPhone & iPad" default>
+
+        <WebIos />
+
+
+    </TabItem>
+
+    <TabItem label="Vision Pro" value="vision-pro">
+
+        <WebVisionPro />
+
+    </TabItem>
+
+    <TabItem label="PC" value="pc">
+
+        <WebPc />
+    </TabItem>
+
+    <TabItem label="Android" value="android">
+
+        <WebAndroid />
+    </TabItem>
+
+
+</Tabs>
+```
+
+##### Servidor Stremio
+
+Los pasos a continuación se pueden usar para configurar un servidor stremio que será usado por Stremio Web.
+
+Es completamente opcional y no es requerido para la mayoría de usuarios.
+
+<details>
+<summary>Servidor Stremio</summary>
+<div>
+Por sí solo, Stremio Web está limitado en lo que puede hacer. 
+No podrás transmitir torrents, puedes encontrar problemas de audio y en algunos dispositivos, no podrás reproducir contenido dentro del navegador.
+
+En iOS, muy probablemente estés usando un reproductor externo. Esto tiene algunas limitaciones: - La transmisión de torrents aún no es posible. Esto significa que **se requiere un servicio debrid** para transmitir torrents. - Sin seguimiento del progreso de episodios. - Los subtítulos proporcionados por addons no se pueden usar (aún puedes usar los subtítulos incrustados proporcionados por el archivo de video).
+
+Al usar un servidor de streaming, puedes superar estas limitaciones.
+Significaría que puedes reproducir en el navegador web nativo, transmitir torrents sin un servicio debrid (aunque aún recomiendo que uses un servicio debrid de todos modos) y tener una mejor experiencia en general.
+
+Por esto se recomienda que conectes Stremio Web a un servidor de streaming.
+
+Hay algunas formas de configurar un servidor de streaming para Stremio Web.
+Puedes ejecutarlo en tu escritorio o en tu dispositivo android.
+También se puede ejecutar como un contenedor docker en cualquier dispositivo que soporte docker.
+Recomiendo usar un dispositivo android ya que se puede dejar encendido 24/7 más fácilmente que un escritorio.
+
+```mdx-code-block
+import ServerDesktop from "@site/i18n/es/docusaurus-plugin-content-docs/current/stremio/platform/setup/web/server/_desktop.mdx";
+import ServerAndroid from "@site/i18n/es/docusaurus-plugin-content-docs/current/stremio/platform/setup/web/server/_android.mdx";
+import ServerDocker from "@site/i18n/es/docusaurus-plugin-content-docs/current/stremio/platform/setup/web/server/_docker.mdx";
+
+
+<Tabs queryString="server-device">
+    <TabItem value="desktop" label="Escritorio">
+        <ServerDesktop />
+    </TabItem>
+    <TabItem value="android" label="Android">
+
+        <ServerAndroid />
+
+    </TabItem>
+    <TabItem value="docker" label="Docker">
+
+        <ServerDocker />
+    </TabItem>
+</Tabs>
+```
+
+</div>
+</details>
+### Descargar Stremio {#downloading-stremio}

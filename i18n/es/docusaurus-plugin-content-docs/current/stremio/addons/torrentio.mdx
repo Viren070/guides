@@ -1,0 +1,65 @@
+---
+title: Torrentio
+description: Addon de Stremio que proporciona streams de torrents de proveedores de torrents scrapeados.
+keywords:
+  [
+    stremio,
+    addons,
+    torrentio,
+    torrent,
+    guía,
+    configuración,
+    instalar,
+    enlace,
+  ]
+tags: [stremio-addon, stremio-addon:torrent-streams]
+---
+
+```mdx-code-block
+import StremioAddonButtons from '@site/src/components/StremioAddonButtons';
+
+<StremioAddonButtons id="torrentio" source="https://github.com/TheBeastLT/torrentio-scraper" manifest="https://torrentio.strem.fun/manifest.json" configurable/>
+```
+
+<h3>Descripción</h3>
+
+[Torrentio](https://github.com/TheBeastLT/torrentio-scraper) es un addon de búsqueda de torrents que scrapea trackers públicos. (Para una explicación en profundidad de cómo funciona Torrentio, ve [este comentario de reddit](https://www.reddit.com/r/StremioAddons/comments/19fmjlp/comment/kjlnwru/))
+
+<h3>Configuración</h3>
+
+Para comenzar, dirígete a la [página de configuración de Torrentio](https://torrentio.strem.fun/configure) para gestionar el addon.
+
+Torrentio tiene muchas opciones para personalizar tu experiencia. Repasaré cada opción explicando qué hace y listaré mis preferencias y por qué.
+
+![Configuración de Torrentio](/img/stremio/torrentio_setup.png)
+
+- `Proveedores`: Todos están marcados por defecto, recomiendo dejarlo así. Esto es para maximizar los resultados. Puedes desmarcar proveedores extranjeros para eliminar posibles resultados en idiomas extranjeros, pero la mayoría probablemente también incluirán audio en inglés.
+- `Ordenamiento`: Por calidad luego tamaño. Si no estás usando un servicio debrid, entonces hazlo Por calidad luego seeders. Esto es porque sin un servicio debrid dependes del número de seeders. Sin embargo, con un servicio debrid el número de seeders es irrelevante para ti.
+- `Priorizar idioma extranjero`: Selecciona un idioma aquí si quieres que los resultados con audio en ese idioma extranjero sean priorizados. Dejo esto en blanco ya que no necesito priorizar ningún idioma extranjero.
+- `Excluir calidades`: Esta opción te permite eliminar ciertas calidades de los resultados de búsqueda. Excluyo fuentes _Screener_ y _CAM_. Si tienes internet más lento o tus dispositivos no son capaces de reproducir contenido 4K, podrías querer excluir fuentes 4K.
+- `Máximo de resultados por calidad`: Esta opción limitará el número de resultados mostrados para cada calidad. Dejo esto en blanco para obtener todos los resultados.
+- `Límite de tamaño de video`: Esta opción limitará el tamaño del video. Si tu internet o dispositivo no es capaz de hacer streaming de archivos grandes, podrías querer establecer un límite. Dejo esto en blanco.
+- `Proveedor debrid`: Elige tu proveedor Debrid si estás usando uno. Si no, omite el resto de las opciones.
+  :::tip
+  Si estás usando más de un proveedor debrid, puedes elegir un proveedor diferente en la misma configuración y cuando instales el addon, obtendrás resultados de cada proveedor que hayas elegido y dado una clave API.
+
+  Torrentio consultará el primer proveedor debrid que elijas y solo si no encuentra el torrent ahí consultará el siguiente proveedor.
+  :::
+
+- `Clave API`: Haz clic _aquí_. Este enlace te llevará al sitio web de tu proveedor debrid donde puedes obtener tu clave API. Cópiala y pégala aquí. (¿Tienes problemas para encontrar la clave API? [haz clic aquí](/stremio/faq#where-can-i-find-my-debrid-api-key))
+- `Opciones de debrid`
+
+  - `No mostrar descargar a debrid`: Estos enlaces se mostrarán con un [.. Descargar] delante de ellos.
+    Estos son torrents que fueron encontrados pero no descargados (cacheados) a los servidores del Debrid.
+    Hacer clic en este enlace envía una solicitud a tu proveedor Debrid para comenzar a descargar ese torrent.
+    Hacer clic no representa ningún riesgo para ti. Dejo esto desmarcado.
+
+    Dejar esto desmarcado es especialmente recomendado cuando usas un servicio debrid que no tiene una forma precisa de decir qué está cacheado como Real Debrid.
+    Ya que muchos enlaces 'descargar a debrid' pueden ser realmente reproducibles pero no marcados como tales y te perderías esos streams.
+
+  - `No mostrar catálogo debrid`: Esto mostrará catálogo(s) que contienen archivos que has descargado previamente con tu proveedor Debrid.
+    Marco esta casilla ya que es desorden innecesario para mí.
+
+Ahora hemos terminado de configurar Torrentio.
+El siguiente paso es hacer clic en `Instalar`.
+Hacerlo debería abrir automáticamente Stremio pidiéndote que instales una vez más.
