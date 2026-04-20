@@ -19,7 +19,7 @@
     "typecheck": "tsc"
   },
   "dependencies": {
-    "@crowdin/cli": "3.19.4",
+    "@crowdin/cli": "4.13.0",
     "@docusaurus/core": "3.7.0",
     "@docusaurus/faster": "3.7.0",
     "@docusaurus/plugin-sitemap": "3.7.0",
