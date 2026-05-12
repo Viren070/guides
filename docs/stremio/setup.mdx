@@ -596,6 +596,20 @@ This method works across platforms, but setup is more technical.
 
 </TabItem>
 
+<TabItem value="elfhosted" label="ElfHosted (Managed)">
+
+If you want the self-hosted setup without running it yourself, ElfHosted offers pre-configured all-in-one bundles where the Stremio addon, NzbDAV, a Usenet account and a basic indexer are wired together out of the box.
+
+Three options, depending on how much you want to tune:
+
+- [UsenetStreamer](https://store.elfhosted.com/product/usenet-streamer/) - sensible defaults, minimal config; set-and-forget.
+- [Usenet-Ultimate](https://store.elfhosted.com/product/usenet-ultimate/) - granular per-indexer options, plus built-in indexer health and result stats for tuning over time.
+- [AIOStreams](https://store.elfhosted.com/product/aiostreams-nzbdav/) - useful to combine Usenet streaming with existing stremio addons, debrid providers, etc
+
+All options stream via [NzbDAV](https://github.com/nzbdav-dev/nzbdav) under the hood, so the underlying capability is the same as the **Self-Hosted** tab. You get a Usenet provider and indexer built-in, but you can add your own to supplement them later.
+
+</TabItem>
+
 <TabItem value="easynews" label="Easynews">
 
 Easynews can still be used through its Stremio addons.
