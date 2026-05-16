@@ -1,0 +1,33 @@
+Para ejecutar el Servidor Stremio como un contenedor docker, primero necesitarás tener Docker instalado en tu sistema.
+Puedes encontrar instrucciones sobre cómo instalar Docker en el [sitio web oficial de Docker](https://docs.docker.com/get-docker/).
+
+Una vez que tengas Docker instalado, puedes ejecutar el contenedor del Servidor Stremio con el siguiente comando:
+
+```bash
+docker run -d \
+    --name stremio-server \
+    -p 11470:11470 \
+    -p 12470:12470 \
+    stremio/server:latest
+```
+
+O si prefieres usar Docker Compose, puedes crear un archivo `compose.yaml` con el siguiente contenido:
+
+```yaml
+services:
+  stremio-server:
+    image: stremio/server:latest
+    container_name: stremio-server
+    ports:
+      - "11470:11470"
+      - "12470:12470"
+    restart: unless-stopped
+```
+
+e iniciar el proyecto compose con:
+
+```bash
+docker compose up -d
+```
+
+Esto iniciará el Servidor Stremio en modo separado, permitiéndote acceder a él en http://localhost:11470 (http) y http://localhost:12470 (https).

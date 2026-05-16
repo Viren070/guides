@@ -1,0 +1,100 @@
+---
+title: MediaFusion
+description: Un Addon Universal de Stremio para Películas, Series, TV en Vivo y Eventos Deportivos
+keywords: [stremio, addons, torrent, guía, configuración, instalar, enlace]
+tags:
+  [
+    stremio-addon,
+    stremio-addon:catalogues,
+    stremio-addon:torrent-streams,
+    stremio-addon:debrid-streams,
+    stremio-addon:live-tv,
+    stremio-addon:sports,
+  ]
+---
+
+```mdx-code-block
+import StremioAddonButtons from '@site/src/components/StremioAddonButtons';
+
+<StremioAddonButtons id="mediafusion" manifest="https://mediafusion.elfhosted.com/manifest.json" configurable source="https://github.com/mhdzumair/MediaFusion"/>
+```
+
+<h3>Descripción</h3>
+
+MediaFusion es un addon universal de stremio que proporciona una variedad de contenido (incluyendo TV en Vivo y Deportes)
+
+Revisa la [sección de características](https://github.com/mhdzumair/MediaFusion?tab=readme-ov-file#-features) de su página de GitHub para ver todo lo que el addon tiene para ofrecer.
+
+Este addon puede ser [auto-hospedado](https://github.com/mhdzumair/MediaFusion?tab=readme-ov-file#-local-add-on-deployment) o [ElfHosted](https://elfhosted.com/app/mediafusion/).
+
+Repasaré la configuración usando la instancia pública gratuita de ElfHosted. Si no quieres auto-hospedar pero quieres más personalización, puedes pagar por tu propia instancia en ElfHosted.
+
+<h3>Configuración</h3>
+
+Para comenzar, dirígete a la [página de configuración](https://mediafusion.elfhosted.com/configure):
+
+- `Proveedor de Streaming` - Aquí puedes elegir si usar torrent directo o un servicio debrid u otro proveedor. Selecciona lo que estés usando y luego llena los detalles abajo.
+
+  - Para autorizar MediaFusion a tu servicio debrid, puedes hacer clic en `Autorizar`, si está presente, o de lo contrario, puedes ingresar tu clave API en el campo `Token` (¿Tienes problemas para encontrar la clave API? [Haz clic aquí](/stremio/faq#where-can-i-find-my-debrid-api-key))
+
+  - **Opciones del Proveedor de Streaming**:
+    - `Habilitar Lista de Seguimiento de <servicio>` - Esto habilitará un catálogo para el servicio que configuraste. Mostrará contenido de tu cuenta debrid en el catálogo.
+    - `Habilitar Descarga vía Navegador` - Esta opción, una vez habilitada, proporcionará streams de descarga debajo de cada stream en la lista de resultados. Hacer clic en el stream de descarga abre el enlace al archivo de tu proveedor debrid en tu navegador, permitiéndote descargar archivos fácilmente.
+    - `Solo mostrar streams cacheados` - Esto solo mostrará streams que están cacheados en tu proveedor debrid. Si quieres ver todos los streams, deja esto desmarcado.
+
+- **Configuración de Catálogo:**
+
+  Aquí puedes elegir qué contenido está disponible para ti a través de MediaFusion. Simplemente selecciona el contenido que quieres ver. Proporcionaré algunas notas sobre opciones específicas abajo.
+
+  {/* Puedes leer más sobre esto [aquí](https://www.reddit.com/r/StremioAddons/comments/1cwaqh8/comment/l4w1bw1/) */}
+
+  - `TV en Vivo` - Esto proporcionará catálogos con canales de TV en vivo. Deberías habilitar esto si quieres ver TV en vivo.
+  - `Fútbol`, `Otros Deportes`, etc. - Creo que estos proporcionarán catálogos con repeticiones de diferentes deportes.
+  - `Mostrar Catálogos en Stremio (& Kodi)` - Esto mostrará los catálogos en Stremio. Dejo esto marcado ya que quiero ver los catálogos para el contenido que he habilitado.
+  - `Habilitar Respuesta de Metadatos IMDB` - Esta opción permite a MediaFusion proporcionar metadatos para IDs de IMDB. Puedes dejar esto deshabilitado ya que no tendrá efecto en Stremio.
+
+- **Guías Parentales:**
+
+  Esto te permitirá controlar el contenido que se muestra. Puedes filtrar por niveles de certificación y niveles de desnudez.
+
+  - `Niveles de Certificación` - Las diferentes opciones que selecciones son el tipo de contenido que no aparecerá en los catálogos. Por ejemplo, si seleccionas `Adulto`, entonces cualquier contenido con una certificación de adulto no aparecerá en los catálogos.
+    Si quieres ver todo el contenido, entonces puedes seleccionar `Deshabilitar`.
+  - `Desnudez` - Las opciones que selecciones controlarán el nivel de desnudez en el contenido que aparece en los catálogos. Por ejemplo, si seleccionas `Severo`, entonces cualquier contenido con un nivel de desnudez severo no aparecerá en los catálogos.
+    Si quieres ver todo el contenido, entonces puedes seleccionar `Deshabilitar`.
+
+  :::info
+  Los niveles de certificación y niveles de desnudez se basan en la información proporcionada por IMDB.
+  A veces, los datos en IMDB pueden ser proporcionados por la comunidad.
+  Por lo tanto, la información puede no ser siempre precisa.
+
+  Para ver qué niveles de certificación exactos están cubiertos por cada opción, ve [aquí](https://github.com/mhdzumair/MediaFusion/blob/876cfd81760f34c9c1cbb48f5814299b1ef2d7de/utils/const.py#L188)
+  :::
+
+- **Preferencias de Streaming**:
+
+  - `Resoluciones de Streaming` - Aquí puedes elegir qué resoluciones quieres ver. Dejo todas las resoluciones seleccionadas, sin embargo, si tienes una conexión a internet lenta o tu dispositivo no puede manejar contenido 4K, podrías querer deseleccionar 4K.
+  - `Filtro de Calidad` - Aquí puedes elegir los tipos de calidad que quieres ver. Desmarco CAM/Screener ya que no quiero ver contenido CAM.
+  - `Establecer Filtro de Tamaño de Archivo` - Aquí puedes usar un tamaño máximo de archivo. Dejo esto al final para un tamaño de archivo ilimitado ya que quiero ver todos los streams disponibles.
+  - `Prioridad de Ordenamiento` - Aquí puedes elegir el orden en el que se muestran los streams. Elijo `Cacheado`, `Resolución`, `Calidad`, `Tamaño` - en ese orden. Si no estás usando un servicio debrid, entonces haz `Resolución` y `Seeders`. Esto es porque sin un servicio debrid dependes del número de seeders. Sin embargo, con un servicio debrid el número de seeders es irrelevante para ti.
+    - `Idioma` - Si eliges ordenar por idiomas, puedes controlar los idiomas que se muestran en los resultados y aplicar una prioridad de ordenamiento a ellos.
+      Solo los idiomas que selecciones se mostrarán en los resultados. Cualquier idioma que esté en la parte superior de la lista será el primer idioma en mostrarse en los resultados.
+  - `Máximo de Streams por Resolución` - Aquí puedes elegir el número máximo de streams por resolución. Establezco esto en 50 para obtener un gran número de streams.
+  - `Opción de Visualización de Stream de Torrent` - Aquí puedes elegir cómo se muestran los streams de torrent. Elijo `Mostrar datos parseados`. Aunque hay una pequeña posibilidad de que los datos parseados sean incorrectos, usualmente son correctos y es más fácil de leer que las otras opciones.
+
+- **Configuración de Servicios Externos:**
+
+  - **MediaFlow**: Este es un servicio que te permite hacer proxy de tus streams a través de un servidor. Tendrás que auto-hospedar tu servidor MediaFlow Proxy o pagar por una instancia en [ElfHosted](https://elfhosted.com/app/mediaflow-proxy/).
+    Puedes leer más sobre las características de MediaFlow e instrucciones sobre cómo configurarlo [en su página de GitHub](https://github.com/mhdzumair/mediaflow-proxy?tab=readme-ov-file#mediaflow-proxy).
+
+    Al usar MediaFlow, puedes:
+
+    - Obtener acceso a streams en vivo protegidos por DRM
+    - Usar MediaFusion configurado con el mismo proveedor debrid a través de diferentes direcciones IP. En términos simples, puedes usar la cuenta debrid desde diferentes ubicaciones simultáneamente (a través de MediaFusion). Como todos los streams son proxificados a través del mismo servidor, parecerá como si todos vinieran de la misma dirección IP / ubicación. (_Este beneficio no se aplica a ti si usas un servicio debrid que permite múltiples IPs acceder a la misma cuenta simultáneamente, como TorBox o Premiumize_)
+
+  - **RPDB**: Este servicio te permite tener pósters con calificaciones en ellos. Para usar esto, necesitarás obtener una clave API. Hay un nivel gratuito disponible. Para obtener tu clave API, ve [esta pregunta en el FAQ](/stremio/faq#how-do-i-obtain-a-rpdb-api-key)
+
+  - **MDBList**: [MDBList](https://mdblist.com/) es un servicio que te permite tener listas curadas de películas/series que se actualizan periódicamente. Puedes usar listas de miembros de la comunidad para no tener que crear tus propias listas. Aunque MDBList es una gran forma de tener descubribilidad en Stremio, recomendaría usar addons separados para ello en lugar de a través de MediaFusion.
+
+Ahora que MediaFusion ha sido configurado, haz clic en `Instalar en Stremio`. Esto abrirá Stremio y te pedirá que instales el addon. Haz clic en Instalar nuevamente y el addon será instalado.
+
+También puedes hacer clic en `Compartir URL del Manifiesto` y copiar la URL en la barra de búsqueda de addons de Stremio o el menú de añadir addon en Stremio Web.

@@ -1,0 +1,300 @@
+---
+title: VPS de Oracle
+description: Guía para configurar un VPS de Oracle.
+keywords: [viren070, guías, guías de viren070]
+---
+
+# VPS gratuito de Oracle
+
+## Introducción
+
+Oracle Cloud ofrece una instancia de cómputo con 4 OCPU, 24 GB de RAM y 200 GB de almacenamiento dentro de sus recursos "Siempre Gratuitos".
+Esta guía te mostrará cómo configurarla.
+
+Consulta los detalles y confirma las ofertas actuales en la [página de Oracle Cloud Free Tier](https://www.oracle.com/cloud/free/) y en la página de [Recursos](https://docs.oracle.com/en-us/iaas/Content/FreeTier/freetier_topic-Always_Free_Resources.htm).
+
+Un VPS se puede usar para una gran variedad de propósitos: alojar un sitio web, ejecutar un servidor de juegos o incluso como escritorio remoto.
+Incluso puedes usarlo para alojar todos tus addons de [Stremio](/stremio/) y un servidor multimedia con debrid.
+
+:::info
+Para usar el Free Tier de Oracle Cloud, necesitas una tarjeta de crédito/débito válida. No se aceptan tarjetas virtuales o prepago.
+:::
+
+:::danger
+Aun siendo imposible que se te cobre mientras uses el Free Tier, ten en cuenta que si actualizas a una cuenta de pago por uso (PAYG), se te cobrará por cualquier recurso que uses que no esté cubierto por el Free Tier.
+Por lo tanto, es fundamental asegurarte de configurar tu instancia exactamente como se describe en esta guía y de no usar recursos que no estén cubiertos por el Free Tier.
+
+Asegúrate de no tener instancias, volúmenes, etc. adicionales creados en ningún momento. Los recursos del Free Tier cubren 200 GB de espacio total de volumen de arranque y exactamente 1 instancia A1 Flex con 4 OCPU y 24 GB de RAM.
+Si creas recursos adicionales, se te cobrará por ellos.
+
+Si lo configuras todo correctamente, lo único por lo que podrían cobrarte es por el ancho de banda. El ancho de banda entrante es ilimitado y gratuito, pero el ancho de banda saliente está limitado a 10 TB por mes. Si superas ese límite, se te cobrará.
+:::
+
+## Configuración
+
+### Crear nuestra instancia de VM
+
+1. Regístrate para obtener una cuenta de Oracle Cloud.
+
+   1. Ve al [sitio web de Oracle Cloud](https://www.oracle.com/cloud/free/) y haz clic en "Start for free".
+   2. Regístrate rellenando tus datos.
+
+      :::tip
+      Muchas personas suelen tener problemas con el proceso de verificación al registrarse en Oracle Cloud. Si te ocurre, prueba lo siguiente:
+
+      - Asegúrate de que tu dirección de facturación coincide **exactamente** con la que aparece en el extracto de tu banco o en tu app bancaria.
+      - Usa una ventana InPrivate en [Microsoft Edge](https://www.microsoft.com/en-us/edge)
+      - Usa un correo electrónico diferente.
+      - Usa una tarjeta diferente.
+      - Desactiva bloqueadores de anuncios/VPN.
+
+      Si aún tienes problemas, intenta contactar al soporte de Oracle mediante el chat en vivo en la esquina inferior derecha del sitio web de Oracle Cloud.
+      :::
+
+2. Una vez registrado, llegarás al panel de Oracle Cloud. Haz clic en `Create a VM instance` en la sección `Build`.
+
+   ![Oracle Cloud Dashboard](/img/oracle/dashboard.png)
+
+#### Información básica
+
+3. Asigna un nombre a tu instancia; el campo `compartment` puede dejarse como está.
+
+4. Configura la imagen y el shape
+
+   1. Desplázate hasta `Image and shape` y haz clic en `Change Image`. Selecciona la imagen 'Ubuntu' y el nombre 'Canonical Ubuntu 24.04'.
+
+      ![Change Image](/img/oracle/select_image.png)
+
+   2. Justo debajo, verás la sección `Shape`. Haz clic en `Change Shape` y selecciona la serie `Ampere` con el shape `VM.Standard.A1.Flex`. Establece las OCPU en 4 y la memoria en 24 GB.
+      ![Change Shape](/img/oracle/select_shape.png)
+
+   3. Para continuar, haz clic en el botón 'Next' en la esquina inferior derecha de la página.
+
+#### Seguridad
+
+Esta sección no requiere cambios, así que podemos omitirla haciendo clic en 'Next'.
+
+#### Redes
+
+5. Configura tu VNIC
+
+   1. Asigna un nombre a tu VNIC.
+   2. En `Primary Network`, selecciona `Create new virtual cloud network`.
+   3. En `Subnet`, selecciona `Create new public subnet`.
+
+6. Genera un par de claves SSH. Si ya tienes un par de claves SSH, puedes saltarte este paso.
+
+   1. Abre una terminal en tu equipo local.
+   2. Ejecuta el siguiente comando para generar un par de claves SSH, reemplazando `your_email@example.com` por tu correo electrónico.
+
+      ```bash
+      ssh-keygen -t ed25519 -C "your_email@example.com"
+      ```
+
+      - Cuando se te pregunte en qué archivo guardar la clave, presiona `Enter` para usar la ubicación por defecto. Si ya tienes un par de claves SSH, puedes guardarla en otra ubicación, pero recuerda dónde la guardaste.
+      - Cuando se te pida una frase de contraseña, **deberías** introducir una. Puedes generarla con un gestor como [Bitwarden](https://bitwarden.com/) o [Proton Pass](https://proton.me/pass).
+
+      <br/>
+      :::info
+      En sistemas más antiguos, donde el algoritmo ed25519 no está soportado, puedes usar el algoritmo rsa:
+
+      ```bash
+      ssh-keygen -t rsa -b 4096 -C "your_email@example.com"
+      ```
+
+      :::
+
+   3. Ahora debemos añadir nuestra clave SSH al agente SSH. Antes, debemos iniciar el agente SSH. Abre una ventana de PowerShell **como Administrador** y ejecuta:
+
+      ```
+      Get-Service -Name ssh-agent | Set-Service -StartupType Automatic
+      Start-Service ssh-agent
+      ```
+
+   4. Ejecuta el siguiente comando en tu terminal **no administrativa** para añadir tu clave al agente SSH:
+
+      ```bash
+      ssh-add C:/Users/your_username/.ssh/id_ed25519
+      ```
+
+      - Si guardaste tu clave en otro lugar, reemplaza `C:/Users/your_username/.ssh/id_ed25519` por la ruta correspondiente.
+
+   5. Ahora tendrás dos archivos en tu directorio `~/.ssh`: `id_ed25519` y `id_ed25519.pub`. El archivo `.pub` es tu clave pública, que necesitarás en el siguiente paso.
+
+7. En la sección `Add SSH keys`, haz clic en el botón `Upload public key files (.pub)` y sube el archivo `.pub` generado en el paso anterior. Luego, haz clic en `Next` para continuar.
+
+#### Almacenamiento
+
+8. Configura el volumen de arranque.
+
+   1. Activa la opción `Specify a custom boot volume size and performance`.
+   2. Establece `Boot volume size` en 200.
+   3. Establece `Boot volume performance` en `120`.
+   4. Haz clic en `Next` para continuar.
+
+#### Revisión
+
+9. Revisa cuidadosamente tu configuración. Los puntos clave que debes comprobar son:
+
+   - La `Image` debe ser `Canonical Ubuntu 24.04`.
+   - El `Shape` debe ser `VM.Standard.A1.Flex` con 4 OCPU y 24 GB de memoria.
+   - El `Boot volume size` debe ser como máximo 200 GB.
+   - La sección `SSH keys` debe contener tu clave pública.
+
+   :::note
+   Si haces clic en `View estimated cost`, puede que veas que el coste no aparece como gratuito.
+   Esto se debe a que el estimador no tiene en cuenta el descuento de 200 GB del Free Tier.
+   Puedes confirmarlo en la página del [Estimador de Costes](https://www.oracle.com/uk/cloud/costestimator.html) de Oracle.
+   :::
+
+10. Finalmente, haz clic en `Create` para crear tu instancia de VM.
+
+::::tip
+Es posible que encuentres un error `Out of capacity` al crear tu instancia. Esto se debe a que el Free Tier tiene un número limitado de instancias disponibles:
+![Out of capacity error](/img/oracle/availability_error.png)
+
+Puedes intentarlo más tarde, o crear la instancia en un `Availability Domain` diferente volviendo a la sección `Placement` al principio de la página.
+
+También puedes cambiar a una cuenta PAYG, lo que te permitirá crear instancias sin restricciones. Mientras te mantengas dentro de los límites del Free Tier, no se te cobrará.
+Se recomienda configurar una alerta de presupuesto de 1 USD para asegurarte de recibir notificaciones si superas los límites del Free Tier.
+
+  <details>
+  <summary>Cómo actualizar a una cuenta PAYG</summary>
+  <div>
+
+1. Vuelve al panel de Oracle Cloud.
+2. Haz clic en el menú hamburguesa en la esquina superior izquierda y desplázate hasta `Billing and Cost Management`.
+3. En la sección `Billing`, haz clic en `Upgrade and Manage Payment`.
+4. Haz clic en `Upgrade to Pay-As-You-Go` y sigue las instrucciones.
+
+:::note
+Verás un cargo de 100 USD en tu tarjeta al actualizar a una cuenta PAYG. Es una retención temporal y se liberará de inmediato o en unos días.
+Esto es para verificar que tienes un método de pago válido. No se te cobrará nada a menos que superes los límites del Free Tier.
+:::
+
+La actualización puede tardar hasta 24 horas en hacerse efectiva. Recibirás un correo electrónico cuando se complete.
+
+  </div>
+  </details>
+
+  <details>
+  <summary>Cómo configurar una alerta de presupuesto de 1 USD</summary>
+    <div>
+
+      1. Vuelve al panel de Oracle Cloud.
+      2. Haz clic en el menú hamburguesa y desplázate hasta `Billing and Cost Management`.
+      3. En la sección `Cost Management`, haz clic en `Budgets`.
+      4. Haz clic en `Create Budget`.
+      5. Usa los siguientes ajustes:
+         - Budget Name: `dont_charge_me`
+         - Budget Amount: `1`
+         - Day of the month to begin budget processing: `1`
+         - Threshold Metric: `Forecast Spend`
+         - Threshhold Type: `Percentage of Budget`
+         - Threshold: `1%`
+         - Email Recipients: Tu correo electrónico
+         - Email message: `Your current usage exceeds Always Free resources. Please check your usage to avoid charges.`
+      6. Haz clic en `Create`.
+     </div>
+    </details>
+
+  <details>
+  <summary>Cómo comprobar si mi uso previsto excede los límites del Free Tier</summary>
+    <div>
+
+      1. Vuelve al panel de Oracle Cloud.
+      2. Haz clic en el menú hamburguesa y desplázate hasta `Billing and Cost Management`.
+      3. En la sección `Cost Management`, haz clic en `Cost Analysis`.
+      4. Marca `Show Forecast`.
+      5. Establece `End Date` en una fecha futura, por ejemplo dentro de unos meses.
+      6. Haz clic en `Apply`.
+      7. Ahora verás una previsión de tu uso, con una gráfica a lo largo del tiempo y una tabla por servicio.
+      8. Asegúrate de que todo sea 0.
+    </div>
+
+   </details>
+
+::::
+
+11. Tu instancia comenzará a aprovisionarse. Puede tardar unos minutos. Se te llevará a la pestaña 'Work requests', donde verás el estado de la creación.
+    Una vez completa, el `State` de la operación `Create instance` cambiará a `Succeeded`. Luego, puedes hacer clic en la pestaña `Details` para ver los detalles.
+
+### Conectarse a nuestro VPS
+
+10. Siguiendo el paso anterior, deberías estar en la página `Details` de tu instancia. Copia la dirección IP pública.
+
+    ![Instance Dashboard](/img/oracle/instance_dashboard.png)
+
+11. Abre una terminal en tu equipo local y ejecuta el siguiente comando, reemplazando `your_ip` por la IP pública de tu instancia.
+
+    ```bash
+    ssh ubuntu@your_ip
+    ```
+
+    - Si se te solicita añadir el host a tu lista de conocidos, escribe `yes` y presiona `Enter`.
+    - Si configuraste una frase de contraseña para tu clave SSH, se te pedirá introducirla. (No verás caracteres al escribir, pero se está introduciendo.)
+
+      :::tip
+      Para evitar tener que escribir la IP cada vez que quieras conectar, puedes crear un perfil en Windows Terminal.
+
+      <details>
+        <summary>Cómo crear un perfil en Windows Terminal</summary>
+        <div>
+            Para ello:
+
+            1. Abre Windows Terminal y haz clic en la flecha junto a las pestañas. Luego, clic en `Settings`.
+            2. En `Settings`, desplázate al final y clic en `Add new profile`.
+            3. Haz clic en `+ New empty profile` y rellena:
+               - `Name`: `Oracle VPS`
+               - `Command line`: `ssh ubuntu@your_ip`
+               - `Icon`: Puedes elegir un icono o dejarlo como está.
+            4. Haz clic en `Save` para guardar el perfil.
+            5. Ahora, al hacer clic en el icono de la flecha, verás el perfil `Oracle VPS` en la lista. Puedes hacer clic en él para conectarte sin escribir la IP cada vez.
+        </div>
+      </details>
+      :::
+
+12. Ya estás conectado a tu instancia de VM. Ahora puedes instalar el software que necesites, configurar un servidor web o hacer lo que sea necesario.
+
+## Información adicional
+
+### Abrir puertos {#opening-ports}
+
+Por defecto, todos los puertos están cerrados en tu VPS de Oracle. Necesitarás abrir los puertos que vayas a usar.
+
+1. Ve al panel de tu instancia.
+2. Haz clic en la pestaña `Networking`.
+3. Haz clic en el enlace junto a `Subnet` (por ejemplo, `subnet-20250708-1425`).
+4. Ve a la pestaña `Security`.
+5. Haz clic en `Default Security List for vcn-...`.
+6. Ve a la pestaña `Security rules` y haz clic en `Add Ingress Rules`.
+7. Rellena lo siguiente:
+   - `Source Type`: `CIDR`
+   - `Source CIDR`: `0.0.0.0/0`
+   - `IP Protocol`: `TCP`
+   - `Source Port Range`: `All`
+   - `Destination Port Range`: El puerto que quieras abrir, como `443` para HTTPS.
+   - `Description`: Una descripción de la regla, como `Allow HTTPS traffic`.
+8. Haz clic en `Add Ingress Rules`, o `Another Ingress Rule` si quieres añadir más reglas.
+
+### Usar SCP para transferir archivos
+
+Si necesitas transferir archivos hacia y desde tu VPS de Oracle, puedes usar SCP.
+
+1. Abre una terminal en tu equipo local.
+2. Ejecuta el siguiente comando para transferir un archivo de tu equipo local a tu VPS de Oracle, reemplazando `your_ip` por la IP pública de tu instancia y `file.txt` por el archivo que quieras transferir.
+
+   ```bash
+   scp file.txt ubuntu@your_ip:/path/to/destination
+   ```
+
+3. Ejecuta el siguiente comando para transferir un archivo desde tu VPS de Oracle a tu equipo local, reemplazando `your_ip` por la IP pública de tu instancia y `/path/to/file.txt` por la ruta al archivo que quieras transferir.
+
+   ```bash
+   scp ubuntu@your_ip:/path/to/file.txt /path/to/destination
+   ```
+
+:::tip
+Tu carpeta de usuario —la carpeta en la que te encuentras al conectarte por primera vez a tu VPS de Oracle— está en `/home/ubuntu`. Puedes usar el símbolo `~` para representarla, así que `/home/ubuntu` es lo mismo que `~`.
+Por ejemplo, `scp file.txt ubuntu@your_ip:~/file.txt` transferirá `file.txt` a tu carpeta de usuario en tu VPS de Oracle.
+:::

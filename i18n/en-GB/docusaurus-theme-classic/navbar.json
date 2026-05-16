@@ -1,0 +1,10 @@
+{
+  "title": {
+    "message": "Viren070's Guides",
+    "description": "The title in the navbar"
+  },
+  "logo.alt": {
+    "message": "Guides Logo",
+    "description": "The alt text of navbar logo"
+  }
+}

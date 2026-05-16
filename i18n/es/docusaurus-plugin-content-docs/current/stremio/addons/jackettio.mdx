@@ -1,0 +1,50 @@
+---
+title: Jackettio
+description: Addon de Stremio que resuelve streams usando Jackett y Debrid. Se integra perfectamente con trackers privados.
+keywords: [stremio, addons, torrent, guía, configuración, instalación, enlace]
+tags: [stremio-addon, stremio-addon:debrid-streams]
+---
+
+```mdx-code-block
+import StremioAddonButtons from '@site/src/components/StremioAddonButtons';
+
+<StremioAddonButtons id="jackettio" manifest="https://jackettio.elfhosted.com/manifest.json" configurable configurationRequired source="https://github.com/arvida42/jackettio"/>
+```
+
+<h3>Descripción</h3>
+
+[Jackettio](https://github.com/arvida42/jackettio) es un addon auto-hospedable que resuelve streams usando Jackett y un servicio debrid.
+
+Puedes encontrar una lista completa de características en la [sección de características](https://github.com/arvida42/jackettio#features) de su página de GitHub.
+
+Jackettio puede ser [auto-hospedado](https://github.com/arvida42/jackettio) o usar [ElfHosted](https://elfhosted.com/app/jackettio/).
+
+Te guiaré a través de la configuración usando la instancia pública gratuita de ElfHosted. Si no quieres auto-hospedar pero quieres más personalización, puedes pagar por tu propia instancia en ElfHosted.
+
+<h3>Configuración</h3>
+
+Para comenzar, dirígete a la [página de configuración](https://jackettio.elfhosted.com/configure).
+
+- `Indexers` - Elige qué indexadores quieres usar. Estos son los sitios web que Jackett rastreará en busca de torrents. Dejo todos marcados para obtener la mayor cantidad de resultados
+- `Indexer Timeout` - El tiempo en segundos para esperar a que un indexador responda. Dejo esto en 20. El tiempo que configures aquí es el tiempo que Stremio esperará a que el addon devuelva resultados. Si el addon tarda más que este tiempo, no devolverá ningún resultado.
+- `Qualities` - Selecciona qué calidades quieres ver. Tengo seleccionados `720p`, `1080p` y `4K`. Si tienes una conexión a internet lenta o tu dispositivo no puede manejar contenido 4K, es posible que quieras deseleccionar 4K.
+- `Exclude keywords` - Esta configuración puede ser útil para ayudar a filtrar resultados no deseados. Dejo esto en blanco, pero si estás viendo muchos resultados no deseados que contienen una palabra clave específica, puedes agregar esa palabra clave aquí.
+- `Cached torrents sorting` - Esta configuración controla el orden en que ves los resultados en caché en Stremio. Lo configuro en `By quality then size`. Esto es porque quiero ver primero los archivos de mayor calidad.
+- `Uncached torrents sorting` - Esta configuración controla el orden en que ves los resultados no almacenados en caché en Stremio. Lo configuro en `By quality then seeders`. Para torrents no almacenados en caché, el número de seeders es importante ya que dependes del número de seeders para que sea almacenado en caché.
+  :::tip
+  Los resultados en caché se muestran con [RD+], [AD+] o [DL+] delante de ellos. Estos resultados se pueden transmitir inmediatamente.
+  Los resultados no almacenados en caché se muestran sin un plus - [RD], [AD] o [DL]. Estos resultados necesitan ser descargados al servicio debrid antes de que puedan ser transmitidos.
+  :::
+- `Max torrents in search` - El número máximo de torrents para mostrar en los resultados de búsqueda. Lo configuro en 20 para ver la mayor cantidad de resultados mientras también limito el número de resultados para evitar que el addon tarde demasiado en devolver resultados.
+- `Force include n series pack in search` - Un paquete de serie es un torrent que contiene múltiples episodios de una serie. Puedes forzar al addon a incluir un número específico de paquetes de series. Los paquetes de series generalmente son mejores ya que Stremio puede reproducir automáticamente el siguiente episodio con ellos. Dejo esto en el valor recomendado de 2.
+- `Prioritize language` - Aquí puedes elegir qué idioma quieres ver primero. Dejo esto sin seleccionar.
+- `Prepare next episode on debrid` - Si está marcado, cuando estés viendo un programa, el siguiente episodio se agregará al servicio debrid para estar listo para transmitir. Dejo esto marcado para que haya el menor retraso posible entre episodios.
+- `Debrid provider` - Elige tu proveedor debrid.
+- `Debrid API Key` - Obtén tu clave API de tu proveedor debrid y pégala aquí. (¿Tienes problemas para encontrar tu clave API? [Haz clic aquí](/stremio/faq#where-can-i-find-my-debrid-api-key))
+
+- `MediaFlow Proxy` - Este es un servicio que te permite hacer proxy de tus streams a través de un servidor. Tendrás que auto-hospedar tu servidor MediaFlow Proxy o pagar por una instancia en [ElfHosted](https://elfhosted.com/app/mediaflow-proxy/).
+  Puedes leer más sobre las características de MediaFlow e instrucciones sobre cómo configurarlo [en su página de GitHub](https://github.com/mhdzumair/mediaflow-proxy?tab=readme-ov-file#mediaflow-proxy).
+
+  Al usar MediaFlow, puedes:
+
+  - Usar Jackettio configurado con el mismo proveedor debrid a través de diferentes direcciones IP. En términos simples, puedes usar la cuenta debrid desde diferentes ubicaciones simultáneamente (a través de Jackettio). Como todos los streams se envían a través del mismo servidor, parecerá como si todos vinieran de la misma dirección IP / ubicación.
