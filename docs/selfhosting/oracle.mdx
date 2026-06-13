@@ -8,10 +8,23 @@ keywords: [viren070, guides, viren070's guides]
 
 ## Introduction
 
-Oracle Cloud offers a Compute Instance with 4 OCPUs, 24GB RAM, and 200GB storage within their "Always Free" resources.
+Oracle Cloud offers a Compute Instance with 2 OCPUs, 12GB RAM, and 200GB storage within their "Always Free" resources.
 This guide will show you how to set that up.
 
 Find the details and confirm the current offerings on the [Oracle Cloud Free Tier page](https://www.oracle.com/cloud/free/) and the [Resources](https://docs.oracle.com/en-us/iaas/Content/FreeTier/freetier_topic-Always_Free_Resources.htm) page.
+
+:::danger Always Free A1 resources reduced (June 2026)
+On 12 June 2026, Oracle quietly updated their [Always Free Resources](https://docs.oracle.com/en-us/iaas/Content/FreeTier/freetier_topic-Always_Free_Resources.htm) page. 
+The Always Free allowance for the `VM.Standard.A1.Flex` (Arm) shape is now **2 OCPUs and 12GB of memory** - down from the previous 4 OCPUs and 24GB. 
+This guide has been updated to reflect these new numbers.
+
+There has been no official communication from Oracle about this change yet.
+At the time of writing, the [Cost Estimator](https://www.oracle.com/uk/cloud/costestimator.html) and the Cost Analysis forecast still report $0 for a 4 OCPU / 24GB instance, but this could change on the 15th of June 2026.
+
+**Join the [Discord server](https://discord.viren070.me) for updates as the situation develops.**
+
+If you already have an existing instance with 4 OCPUs / 24GB, see [Resizing an existing instance to 2 OCPUs / 12GB](#resizing-an-existing-instance) below - it is very simple and only takes 5-10 minutes.
+:::
 
 A VPS can be used for a variety of purposes, such as hosting a website, running a game server, or even as a remote desktop.
 You can even use it to host all your [Stremio](/stremio/) addons and a debrid media server.
@@ -24,7 +37,7 @@ To use the Oracle Cloud Free Tier, you need a valid credit/debit card. Virtual/P
 Although it is impossible to get charged while on the Free tier, please keep in mind that if you upgrade to a Pay-As-You-Go (PAYG) account, you will be charged for any resources you use that are not covered by the Free Tier.
 Therefore, it is imperative to ensure that you set your instance up exactly as described in this guide, and that you do not use any resources that are not covered by the Free Tier.
 
-Make sure you do not have any extra instances, volumes etc. created at any given time. The free tier resources cover 200GB of total boot volume space, and exactly 1 A1 Flex instance with 4 OCPUs and 24GB RAM.
+Make sure you do not have any extra instances, volumes etc. created at any given time. The free tier resources cover 200GB of total boot volume space, and exactly 1 A1 Flex instance with 2 OCPUs and 12GB RAM.
 If you create any additional resources, you will be charged for them.
 
 If you do set everything up correctly, the only thing you can be charged for is bandwidth. Ingress bandwidth is unlimited and free, but egress bandwidth is limited to 10TB per month. If you exceed this limit, you will be charged.
@@ -70,7 +83,7 @@ If you do set everything up correctly, the only thing you can be charged for is 
 
        ![Change Image](/img/oracle/select_image.png)
 
-    2. Just below the image, you will see the `Shape` section. Click on `Change Shape` and select the `Ampere` series `VM.Standard.A1.Flex` shape. Set the OCPUs to 4, and the memory to 24GB.
+    2. Just below the image, you will see the `Shape` section. Click on `Change Shape` and select the `Ampere` series `VM.Standard.A1.Flex` shape. Set the OCPUs to 2, and the memory to 12GB.
        ![Change Shape](/img/oracle/select_shape.png)
 
     3. To proceed to the next step, click the 'Next' button at the bottom right corner of the page.
@@ -140,7 +153,7 @@ This section requires no adjustments, so we can skip it by clicking the 'Next' b
 9. Review your configuration thoroughly. The key points to check are
 
    - The `Image` should be `Canonical Ubuntu 24.04`.
-   - The `Shape` should be `VM.Standard.A1.Flex` with 4 OCPUs and 24GB of memory.
+   - The `Shape` should be `VM.Standard.A1.Flex` with 2 OCPUs and 12GB of memory.
    - The `Boot volume size` should be a maximum 200GB.
    - The `SSH keys` section should contain your public key.
 
@@ -260,6 +273,38 @@ It can take up to 24 hours for the upgrade to take effect. You will receive an e
     else you need to do.
 
 ## Additional Information
+
+### Resizing an existing instance
+
+If you created your instance with the old 4 OCPUs / 24GB allowance, you can resize it down to the new 2 OCPUs / 12GB Always Free allowance. This is very simple and only takes 5-10 minutes.
+
+1. Go to the [Oracle Cloud home page](https://cloud.oracle.com/).
+2. Under the `Resources` section, you may see one labeled with the `Instance` type under `Recently viewed`. Click on its name to enter the page for your instance.
+
+
+   If you don't see it there, click the hamburger menu in the top left, click `Compute`, then `Instances`, where you will find your list of instances (there should only be one). Once your instance is found, click on its name to enter the page for your instance.
+
+   ![Find your instance](/img/oracle/resize_goto_instances.png)
+   ![Find your instance](/img/oracle/resize_goto_instances_2.png)
+
+
+3. Click `Actions` in the top right.
+4. Expand the `More actions` submenu.
+5. Click `Edit`.
+
+   ![Edit instance](/img/oracle/resize_edit.png)
+
+6. Near the bottom, at the `Shape` table, click the arrow next to `VM.Standard.A1.Flex`.
+7. This will reveal two inputs: one for the number of OCPUs, and another for the amount of memory.
+8. Set them to `2` and `12` respectively.
+9. Click `Save changes` at the bottom.
+
+   ![Set OCPUs and memory](/img/oracle/resize_shape.png)
+
+10. It will ask you to confirm an instance reboot. Click `Reboot instance`.
+11. After a short while, the instance will be rebooted with the updated details.
+
+That's it - your instance is now within the new Always Free allowance.
 
 ### Opening ports
 
