@@ -1,0 +1,303 @@
+---
+title: Plantilla
+description: Guía para usar mi archivo de plantilla de Docker Compose.
+keywords: [viren070, guías, guías de viren070]
+---
+
+# Plantilla
+
+Esta guía te mostrará cómo usar mi archivo de plantilla de Docker Compose para desplegar servicios rápidamente.
+
+Habiendo seguido mis guías anteriores, deberías tener una comprensión básica de cómo desplegar servicios con Docker Compose.
+Esta sección se centrará en usar [mi `compose.yaml` de plantilla](https://github.com/Viren070/docker-compose-vps-template).
+
+## ¿Para qué sirve?
+
+La "plantilla" utiliza un proyecto de Docker Compose y su característica de [include](https://docs.docker.com/reference/compose-file/include/)
+para permitirte usar y mantener fácilmente un gran número de servicios.
+
+Cada aplicación individual tiene su propio `compose.yaml`, que normalmente tendrá su propio archivo `.env` para configuración,
+y luego el `compose.yaml` principal **incluye** todos ellos. Cada aplicación también tendrá su propio [`profile`](https://docs.docker.com/compose/how-tos/profiles/).
+
+Los archivos `.env` manejan la mayor parte de la configuración, lo que significa que por lo general no tendrás que editar el archivo `compose.yaml` en sí,
+sino los archivos `.env` documentados.
+
+Esto significa que al usar el proyecto de compose, cuenta como un único archivo con todos los servicios dentro. Esto facilita
+referenciar otros contenedores y evita tener que lidiar con múltiples redes, etc.
+
+Este `compose.yaml` utiliza [Traefik](https://traefik.io) como proxy inverso para enrutar el tráfico al servicio correcto.
+Todos los servicios están detrás de Traefik, lo que permite acceder a todos en el mismo puerto (80/443) y Traefik se encargará de enrutar al servicio correcto.
+Esto significa que los puertos 80 y 443 son los únicos que deben estar abiertos en tu servidor.
+
+Usamos Authelia como servicio de autenticación, lo que nos permite proteger nuestros servicios. Authelia no se aplica
+a cada servicio, únicamente a los que requieren autenticación. Esto se hace mediante etiquetas de Traefik.
+Más adelante comentaré cómo añadir Authelia a un servicio.
+
+Un resumen rápido de lo que incluye esta plantilla es:
+
+- Servicios de gestión de servidor por defecto
+- Servicios relacionados con Stremio
+- Servicios para un servidor multimedia con debrid
+- Seanime
+- Servidor de Minecraft
+- Plausible analytics
+- Vaultwarden
+- SearXNG
+- Zipline
+
+<details>
+<summary>¿Cuál es la lista completa de servicios disponibles en la plantilla?</summary>
+  <div>
+
+    [Traefik](https://github.com/traefik/traefik) está incluido como nuestro proxy inverso. Se usa para enrutar el tráfico al servicio correcto. Significa que puedes acceder a todos los servicios en el mismo puerto (80/443) y Traefik los enrutará correctamente.
+    También permite la generación automática de certificados SSL mediante Let's Encrypt, lo cual es necesario para addons de Stremio, ya que Stremio requiere HTTPS para instalarlos.
+
+    Authelia está incluido para autenticación.
+
+    Para ayudar a gestionar el servidor, se incluyen los siguientes servicios:
+
+    - [Dozzle](https://github.com/amir20/dozzle) - Visor de logs en tiempo real para contenedores Docker con interfaz web.
+    - [Watchtower](https://github.com/containrrr/watchtower) - Actualiza automáticamente tus contenedores Docker a la última versión.
+    - [Uptime Kuma](https://github.com/louislam/uptime-kuma) - Herramienta autoalojada para monitorizar tus servicios.
+      - Útil para monitorizar el estado de tus servicios y recibir alertas. Debes configurarlos manualmente, pero puede hacerse desde la interfaz web.
+    - [Dash.](https://github.com/MauriceNino/dashdot) - Panel sencillo para monitorizar tu servidor.
+    - [Honey](https://github.com/dani3l0/honey) - Página de inicio bonita y personalizable para acceder a todos tus servicios.
+
+    <details>
+    <summary>Addons y utilidades de Stremio</summary>
+    <div>
+
+        - [AIOStreams](https://github.com/Viren070/AIOStreams)
+        - [AIOStremio](https://github.com/Viren070/AIOStremio)
+        - [Comet](https://github.com/g0ldyy/comet)
+        - [MediaFusion](https://github.com/mhdzumair/MediaFusion)
+        - [StremThru](https://github.com/MunifTanjim/stremthru)
+        - [Stremio-Jackett](https://github.com/aymene69/stremio-jackett)
+        - [Jackettio](https://github.com/arvida42/jackettio)
+        - [EasyNews+](https://github.com/sleeyax/stremio-easynews-addon)
+        - [MediaFlow Proxy](https://github.com/mhdzumair/mediaflow-proxy)
+        - [Catalog Providers](https://github.com/redd-ravenn/stremio-catalog-providers)
+        - [TMDB Addon](https://github.com/mrcanelas/tmdb-addon)
+        - [Stremio Trakt Addon](https://github.com/redd-ravenn/stremio-trakt-addon)
+        - [Stremio Catalog Addon](https://github.com/redd-ravenn/stremio-catalog-providers)
+        - [OMG TV Stremio Addon](https://github.com/mccoy88f/OMG-Premium-TV/blob/main/README-EN.md)
+        - [Stremio Server](https://github.com/Stremio/server-docker)
+          - Imagen oficial de Stremio server. Gestiona la descarga y transcodificación de streams. Es útil si usas Stremio en dispositivos
+            que no traen un servidor integrado, como iOS con Stremio Web. Permitirá reproducir torrents en esos dispositivos. Los streams de debrid pueden no transcodificarse en todos los clientes.
+        - [Addon Manager](https://github.com/redd-ravenn/stremio-addon-manager)
+
+    </div>
+    </details>
+
+    <details>
+    <summary>Servidor multimedia con Debrid</summary>
+    <div>
+        :::danger
+        Estos servicios requieren mucho trabajo para configurarse y la documentación aún no está finalizada. Sugiero usar
+        esta plantilla solo como referencia.
+        :::
+
+        - [Wests Scripts](https://github.com/westsurname/scripts)
+          - Incluye blackhole, repair, plex requests, plex watchlist.
+        - [Radarr](https://github.com/Radarr/Radarr)
+        - [Sonarr](https://github.com/Sonarr/Sonarr)
+        - [AutoSync](https://github.com/Pukabyte/AutoSync)
+        - [Recyclarr](https://github.com/Recyclarr/Recyclarr)
+        - [Plex](https://github.com/plexinc/pms-docker)
+        - [Zurg](https://github.com/yowmamasita/zurg)
+        - [RClone](https://github.com/rclone/rclone)
+        - [Jellyfin](https://github.com/jellyfin/jellyfin)
+        - [JellySeer](https://github.com/fallenbagel/jellyseerr)
+        - Plex
+        - Overseerr
+        - Tautulli
+        - Kometa
+
+    </div>
+    </details>
+
+    <details>
+    <summary>Indexadores y utilidades</summary>
+    <div>
+
+      - [Prowlarr](https://github.com/Prowlarr/Prowlarr)
+      - [Jackett](https://github.com/Jackett/Jackett)
+      - [NZBHydra2](https://github.com/theotherp/nzbhydra2)
+        - Indexador para indexadores NZB. Principalmente útil para usuarios de Torbox con la función BYOI.
+      - [Zilean](https://github.com/iPromKnight/zilean)
+        - Scraper de [DMM](https://debridmediamanager.com).
+      - [FlareSovlerr](https://github.com/FlareSolverr/FlareSolverr) / [Byparr](https://github.com/ThePhaseless/Byparr)
+        - Útiles para evitar la protección anti-bots de Cloudflare en tareas de scraping.
+      - [Cloudflare Warp](https://github.com/cmj2002/warp-docker)
+        - Cliente de Cloudflare Warp. Permite evitar bloqueos. Por ejemplo, Torrentio bloquea solicitudes desde algunos proveedores VPS (como Oracle Cloud).
+          En ese caso, puedes usar Cloudflare Warp para enrutar tus solicitudes, tanto para AIOStreams, Prowlarr, etc.
+      - Gluetun
+      - Tweakio
+        - Indexador de Torrentio construido para funcionar con los *arr.
+      - Torbox Manager
+    </div>
+    </details>
+
+    Esta plantilla también incluye otras aplicaciones:
+
+    - [Seanime](https://github.com/5rahim/seanime) - Servidor multimedia de código abierto con interfaz web y app de escritorio para anime y manga.
+    - [SearXNG](https://github.com/searxng/searxng) - Metabuscador respetuoso con la privacidad.
+    - [Plausible Analytics](https://github.com/plausible/analytics/) - Analítica web simple, amigable con la privacidad y de código abierto. (Usado en este sitio)
+    - Servidor de Minecraft
+    - [Vaultwarden](https://github.com/dani-garcia/vaultwarden) - Servidor no oficial compatible con Bitwarden escrito en Rust.
+
+  </div>
+</details>
+
+## Personalizar la plantilla
+
+La plantilla está diseñada para ser fácilmente personalizable. Puedes añadir tus propios servicios, eliminar servicios y modificar su configuración.
+
+Mi compose.yaml hace uso de perfiles para facilitar el despliegue de servicios específicos.
+Cada servicio tiene su propio perfil; por ejemplo, seanime tiene un perfil denominado `seanime`, y así sucesivamente.
+
+Los perfiles individuales son simplemente los nombres de las carpetas en el directorio `apps`.
+
+Como cada servicio tiene un perfil, debes definir uno, ya sea en la variable de entorno `COMPOSE_PROFILES` o mediante la bandera `--profile` al ejecutar `docker compose`.
+De lo contrario, no se iniciará ningún servicio.
+
+Sin embargo, hay un perfil "required" que incluye Traefik y Authelia, necesario para el acceso externo a los servicios.
+
+Después de elegir qué perfiles vas a usar, tenlos presentes, ya que ahora necesitarás rellenar
+el archivo `.env` con las variables de entorno necesarias.
+
+En lugar de añadir perfiles manualmente uno por uno, puedes usar `all` como tu perfil y modificar el `compose.yaml` raíz para eliminar de la lista de `include` los `compose.yaml` de los servicios que no quieras usar.
+
+## Configuración
+
+### Requisitos
+
+- Un servidor con Docker instalado según https://get.docker.com/. (Otros métodos, como snap, no se recomiendan).
+- Un dominio con los servidores de nombres preferiblemente cambiados a los de Cloudflare.
+  - Puedes usar subdominios gratuitos de servicios como [DuckDNS](https://www.duckdns.org/), [Afraid.org](https://freedns.afraid.org/) o [No-IP](https://www.noip.com/), pero recomiendo usar un dominio propio.
+    :::note
+    Si eliges usar estos servicios gratuitos, es muy probable que no puedas cambiar los servidores de nombres. Esto significa que tendrás que crear manualmente registros DNS para cada subdominio que quieras usar.
+    :::
+- Puertos 80 y 443 abiertos en tu servidor. Es necesario para que Traefik funcione correctamente.
+  :::tip
+  Si usas Oracle Cloud, puedes seguir [estos pasos](/selfhosting/oracle#opening-ports) para abrir los puertos.
+  :::
+
+### Pasos
+
+1. Conéctate a tu servidor, normalmente con el siguiente comando, reemplazando `your-server-ip` por la IP de tu servidor:
+
+   ```bash
+   ssh ubuntu@your-server-ip
+   ```
+
+   :::tip
+   Si usas un usuario distinto, cambia la parte `ubuntu` del comando por tu nombre de usuario.
+   :::
+
+2. El primer paso es descargar la plantilla, preferiblemente en `/opt/docker`, usando los siguientes comandos:
+
+   ```bash
+   cd /opt
+   ```
+
+   ```bash
+   git clone https://github.com/Viren070/docker-compose-vps-template.git docker
+   ```
+
+   ```bash
+   cd docker
+   ```
+
+   :::tip
+   Puedes cambiar los permisos del directorio `/opt/docker` a tu usuario con el siguiente comando:
+
+   ```bash
+   sudo chown $(id -u):$(id -g) -R /opt/docker
+   ```
+
+   Esto te permitirá editar archivos en el directorio sin necesidad de usar `sudo`.
+
+   :::
+
+3. Ahora puedes confirmar que se han descargado los archivos ejecutando:
+
+   ```bash
+   ls -a
+   ```
+
+   Deberías ver los directorios `apps` y `data`, así como el `compose.yaml` "raíz" y el archivo `.env`.
+
+4. A continuación, edita los archivos `.env` para completar las variables necesarias. Te recomiendo empezar solo por el `.env` raíz.
+
+   Hay muchas formas de rellenar estos valores, puedes:
+
+   - usar un editor de texto en CLI como `nano` o `vim` para editar el archivo directamente desde la terminal.
+     ```
+     nano .env
+     ```
+   - Usar VS Code para editar el archivo directamente en el servidor con la extensión `Remote - SSH`. (**recomendado**)
+
+     1. Instala la extensión `Remote - SSH` en VS Code.
+     2. Abre la paleta de comandos (Ctrl + Shift + P) y escribe `Remote-SSH: Connect to Host...`.
+     3. Introduce la cadena de conexión SSH de tu servidor (por ejemplo, `ubuntu@your-server-ip`).
+     4. Una vez conectado, navega al directorio `/opt/docker/apps` (`Ctrl + K` + `Ctrl + O` / `File` > `Open Folder...`).
+     5. Podrás ver todos los archivos y carpetas en la barra lateral. Edita los `.env` de cada servicio haciendo clic en ellos y modificándolos. También puedes usar la terminal integrada para ejecutar comandos en el servidor.
+        Asegúrate de guardar los archivos después de editarlos. (`Ctrl + S` / `File` > `Save`).
+
+   - Usar XPipe como explorador de archivos remoto y tu editor preferido para editarlos. (**también recomendado**)
+
+     1. Descarga e instala XPipe desde [aquí](https://xpipe.io/download).
+     2. Abre XPipe y haz clic en el botón `+` para añadir una nueva conexión.
+     3. Puedes dejar que XPipe busque automáticamente usando los archivos de configuración SSH o añadir manualmente una conexión de Host Remoto.
+     4. Tras añadir la conexión, ve a la pestaña del explorador de archivos a la derecha (o `Ctrl + 2`) y navega hasta `/opt/docker/apps`.
+     5. Haz clic derecho sobre el archivo `.env` y selecciona `Open with...` para elegir tu editor preferido.
+     6. Tras editar, asegúrate de guardar.
+
+   - Editar todos los archivos localmente (clonando el repositorio en tu máquina primero) y luego subirlos a tu servidor mediante `scp`.
+
+   :::info
+   Solo debes rellenar las variables de entorno de los servicios que vayas a desplegar.
+   Si añades un perfil, se requerirá el conjunto completo de variables para cada app bajo ese perfil.
+   :::
+
+5. Tras rellenar el `.env` raíz, deberías iniciar el perfil 'required'; esto permite comprobar que Traefik y Authelia funcionan correctamente.
+
+   ```bash
+   docker compose --profile required up -d
+   ```
+
+   Esto iniciará los servicios de Traefik y Authelia. Puedes comprobar los logs con:
+
+   ```bash
+   docker compose --profile required logs -f
+   ```
+
+6. Luego, puedes empezar a añadir y configurar más servicios, ya sea añadiendo más perfiles o usando el perfil 'all' y eliminando manualmente de la sección
+   `include:` del `compose.yaml` raíz los archivos de los servicios que no quieras usar. Asegúrate de rellenar los `.env` de los otros servicios si existen dentro de la carpeta de esa app.
+
+7. Si no usas cloudflare-ddns (que crea los registros DNS automáticamente), asegúrate de que para cada nombre de host en los `.env` raíz tengas un registro DNS `A` apuntando a la **IP pública** de tu servidor.
+   :::warning
+   Si usas Cloudflare, deshabilita el proxy (nube naranja) para el registro DNS. Traefik necesita conectarse directamente a tu servidor.
+   :::
+   :::tip
+   Puedes crear un comodín DNS usando un registro A con `*` como subdominio, por ejemplo `*.tudominio.com`. Esto te permite usar cualquier subdominio creando un único registro.
+
+   Sin embargo, puede causar problemas y hará que cualquier subdominio se enrute a tu servidor.
+   Por ejemplo, si ejecutas un servidor de Minecraft, significará que cualquier subdominio se enrute a tu servidor.
+   :::
+
+8. Una vez rellenadas las variables, ya puedes desplegar los servicios. Asegúrate de definir la variable de entorno `COMPOSE_PROFILES`, ya que determinará qué perfiles se inician. Si no la estableces, no se iniciará ningún servicio.
+
+   Luego, ejecuta:
+
+   ```bash
+   docker compose up -d
+   ```
+
+- También puedes especificar perfiles mediante la bandera `--profile`, por ejemplo:
+  ```bash
+  docker compose --profile required --profile aiostreams up -d --force-recreate
+  ```
+
+9. Tras ejecutar el comando, puede tomar tiempo que los servicios arranquen. Una vez listos, deberías poder acceder a ellos en los hostnames definidos en el `.env` raíz.

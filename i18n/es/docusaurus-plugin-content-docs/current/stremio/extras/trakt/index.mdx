@@ -1,0 +1,254 @@
+---
+title: Trakt
+sidebar_label: Trakt
+description: Aprende a usar listas de distintos servicios para una experiencia de Stremio más personalizada.
+keywords:
+  [
+    stremio,
+    guía,
+    streaming,
+    vídeo bajo demanda,
+    reproductor de vídeo,
+    4k,
+    debrid,
+    torrents,
+    servicio de streaming,
+    addons,
+    reproductor multimedia,
+    películas,
+    series,
+  ]
+toc_min_heading_level: 2
+toc_max_heading_level: 5
+---
+
+import AddingLists from "./trakt-tv-addon/_adding_lists.mdx";
+
+# Usar Trakt
+
+Los addons anteriores proporcionan una buena experiencia para la mayoría de los usuarios. Sin embargo, sólo ofrecen contenido de servicios de streaming.
+Si quieres tener una experiencia más personalizada con listas propias y otras listas como películas del MCU, entonces puedes usar el addon Trakt Lists.
+
+## ¿Qué es Trakt?
+
+Trakt es un servicio de seguimiento multimedia que ayuda a sincronizar tus series y películas en múltiples plataformas y dispositivos.
+También permite crear listas personalizadas de películas y series.
+
+Las listas son colecciones de películas o series creadas por los usuarios.
+Pueden ser públicas o privadas. Las listas públicas pueden ser vistas por cualquiera y las privadas sólo por su propietario.
+
+## Crear una cuenta de Trakt
+
+1. Primero, crea una cuenta en [Trakt](https://trakt.tv/) haciendo clic en [Join Trakt For Free](https://trakt.tv/auth/join)
+2. Puedes crearla con tu cuenta de Google o Apple, o con un correo electrónico.
+
+Una vez creada la cuenta, ya puedes usar Trakt con Stremio.
+
+## Activar el scrobbling de Trakt
+
+Stremio tiene soporte integrado para scrobbling de Trakt.
+Esto significa que puedes sincronizar lo que ves en Stremio con tu cuenta de Trakt.
+Es útil para llevar control de lo que has visto.
+
+El scrobbling permite registrar automáticamente tu historial de visionado.
+También puede ayudarte a conseguir recomendaciones basadas en tu historial.
+Se activa desde la página de ajustes de Stremio.
+
+1. Ve a tus [ajustes de cuenta](https://www.stremio.com/acc-settings) en Stremio.
+   Si el enlace no funciona, visita [Stremio](https://www.stremio.com/) y haz clic en `My Account` o `Login` en la esquina superior derecha.
+2. Ve a la pestaña Integrations y haz clic en `Authenticate` junto a Trakt Scrobbling para activarlo.
+
+   ![Trakt Scrobbling](/img/stremio/acc_settings_integrations.png)
+
+3. Inicia sesión en tu cuenta de Trakt y permite que Stremio acceda a ella.
+
+## Addon de Integración con Trakt
+
+Después de activar Trakt, se instalará en tu cuenta un addon llamado Trakt Integration.
+
+Proporciona los siguientes catálogos:
+
+- Trakt History (Películas y Series)
+- Trakt Watchlist (Películas y Series)
+- Trakt Recommendations (Películas y Series)
+
+Esto añade 6 catálogos. No puedes configurar qué catálogos se muestran, por lo que recomiendo desinstalar este addon.
+
+Este addon no está relacionado con la función de scrobbling y puede desinstalarse sin problemas.
+
+Obtendremos las recomendaciones y la lista de seguimiento con el addon Trakt Lists.
+
+## Addon Trakt Lists
+
+Ahora configuraremos el addon Trakt Lists.
+Este addon permite añadir listas de Trakt a la página de inicio de Stremio.
+Es útil si quieres una experiencia más personalizada con listas propias.
+
+Primero veremos cómo crear listas personalizadas con MDBList y Couchmoney.
+Son servicios que pueden generar listas para nosotros.
+
+- MDBList: para crear listas personalizadas basadas en filtros avanzados
+- Couchmoney: para obtener listas de recomendaciones personalizadas basadas en tu historial y calificaciones
+
+Si no quieres crear listas propias, puedes revisar las [listas creadas por otros usuarios](#usar-listas-de-otros-usuarios) en MDBList y pasar directamente a [configurar el addon](#adding-the-trakt-lists-to-stremio), donde puedes explorar listas populares/en tendencia o buscar listas.
+
+No necesitas configurar Couchmoney ni crear tus listas en MDBList; todo es opcional. Puedes ver las opciones y elegir las listas que quieras añadir a Stremio.
+
+Esta guía usará el addon Trakt Lists para añadir listas de MDBList; sin embargo, hay otros addons que soportan MDBList directamente, como:
+
+- [StremThru Lists](https://stremthru.com/lists) – Este addon también soporta Trakt, AniList y TMDB.
+- [Stremio MDBList Addon](https://1fe84bc728af-stremio-mdblist.baby-beamup.club/configure) – Soporta sólo MDBList y es una buena alternativa si sólo quieres usar MDBList.
+- [AIOLists](https://aiolists.elfhosted.com/)
+- [AIOCatalogs](https://aio.pantelx.com/)
+
+Recomiendo usar Trakt Lists o StremThru Lists:
+
+- Trakt Lists permite seleccionar opciones de orden alternativas; los otros no.
+- StremThru Lists soporta muchos más servicios y permite usar metadatos de TMDB o IMDB. También puedes barajar listas para descubrir más contenido.
+
+### MDBList
+
+:::info
+Se necesita una cuenta de Trakt si quieres crear tus propias listas.
+Usar listas públicas de otros usuarios no requiere cuenta de Trakt.
+:::
+
+[MDBList](https://mdblist.com/) ofrece una herramienta para crear listas personalizadas basadas en filtros como género, calificación, año y más.
+También puedes usar listas creadas por otros usuarios.
+
+Primero repasaré cómo crear nuestras propias listas con filtros. No es obligatorio: puedes usar directamente las listas creadas por otros usuarios.
+Recomiendo usar listas de otras personas.
+
+#### Crear nuestras propias listas
+
+:::warning
+Con una cuenta gratuita sólo puedes crear hasta 4 listas.
+Si quieres crear más, tendrás que [hacerte supporter](https://docs.mdblist.com/docs/supporter/).
+
+El límite de listas de Trakt también aplica al número de listas que puedes crear con MDBList.
+Sin embargo, puedes añadir listas no sincronizadas con Trakt a Stremio usando el [Stremio MDBList Addon](https://1fe84bc728af-stremio-mdblist.baby-beamup.club/configure)
+:::
+
+Para crear listas propias, primero asegúrate de haber iniciado sesión en Trakt.
+Haz clic en Login en la esquina superior derecha y luego en `with Trakt.tv`.
+
+![mdblist login](/img/stremio/mdblist_login.png)
+
+En MDBList tienes que crear listas por separado para películas y para series.
+
+Para crear una lista de películas, ve a la página principal de [MDBList](https://mdblist.com/) y verás el menú Movie Search.
+
+![mdblist movie search](/img/stremio/mdblist_movie_filters.png)
+
+Si quieres crear una lista para series, haz clic en [`Shows`](https://mdblist.com/tv/) en la barra superior y verás el menú TV Show Search.
+
+![mdblist tv search](/img/stremio/mdblist_tv_filters.png)
+
+Rellena los criterios de búsqueda y luego haz clic en el botón `Search`.
+Cuanto más filtros completes, mejores resultados obtendrás.
+
+Una vez que hayas buscado, verás una lista de películas o series que coinciden con tus criterios.
+Expande el menú `Create List`, rellena nombre y descripción y haz clic en `Create MDBList + Trakt`.
+
+![mdblist create list](/img/stremio/mdblist_create_trakt_list.png)
+
+La lista ya debería estar creada y puedes verla en la página [My Lists](https://mdblist.com/mylists/).
+
+#### Usar listas de otros usuarios
+
+Puedes navegar por las mejores listas en la página de [top lists](https://mdblist.com/toplists/).
+También hay una barra de búsqueda arriba para encontrar listas.
+
+Recomiendo revisar las listas de MDBList de [Gary](https://mdblist.com/lists/garycrawfordgc/), [Riz](https://mdblist.com/lists/rizreflects/) y [Snoak](https://mdblist.com/lists/snoak/).
+
+Las listas de Snoak son recomendables para reemplazar addons como Streaming Catalogs para catálogos de servicios de streaming, ya que las listas de MDBList se actualizan a menudo y suelen ser más precisas.
+
+Cuando encuentres una lista en MDBList, deja la página abierta en otra pestaña.
+La usaremos más adelante al configurar el addon.
+
+### Couchmoney
+
+:::info
+Couchmoney requiere una cuenta de Trakt y tener algo de historial, preferiblemente con calificaciones.
+:::tip
+¿Tienes historial en Netflix? Usa [Netflix to Trakt Import](https://github.com/jensb89/Netflix-to-Trakt-Import) para ahorrar tiempo e importar tu historial de Netflix a Trakt.
+:::
+[Couchmoney](https://couchmoney.tv/) crea listas personalizadas basadas en lo visto recientemente, contenido en tendencia o una lista específica. Podemos filtrar por fecha, género, idioma y popularidad. Se pueden crear hasta 10 listas. Se requiere cuenta de Trakt.
+
+1. Ve al [sitio web de Couchmoney](https://couchmoney.tv/)
+2. Haz clic en Login with Trakt
+3. Haz clic en Yes para permitir que Couchmoney acceda a tu cuenta de Trakt
+
+   ![couchmoney auth](/img/stremio/couchmoney_trakt_auth.png)
+
+4. En Couchmoney, deberían aparecer 2 listas: Movies - Recommendations y TV - Recommendations. Haz clic en el icono de edición en cada una para personalizarlas.
+   ![couchmoney lists](/img/stremio/couchmoney_lists_edit.png)
+   :::info
+   Si ves `Not enough recommendations - try rating more shows on Trakt`, significa que no tienes suficiente historial ni calificaciones.
+
+   Para solucionarlo, ve a Trakt y busca una película o serie que hayas visto.
+   Añádela a tu historial.
+   Haz clic en `Add a rating` justo debajo del título y ponle una calificación.
+   ![trakt add to history](/img/stremio/trakt_add_to_history.png)
+
+   :::
+
+Ahora, estas listas deberían ser visibles en tu cuenta de Trakt.
+
+### Agregar las Trakt Lists a Stremio {#adding-the-trakt-lists-to-stremio}
+
+Una vez elegidas o creadas las listas, debemos añadirlas a Stremio.
+
+1. Ve a la [página de configuración del addon](https://trakt.dexter21767.com)
+
+2. Si quieres añadir tus propias listas creadas con Couchmoney o MDBList, haz clic en el botón `Login to Trakt.tv` y permite el acceso del addon a tu cuenta.
+
+   ![trakt addon auth to trakt](/img/stremio/trakt_addon_auth_to_trakt.png)
+
+:::warning
+La página del addon mostrará una fecha de expiración del token. Cuando llegue esa fecha, el addon ya no podrá acceder a listas personales.
+Recuerda reconfigurarlo cuando el token expire si quieres seguir usando tus listas personales.
+:::
+
+3.  Desplázate hasta la sección `Add lists`
+
+    ![trakt addon config list section](/img/stremio/trakt_addon_config_list_section.png)
+
+4.  Ahora puedes añadir las listas que encontraste o creaste antes, o explorar y buscar listas aquí.
+
+```mdx-code-block
+    <AddingLists />
+```
+
+5.  Arrastra y suelta las listas para ordenarlas como quieres que aparezcan en tu inicio.
+
+6.  Opcionalmente, proporciona tu [RPDB API key](../faq#how-do-i-obtain-a-rpdb-api-key) para mostrar calificaciones en los pósters.
+
+7.  Ahora configura la sección `Generic lists`
+
+    ![trakt addon generic lists](/img/stremio/trakt_addon_generic_lists_configuration.png)
+
+    Esta sección permite configurar las listas genéricas que aparecerán en Stremio. Explico cada opción:
+
+    - Popular: crea un catálogo de películas y series populares en Trakt
+    - Trending: crea un catálogo de películas y series en tendencia en Trakt
+    - Watchlist: crea un catálogo con tu lista de seguimiento de Trakt
+      - Merged/Divided: decide si películas y series se mezclan en una lista o se separan en dos
+    - Recommendations: crea un catálogo con tus recomendaciones de Trakt (si configuraste Couchmoney, no necesitas habilitar esto)
+    - Search: mostrará resultados de Trakt cuando busques películas o series en Stremio.
+
+8.  Haz clic en `Install Addon`
+
+Ahora deberías ver las listas en tu página de inicio.
+![trakt addon stremio home page](/img/stremio/trakt_addon_stremio_homepage.png)
+
+## Addon Trakt Up Next
+
+El addon Trakt Up Next muestra el siguiente episodio de una serie que estás viendo.
+La serie debe estar en tu watchlist de Trakt y debes haber visto un episodio previo.
+
+Para configurarlo:
+
+1. Ve a la [página de configuración de Trakt Up Next](https://up-next.dontwanttos.top/)
+2. Configura el addon a tu gusto
+3. Haz clic en Install

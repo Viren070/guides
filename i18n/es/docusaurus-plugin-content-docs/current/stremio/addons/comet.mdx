@@ -1,0 +1,64 @@
+---
+title: Comet
+description: El addon de búsqueda de torrent/debrid más rápido de Stremio.
+keywords:
+  [
+    stremio,
+    addons,
+    addon,
+    comet,
+    torrent,
+    guía,
+    configuración,
+    instalar,
+    enlace,
+  ]
+tags:
+  [stremio-addon, stremio-addon:debrid-streams, stremio-addon:torrent-streams]
+---
+
+```mdx-code-block
+import StremioAddonButtons from '@site/src/components/StremioAddonButtons';
+
+<StremioAddonButtons id="comet" manifest="https://comet.elfhosted.com/manifest.json" configurable configurationRequired source="https://github.com/g0ldyy/comet"/>
+```
+
+<h3>Descripción</h3>
+
+[Comet](https://github.com/g0ldyy/comet) es un addon de búsqueda de torrent/debrid auto-hospedable.
+
+Una de sus características distintivas es que soporta el uso de streams Proxy Debrid.
+Esto permite el uso de streams Debrid en múltiples IPs al mismo tiempo en la misma cuenta.
+
+Sin embargo, tendrás que usar comet exclusivamente, ningún otro addon que use el mismo debrid debería estar siendo usado al mismo tiempo ya que tendrá una dirección IP diferente al proxy.
+
+Puedes leer más sobre sus características en la [página de GitHub de Comet](https://github.com/g0ldyy/comet?tab=readme-ov-file#features)
+
+:::note
+La función de proxy no está disponible en la instancia pública de ElfHosted. Puedes usar la versión pública con otros addons sin problemas.
+Solo si habilitas la función de proxy cuando auto-hospedas (o usas una instancia personalizada de ElfHosted) tendrás que usar Comet exclusivamente.
+:::
+
+Comet puede ser [auto-hospedado](https://github.com/g0ldyy/comet?tab=readme-ov-file#self-hosted) o [ElfHosted](https://elfhosted.com/app/comet/).
+
+Para esta guía, repasaré la configuración usando la instancia pública gratuita de ElfHosted. Si no quieres auto-hospedar pero quieres más personalización, puedes pagar por tu propia instancia en ElfHosted.
+
+<h3>Configuración</h3>
+
+Para comenzar, dirígete a la [página de configuración](https://comet.elfhosted.com/configure)
+
+- **Filtros de Idioma**:
+  - `Idiomas Requeridos` - Si absolutamente necesitas un idioma específico, puedes establecerlo aquí. Cualquier resultado que no coincida con ninguno de los idiomas que establezcas aquí no se mostrará. Recomiendo dejar esto en blanco ya que muchos torrents no especifican idiomas y esto también puede llevar a perderse muchos resultados.
+  - `Idiomas Preferidos` - Si solo quieres preferir resultados en un idioma (pero no filtrar resultados en otros idiomas), puedes establecerlo aquí. Cualquier resultado que coincida con cualquiera de los idiomas que establezcas aquí se mostrará primero.
+  - `Idiomas Excluidos` - Si quieres excluir resultados en un idioma específico, puedes establecerlo aquí. Cualquier resultado que coincida con cualquiera de los idiomas que establezcas aquí no se mostrará.
+- `Resoluciones` - Elige qué resoluciones quieres que tengan tus resultados. Dejo todas seleccionadas para obtener la mayoría de resultados.
+- `Máximo de Resultados Por Resolución` - El número máximo de resultados a mostrar. Establezco esto en 20 para no tener tantos resultados por los que desplazarme. Puedes dejarlo en 0 para mostrar todos los resultados.
+- `Tamaño Máximo` - El tamaño máximo del torrent a mostrar. Dejo esto en 0. Si tu internet es lento o tu dispositivo es incapaz de hacer streaming de archivos grandes, puedes establecer un tamaño máximo más bajo aquí.
+- `Servicio Debrid` - Selecciona el servicio debrid que estás usando aquí, si alguno.
+- `Clave API Debrid` - Si seleccionaste tu servicio debrid anteriormente, proporciona tu clave API aquí. Puedes encontrar tu clave API en el sitio web de tu proveedor debrid. (¿Tienes problemas para encontrar tu clave API? [Haz clic aquí](/stremio/faq#where-can-i-find-my-debrid-api-key))
+- **Configuraciones Avanzadas**:
+  - `Mostrar Solo Cacheados` - Cuando uses un servicio debrid, seleccionar esto filtrará los resultados no cacheados. Dejo esto desmarcado para ver todos los resultados. Los resultados no cacheados pueden ser añadidos a tu servicio debrid y volverse cacheados cuando no hay resultados cacheados disponibles.
+  - `Eliminar Basura` - Esto elimina todas las fuentes CAM y Screener de los resultados. También intenta eliminar contenido para adultos. Dejo esto marcado.
+  - `Formato de Resultado` - Elige la información que quieres ver en los resultados. Dejo todas seleccionadas.
+
+Luego haz clic en `Instalar` para abrir Stremio con una solicitud para instalar el addon o haz clic en `Copiar Enlace` para copiar la URL del addon para pegar en Stremio manualmente.

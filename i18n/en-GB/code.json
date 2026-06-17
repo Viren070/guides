@@ -1,0 +1,792 @@
+{
+  "theme.lastUpdated.atDate": {
+    "message": " on {date}",
+    "description": "The words used to describe on which date a page has been last updated"
+  },
+  "theme.lastUpdated.byUser": {
+    "message": " by {user}",
+    "description": "The words used to describe by who the page has been last updated"
+  },
+  "theme.lastUpdated.lastUpdatedAtBy": {
+    "message": "Last updated{atDate}{byUser}",
+    "description": "The sentence used to display when a page has been last updated, and by who"
+  },
+  "currencySelector.label": {
+    "message": "Select Primary Currency",
+    "description": "Label for the currency selector"
+  },
+  "currencySelector.description": {
+    "message": "The currency that all other prices are converted to. Leave blank to see original prices.",
+    "description": "Description for the currency selector"
+  },
+  "debridTable.configureButton": {
+    "message": "Configure Table Data",
+    "description": "Button to configure table data"
+  },
+  "debridService": {
+    "message": "Debrid Service",
+    "description": "General term to refer to Debrid Services"
+  },
+  "debridTable.pricePerYear": {
+    "message": "Price per Year",
+    "description": "Label to refer to the price of a debrid service per year"
+  },
+  "debridTable.pricePerMonth": {
+    "message": "Price per Month",
+    "description": "Label to refer to the price of a debrid service per month"
+  },
+  "debridTable.pricePerDay": {
+    "message": "Price per Day",
+    "description": "Label to refer to the price of a debrid service per day"
+  },
+  "debridTable.planPrice": {
+    "message": "Plan Price",
+    "description": "Label to refer to the total price of the relevant plan for a debrid service"
+  },
+  "debridTable.planDurationInDays": {
+    "message": "Plan Duration (Days)",
+    "description": "Label to refer to the total duration of a plan measured in days"
+  },
+  "debridTable.settings.applyChanges.toast.error.missing": {
+    "message": "All fields must be filled in",
+    "description": "Toast message for missing fields"
+  },
+  "debridTable.settings.applyChanges.toast.error.lessThanZero": {
+    "message": "Price and duration must be greater than 0",
+    "description": "Toast message for a price or duration less than 0"
+  },
+  "debridTable.settings.closeButton.title": {
+    "message": "Close",
+    "description": "Title for the close button"
+  },
+  "debridTable.settings.serviceData.title": {
+    "message": "Service Data",
+    "description": "Title for the service data section"
+  },
+  "debridTable.settings.serviceName.label": {
+    "message": "Service Name",
+    "description": "Label for the input field for the service name"
+  },
+  "debridTable.settings.serviceName.placeholder": {
+    "message": "Service Name",
+    "description": "Placeholder for the service name input field"
+  },
+  "debridTable.settings.price.label": {
+    "message": "Price",
+    "description": "Label for the input field for the price"
+  },
+  "debridTable.settings.price.placeholder": {
+    "message": "Price",
+    "description": "Placeholder for the price input field"
+  },
+  "debridTable.settings.duration.label": {
+    "message": "Duration (Days)",
+    "description": "Label for the input field for the duration in days"
+  },
+  "debridTable.settings.duration.placeholder": {
+    "message": "Duration",
+    "description": "Placeholder for the duration input field"
+  },
+  "debridTable.settings.currency.label": {
+    "message": "Currency",
+    "description": "Label for the input field for the currency"
+  },
+  "debridTable.settings.deleteButton.title": {
+    "message": "Delete",
+    "description": "Title for the delete button"
+  },
+  "debridTable.config.deleteButton.label": {
+    "message": "Delete",
+    "description": "Label for the delete button"
+  },
+  "debridTable.settings.addNewServiceButton.title": {
+    "message": "Add New Service",
+    "description": "Title for the add new service button"
+  },
+  "debridTable.settings.resetButton.title": {
+    "message": "Reset",
+    "description": "Title for the reset button"
+  },
+  "debridTable.settings.resetButton.label": {
+    "message": "Reset",
+    "description": "Label for the reset button"
+  },
+  "debridTable.settings.applyButton.title": {
+    "message": "Apply",
+    "description": "Title for the apply button"
+  },
+  "debridTable.settings.applyButton.label": {
+    "message": "Apply",
+    "description": "Label for the apply button"
+  },
+  "oauthTool.errors.missingResponse": {
+    "message": "The {authorisationCode} or error parameter is missing from the response",
+    "description": "Error message displayed when an unknown error occurs"
+  },
+  "oauthTool.fields.authorisationCode": {
+    "message": "Authorisation Code",
+    "description": "Authorisation Code field"
+  },
+  "oauthTool.prompts.copyCode": {
+    "message": "Copy the authorisation code and paste it into the OAuth tool",
+    "description": "Prompt message displayed to the user to copy the authorisation code"
+  },
+  "oauthTool.errors.accessDenied": {
+    "message": "You denied the authorisation request",
+    "description": "Error message displayed when the user denies the authorisation request"
+  },
+  "oauthTool.errors.invalidField": {
+    "message": "The {field} is invalid",
+    "description": "Error message displayed when a field is invalid"
+  },
+  "oauthTool.fields.clientSecret": {
+    "message": "Client Secret",
+    "description": "Client Secret field"
+  },
+  "oauthTool.fields.clientId": {
+    "message": "Client ID",
+    "description": "Client ID field"
+  },
+  "oauthTool.toasts.authorisationCodeObtained": {
+    "message": "Authorisation code obtained successfully. Click 'Get Addon Code' to complete the process",
+    "description": "Toast message displayed when the authorisation code is obtained successfully from the callback URL"
+  },
+  "oauthTool.toasts.missingField": {
+    "message": "{field} is required",
+    "description": "Toast message displayed when a required field is empty"
+  },
+  "oauthTool.toasts.unexpectedError": {
+    "message": "An unexpected error occurred",
+    "description": "Toast message displayed when an unexpected error occurs"
+  },
+  "oauthTool.toasts.exchangeSuccess": {
+    "message": "Successfully exchanged the authorisation code for your tokens",
+    "description": "Toast message displayed when the authorisation code is exchanged for tokens successfully"
+  },
+  "oauthTool.codeBlock.usageFor": {
+    "message": "Follow these instructions if you are using {link}",
+    "description": "Usage instructions for the code block"
+  },
+  "oauthTool.codeBlock.usageFor.viren070": {
+    "message": "my guide",
+    "description": "Link text for if following Viren070's guide (my guide)"
+  },
+  "oathTool.codeBlock.usageFor.viren070.copyToCloudflareWorker": {
+    "message": "Simply copy this code into your Cloudflare Worker",
+    "description": "Instructions to copy the code to the Cloudflare Worker"
+  },
+  "oauthTool.codeBlock.usageFor.shuvamJaswal": {
+    "message": "ShuvamJaswal's addon",
+    "description": "Link text for if using ShuvamJuswal's addon"
+  },
+  "oauthTool.codeBlock.usageFor.shuvamJaswal.createEnvVariable": {
+    "message": "Add an environment variable called {token} to your Vercel/Heroku deployment with the following value",
+    "description": "Instructions to create an environment variable"
+  },
+  "oauthTool.codeBlock.usageFor.shuvamJaswal.copyToCloudflareWorker": {
+    "message": "Copy this code into your Cloudflare Worker",
+    "description": "Instructions to copy the code to the Cloudflare Worker"
+  },
+  "oauthTool.codeBlock.usageFor.plainText": {
+    "message": "This tab is to see the values in plain text. Copy the values and use them as needed.",
+    "description": "Usage instructions for the plain text tab"
+  },
+  "oauthTool.title": {
+    "message": "Google OAuth Tool",
+    "description": "Title for the Google OAuth Tool"
+  },
+  "oauthTool.warnings.sessionStorageUnavailable": {
+    "message": "Session storage is not available. The tool will not work as expected. Please try a different device.",
+    "description": "The warning displayed when session storage is not available."
+  },
+  "oauthTool.buttons.authorise": {
+    "message": "Authorise",
+    "description": "Authorise button"
+  },
+  "authTool.fields.authorisationCode": {
+    "message": "Authorisation Code",
+    "description": "Authorisation Code field"
+  },
+  "oauthTool.buttons.getAddonCode.label": {
+    "message": "Get Addon Code",
+    "description": "Text for the get addon code button"
+  },
+  "kofi.button.label.full": {
+    "message": "Support me on Ko-fi",
+    "description": "The full label for the Ko-fi button"
+  },
+  "kofi.widget.label.short": {
+    "message": "Support me",
+    "description": "The short label for the Ko-fi widget"
+  },
+  "stremio.addonNotFound.title": {
+    "message": "Oops",
+    "description": "Heading for the content of the section when the addon documentation is not found"
+  },
+  "stremio.addonNotFound.description": {
+    "message": "The addon documentation for {name} could not be found. Please report this issue on GitHub. ",
+    "description": "The content of the section when the addon documentation is not found that tells the user what happened and to report the issue on GitHub"
+  },
+  "stremio.configureButton.title": {
+    "message": "Configure Addon",
+    "description": "Title for the button that opens the configuration page for the addon"
+  },
+  "stremio.configureButton.label": {
+    "message": "Configure",
+    "description": "Label for the configure button"
+  },
+  "stremio.installButton.toast": {
+    "message": "Attempting to install the addon. If nothing happens, make sure you have the app installed or try using the web install instead.",
+    "description": "Toast message for install button"
+  },
+  "stremio.installButton.title": {
+    "message": "Install the addon to the Stremio app",
+    "description": "Title for the install button"
+  },
+  "stremio.installButton.label": {
+    "message": "Install",
+    "description": "Label for the install button"
+  },
+  "stremio.installWebButton.title": {
+    "message": "Install the addon to Stremio Web",
+    "description": "Title for the install web button"
+  },
+  "stremio.installWebButton.label": {
+    "message": "Install (Web)",
+    "description": "Label for the install web button"
+  },
+  "stremio.sourceCodeButton.title": {
+    "message": "View the source code of the addon",
+    "description": "Title for the source code button"
+  },
+  "stremio.sourceCodeButton.label": {
+    "message": "Source Code",
+    "description": "Label for the source code button"
+  },
+  "stremio.shareGuideButton.toast.unsupported": {
+    "message": "Sharing is not supported in your browser. The addon guide link will be copied to your clipboard instead.",
+    "description": "Toast message for unsupported share feature"
+  },
+  "stremio.shareGuideButton.toast.copied": {
+    "message": "The addon guide link was copied to your clipboard!",
+    "description": "Toast message for copied link"
+  },
+  "stremio.shareGuideButton.toast.error": {
+    "message": "Failed to share or copy the addon guide link! {guideLink}",
+    "description": "Toast message for failed share or copy"
+  },
+  "stremio.shareGuideButton.toast.success": {
+    "message": "The addon guide was shared successfully!",
+    "description": "Toast message for successful share"
+  },
+  "stremio.shareGuideButton.title": {
+    "message": "Copy the link to the guide for this addon",
+    "description": "Title for the share guide button"
+  },
+  "stremio.shareGuideButton.label": {
+    "message": "Share Addon Guide",
+    "description": "Label for the share guide button"
+  },
+  "stremio.copyManifestUrlButton.toast.success": {
+    "message": "The manifest URL was copied to your clipboard!",
+    "description": "Toast message for successful copy"
+  },
+  "stremio.copyManifestUrlButton.toast.error": {
+    "message": "Failed to copy the manifest URL to your clipboard! {manifest}",
+    "description": "Toast message for failed copy"
+  },
+  "stremio.copyManifestUrlButton.title": {
+    "message": "Copy the addon manifest URL",
+    "description": "Title for the copy manifest URL button"
+  },
+  "stremio.copyManifestUrlButton.label": {
+    "message": "Copy Manifest URL",
+    "description": "Label for the copy manifest URL button"
+  },
+  "oauthTool.faq.title": {
+    "message": "FAQ",
+    "description": "FAQ title"
+  },
+  "oauthTool.faq.whatIsThisTool": {
+    "message": "What is this tool for?",
+    "description": "FAQ question: What is this tool for?"
+  },
+  "oauthTool.faq.whatIsThisTool.answer": {
+    "message": "This tool is for obtaining the code required for the various different Stremio GDrive addons.",
+    "description": "FAQ answer: What is this tool for?"
+  },
+  "oauthTool.faq.howToUse": {
+    "message": "How do I use this tool?",
+    "description": "FAQ question: How do I use this tool?"
+  },
+  "oauthTool.faq.howToUse.answer": {
+    "message": "A prerequisite for using this tool is that your OAuth client must be of the {code} type. You must also add the following URL to the list of authorised redirect URIs in the Google Cloud Console",
+    "description": "FAQ answer: How do I use this tool?"
+  },
+  "oauthTool.faq.howToUse.answer.continued": {
+    "message": "You can find a more detailed guide on using this tool to setup a Stremio Google Drive addon {here}.",
+    "description": "The continuation of the answer to the question: How do I use this tool?"
+  },
+  "oauthTool.faq.howToUse.answer.continued.linkTohere": {
+    "message": "here",
+    "description": "Link to the Stremio GDrive addon guide"
+  },
+  "oauthTool.faq.howDoesItWork": {
+    "message": "How does this tool work?",
+    "description": "FAQ question: How does this tool work?"
+  },
+  "oauthTool.faq.howDoesItWork.answer": {
+    "message": "Once you input your Client ID, the tool will construct an OAuth URL that allows you to authorise the client to access your Google Drive, using this tool as the redirect URI. Once you authorise the client, Google will redirect you back to this tool with an authorisation code, that is automatically extracted and filled in for you. Then, you can click the {generateCodeButton} button which uses the authorisation code to obtain a new refresh token and access token. You then choose your format depending on the addon you are using, and it is displayed for you to copy.",
+    "description": "FAQ answer: How does this tool work?"
+  },
+  "oauthTool.faq.isThisSafe": {
+    "message": "Is this safe?",
+    "description": "FAQ question: Is this safe?"
+  },
+  "oauthTool.faq.isThisSafe.answer1": {
+    "message": "Everything is run on your device, and no data is sent anywhere.",
+    "description": "FAQ answer: Is this safe? Part 1"
+  },
+  "oauthTool.faq.isThisSafe.answer2": {
+    "message": "The client ID and client secret are stored in your browser's session storage, which is cleared upon closing the tab. The authorisation code is also stored in the session storage to allow the tool to transfer it from the callback URL back to the tool to automatically fill it in for you.",
+    "description": "FAQ answer: Is this safe? Part 2"
+  },
+  "oauthTool.faq.isThisSafe.answer3": {
+    "message": "As long as your device isn't already compromised, this tool is safe to use.",
+    "description": "FAQ answer: Is this safe? Part 3"
+  },
+  "oauthTool.faq.isThisSafe.answer4": {
+    "message": "You can view the source code for this tool {link}.",
+    "description": "FAQ answer: Is this safe? Part 4"
+  },
+  "theme.ErrorPageContent.title": {
+    "message": "This page crashed.",
+    "description": "The title of the fallback page when the page crashed"
+  },
+  "theme.BackToTopButton.buttonAriaLabel": {
+    "message": "Scroll back to top",
+    "description": "The ARIA label for the back to top button"
+  },
+  "theme.blog.archive.title": {
+    "message": "Archive",
+    "description": "The page & hero title of the blog archive page"
+  },
+  "theme.blog.archive.description": {
+    "message": "Archive",
+    "description": "The page & hero description of the blog archive page"
+  },
+  "theme.blog.paginator.navAriaLabel": {
+    "message": "Blog list page navigation",
+    "description": "The ARIA label for the blog pagination"
+  },
+  "theme.blog.paginator.newerEntries": {
+    "message": "Newer entries",
+    "description": "The label used to navigate to the newer blog posts page (previous page)"
+  },
+  "theme.blog.paginator.olderEntries": {
+    "message": "Older entries",
+    "description": "The label used to navigate to the older blog posts page (next page)"
+  },
+  "theme.blog.post.paginator.navAriaLabel": {
+    "message": "Blog post page navigation",
+    "description": "The ARIA label for the blog posts pagination"
+  },
+  "theme.blog.post.paginator.newerPost": {
+    "message": "Newer post",
+    "description": "The blog post button label to navigate to the newer/previous post"
+  },
+  "theme.blog.post.paginator.olderPost": {
+    "message": "Older post",
+    "description": "The blog post button label to navigate to the older/next post"
+  },
+  "theme.tags.tagsPageLink": {
+    "message": "View all tags",
+    "description": "The label of the link targeting the tag list page"
+  },
+  "theme.colorToggle.ariaLabel": {
+    "message": "Switch between dark and light mode (currently {mode})",
+    "description": "The ARIA label for the navbar color mode toggle"
+  },
+  "theme.colorToggle.ariaLabel.mode.dark": {
+    "message": "dark mode",
+    "description": "The name for the dark color mode"
+  },
+  "theme.colorToggle.ariaLabel.mode.light": {
+    "message": "light mode",
+    "description": "The name for the light color mode"
+  },
+  "theme.docs.breadcrumbs.navAriaLabel": {
+    "message": "Breadcrumbs",
+    "description": "The ARIA label for the breadcrumbs"
+  },
+  "theme.docs.DocCard.categoryDescription.plurals": {
+    "message": "1 item|{count} items",
+    "description": "The default description for a category card in the generated index about how many items this category includes"
+  },
+  "theme.docs.paginator.navAriaLabel": {
+    "message": "Docs pages",
+    "description": "The ARIA label for the docs pagination"
+  },
+  "theme.docs.paginator.previous": {
+    "message": "Previous",
+    "description": "The label used to navigate to the previous doc"
+  },
+  "theme.docs.paginator.next": {
+    "message": "Next",
+    "description": "The label used to navigate to the next doc"
+  },
+  "theme.docs.versionBadge.label": {
+    "message": "Version: {versionLabel}"
+  },
+  "theme.docs.tagDocListPageTitle.nDocsTagged": {
+    "message": "One doc tagged|{count} docs tagged",
+    "description": "Pluralized label for \"{count} docs tagged\". Use as much plural forms (separated by \"|\") as your language support (see https://www.unicode.org/cldr/cldr-aux/charts/34/supplemental/language_plural_rules.html)"
+  },
+  "theme.docs.tagDocListPageTitle": {
+    "message": "{nDocsTagged} with \"{tagName}\"",
+    "description": "The title of the page for a docs tag"
+  },
+  "theme.docs.versions.unreleasedVersionLabel": {
+    "message": "This is unreleased documentation for {siteTitle} {versionLabel} version.",
+    "description": "The label used to tell the user that he's browsing an unreleased doc version"
+  },
+  "theme.docs.versions.unmaintainedVersionLabel": {
+    "message": "This is documentation for {siteTitle} {versionLabel}, which is no longer actively maintained.",
+    "description": "The label used to tell the user that he's browsing an unmaintained doc version"
+  },
+  "theme.docs.versions.latestVersionSuggestionLabel": {
+    "message": "For up-to-date documentation, see the {latestVersionLink} ({versionLabel}).",
+    "description": "The label used to tell the user to check the latest version"
+  },
+  "theme.docs.versions.latestVersionLinkLabel": {
+    "message": "latest version",
+    "description": "The label used for the latest version suggestion link label"
+  },
+  "theme.common.editThisPage": {
+    "message": "Edit this page",
+    "description": "The link label to edit the current page"
+  },
+  "theme.common.headingLinkTitle": {
+    "message": "Direct link to {heading}",
+    "description": "Title for link to heading"
+  },
+  "theme.navbar.mobileVersionsDropdown.label": {
+    "message": "Versions",
+    "description": "The label for the navbar versions dropdown on mobile view"
+  },
+  "theme.NotFound.title": {
+    "message": "Page Not Found",
+    "description": "The title of the 404 page"
+  },
+  "theme.tags.tagsListLabel": {
+    "message": "Tags:",
+    "description": "The label alongside a tag list"
+  },
+  "theme.AnnouncementBar.closeButtonAriaLabel": {
+    "message": "Close",
+    "description": "The ARIA label for close button of announcement bar"
+  },
+  "theme.admonition.caution": {
+    "message": "caution",
+    "description": "The default label used for the Caution admonition (:::caution)"
+  },
+  "theme.admonition.danger": {
+    "message": "danger",
+    "description": "The default label used for the Danger admonition (:::danger)"
+  },
+  "theme.admonition.info": {
+    "message": "info",
+    "description": "The default label used for the Info admonition (:::info)"
+  },
+  "theme.admonition.note": {
+    "message": "note",
+    "description": "The default label used for the Note admonition (:::note)"
+  },
+  "theme.admonition.tip": {
+    "message": "tip",
+    "description": "The default label used for the Tip admonition (:::tip)"
+  },
+  "theme.admonition.warning": {
+    "message": "warning",
+    "description": "The default label used for the Warning admonition (:::warning)"
+  },
+  "theme.blog.sidebar.navAriaLabel": {
+    "message": "Blog recent posts navigation",
+    "description": "The ARIA label for recent posts in the blog sidebar"
+  },
+  "theme.CodeBlock.copied": {
+    "message": "Copied",
+    "description": "The copied button label on code blocks"
+  },
+  "theme.CodeBlock.copyButtonAriaLabel": {
+    "message": "Copy code to clipboard",
+    "description": "The ARIA label for copy code blocks button"
+  },
+  "theme.CodeBlock.copy": {
+    "message": "Copy",
+    "description": "The copy button label on code blocks"
+  },
+  "theme.CodeBlock.wordWrapToggle": {
+    "message": "Toggle word wrap",
+    "description": "The title attribute for toggle word wrapping button of code block lines"
+  },
+  "theme.DocSidebarItem.expandCategoryAriaLabel": {
+    "message": "Expand sidebar category '{label}'",
+    "description": "The ARIA label to expand the sidebar category"
+  },
+  "theme.DocSidebarItem.collapseCategoryAriaLabel": {
+    "message": "Collapse sidebar category '{label}'",
+    "description": "The ARIA label to collapse the sidebar category"
+  },
+  "theme.NavBar.navAriaLabel": {
+    "message": "Main",
+    "description": "The ARIA label for the main navigation"
+  },
+  "theme.navbar.mobileLanguageDropdown.label": {
+    "message": "Languages",
+    "description": "The label for the mobile language switcher dropdown"
+  },
+  "theme.TOCCollapsible.toggleButtonLabel": {
+    "message": "On this page",
+    "description": "The label used by the button on the collapsible TOC component"
+  },
+  "theme.NotFound.p1": {
+    "message": "We could not find what you were looking for.",
+    "description": "The first paragraph of the 404 page"
+  },
+  "theme.NotFound.p2": {
+    "message": "Please contact the owner of the site that linked you to the original URL and let them know their link is broken.",
+    "description": "The 2nd paragraph of the 404 page"
+  },
+  "theme.blog.post.readMore": {
+    "message": "Read more",
+    "description": "The label used in blog post item excerpts to link to full blog posts"
+  },
+  "theme.blog.post.readMoreLabel": {
+    "message": "Read more about {title}",
+    "description": "The ARIA label for the link to full blog posts from excerpts"
+  },
+  "theme.blog.post.readingTime.plurals": {
+    "message": "One min read|{readingTime} min read",
+    "description": "Pluralized label for \"{readingTime} min read\". Use as much plural forms (separated by \"|\") as your language support (see https://www.unicode.org/cldr/cldr-aux/charts/34/supplemental/language_plural_rules.html)"
+  },
+  "theme.docs.breadcrumbs.home": {
+    "message": "Home page",
+    "description": "The ARIA label for the home page in the breadcrumbs"
+  },
+  "theme.docs.sidebar.collapseButtonTitle": {
+    "message": "Collapse sidebar",
+    "description": "The title attribute for collapse button of doc sidebar"
+  },
+  "theme.docs.sidebar.collapseButtonAriaLabel": {
+    "message": "Collapse sidebar",
+    "description": "The title attribute for collapse button of doc sidebar"
+  },
+  "theme.docs.sidebar.navAriaLabel": {
+    "message": "Docs sidebar",
+    "description": "The ARIA label for the sidebar navigation"
+  },
+  "theme.docs.sidebar.closeSidebarButtonAriaLabel": {
+    "message": "Close navigation bar",
+    "description": "The ARIA label for close button of mobile sidebar"
+  },
+  "theme.navbar.mobileSidebarSecondaryMenu.backButtonLabel": {
+    "message": "← Back to main menu",
+    "description": "The label of the back button to return to main menu, inside the mobile navbar sidebar secondary menu (notably used to display the docs sidebar)"
+  },
+  "theme.docs.sidebar.toggleSidebarButtonAriaLabel": {
+    "message": "Toggle navigation bar",
+    "description": "The ARIA label for hamburger menu button of mobile navigation"
+  },
+  "theme.docs.sidebar.expandButtonTitle": {
+    "message": "Expand sidebar",
+    "description": "The ARIA label and title attribute for expand button of doc sidebar"
+  },
+  "theme.docs.sidebar.expandButtonAriaLabel": {
+    "message": "Expand sidebar",
+    "description": "The ARIA label and title attribute for expand button of doc sidebar"
+  },
+  "theme.SearchBar.seeAll": {
+    "message": "See all {count} results"
+  },
+  "theme.SearchBar.label": {
+    "message": "Search",
+    "description": "The ARIA label and placeholder for search button"
+  },
+  "theme.SearchModal.searchBox.resetButtonTitle": {
+    "message": "Clear the query",
+    "description": "The label and ARIA label for search box reset button"
+  },
+  "theme.SearchModal.searchBox.cancelButtonText": {
+    "message": "Cancel",
+    "description": "The label and ARIA label for search box cancel button"
+  },
+  "theme.SearchModal.startScreen.recentSearchesTitle": {
+    "message": "Recent",
+    "description": "The title for recent searches"
+  },
+  "theme.SearchModal.startScreen.noRecentSearchesText": {
+    "message": "No recent searches",
+    "description": "The text when no recent searches"
+  },
+  "theme.SearchModal.startScreen.saveRecentSearchButtonTitle": {
+    "message": "Save this search",
+    "description": "The label for save recent search button"
+  },
+  "theme.SearchModal.startScreen.removeRecentSearchButtonTitle": {
+    "message": "Remove this search from history",
+    "description": "The label for remove recent search button"
+  },
+  "theme.SearchModal.startScreen.favoriteSearchesTitle": {
+    "message": "Favorite",
+    "description": "The title for favorite searches"
+  },
+  "theme.SearchModal.startScreen.removeFavoriteSearchButtonTitle": {
+    "message": "Remove this search from favorites",
+    "description": "The label for remove favorite search button"
+  },
+  "theme.SearchModal.errorScreen.titleText": {
+    "message": "Unable to fetch results",
+    "description": "The title for error screen of search modal"
+  },
+  "theme.SearchModal.errorScreen.helpText": {
+    "message": "You might want to check your network connection.",
+    "description": "The help text for error screen of search modal"
+  },
+  "theme.SearchModal.footer.selectText": {
+    "message": "to select",
+    "description": "The explanatory text of the action for the enter key"
+  },
+  "theme.SearchModal.footer.selectKeyAriaLabel": {
+    "message": "Enter key",
+    "description": "The ARIA label for the Enter key button that makes the selection"
+  },
+  "theme.SearchModal.footer.navigateText": {
+    "message": "to navigate",
+    "description": "The explanatory text of the action for the Arrow up and Arrow down key"
+  },
+  "theme.SearchModal.footer.navigateUpKeyAriaLabel": {
+    "message": "Arrow up",
+    "description": "The ARIA label for the Arrow up key button that makes the navigation"
+  },
+  "theme.SearchModal.footer.navigateDownKeyAriaLabel": {
+    "message": "Arrow down",
+    "description": "The ARIA label for the Arrow down key button that makes the navigation"
+  },
+  "theme.SearchModal.footer.closeText": {
+    "message": "to close",
+    "description": "The explanatory text of the action for Escape key"
+  },
+  "theme.SearchModal.footer.closeKeyAriaLabel": {
+    "message": "Escape key",
+    "description": "The ARIA label for the Escape key button that close the modal"
+  },
+  "theme.SearchModal.footer.searchByText": {
+    "message": "Search by",
+    "description": "The text explain that the search is making by Algolia"
+  },
+  "theme.SearchModal.noResultsScreen.noResultsText": {
+    "message": "No results for",
+    "description": "The text explains that there are no results for the following search"
+  },
+  "theme.SearchModal.noResultsScreen.suggestedQueryText": {
+    "message": "Try searching for",
+    "description": "The text for the suggested query when no results are found for the following search"
+  },
+  "theme.SearchModal.noResultsScreen.reportMissingResultsText": {
+    "message": "Believe this query should return results?",
+    "description": "The text for the question where the user thinks there are missing results"
+  },
+  "theme.SearchModal.noResultsScreen.reportMissingResultsLinkText": {
+    "message": "Let us know.",
+    "description": "The text for the link to report missing results"
+  },
+  "theme.SearchModal.placeholder": {
+    "message": "Search docs",
+    "description": "The placeholder of the input of the DocSearch pop-up modal"
+  },
+  "theme.SearchPage.documentsFound.plurals": {
+    "message": "One document found|{count} documents found",
+    "description": "Pluralized label for \"{count} documents found\". Use as much plural forms (separated by \"|\") as your language support (see https://www.unicode.org/cldr/cldr-aux/charts/34/supplemental/language_plural_rules.html)"
+  },
+  "theme.SearchPage.existingResultsTitle": {
+    "message": "Search results for \"{query}\"",
+    "description": "The search page title for non-empty query"
+  },
+  "theme.SearchPage.emptyResultsTitle": {
+    "message": "Search the documentation",
+    "description": "The search page title for empty query"
+  },
+  "theme.SearchPage.inputPlaceholder": {
+    "message": "Type your search here",
+    "description": "The placeholder for search page input"
+  },
+  "theme.SearchPage.inputLabel": {
+    "message": "Search",
+    "description": "The ARIA label for search page input"
+  },
+  "theme.SearchPage.algoliaLabel": {
+    "message": "Search by Algolia",
+    "description": "The ARIA label for Algolia mention"
+  },
+  "theme.SearchPage.noResultsText": {
+    "message": "No results were found",
+    "description": "The paragraph for empty search result"
+  },
+  "theme.SearchPage.fetchingNewResults": {
+    "message": "Fetching new results...",
+    "description": "The paragraph for fetching new search results"
+  },
+  "theme.blog.post.plurals": {
+    "message": "One post|{count} posts",
+    "description": "Pluralized label for \"{count} posts\". Use as much plural forms (separated by \"|\") as your language support (see https://www.unicode.org/cldr/cldr-aux/charts/34/supplemental/language_plural_rules.html)"
+  },
+  "theme.blog.tagTitle": {
+    "message": "{nPosts} tagged with \"{tagName}\"",
+    "description": "The title of the page for a blog tag"
+  },
+  "theme.blog.author.pageTitle": {
+    "message": "{authorName} - {nPosts}",
+    "description": "The title of the page for a blog author"
+  },
+  "theme.blog.authorsList.pageTitle": {
+    "message": "Authors",
+    "description": "The title of the authors page"
+  },
+  "theme.blog.authorsList.viewAll": {
+    "message": "View all authors",
+    "description": "The label of the link targeting the blog authors page"
+  },
+  "theme.blog.author.noPosts": {
+    "message": "This author has not written any posts yet.",
+    "description": "The text for authors with 0 blog post"
+  },
+  "theme.contentVisibility.unlistedBanner.title": {
+    "message": "Unlisted page",
+    "description": "The unlisted content banner title"
+  },
+  "theme.contentVisibility.unlistedBanner.message": {
+    "message": "This page is unlisted. Search engines will not index it, and only users having a direct link can access it.",
+    "description": "The unlisted content banner message"
+  },
+  "theme.contentVisibility.draftBanner.title": {
+    "message": "Draft page",
+    "description": "The draft content banner title"
+  },
+  "theme.contentVisibility.draftBanner.message": {
+    "message": "This page is a draft. It will only be visible in dev and be excluded from the production build.",
+    "description": "The draft content banner message"
+  },
+  "theme.ErrorPageContent.tryAgain": {
+    "message": "Try again",
+    "description": "The label of the button to try again rendering when the React error boundary captures an error"
+  },
+  "theme.common.skipToMainContent": {
+    "message": "Skip to main content",
+    "description": "The skip to content label used for accessibility, allowing to rapidly navigate to main content with keyboard tab/enter navigation"
+  },
+  "theme.tags.tagsPageTitle": {
+    "message": "Tags",
+    "description": "The title of the tag list page"
+  }
+}

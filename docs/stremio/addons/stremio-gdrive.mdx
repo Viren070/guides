@@ -30,13 +30,15 @@ import StremioAddonButtons from '@site/src/components/StremioAddonButtons';
 <StremioAddonButtons id="stremio-gdrive" source="https://github.com/Viren070/stremio-gdrive-addon"/>
 ```
 
-<h3>Description</h3>
+### Description
 
 Stremio-gdrive is a self-hosted Stremio addon that allows you to view files from Google Drive.
 
 For it to work, you will need to join some team drives. You can find some [here](https://t.me/s/teamdrives).
 
-<h3>Configuration</h3>I will go through the steps to set up this addon through a
+### Configuration
+
+I will go through the steps to set up this addon through a
 Cloudflare Worker.
 
 :::tip
@@ -44,7 +46,7 @@ Cloudflare Worker.
 
 :::
 
-<h4>Setting up our Google App</h4>
+#### Setting up our Google App
 
 1. Go to the [Google Cloud Console](https://console.cloud.google.com/).
 
@@ -144,7 +146,7 @@ Cloudflare Worker.
 
       ![Google OAuth Platform](/img/stremio/gdrive/google_cloud_auth_platform_publish.png)
 
-<h4>Setting up the Cloudflare Worker</h4>
+#### Setting up the Cloudflare Worker
 
 1. Go to the [Cloudflare Workers](https://workers.cloudflare.com/) page and click `Log In` or `Sign Up` if you don't have an account.
 

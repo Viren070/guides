@@ -1,0 +1,46 @@
+---
+title: StremThru Torz
+description: Addon de Stremio que proporciona streams de torrents de proveedores de torrents rastreados.
+keywords:
+  [
+    stremio,
+    addons,
+    torrentio,
+    torrent,
+    guía,
+    configuración,
+    instalación,
+    enlace,
+  ]
+tags: [stremio-addon, stremio-addon:debrid-streams]
+---
+
+```mdx-code-block
+import StremioAddonButtons from '@site/src/components/StremioAddonButtons';
+
+<StremioAddonButtons id="stremthru-torz" manifest="https://stremthru.13377001.xyz/stremio/torz/manifest.json" source="https://github.com/MunifTanjim/stremthru" configurable configurationRequired/>
+```
+
+<h3>Descripción</h3>
+
+StremThru Torz es parte de la suite de addons que StremThru proporciona. Este addon proporciona streams de torrent/debrid
+de la base de datos de torrents colaborativa de StremThru así como listas de hash públicas rastreadas de [Debrid Media Manager](/stremio/extras/debrid-media-manager).
+
+<h3>Configuración</h3>
+
+Para instalar el addon StremThru Torz, ve a la página de configuración haciendo clic en el botón `Configure` arriba.
+
+Allí, te encontrarás con la lista de addons/herramientas que StremThru proporciona. Desplázate hacia abajo hasta la sección `StremThru Torz` y haz clic en `Configure`.
+
+Aquí, podrás proporcionar tus credenciales para cualquier servicio debrid que uses. StremThru Torz soporta múltiples servicios debrid
+en una instalación del addon si tienes múltiples servicios debrid. También soporta torrenting P2P si no usas un servicio debrid.
+
+Haz clic en `Store Name` y elige tu servicio debrid del menú desplegable. Luego, haz clic en `Store Token` y pega tu clave API de tu proveedor debrid. (¿Tienes problemas para encontrar tu clave API? [Haz clic aquí](/stremio/faq#where-can-i-find-my-debrid-api-key))
+Si estás usando múltiples servicios debrid, simplemente haz clic en el botón `+ Add` en la parte inferior derecha para agregar otro servicio debrid y repite el proceso.
+
+StremThru Torz también te permite:
+
+- `Only show Cached content`: Esto filtraría los resultados que no están en caché.
+
+Ahora, simplemente haz clic en `Install` para abrir Stremio con una solicitud para instalar el addon. Si eso no funciona, verás un  
+campo `Manifest URL` donde podrás hacer clic en `Copy`, usar la URL del manifiesto copiada para [instalar el addon manualmente](/stremio/faq#how-do-i-install-an-addon-manually).
