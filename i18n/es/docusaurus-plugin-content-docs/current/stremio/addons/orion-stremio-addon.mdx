@@ -1,0 +1,50 @@
+---
+title: Orion Stremio Addon
+description: Un addon de Stremio que permite que los enlaces de torrents, usenet y hosters indexados por Orion se reproduzcan en Stremio.
+keywords:
+  [stremio, addons, torrent, usenet, guía, configuración, instalación, enlace]
+tags:
+  [stremio-addon, stremio-addon:torrent-streams, stremio-addon:debrid-streams]
+---
+
+```mdx-code-block
+import StremioAddonButtons from '@site/src/components/StremioAddonButtons';
+
+<StremioAddonButtons id="orion-stremio-addon" manifest="https://5a0d1888fa64-orion.baby-beamup.club/manifest.json" configurable configurationRequired source="https://github.com/gorlev/orion-stremio-addon"/>
+```
+
+<h3>Descripción</h3>
+
+[Orion](https://orionoid.com/referral/AD3JGNJRJFMRDNP9SEKHQKS9MGSAJDJN) es un indexador para enlaces de torrents, usenet y hosters.
+
+Usaremos el [Orion Stremio Addon](https://github.com/gorlev/orion-stremio-addon) para acceder a los enlaces que Orion puede proporcionar.
+
+Si estás usando Orion gratis, tienes un límite de 100 enlaces por día. Su plan más barato es $0.50 / mes por 1000 enlaces diarios.
+Puedes verificar los precios en su sitio web.
+
+<h3>Configuración</h3>
+
+Para comenzar, primero necesitamos crear una cuenta en Orion: 1. Dirígete a [Orion](https://orionoid.com/referral/AD3JGNJRJFMRDNP9SEKHQKS9MGSAJDJN) 2. Haz clic en `GET FREE ACCOUNT` 3. Elige el tipo de registro (email o nombre de usuario). Recomiendo nombre de usuario si estás probando ya que siempre puedes agregar un email más tarde. 4. Completa los campos de nombre de usuario y contraseña y haz clic en registrar.
+
+Ahora que hemos iniciado sesión, necesitamos configurar nuestra cuenta de Orion con cualquier servicio debrid que estemos usando.
+
+1. Una vez que hayas iniciado sesión, dirígete a tu [panel de cuenta](https://panel.orionoid.com/)
+2. Haz clic en el menú `Account` en la barra de navegación a la izquierda de la pantalla.
+3. Luego haz clic en `Services` en la parte superior.
+4. Elige el servicio debrid que estás usando y haz clic en `Add Service`.
+
+   Dependiendo de tu proveedor, necesitas autorizar a Orion como un dispositivo siguiendo las instrucciones en pantalla después de hacer clic en `Authorise` o necesitas pegar tu clave API en la caja proporcionada. (¿Tienes problemas para encontrar tu clave API? [Haz clic aquí](/stremio/faq#where-can-i-find-my-debrid-api-key))
+
+Finalmente, necesitamos configurar el Orion Stremio Addon, dirígete a la [página de configuración del Orion Stremio Addon](https://5a0d1888fa64-orion.baby-beamup.club/configure)
+
+- `Orion API key` - Puedes encontrar esto en tu [panel de cuenta](https://panel.orionoid.com/) en la página principal `Dash` o `Account` -> `Profile` -> `API Key`.
+- `Link limit per search` - Este es el número máximo de enlaces que se mostrarán por búsqueda.
+
+  Dependiendo de tu plan, es posible que quieras cambiar esto a valores más bajos ya que cada enlace que se muestra cuando haces clic en una película/serie cuenta hacia tu límite diario. Configuro el mío en 10 (esto significa que puedo buscar 10 películas/series antes de alcanzar mi límite diario en el plan gratuito)
+
+- `Sorting` - Las opciones de ordenamiento disponibles aquí son mucho más variadas comparadas con otros addons. Puedes experimentar con estas para ver cuál prefieres. Aún elijo `Sort by file size`.
+- `Video Quality` - Dejo la selección predeterminada de opciones (4K (HD), 1080p (HD), 720p (HD), SD). SCR significa Screener y CAM significa Camera. Excluyo estos ya que son de menor calidad.
+
+El siguiente paso es hacer clic en `Install`. Esto abrirá Stremio y te pedirá que instales el addon. Haz clic en Install nuevamente y el addon se instalará.
+
+También puedes hacer clic en el botón del portapapeles para copiar la URL de instalación y pegarla en la barra de búsqueda de addons de Stremio o el menú de agregar addon en Stremio Web.

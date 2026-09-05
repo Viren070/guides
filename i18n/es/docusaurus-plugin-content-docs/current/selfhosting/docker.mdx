@@ -1,0 +1,231 @@
+---
+title: Docker
+description: Guía para instalar Docker y explicar los conceptos básicos.
+keywords: [viren070, guías, guías de viren070]
+---
+
+# Docker
+
+## Requisitos previos
+
+Antes de empezar, necesitas tener un VPS.
+Si no tienes uno, puedes obtener uno gratuito en Oracle Cloud, que deberías haber configurado en la [guía anterior](/selfhosting/oracle).
+
+Voy a explicar en detalle cómo funciona Docker, ya que no creo que debas copiar plantillas a ciegas sin entender lo que hacen.
+Esto te ayudará a solucionar problemas y a realizar cambios en las plantillas cuando sea necesario (y, con suerte, minimizará la cantidad de gente que pide ayuda; igualmente, estaré encantado de ayudar, puedes contactarme por [Discord](https://discord.viren070.me)).
+
+Si ya estás familiarizado con Docker, puedes saltar directamente a la [sección de instalación](#installing-docker).
+
+## ¿Qué es Docker?
+
+Docker es una plataforma para desarrollar, distribuir y ejecutar aplicaciones en contenedores.
+Permite empaquetar tu aplicación y todas sus dependencias en una única imagen que puede ejecutarse en cualquier máquina.
+Esto facilita el despliegue de aplicaciones de forma coherente y reproducible.
+
+En términos simples, te permite ejecutar aplicaciones en entornos aislados llamados "contenedores".
+Cada contenedor tiene su propio sistema de archivos, red y espacio de procesos, de modo que puedes ejecutar múltiples contenedores en la misma máquina sin que interfieran entre sí.
+
+Usamos **imágenes** provenientes de registros como Docker Hub para crear contenedores.
+Las imágenes son plantillas de solo lectura que contienen todo lo necesario para ejecutar una aplicación, incluido el código, entorno de ejecución, bibliotecas, variables de entorno y archivos de configuración.
+
+Para una explicación más detallada, puedes consultar la [documentación oficial de Docker](https://docs.docker.com/get-started/docker-overview/).
+
+## Cómo usar Docker
+
+Docker se controla mediante la herramienta de línea de comandos `docker`. Para más información sobre los comandos disponibles, consulta la [referencia del CLI de Docker](https://docs.docker.com/reference/cli/docker/) y/o esta guía de [Learn X in Y minutes](https://learnxinyminutes.com/docs/docker/).
+
+En esta guía, usaremos Docker para ejecutar servicios en contenedores mediante Docker Compose y un archivo `compose.yaml`. (Lee esta [guía sobre sintaxis YAML](https://learnxinyminutes.com/docs/yaml/) si no estás familiarizado).
+
+Un archivo compose.yaml es un archivo de configuración que define cómo ejecutar servicios en contenedores.
+Especifica los servicios, redes y volúmenes necesarios para ejecutar la aplicación y cómo interactúan entre sí.
+
+Este es un ejemplo de `compose.yaml` que define un servicio de servidor web simple:
+
+```graphql
+services:
+
+  myservice1:
+    image: image1:tag1
+    container_name: mycontainer1
+    ports:
+      - "8080:80"
+    environment:
+      - ENV_VAR1=value1
+      - ENV_VAR2=${SERVICE1_VAR2:-default_value}
+      - ENV_VAR3=${SERVICE1_VAR3?Error message}
+    env_file:
+      - .custom.env
+    volumes:
+      - ./tmp:/tmp
+      - image-data:/data
+    labels:
+      - "mylabel1=myvalue1"
+    restart: unless-stopped
+
+  myservice2:
+    image: image2:tag2
+    container_name: mycontainer2
+    restart: unless-stopped
+    expose:
+      - 8080
+    environment:
+      ENV_VAR2: value2
+    volumes:
+      - ./tmp:/tmp
+      - /opt/image2:/data
+    labels:
+      mylabel2: myvalue2
+
+volumes:
+  image-data:
+
+```
+
+En este ejemplo, definimos dos servicios, `myservice1` y `myservice2`, cada uno con su propia imagen, puertos, variables de entorno, volúmenes, etiquetas y política de reinicio.
+
+Desglosando los componentes del archivo `compose.yaml`:
+
+En el nivel raíz, tenemos la clave `services`, que es una colección anidada de definiciones de servicios.
+Esto le indica a Docker Compose qué servicios ejecutar y cómo configurarlos.
+Cada definición de servicio tiene las siguientes claves:
+
+- `image`: La imagen a usar para el servicio.
+
+  - Puedes usar una imagen de un registro como [Docker Hub](https://hub.docker.com) o una imagen local. Por ejemplo, si quisiéramos usar mi imagen para `AIOStreams`, usaríamos `viren070/aiostreams:latest`.
+    Esta imagen se puede ver en [https://hub.docker.com/r/viren070/aiostreams](https://hub.docker.com/r/viren070/aiostreams).
+  - También podemos especificar **opcionalmente** una etiqueta (tag). Si no se especifica, Docker usará `latest`. Una etiqueta es un identificador de versión para una imagen, típicamente siguiendo el [versionado semántico](https://semver.org/).
+  - Docker Hub es el registro predeterminado para imágenes Docker, pero también puedes usar otros registros como [GitHub Container Registry](https://ghcr.io) o [Quay](https://quay.io). Por ejemplo, usarías `ghcr.io/viren070/aiostreams:latest`.
+
+    :::tip
+    A veces no hay una imagen disponible para el servicio que quieres ejecutar; en ese caso, puedes crear tu propia imagen usando un `Dockerfile`. También puede ser un `Dockerfile` remoto alojado en GitHub o GitLab.
+
+        <details>
+        <summary>Cómo usar un Dockerfile remoto</summary>
+          <div>
+              ```graphql
+                services:
+                  myservice:
+                    build:
+                      context: https://github.com/mccoy88f/OMG-Premium-TV.git
+                      dockerfile: Dockerfile
+                    image: myservice:latest
+              ```
+
+              En este ejemplo, usamos un `Dockerfile` alojado en GitHub para construir la imagen del servicio `myservice`.
+              Indicamos a Docker Compose que use el `Dockerfile` en la raíz del repositorio `https://github.com/mccoy88f/OMG-Premium-TV.git`
+              para construir la imagen, y luego nombramos la imagen `myservice:latest`.
+
+          </div>
+        </details>
+
+    :::
+
+- `container_name`: El nombre del contenedor.
+  - Es opcional; si no se especifica, Docker generará un nombre con el formato `<project-name>_<service-name>_<index>`.
+- `restart`: La política de reinicio del contenedor.
+  - Especifica cuándo debe reiniciarse el contenedor. Los valores posibles son `no`, `always`, `on-failure`, `unless-stopped` y `always`.
+  - Con `unless-stopped`, el contenedor se reiniciará a menos que lo detenga explícitamente el usuario.
+- `environment`: Variables de entorno a establecer dentro del contenedor.
+  - Puede ser una lista de pares clave-valor o una lista de cadenas en el formato `KEY=VALUE`. Esto permite configurar la aplicación mediante variables de entorno.
+  - Las variables de entorno también pueden usarse en todo el archivo compose.yaml con la sintaxis `${}`. Esto permite referenciar otras variables de entorno o proporcionar valores por defecto. Estas variables se cargan desde el archivo `.env` del directorio actual y desde las variables de entorno del sistema.
+  - Dado que `$` es un carácter especial en YAML, si queremos usarlo literal, debemos escaparlo con otro `$`, por ejemplo `$$`.
+- También podemos cargar variables de entorno desde un archivo con la clave `env_file`. Esto cargará las variables definidas en el archivo dentro del contenedor.
+
+Notas sobre `ENV_VAR2` y `ENV_VAR3` del ejemplo:
+
+- `${SERVICE1_VAR2:-default_value}` define un valor opcional que usa `default_value` si no se establece la variable.
+- `${SERVICE1_VAR3?Error message}` define un valor obligatorio que lanzará un error si no está definido.
+
+### Volúmenes
+
+Los volúmenes se usan para persistir los datos generados y usados por los contenedores.
+Son directorios en la máquina anfitriona que se montan dentro del contenedor.
+Esto permite al contenedor leer y escribir datos en el sistema de archivos del host.
+
+Si no usamos volúmenes, los datos generados por el contenedor se perderán al detener o eliminar el contenedor.
+Si una carpeta dentro del contenedor guarda datos de usuario, debemos usar un volumen para persistir esa información; de lo contrario, se perderá al reiniciar el contenedor.
+
+La sintaxis general para definir un volumen es `host-path:container-path`. `host-path` es la ruta en el host y `container-path` es la ruta dentro del contenedor.
+
+Hay dos tipos de volúmenes: volúmenes con nombre y bind mounts.
+Los volúmenes con nombre los gestiona Docker y se almacenan en una ubicación específica del host: `/var/lib/docker/volumes`.
+Los bind mounts se especifican indicando directamente la ruta en el host; permiten decidir la ubicación exacta donde se almacenarán los datos.
+
+Para usar un volumen con nombre, puedes definirlo en la sección `volumes` del `compose.yaml`.
+Por ejemplo, `volumes: image-data:` define un volumen con nombre `image-data`.
+Usamos `image-data:/data` para montar el volumen `image-data` en el directorio `/data` dentro del contenedor.
+
+Para usar un bind mount, puedes especificar la ruta del host directamente en la sección `volumes`. Se puede usar una ruta absoluta o relativa.
+Por ejemplo, `./tmp:/tmp` monta el directorio `tmp` del directorio de trabajo actual en `/tmp` dentro del contenedor.
+Y `/opt/image2:/data` monta el directorio `/opt/image2` del host en `/data` dentro del contenedor.
+
+### Puertos
+
+Los puertos se usan para exponer servicios que se ejecutan dentro de un contenedor al exterior.
+Permiten que clientes externos se comuniquen con los servicios dentro del contenedor.
+
+La clave `expose`, en términos funcionales, casi no hace nada; sirve para documentar los puertos en los que el contenedor escucha.
+No publica los puertos; para eso debes usar la clave `ports`.
+
+La usamos cuando no hay necesidad de exponer el puerto al host, pero queremos documentarlo.
+Por ejemplo, si ponemos todos los servicios detrás de un proxy inverso, no necesitamos mapear los puertos al host, ya que el proxy podrá comunicarse con los servicios directamente; entonces solo mapeamos el puerto del proxy al host (normalmente 80 y/o 443).
+
+La sintaxis para definir un puerto es `host-port:container-port`, por ejemplo `8080:80`.
+El puerto del host es el puerto en la máquina anfitriona, y el puerto del contenedor es el puerto en el que el servicio escucha dentro del contenedor.
+Por ejemplo, nuestro servicio `myservice1` escucha en el puerto `80` dentro del contenedor y lo exponemos en el puerto `8080` del host.
+Esto hará que el servicio sea accesible en `http://host-ip:8080` o `http://localhost:8080`.
+
+Si no defines la clave `ports`, el servicio no será accesible desde fuera del contenedor.
+
+:::note
+Si ejecutas el contenedor en un servidor que no es tu máquina local, puede que necesites abrir el puerto en el cortafuegos del servidor para permitir conexiones entrantes.
+:::
+
+## Instalación de Docker {#installing-docker}
+
+Para instalar Docker en tu VPS, puedes seguir la guía oficial en [https://get.docker.com](https://get.docker.com).
+
+El proceso es sencillo y consiste en ejecutar un script que instala Docker y sus dependencias.
+
+Los pasos se copian aquí por conveniencia:
+
+1. Descarga el script:
+
+   ```bash
+   curl -fsSL https://get.docker.com -o install-docker.sh
+   ```
+
+2. Verifica el contenido del script (opcional):
+
+   ```bash
+   cat install-docker.sh
+   ```
+
+3. Ejecuta el script con `--dry-run` para verificar los pasos que ejecuta (opcional):
+
+   ```bash
+   sh install-docker.sh --dry-run
+   ```
+
+4. Ejecuta el script como root o usando `sudo` para realizar la instalación:
+
+   ```bash
+   sudo sh install-docker.sh
+   ```
+
+Tras ejecutar el script, Docker debería quedar instalado en tu VPS.
+
+Puedes verificar la instalación con el siguiente comando:
+
+```bash
+docker --version
+```
+
+Esto debería mostrar la versión de Docker instalada en tu VPS.
+
+## Conclusión
+
+En esta guía, aprendimos sobre Docker y cómo usarlo para ejecutar servicios en contenedores.
+También vimos cómo definir servicios en un `compose.yaml` y las diferentes claves que pueden usarse para configurar un servicio.
+
+En la siguiente guía, revisaremos mi [plantilla compose.yaml](/selfhosting/template) y cómo usarla para alojar addons de Stremio, Seanime, un servidor multimedia con debrid y más.

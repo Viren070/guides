@@ -1,0 +1,33 @@
+import AddPersonalLists from "./_add_personal_lists.mdx";
+import AddPublicMDBLists from "./_add_public_mdblists.mdx";
+import BrowsePopularLists from "./_browse_popular_lists.mdx";
+
+:::info
+Solo necesitas hacer clic en `Add list` una vez. Si haces clic de nuevo, se mostrarán duplicados.
+Aunque no haya respuesta visible al hacer clic, la lista se añadirá.
+:::
+
+    <details>
+    <summary>Agregar nuestras propias listas de MDBList y Couchmoney</summary>
+        <div>
+            <AddPersonalLists/>
+        </div>
+    </details>
+
+    <details>
+        <summary>Agregar listas de otros usuarios desde MDBList</summary>
+        <div>
+            <AddPublicMDBLists />
+        </div>
+    </details>
+
+    <details>
+        <summary>Navegar listas populares/en tendencia y buscar listas</summary>
+        <div>
+            <BrowsePopularLists />
+        </div>
+    </details>
+
+    Después de añadir las listas, deberían aparecer abajo como en este ejemplo:
+
+    ![trakt addon final lists example](/img/stremio/trakt_addon_final_lists_example.png)

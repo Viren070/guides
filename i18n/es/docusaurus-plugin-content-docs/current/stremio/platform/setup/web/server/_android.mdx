@@ -1,0 +1,28 @@
+1. Asegúrate de que la [aplicación Stremio](https://play.google.com/store/apps/details?id=com.stremio.one) esté instalada en tu dispositivo android.
+2. Asegúrate de que tenga el permiso de notificaciones
+3. Abre la aplicación y ve a configuración y desplázate hacia abajo a la sección Servidor de Streaming.
+4. Deberías establecer el tamaño de caché a 10GB y el perfil de torrent a Ultra Rápido o Rápido dependiendo de tu velocidad de internet.
+
+   ![configuración stremio](/img/stremio/android_server_settings.jpg)
+
+5. Debajo de eso, verás la sección `Rendimiento y Estabilidad`. Marca la opción `Ejecutar como servicio en primer plano`.
+
+   ![configuración stremio](/img/stremio/android_performance_settings.jpg)
+
+6. Ahora deberías ver una notificación en tu barra de notificaciones. Esto significa que el servidor está ejecutándose.
+
+   ![notificación stremio](/img/stremio/android_server_notification.jpg)
+
+Ahora puedes acceder a este servidor solo desde el dispositivo android.
+Para acceder desde otros dispositivos dentro de tu red, sigue los pasos restantes:
+
+7. Abre [Stremio Web](https://web.stremio.com/) en el mismo dispositivo android que está ejecutando el servidor.
+8. Ve a configuración y desplázate hacia abajo a la sección Streaming
+9. Deberías ver las siguientes opciones:
+
+   ![configuración web stremio](/img/stremio/android_web_streaming_settings.jpg)
+
+10. Establece el endpoint HTTPS de Streaming a tu dirección IP local (esta opción debería aparecer como una opción en el menú desplegable).
+11. Copia la URL Remota y envíala a tu otro dispositivo.
+12. En tu otro dispositivo ahora, abre [Stremio Web](https://web.stremio.com/) y ve a configuración.
+13. Ve a la sección Streaming y pega la URL Remota en el campo `Url`.

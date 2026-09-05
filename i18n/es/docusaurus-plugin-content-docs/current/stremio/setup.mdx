@@ -1,0 +1,898 @@
+---
+title: Configuración | Stremio
+sidebar_label: Configuración
+description: La única guía de Stremio que necesitarás.
+keywords:
+  [
+    stremio,
+    guía,
+    streaming,
+    bajo demanda,
+    reproductor de video,
+    4k,
+    debrid,
+    torrenting,
+    servicio de streaming,
+    addons,
+    reproductor multimedia,
+    streamer,
+    servicio de streaming,
+    películas,
+    series de tv servicio de streaming,
+    aplicación de streaming,
+    dispositivo de streaming,
+    plataforma de streaming,
+    sitio web de películas,
+    película gratis,
+    configuración,
+    instalación,
+    configuración,
+    configuración de stremio,
+    instalación de stremio,
+    configuración de stremio,
+    addons,
+    viren070,
+    guía de stremio de viren070,
+  ]
+toc_min_heading_level: 2
+toc_max_heading_level: 4
+---
+
+import Tabs from "@theme/Tabs";
+import TabItem from "@theme/TabItem";
+import Admonition from "@theme/Admonition";
+
+import DebridCostComparisonTable from "@site/src/components/DebridCostComparisonTable";
+import KoFiWidgetWrapper from "@site/src/components/KoFiWidgetWrapper";
+
+import StremioAddon from "@site/src/components/StremioAddonDetailsWrapper";
+
+# Configuración
+
+Ahora comenzaré la guía para configurar Stremio y sus addons.
+Recomiendo que **la configuración inicial se complete en tu laptop o escritorio**.
+Una vez que esté configurado, puedes iniciar sesión en Stremio con la misma cuenta en cualquier dispositivo y tu configuración se sincronizará con el dispositivo, por lo que no hay necesidad de configurarlo nuevamente.
+
+## Crear una cuenta de Stremio
+
+Primero, necesitamos crear una cuenta de Stremio. Esto te permite mantener tu progreso en diferentes contenidos sincronizado entre dispositivos y también te permite sincronizar tu configuración para que no necesite ser repetida.
+
+Ve a [Stremio](https://stremio.com/) y ya sea [regístrate para una cuenta](https://www.stremio.com/register) con un email o [inicia sesión](https://stremio.com/login) a través de Facebook.
+
+## Descargar Stremio {#downloading-stremio}
+
+Aquí están las instrucciones para cada plataforma, si estás viendo en un teléfono móvil, necesitarás desplazarte horizontalmente para ver todas las diferentes instrucciones de plataforma.
+
+:::tip
+Algunos dispositivos (como el Vision Pro) no tienen una aplicación de Stremio.
+Sin embargo, aún puede ser posible usar Stremio a través de Stremio Web.
+
+En la pestaña [Web](?platform=web#downloading-stremio) a continuación, encontrarás instrucciones específicas del dispositivo sobre cómo usar Stremio Web.
+:::
+
+También puedes elegir tu plataforma a continuación para saltar a las instrucciones para esa plataforma.
+
+- [PC](?platform=pc#downloading-stremio)
+- [iOS / iPadOS](?platform=apple#downloading-stremio)
+- [Android](?platform=android#downloading-stremio)
+- [Android TV](?platform=android-tv#downloading-stremio)
+- [Fire TV](?platform=fire-tv#downloading-stremio)
+- [Samsung TV](?platform=samsung-tv#downloading-stremio)
+- [LG TV](?platform=lg-tv#downloading-stremio)
+- [Hisense TV](?platform=hisense-tv#downloading-stremio)
+- [Phillips TV (2024+)](?platform=phillips-tv#downloading-stremio)
+- [Raspberry Pi](?platform=rasberry-pi#downloading-stremio)
+- [Meta Quest](?platform=meta-quest#downloading-stremio)
+- [Stremio Web](?platform=web#downloading-stremio)
+
+import Web from "./platform/setup/web/_web.mdx";
+import Pc from "./platform/setup/_pc.mdx";
+import Apple from "./platform/setup/_ios.mdx";
+import Android from "./platform/setup/_android.mdx";
+import AndroidTv from "./platform/setup/_android-tv.mdx";
+import FireTv from "./platform/setup/_fire-tv.mdx";
+import SamsungTv from "./platform/setup/_samsung-tv.mdx";
+import LgTv from "./platform/setup/_lg-tv.mdx";
+import HisenseTv from "./platform/setup/_hisense-tv.mdx";
+import PhillipsTv from "./platform/setup/_phillips-tv.mdx";
+import RasberryPi from "./platform/setup/_rasberry-pi.mdx";
+import MetaQuest from "./platform/setup/_meta-quest.mdx";
+
+import OpenSubtitles from "./addons/opensubtitles-v3.mdx";
+import OpenSubtitlesPro from "./addons/opensubtitles-pro.mdx";
+import SubDL from "./addons/subdl-subtitles.mdx";
+import SubSource from "./addons/subsource-subtitles.mdx";
+import SubHero from "./addons/subhero.mdx";
+import YifySubtitles from "./addons/yifysubtitles-by-dexter21767.mdx";
+import MSubtitles from "./addons/msubtitles.mdx";
+import LegendasDivx from "./addons/legendasdivx.mdx";
+
+<Tabs className="custom-tabs" queryString="platform">
+  <TabItem value="pc" label="PC">
+    <Pc />
+  </TabItem>
+  <TabItem value="android" label="Android">
+    <Android />
+  </TabItem>
+  <TabItem value="apple" label="Apple">
+    <Apple />
+  </TabItem>
+  <TabItem value="fire-tv" label="Fire TV">
+    <FireTv />
+  </TabItem>
+  <TabItem value="android-tv" label="Android TV">
+    <AndroidTv />
+  </TabItem>
+  <TabItem value="samsung-tv" label="Samsung TVs">
+    <SamsungTv />
+  </TabItem>
+  <TabItem value="lg-tv" label="LG TVs">
+    <LgTv />
+  </TabItem>
+  <TabItem value="hisense-tv" label="Hisense TVs">
+    <HisenseTv />
+  </TabItem>
+  <TabItem value="phillips-tv" label="Phillips TVs">
+    <PhillipsTv />
+  </TabItem>
+  <TabItem value="rasberry-pi" label="Rasberry Pi">
+    <RasberryPi />
+  </TabItem>
+  <TabItem value="meta-quest" label="Meta Quest">
+    <MetaQuest />
+  </TabItem>
+  <TabItem value="web" label="Web">
+    <Web />
+  </TabItem>
+</Tabs>
+
+## Configurar ajustes de Stremio
+
+Aunque Stremio está mayormente listo para usar desde el principio, una configuración que deberías activar es la decodificación acelerada por hardware. Esto puede evitar problemas relacionados con fallos mientras reproduces contenido.
+
+Y si planeas hacer torrenting, entonces configura el perfil de torrent a Ultra Rápido y el tamaño de caché a 10GB o infinito.
+Si quieres una explicación de lo que hacen estas configuraciones, puedes encontrar más información [aquí](https://github.com/Viren070/guides/issues/121#issuecomment-2727522366).
+
+Si no ves ninguna de estas configuraciones en tu dispositivo, puedes omitir esto, ya que solo está disponible en algunos dispositivos.
+
+## Servicio Debrid
+
+Ahora repasaré qué es un servicio debrid y por qué deberías usarlo.
+
+**No es requerido** y la mayoría de los addons de torrent pueden ser usados sin uno.
+Aún podrías hacer streaming de torrents siempre que tenga suficientes seeders.
+Sin embargo, usar un servicio debrid proporcionará una mejor experiencia.
+
+### ¿Qué es un servicio debrid?
+
+Un servicio debrid es un servicio que te permite generar enlaces de descarga sin restricciones (hasta 1gbps) para torrents y otros archivos en hosters soportados (Tiene más características que se discuten en [Servicios Debrid](technical-details#debrid-services)).
+
+Trae los siguientes beneficios:
+
+- Usar un servicio debrid te permite hacer streaming de torrents sin el riesgo de recibir un aviso de tu ISP ya que estarías haciendo streaming a través de HTTPS
+- Mientras estás haciendo streaming de algo, no dependes del número de seeders y puedes hacer streaming a velocidades de hasta 1gbps. Esto hace posible hacer streaming de algunos de los contenidos de más alta calidad disponibles (4K, DV, HDR, Dolby Atmos, etc.) sin buffering siempre que tu conexión a internet pueda manejarlo.
+- Si estás usando un servicio debrid, no se requiere una VPN ya que estás haciendo streaming a través de HTTPS.
+- Puedes usarlo para más que solo Stremio. Puedes usarlo para descargar cualquier tipo de archivo, ya sean juegos, software o audio. Si es un torrent o un archivo en un hoster soportado, puedes descargarlo a través de tu servicio debrid.
+
+Sin embargo, las desventajas de usar un servicio debrid son que la mayoría no hace seed de los torrents y también restringirá el uso a una dirección IP a la vez.
+Esto significa que no estás contribuyendo al torrent y que solo puedes usar el servicio en una ubicación a la vez.
+:::tip
+Para más detalles sobre la regla de una dirección IP, por favor ve esta pregunta en las [FAQ](faq#how-does-the-one-ip-address-rule-work).
+:::
+
+Hay algunas excepciones a esto, que discuto a continuación.
+
+### ¿Debería usar un servicio debrid?
+
+La respuesta a esta pregunta depende de tus circunstancias personales.
+
+- Si el torrenting te pone en riesgo de recibir un aviso de tu ISP
+- La popularidad (número de seeders) del contenido que quieres ver
+- Si tu velocidad de internet es suficiente para justificar un servicio debrid
+
+La razón principal para usar un servicio debrid es evitar los riesgos del torrenting.
+Como se explicó anteriormente, estás haciendo streaming a través de HTTPS y el servicio debrid esencialmente se convierte en el intermediario.
+Sin embargo, si estás en un país donde el torrenting no es un problema, entonces no se necesita un servicio debrid o VPN para evitar recibir un aviso de tu ISP.
+
+La siguiente gran razón es evitar el buffering.
+Sin embargo, si hace buffer o no depende del tipo de contenido que estés viendo y tu velocidad de internet.
+Si el contenido que quieres ver es popular y tiene muchos seeders, entonces podrás hacer streaming en alta calidad sin buffering.
+Sin embargo, los torrents de contenido de extremadamente alta calidad aún pueden hacer buffer incluso con muchos seeders.
+
+Algo que a menudo se ignora es que un servicio debrid no puede aumentar tus velocidades de descarga.
+Si tu velocidad de internet ya es lenta, entonces un servicio debrid no te ayudará a hacer streaming de contenido de mayor calidad.
+Necesitas tener una velocidad de internet rápida tú mismo para capitalizar los beneficios de un servicio debrid.
+
+Dicho todo esto, si el torrenting no es un problema, la mejor manera de determinar si necesitas un servicio debrid es intentar hacer streaming sin uno.
+Entonces puedes intentar ver el contenido que quieres ver y ver si hace buffer en la calidad que quieres ver.
+Si lo hace (y tus velocidades no son el factor limitante), entonces podrías querer considerar usar un servicio debrid.
+
+### ¿Qué servicio debrid uso? {#which-debrid-service-do-i-use}
+
+:::info
+Recibo una comisión (días gratis o pequeña cantidad de dinero) si te registras en un servicio debrid a través de (algunos de) los enlaces proporcionados. Esto no tiene costo extra para ti y es una forma de apoyarme.
+:::
+
+Hay muchos servicios debrid disponibles para usar. Aquí hay una lista de algunos de los más populares.
+Si ya has elegido un servicio debrid, puedes saltar a las [instrucciones de configuración](#setting-up-a-debrid-service).
+De lo contrario, repasaré los factores que deberías considerar al elegir un servicio debrid.
+
+- [TorBox](https://torbox.app/subscription?referral=9ca21adb-dbcb-4fb0-9195-412a5f3519bc)
+- [Premiumize](https://www.premiumize.me/)
+- [Offcloud](https://offcloud.com/?=06202a3d)
+- [Put.io](https://put.io/)
+- [Real Debrid](https://real-debrid.com/?id=9483829) :warning:
+- [AllDebrid](https://alldebrid.com/?uid=3n8qa&lang=en) :warning:
+- [Debrid-Link](https://debrid-link.com/id/EY0JO) :warning:
+
+<details>
+<summary> 
+:warning: 
+**Estos servicios debrid han implementado restricciones que pueden afectar tu experiencia.**
+**Haz clic aquí para leer más.**
+:warning:
+
+</summary>
+<div>
+
+<h3> ¿Qué pasó? </h3>
+
+Debido a circunstancias inevitables, algunos servicios debrid han puesto restricciones en sus servicios y APIs.
+
+**Real Debrid**, **AllDebrid**, y **Debrid-Link** han removido el endpoint de API que permite a los addons determinar si un torrent está en caché en su servicio.
+
+<h3> ¿Qué significa esto para Stremio? </h3>
+
+Los addons debrid generalmente devuelven 2 tipos de resultados, en caché y no en caché. Los resultados en caché pueden ser transmitidos instantáneamente, y los resultados no en caché que necesitan ser descargados (al servicio debrid) antes de que puedan ser transmitidos.
+Con la eliminación del endpoint de API, los addons ya no pueden determinar si un torrent está en caché en estos servicios debrid.
+
+<h3> ¿Es posible continuar usando estos servicios debrid? </h3>
+
+La mayoría de los addons han implementado soluciones alternativas para al menos continuar funcionando con estos servicios debrid.
+La [tabla de soporte debrid de addons](faq#debrid-service-compatibility-table) te dirá qué addons funcionarán con tu servicio debrid.
+
+Torrentio, el addon de Stremio más popular, ahora usa su propia base de datos de caché que se construye a partir del uso de los usuarios del addon.
+MediaFusion ha implementado un sistema similar.
+
+StremThru también ha implementado un sistema similar, y comparte esta información con otros addons. Comet y Formulio dependen de él.
+
+Estas soluciones alternativas no son perfectas y pueden no ser precisas. Depende de los usuarios que usen el addon para construir la base de datos de caché.
+Cuando un usuario intenta reproducir un enlace, estos addons pueden entonces determinar si ese enlace estaba en caché o no y almacenar esa información.
+
+Los addons no pueden saber con certeza el tiempo exacto que los elementos permanecerían en caché, y para elementos impopulares, pueden mostrarse como no en caché debido a no ser reproducidos tanto y como resultado, no tener su información de caché almacenada.
+
+Debido a que no es preciso, algunos streams en caché pueden estar realmente no en caché y algunos streams no en caché pueden estar realmente en caché.
+
+Al usar estos servicios debrid, aceptas alguna inconveniencia potencial. Puede que tengas que probar múltiples streams antes de encontrar uno en caché.
+Sin embargo, **si estás usando Real Debrid, debido a su caché masivo, es probable que encuentres un stream en caché en tu primer intento, y la inconveniencia probablemente será mínima.**
+
+Por otro lado, Debrid-Link que tiene muchos menos usuarios, puede no tener una base de datos de caché tan precisa entre addons como Real Debrid.
+Recomendaría configurar tus addons para mostrar streams no en caché también, ya que es probable que algunos de estos streams estén realmente en caché.
+
+<h3> Restricciones Adicionales </h3>
+
+<h4> Real Debrid </h4>
+
+- Bloqueó archivos audiovisuales de varios cyberlockers listados en la lista negra de USTR o listados en la "Lista de Vigilancia de Falsificación y Piratería" europea
+  - Esto incluye varios servicios. No estoy seguro si estos son los sitios correctos, pero esto es lo que encontré:
+    - [Lista de Vigilancia de Falsificación y Piratería de la Comisión Europea](https://circabc.europa.eu/ui/group/d0803128-7d62-40ee-8349-c43ee92745aa/library/b36f701d-2850-4768-9b3e-e487140e11e5/details)
+    - [Lista de Mercados Notorios de USTR](https://ustr.gov/sites/default/files/2023_Review_of_Notorious_Markets_for_Counterfeiting_and_Piracy_Notorious_Markets_List_final.pdf)
+- Bloqueó cualquier hash de torrent de trackers de torrent privados franceses como YGGTorrent
+
+Como resultado de esto, puedes ver una cantidad aumentada de errores de 'Archivo infractor' al intentar reproducir algunos streams, especialmente con contenido francés.
+
+</div>
+</details>
+
+Al elegir un servicio Debrid, los factores que tienes que considerar son el costo y el valor que obtienes de él, que está compuesto por su optimalidad y base de usuarios.
+
+Recomiendo llegar a tu propia conclusión leyendo la información a continuación, además de tu propia investigación.
+
+**Costo**
+
+Para comparar el costo de cada servicio debrid, he creado una tabla que compara el costo de cada servicio debrid.
+Esta tabla se genera dinámicamente y los datos que usa pueden ser actualizados manualmente por ti. No recomiendo modificar los datos en móvil.
+
+<details>
+<summary>Expándeme para una tabla completa comparando los costos de todos los servicios debrid</summary>
+
+<Admonition type="note">
+
+Las tasas de cambio usadas aquí se actualizan semi-automáticamente cada semana.
+
+No actualizo estos precios si hay ventas o descuentos en los servicios debrid.
+Asegúrate de verificar cualquiera de estos antes de hacer una compra.
+
+Puedes actualizar los precios manualmente haciendo clic en el botón `Configurar Datos de Tabla`.
+También puedes agregar nuevos servicios debrid o remover los existentes.
+Esto puede ser útil si hay ventas en curso o si estás comprando de un revendedor donde los precios locales han sido ajustados.
+
+</Admonition>
+
+<DebridCostComparisonTable />
+
+<details>
+<summary>¿Qué son los FP (puntos de fidelidad)?</summary>
+
+Cuando compras un plan de algunos servicios debrid, serás premiado con puntos de fidelidad.
+Una vez que tengas suficientes puntos de fidelidad, pueden ser usados para extender tu suscripción gratis.
+
+Para servicios debrid que ofrecen puntos de fidelidad, hay 2 filas en la tabla anterior.
+Una de ellas toma en cuenta la duración extra que obtienes de los puntos de fidelidad y la otra no.
+
+<details>
+<summary>¿Cómo se contabilizan los puntos de fidelidad?</summary>
+
+Se calcula el número de planes necesarios para obtener una cantidad de puntos de fidelidad que sea completamente utilizable.
+Esto esencialmente significa el mínimo común múltiplo de los puntos de fidelidad otorgados y el número de puntos de fidelidad necesarios para extender tu suscripción.
+
+Por ejemplo, si necesitas 1000 puntos de fidelidad para extender tu suscripción por 30 días
+y eres premiado con 800 puntos de fidelidad cuando compras un plan, entonces necesitarás comprar 5 planes para obtener 4000 puntos de fidelidad.
+Entonces todos los 4000 puntos de fidelidad pueden ser usados para extender tu suscripción por 120 días.
+
+El costo de 5 planes con la duración de 5 planes más la duración extra de los puntos de fidelidad se usa entonces para calcular un costo promedio.
+
+</details>
+</details>
+</details>
+
+:::info
+Si no estás seguro si esto es algo que quieres usar, puedes probar una prueba gratuita o un plan gratuito limitado.
+
+- TorBox ofrece un plan gratuito limitado y una prueba de $1 por 24 horas para su plan Pro.
+- All-Debrid ofrece una prueba gratuita de 7 días con verificación de número de teléfono.
+- put.io ofrece una prueba de $0.99 por 1 día.
+
+Alternativamente, puedes usar el paquete de 15 días que la mayoría de los servicios debrid ofrecen para probarlos.
+:::
+
+**Optimalidad**
+
+La optimalidad se refiere a tu proximidad a los servidores del servicio. Mientras más cerca estés, más rápidas las velocidades de descarga y por lo tanto mejor la experiencia de streaming.
+Las velocidades de descarga que obtienes determinan directamente la calidad del stream que puedes ver.
+
+Esto es diferente para todos.
+Dar mis experiencias con cada servicio debrid no sería útil ya que depende de tu ubicación así como muchos otros factores.
+
+Por lo tanto, asegúrate de realizar pruebas de velocidad para determinar el mejor servicio para ti.
+Las pruebas de velocidad para cada servicio debrid se pueden encontrar [aquí](faq#where-can-i-find-the-speed-tests-for-debrid-services) y en su sitio web también.
+
+Mientras que un servicio debrid es poco probable que sea el cuello de botella en tu experiencia de streaming, TorBox tiene los servidores más rápidos (80gbit NVME) que ningún otro servicio puede ofrecer a precios tan bajos como los suyos.
+
+**Base de usuarios**
+
+Esto es importante ya que mientras más usuarios tenga un servicio debrid, más torrents en caché tendrá.
+Los torrents en caché son en lo que confías cuando haces streaming de contenido a través de Stremio.
+
+Una base de usuarios más grande significa más torrents en caché, con Real Debrid liderando, y seguido por Premiumize.
+Sin embargo, los otros servicios debrid aún tendrán muchos torrents populares en caché.
+
+En este aspecto, TorBox no es tan bueno como Real Debrid o Premiumize. Tiene una base de usuarios más pequeña debido a ser un servicio más nuevo.
+Sin embargo, muchas personas ahora están cambiando a TorBox debido a ser más barato, los addons tienen indicadores de caché precisos, y no tiene restricciones de IP.
+La mayoría del contenido popular estará en caché en TorBox, pero si buscas cosas que no son tan populares, puede que no las encuentres en caché.
+
+Offcloud también tiene muy poco contenido en caché.
+
+**Soporte de Addons**
+
+El soporte de addons generalmente no debería ser un problema ya que casi todos los addons soportan la mayoría de los servicios debrid principales.
+
+Encuentra una tabla completa de addons y servicios debrid soportados [aquí](faq#debrid-service-compatibility-table).
+
+**Características Adicionales**
+
+Otra cosa a considerar son las características adicionales que algunos servicios debrid ofrecen.
+
+Previamente discutí algunas de las limitaciones de los servicios debrid, principalmente la falta de seeding y la restricción a una dirección IP.
+Como dije antes, hay algunas excepciones. Ahora las repasaré.
+
+- **Restricciones de IP**:
+
+  - TorBox no tiene restricciones de IP en absoluto. Puedes usarlo en tantos dispositivos como quieras.
+  - Premiumize también permite varias IPs. Sin embargo, opera con una limitación de almacenamiento que puedes alcanzar dependiendo de tu uso.
+    Puedes encontrar más detalles en este [artículo](https://www.premiumize.me/help/article/download-limit) y la [página de uso justo](https://www.premiumize.me/fairuse) (necesitas estar logueado para este enlace).
+
+- **Seeding**:
+
+  :::warning
+  Con la forma en que funcionan los servicios debrid, los servicios debrid casi siempre estarán tomando más de lo que están dando.
+
+  Los servicios debrid a continuación harán seed del torrent si no ha sido puesto en caché ya.
+  En el caso de que ya esté en caché, pueden no hacer seed, y otros usuarios pueden hacer streaming de este torrent en caché también.
+  :::
+
+  - TorBox ofrece un seedbox que puede hacer seed hasta una cantidad ilimitada de ratio por hasta 30 días. Esto lo convierte en el mejor servicio debrid para seeding. (La cantidad de torrents que puedes hacer seed activamente depende de tu plan, referido como tus `Slots Concurrentes`)
+  - Debrid-Link ofrece un seedbox con estos límites: 600 torrents y 2.5TB de transferencia de datos por mes.
+  - Premiumize hará seed hasta un ratio de 2.0 o por 72 horas. Lo que ocurra primero.
+  - put.io es similar a Premiumize pero los números exactos dependen de tu plan. Revisa su página de precios para más información.
+
+- **Usenet:**
+
+  - TorBox ofrece acceso a Usenet en su plan Pro ($110/año o $10/mes). Esta es una característica única que no es ofrecida por ningún otro servicio debrid. (Usenet se explica en más detalle más adelante. Es simplemente otra forma de acceder a más contenido)
+  - Premiumize también ofrece acceso a Usenet. Sin embargo, no soporta streaming, por lo tanto no puede ser usado para Stremio.
+
+- **Indexadores Personalizados:**
+  - TorBox te permite agregar tus propias instancias de Prowlarr/Jackett/NZBHydra2 para ser usadas para búsqueda de contenido, esto puede ser habilitado para su addon de Stremio también. Esto te permite usar tus trackers/indexadores privados fácilmente con Stremio.
+
+---
+
+Después de considerar todo, deberías tener una buena idea de qué servicio debrid quieres usar.
+
+Real Debrid es la opción más popular debido a tener el caché más grande y tiempos de carga rápidos para la mayoría de usuarios. Sin embargo, sus
+problemas con indicadores de caché que no son precisos pueden no ser ideales para algunos usuarios. (Puedes leer más sobre esto en las [FAQ](faq#debrid-service-compatibility-table).)
+
+El servicio debrid más estable y confiable que recomendaría es Premiumize. Mientras que es más caro, tiene uno de los cachés más grandes después de Real Debrid. Tener un indicador de caché preciso también es una gran ventaja, ya que significa que puedes estar seguro de que algo que dice que está en caché realmente está en caché,
+y no algo que requiere que esperes a que sea puesto en caché.
+
+TorBox es un servicio que está constantemente mejorando y ya ofrece un conjunto de características impresionante. Si solo ves contenido popular, puedes encontrar que TorBox es más que suficiente.
+El contenido menos popular puede no estar en caché, pero si estás bien con tener que agregar cosas para ser puestas en caché a veces, puedes encontrarlo una buena opción.
+
+AllDebrid es un servicio que no recomendaría. Como se mencionó anteriormente, tiene problemas con indicadores de caché que no son precisos. Como su base de usuarios
+es más pequeña que Real Debrid, las bases de datos de caché crowdsourced son incluso menos precisas de lo que ya son (Esto es aún más cierto para Debrid-Link). También encontrarás problemas usando addons de terceros ya que cada dirección IP
+tiene que ser permitida por ti a través de un email que te envían.
+
+[EasyDebrid](https://paradise-cloud.com/products) es un nuevo servicio que usa el caché de Premiumize a un precio más bajo. También no tiene restricciones de IP.
+Es soportado por la mayoría de addons populares (Torrentio, Comet, MediaFusion, StremThru) así como Debridio, por lo que el soporte de addons no debería ser un problema.
+
+Sin embargo, su única característica, actualmente, es proporcionar descargas de torrent que ya están en caché en Premiumize.
+No hay: características adicionales como en Premiumize (VPN, Usenet, WebDAV etc.), no hay descargas de hoster.
+La única forma de agregar torrents al caché en EasyDebrid sería a través de la aplicación Downloader - https://downloader.hostyour.app/.
+
+Muchos usuarios también se han estado quejando sobre buffering en EasyDebrid y parecen estar siendo atacados con DDOS frecuentemente. Por lo tanto,
+no lo recomendaría si estás buscando un servicio debrid estable y confiable.
+
+### Configurar un servicio debrid {#setting-up-a-debrid-service}
+
+Ahora cubriré las instrucciones para configurar cada servicio debrid que mencioné previamente.
+
+```mdx-code-block
+import TorBox from "./debrid/torbox/_setup.mdx";
+import Premiumize from "./debrid/premiumize/_setup.mdx";
+import Offcloud from "./debrid/offcloud/_setup.mdx";
+import Putio from "./debrid/putio/_setup.mdx";
+import RealDebrid from "./debrid/realdebrid/_setup.mdx";
+import AllDebrid from "./debrid/alldebrid/_setup.mdx";
+import DebridLink from "./debrid/debridlink/_setup.mdx";
+
+<Tabs className="custom-tabs" queryString="debrid">
+<TabItem value="torbox" label="TorBox">
+<TorBox/>
+</TabItem>
+<TabItem value="premiumize" label="Premiumize">
+<Premiumize/>
+</TabItem>
+<TabItem value="real-debrid" label="Real Debrid">
+<RealDebrid/>
+</TabItem>
+<TabItem value="alldebrid" label="AllDebrid">
+<AllDebrid/>
+</TabItem>
+<TabItem value="debrid-link" label="Debrid-Link">
+<DebridLink/>
+</TabItem>
+<TabItem value="offcloud" label="Offcloud">
+<Offcloud/>
+</TabItem>
+<TabItem value="put.io" label="put.io">
+<Putio/>
+</TabItem>
+</Tabs>
+```
+
+## Usenet
+
+Ahora repasaré qué es Usenet y por qué podrías querer usarlo.
+
+Usenet es completamente opcional, y para el usuario promedio, no es necesario y no debería ser considerado, simplemente salta a [Configurar tus addons](#setting-up-addons).
+Puedes leer la sección [¿Debería usar Usenet?](#should-i-use-usenet) para determinar si lo necesitas.
+
+### ¿Qué es Usenet?
+
+Usenet es una forma de comunicación de internet descentralizada que consiste en varios "newsgroups" diferentes.
+Puedes pensar en un newsgroup como un foro donde las personas pueden publicar mensajes y archivos.
+Para el propósito de Stremio, los archivos que nos interesan son los binarios (archivos NZB) para contenido de video que se publican en los newsgroups.
+
+Cada newsgroup diferente está dedicado a un tema específico. Estos newsgroups pueden tener sus propios moderadores y reglas.
+Esto es muy similar a los subreddits en Reddit, por ejemplo.
+
+#### Proveedores
+
+Para acceder a Usenet, necesitas un proveedor de Usenet.
+Un proveedor alojará los servidores que almacenan el contenido de los newsgroups.
+Este proveedor te dará acceso a sus servidores donde puedes descargar contenido de los newsgroups.
+Los proveedores de Usenet serán servicios pagados debido a los costos reales de alojar los servidores y el ancho de banda requerido para proporcionar acceso al contenido.
+
+El contenido en diferentes proveedores de Usenet es teóricamente el mismo ya que el contenido en todos los newsgroups se refleja en todos los proveedores.
+Sin embargo, debido a problemas como corrupción de datos, eliminaciones, y diferentes períodos de retención, algún contenido puede no estar disponible en todos los proveedores.
+
+Para esta guía, solo consideraremos Easynews y TorBox como proveedores de Usenet ya que son los únicos que tienen addons para Stremio.
+Sin embargo, generalmente, los factores a considerar al elegir un proveedor de Usenet:
+
+- Límites de Datos: Dependiendo de tu plan, puedes tener una cantidad fija de datos que puedes descargar por mes. Tendrás que considerar cuántos datos estarás descargando y elegir un plan en consecuencia.
+- Retención: Esta es la cantidad de tiempo que el proveedor almacenará el contenido. Mientras más larga la retención, mejor.
+- Conexiones: Este es el número de conexiones que puedes tener al servidor al mismo tiempo. Mientras más conexiones tengas, más dispositivos puedes usar el servicio al mismo tiempo, así como el número de archivos que puedes descargar al mismo tiempo.
+
+#### Indexadores
+
+Usenet tiene mucho contenido, y para buscar este contenido, la mayoría de proveedores tendrán algún tipo de motor de búsqueda que puedes usar.
+Sin embargo, puedes no estar satisfecho con el motor de búsqueda proporcionado por tu proveedor de Usenet. Puede haber contenido en los newsgroups que no puedes encontrar a través de su motor de búsqueda.
+
+Aquí es donde entran los indexadores. Los indexadores son sitios web que indexan el contenido en los newsgroups y te permiten buscar contenido.
+Como servicios independientes y dedicados para buscar contenido, usualmente son mejores que el motor de búsqueda en tu proveedor de Usenet.
+
+Puedes usar múltiples indexadores al mismo tiempo para aumentar las posibilidades de encontrar el contenido que quieres.
+Diferentes indexadores pueden especializarse en diferentes tipos de contenido.
+
+### ¿Debería usar Usenet? {#should-i-use-usenet}
+
+La razón principal para usar Usenet es acceder a contenido más nicho así como obtener archivos de tamaños más grandes (y por lo tanto mayor calidad, usualmente) que lo que está disponible a través de torrents.
+
+Igual que con los servicios debrid:
+
+- Los proveedores de Usenet ofrecen velocidades de descarga extremadamente rápidas, lo que significa que solo tu velocidad de internet limitará la calidad del contenido que puedes ver.
+- El contenido se adquiere a través de HTTP con encriptación SSL, por lo que no estás en riesgo de recibir un aviso de tu ISP.
+- Usenet puede ser usado para más que solo Stremio. Puedes descargar cualquier tipo de archivo, no tiene que ser archivos de video. Si está en Usenet, puedes descargarlo.
+
+La mayoría de las personas no necesitarán usar Usenet. Los torrents usualmente son suficientes.
+Incluso si puedes necesitar usar Usenet, muy probablemente lo usarás como respaldo a tu servicio debrid.
+
+Sin embargo, en algunos casos, donde los torrents no son suficientes - como para contenido alemán - Usenet puede ser la única forma de acceder al contenido que quieres.
+
+Si actualmente estás satisfecho con tu servicio debrid, entonces no recomiendo usar Usenet.
+Sin embargo, puede actuar como respaldo a tu servicio debrid si quieres estar preparado para cualquier situación.
+
+### ¿Cómo uso Usenet con Stremio?
+
+Solo hay dos formas de acceder al contenido de Usenet a través de Stremio.
+
+Hay dos formas de acceder al contenido de Usenet a través de Stremio:
+
+1. **Easynews**  
+   Easynews es un proveedor de Usenet con tres addons de Stremio disponibles. Estos addons te permiten acceder al contenido encontrado a través del motor de búsqueda interno de Easynews. Sin embargo, estás limitado al contenido que su motor de búsqueda puede localizar.
+
+   - Easynews te permite hacer streaming de los archivos de usenet directamente desde ellos. Esto, sin embargo, significa que los streams de Easynews pueden tomar mucho tiempo para cargar inicialmente, pero una vez cargados, usualmente no hace buffer.
+
+2. **TorBox**  
+   TorBox es un servicio debrid que incluye acceso a Usenet como parte de su paquete `Pro`. Usa proveedores e indexadores no revelados para ofrecer contenido de Usenet y proporciona su propio addon de Stremio para acceder tanto a contenido de Usenet como de torrent.
+   - TorBox permite integración con tu propia instancia de NZBHydra2, habilitando el uso de indexadores personalizados.
+   - Las descargas de Usenet vía TorBox deben ser puestas en caché antes del streaming, similar a los torrents. Sin embargo, las descargas de Usenet típicamente se ponen en caché mucho más rápido, a menudo dentro de unos pocos minutos, ya que no dependen de seeders.
+
+Ahora repasaré la configuración para cada uno de estos servicios.
+
+```mdx-code-block
+import Easynews from "./usenet/_easynews.mdx";
+import TorboxUsenet from "./usenet/_torbox.mdx";
+
+<Tabs className="custom-tabs" queryString="usenet">
+<TabItem value="easynews" label="Easynews">
+<Easynews/>
+</TabItem>
+<TabItem value="torbox" label="TorBox">
+<TorboxUsenet/>
+</TabItem>
+</Tabs>
+```
+
+Estos pasos solo cubren la configuración de servicios que proporcionan acceso al contenido de Usenet.
+Para acceder al contenido, necesitarás usar los addons de Stremio para Easynews y TorBox.
+Ahora repasaré la configuración de estos addons. Busca los addons de Easynews y TorBox.
+
+<span id="setting-up-addons" />
+## Configurar Addons {#setting-up-addons}
+
+Como mencioné antes, la configuración inicial debería hacerse en una laptop/escritorio o un dispositivo android. Una vez que hayas configurado los addons, puedes iniciar sesión en Stremio en cualquier dispositivo y tu configuración se sincronizará con ese dispositivo.
+
+Antes de instalar los addons, necesitamos repasar algunos de los addons preinstalados.
+
+:::tip
+Mientras que puedes instalar los addons por separado a Stremio, también puedes estar interesado en un addon que he desarrollado llamado [AIOStreams](https://github.com/Viren070/AIOStreams).
+Está diseñado para simplificar el proceso de instalar y manejar addons, haciéndolo una buena opción para cualquiera que esté manejando cuentas de Stremio de otras personas.
+:::
+
+:::info
+Si estás intentando instalar addons en tu **iPhone** o usando **Stremio Web** entonces necesitarás usar el [método manual de agregar addons a través de un enlace](faq#how-do-i-install-an-addon-manually).
+:::
+
+### Remover addons preinstalados
+
+![Catálogos de Addon por Defecto](/img/stremio/watchhub_movie_details.png)
+
+![Addons por Defecto](/img/stremio/default_addon_catalogues.png)
+
+La primera imagen arriba muestra que cuando haces clic en una película, Stremio mostrará enlaces a servicios de streaming de terceros que proporcionan el contenido seleccionado.
+El addon que hace esto se llama WatchHub.
+
+La segunda imagen muestra catálogos de dos addons diferentes - YouTube y Public Domain Movies.
+El addon de YouTube mostrará canales populares de YouTube y te permitirá ver sus videos más recientes.
+El addon de Public Domain Movies mostrará películas que ahora están en el [Dominio Público](https://en.wikipedia.org/wiki/Public_domain).
+La mayoría de estas películas son bastante viejas y lanzadas en los 1900s.
+
+Estos addons no son requeridos por lo que se recomienda que sean removidos.
+Si, sin embargo, prefieres mantenerlos, entonces puedes hacerlo.
+
+Para remover estos addons, ve a la página de addons (el ícono de rompecabezas en el menú de navegación a la izquierda de la pantalla) y haz clic en Desinstalar en los siguientes addons.
+
+![Menú de addon con addons por defecto](/img/stremio/default_addons_page.png)
+
+### Addons Proveedores de Stream {#stream-provider-addons}
+
+Ahora repasaré algunos addons que proporcionan contenido a Stremio.
+
+Estos addons son la columna vertebral de nuestra experiencia de streaming bajo demanda.
+Proporcionan el contenido de video que nos permite ver cualquier cosa que queramos.
+
+Puedes echar un vistazo a esta [lista de addons alojada por la comunidad](https://stremio-addons.net/) para ver todos los addons disponibles.
+Esta lista tendrá más addons listados que los mostrados en la aplicación de Stremio.
+
+Por favor refiere a la clave a continuación para entender los diferentes tipos de addons.
+
+|          Clave           | Tipo de Addon | Explicación                                                                                                                                                                                                                                                                                                                                                                                                                                                               |
+| :--------------------: | :--------: | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| :busts_in_silhouette:  |  Torrent   | Los addons de torrent dependen de una red peer to peer que consiste en seeders - personas que tienen el archivo y lo están subiendo, y peers - otras personas que también están descargando el torrent de los seeders <br/><br/>La calidad disponible a través de torrents es mucho mayor ya que no se requiere un servidor centralizado para alojar el contenido o pagar por ancho de banda.                                                                                                                            |
+| :globe_with_meridians: |    HTTP    | Los addons HTTP proporcionan enlaces directos al contenido en un servidor centralizado.<br/><br/>Estos usualmente son de menor calidad debido a costos de alojamiento y ancho de banda.                                                                                                                                                                                                                                                                                      |
+|        :cloud:         |   Debrid   | Un addon que soporta servicios debrid te permite hacer streaming de torrents a través de HTTPS sin la necesidad de hacer torrent. <br/><br/>La calidad del contenido es mucho mayor debido a estar basado en torrents, una red descentralizada, evitando así los costos de ancho de banda y alojamiento. El servicio debrid en sí, sin embargo, está centralizado. Con el servicio debrid almacenando los archivos en su servidor de alta velocidad. Esto permite streaming sin buffering y sin exponer tu IP. |
+|      :newspaper:       |   Usenet   | Estos son addons que muestran enlaces de newsgroups de Usenet. <br/><br/>Usualmente puedes encontrar contenido nicho o archivos de mayor tamaño en Usenet, y como es un servicio pagado, las velocidades también son muy altas, solo siendo limitadas por tus propias velocidades de internet.                                                                                                                                                                                                                        |
+
+:::tip
+Si un addon solo tiene el ícono :busts_in_silhouette:, entonces es un addon de torrent, y no puedes usarlo con un servicio debrid
+
+Si un addon solo tiene el ícono :cloud:, entonces requiere un servicio debrid.
+
+Un addon que tiene tanto los íconos :busts_in_silhouette: como :cloud: es un addon de torrent que soporta servicios debrid. Así que puedes usarlo sin un servicio debrid.
+:::
+
+Si tienes curiosidad sobre qué servicios debrid son soportados por cada addon, puedes encontrar una tabla [aquí](faq#debrid-service-compatibility-table).
+
+#### Addons Generales
+
+Estos addons proporcionan contenido general como películas, shows y anime.
+
+No es requerido que instales todos estos addons.
+Para la mayoría de usuarios, solo instalar el addon Torrentio será suficiente.
+
+Como los addons de Stremio están alojados en un servidor, una afluencia de usuarios u otros problemas potenciales pueden causar que el servidor se caiga.
+Torrentio tiene un historial de caerse debido al gran número de usuarios.
+Puedes querer instalar un addon de respaldo, como Comet, en caso de que Torrentio se caiga.
+
+Una buena forma de utilizar múltiples addons es usar [AIOStreams](/stremio/addons/aiostreams). Este addon te permite combinar múltiples addons
+en uno, permitiéndote fusionar sus resultados juntos mientras remueves duplicados. AIOStreams ofrece muchas más características pero está fuera del alcance de esta sección de la guía.
+
+En esta guía, estaré proporcionando instancias públicas de addons.
+Algunos de estos están alojados por ElfHosted, pero han puesto en lugar un límite de tasa para prevenir abuso.
+Sin embargo, muy probablemente no alcanzarás este límite de tasa.
+
+import Torrentio from "./addons/torrentio.mdx";
+import Comet from "./addons/comet.mdx";
+import MediaFusion from "./addons/mediafusion.mdx";
+import Jackettio from "./addons/jackettio.mdx";
+import StremThruTorz from "./addons/stremthru-torz.mdx";
+import OrionStremioAddon from "./addons/orion-stremio-addon.mdx";
+import DmmCast from "./addons/dmm-cast.mdx";
+import StremThruStore from "./addons/stremthru-store.mdx";
+import DebridSearch from "./addons/debrid-search.mdx";
+import Peerflix from "./addons/peerflix.mdx";
+import StremioFR from "./addons/stremiofr.mdx";
+import TorboxAddon from "./addons/torbox.mdx";
+import EasynewsAddon from "./addons/easynews.mdx";
+import EasynewsPlusAddon from "./addons/easynews-plus.mdx";
+import EasynewsPlusPlusAddon from "./addons/easynews-plus-plus.mdx";
+import StreamAsia from "./addons/streamasia.mdx";
+import StremioGDrive from "./addons/stremio-gdrive.mdx";
+
+<StremioAddon name="Torrentio" addonComponent={Torrentio} debrid torrent />
+<StremioAddon name="Comet" addonComponent={Comet} debrid torrent />
+<StremioAddon name="MediaFusion" addonComponent={MediaFusion} torrent debrid />
+<StremioAddon
+  name="StremThru Torz"
+  addonComponent={StremThruTorz}
+  torrent
+  debrid
+/>
+<StremioAddon name="Jackettio" addonComponent={Jackettio} debrid />
+<StremioAddon
+  name="Orion Stremio Addon"
+  addonComponent={OrionStremioAddon}
+  torrent
+  debrid
+/>
+<StremioAddon name="DMM Cast" addonComponent={DmmCast} debrid />
+<StremioAddon name="StremThru Store" addonComponent={StremThruStore} debrid />
+<StremioAddon name="Debrid Search" addonComponent={DebridSearch} debrid />
+<StremioAddon name="Peerflix" addonComponent={Peerflix} torrent flag="Spain" />
+<StremioAddon
+  name="StremioFR"
+  addonComponent={StremioFR}
+  debrid
+  flag="France"
+/>
+<StremioAddon name="TorBox" addonComponent={TorboxAddon} debrid usenet />
+<StremioAddon name="Easynews" addonComponent={EasynewsAddon} usenet />
+<StremioAddon name="Easynews+" addonComponent={EasynewsPlusAddon} usenet />
+<StremioAddon name="Easynews++" addonComponent={EasynewsPlusPlusAddon} usenet />
+<StremioAddon name="StreamAsia" addonComponent={StreamAsia} http debrid />
+<StremioAddon name="Stremio GDrive" addonComponent={StremioGDrive} http />
+
+#### TV en Vivo y Deportes
+
+Estos addons pueden proporcionar canales de TV en vivo, deportes en vivo y repeticiones.
+
+```mdx-code-block
+import UsaTv from "./addons/usa-tv.mdx";
+import Formulio from "./addons/formulio.mdx";
+import ArgentinaTv from "./addons/argentina-tv.mdx";
+
+<StremioAddon name="USA TV" addonComponent={UsaTv} http  />
+<StremioAddon name="Formulio" addonComponent={Formulio} debrid />
+<StremioAddon name="Argentina TV" addonComponent={ArgentinaTv} http flag="Argentina"/>
+```
+
+- [Mediafusion](/stremio/addons/mediafusion) proporciona streams para deportes en vivo y repeticiones. También tiene algunos canales de TV en vivo.
+  Los streams en vivo son streams directos pero las repeticiones son torrents. Puedes encontrar más información arriba, donde lo cubrí previamente.
+- El addon [MammaMia](/stremio/addons/mammamia) también proporciona canales de TV en vivo.
+- Si tienes un proveedor de IPTV, puedes usar el addon [xtremio](https://xtremio.elfhosted.com/configure) para ver contenido de tu proveedor de IPTV.
+
+---
+
+La configuración básica para Stremio ahora ha sido completada. Ahora puedes buscar una película y se te proporcionarán enlaces de alta calidad para hacer streaming.
+
+Sin embargo, tu página de inicio estará bastante vacía.
+La siguiente sección repasará cómo poblar tu página de inicio con películas y shows populares.
+También no tendrás subtítulos, por lo que altamente recomiendo que continúes leyendo esta guía hasta el final para obtener la experiencia completa.
+
+También es posible poblar tu página de inicio con listas personalizadas como recomendaciones o una lista que se actualiza dinámicamente según filtros estrictos que puedes personalizar.
+Repasaré esto en la sección [Usar Trakt](extras/trakt) de esta guía.
+Altamente recomiendo que leas esta sección ya que te proporcionará una experiencia más personalizada.
+
+### Addons de Catálogo
+
+Estos son los addons que proporcionan los diferentes catálogos (las filas de películas/shows) en tu página de inicio de Stremio.
+
+Hay un addon incorporado llamado cinemeta que proporciona Películas y Series Populares y Destacadas.
+Sin embargo, puede haber algunos shows que proporcionen más resultados con el addon TMDB, por lo que altamente recomiendo que instales el addon TMDB.
+
+Muchos de estos addons de catálogo pueden ser reemplazados usando listas de [MDBList](https://mdblist.com/). Esto se expande en la sección [Trakt](/stremio/extras/trakt) de esta guía.
+Recomiendo investigarlo ya que los catálogos de MDBList pueden ser altamente personalizados así como refrescarse más a menudo.
+
+:::warning
+El orden en el que instalas los addons es importante. Stremio mostrará los catálogos en el orden que instalas los addons.
+Actualmente no hay forma de reorganizar el orden de los catálogos dentro de Stremio.
+Sin embargo, puedes usar este [Administrador de Addons de Stremio](extras/addon-manager) no oficial para cambiar el orden de los addons lo que cambiaría el orden en que los catálogos se muestran en Stremio.
+:::
+
+#### Catálogos Generales
+
+Estos addons proporcionan catálogos generales de películas y shows como populares, tendencias, nuevos, destacados, ganadores de premios, etc.
+
+```mdx-code-block
+import TmdbAddon from "./addons/tmdb-addon.mdx";
+import ImdbCatalogs from "./addons/imdb-catalogs.mdx";
+import CustomCatalogues from "./addons/custom-catalogues.mdx";
+import NewestMovies from "./addons/newest-movies.mdx";
+
+<StremioAddon name="TMDB Addon" addonComponent={TmdbAddon} />
+<StremioAddon name="IMDB Catalogs" addonComponent={ImdbCatalogs} />
+<StremioAddon name="Custom Catalogues" addonComponent={CustomCatalogues} />
+<StremioAddon name="Newest Movies" addonComponent={NewestMovies} />
+```
+
+#### Catálogos de Servicios de Streaming
+
+Estos addons proporcionarán catálogos que extraen películas y shows de servicios de streaming populares (ej. Netflix, Prime, Hulu, Disney+ etc.).
+
+Mientras que puedes usar uno de estos addons separados para obtener los catálogos, también está disponible en el addon TMDB que puedes preferir ya que también permite
+usar un idioma separado para metadatos.
+
+También recomiendo usar listas de [MBDList](https://mdblist.com/), particularmente de [Snoak](https://mdblist.com/lists/snoak), para esto, como expando en la sección [Trakt](/stremio/extras/trakt) de esta guía ya que serán más precisas y actualizadas.
+
+```mdx-code-block
+import StreamingCatalogs from "./addons/streaming-catalogs.mdx";
+import Networks from "./addons/networks.mdx";
+
+<StremioAddon name="Streaming Catalogs" addonComponent={StreamingCatalogs} />
+<StremioAddon name="Networks" addonComponent={Networks} />
+```
+
+#### Catálogos de Anime
+
+Ahora repasaré algunos addons de catálogo de Anime. Un recordatorio de que estos addons son solo addons de catálogo y no proporcionan enlaces por sí mismos.
+Sin embargo, Torrentio con los proveedores NyaaSi y AniDex habilitados debería proporcionarte los enlaces necesarios.
+
+Desplázate hacia arriba a la [sección de Addons Proveedores de Stream](#stream-provider-addons) para ver cómo configurar Torrentio.
+
+:::note
+
+Personalmente encuentro que Stremio es deficiente para anime.
+
+La integración de seguimiento con servicios como MAL, AniList etc. es limitada y mantener el seguimiento de todo el anime que ves en Stremio puede ser difícil si tienes una biblioteca más grande.
+
+Recomiendo probar estas aplicaciones para anime en su lugar:
+
+- [Aniyomi](/aniyomi) - Aplicación de anime solo para Android con una extensión de Torrentio para soporte debrid
+- [Seanime Desktop](https://seanime.rahim.app) - Una aplicación de escritorio (puede ver en móvil a través de aplicación web) para ver anime. Tiene soporte para TorBox y Real Debrid. Requiere un reproductor como MPV para ser instalado. Consejo: usa scoop en windows
+  :::
+
+```mdx-code-block
+import AnimeKitsu from "./addons/anime-kitsu.mdx";
+import AnimeCatalogs from "./addons/anime-catalogs.mdx";
+import Animeo from "./addons/animeo.mdx";
+import MALStremioAddon from "./addons/mal-stremio-addon.mdx";
+
+
+<StremioAddon name="Anime Kitsu" addonComponent={AnimeKitsu} />
+<StremioAddon name="Anime Catalogs" addonComponent={AnimeCatalogs} />
+<StremioAddon name="Animeo" addonComponent={Animeo} />
+<StremioAddon name="MAL Stremio Addon" addonComponent={MALStremioAddon} />
+```
+
+#### Otros Catálogos
+
+```mdx-code-block
+import PopularPeople from "./addons/popular-people.mdx";
+
+<StremioAddon name="Popular People" addonComponent={PopularPeople} />
+```
+
+### Addons de Subtítulos
+
+Aquí hay una lista de addons de subtítulos que funcionan. Esta lista puede volverse desactualizada, por favor revisa la [lista de addons de la comunidad con el filtro de subtítulos](https://stremio-addons.net/addons?categories=subtitles&sort=popular) si ninguno de estos funciona.
+
+```mdx-code-block
+```
+
+### TV en Vivo y Deportes {#live-tv--sports}
+
+Estos addons pueden proporcionar canales de TV en vivo, deportes en vivo y repeticiones.
+
+```mdx-code-block
+import UsaTv from "./addons/usa-tv.mdx";
+import Formulio from "./addons/formulio.mdx";
+import ArgentinaTv from "./addons/argentina-tv.mdx";
+
+<StremioAddon name="USA TV" addonComponent={UsaTv} http  />
+<StremioAddon name="Formulio" addonComponent={Formulio} debrid />
+<StremioAddon name="Argentina TV" addonComponent={ArgentinaTv} http flag="Argentina"/>
+```
+
+- [Mediafusion](/stremio/addons/mediafusion) proporciona streams para deportes en vivo y repeticiones. También tiene algunos canales de TV en vivo.
+  Los streams en vivo son streams directos pero las repeticiones son torrents. Puedes encontrar más información arriba, donde lo cubrí anteriormente.
+- El addon [MammaMia](/stremio/addons/mammamia) también proporciona canales de TV en vivo.
+- Si tienes un proveedor de IPTV, puedes usar el addon [xtremio](https://xtremio.elfhosted.com/configure) para ver contenido de tu proveedor de IPTV.
+
+---
+
+La configuración básica para Stremio ahora ha sido completada. Ahora puedes buscar una película y se te proporcionarán enlaces de alta calidad para hacer streaming.
+
+Sin embargo, tu página de inicio estará bastante vacía.
+La siguiente sección repasará cómo poblar tu página de inicio con películas y series populares.
+También no tendrás subtítulos, así que altamente recomiendo que continúes leyendo esta guía hasta el final para obtener la experiencia completa.
+
+También es posible poblar tu página de inicio con listas personalizadas como recomendaciones o una lista que se actualiza dinámicamente según filtros estrictos que puedes personalizar.
+Repasaré esto en la sección [Usar Trakt](extras/trakt) de esta guía.
+Altamente recomiendo que leas esta sección ya que te proporcionará una experiencia más personalizada.
+
+### Addons de Catálogo
+
+Estos son los addons que proporcionan los diferentes catálogos (las filas de películas/series) en tu página de inicio de Stremio.
+
+Hay un addon integrado llamado cinemeta que proporciona Películas y Series Populares y Destacadas.
+Sin embargo, puede haber algunas series que proporcionen más resultados con el addon TMDB, así que altamente recomiendo que instales el addon TMDB.
+
+Muchos de estos addons de catálogo pueden ser reemplazados usando listas de [MDBList](https://mdblist.com/). Esto se expande en la sección [Trakt](/stremio/extras/trakt) de esta guía.
+Recomiendo investigarlo ya que los catálogos de MDBList pueden ser altamente personalizados así como actualizarse más frecuentemente.
+
+:::warning
+El orden en el que instalas los addons es importante. Stremio mostrará los catálogos en el orden que instalas los addons.
+Actualmente no hay forma de reorganizar el orden de los catálogos dentro de Stremio.
+:::
+
+## Fin de la configuración inicial
+
+¡Listo!
+Ahora has configurado Stremio y tienes una de las mejores experiencias de streaming bajo demanda disponibles.
+
+Altamente recomiendo revisar la sección [Extras](extras) para más información sobre cómo obtener el máximo de Stremio.
+Esto incluye usar servicios de seguimiento como Trakt para obtener recomendaciones personalizadas y listas personalizadas.
+
+También puedes revisar las [FAQ](faq) para cualquier pregunta que puedas tener o la página de [Solución de Problemas](troubleshooting) si encuentras algún problema.
+
+<KoFiWidgetWrapper widgetType="button" />
