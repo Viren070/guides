@@ -1,0 +1,25 @@
+---
+title: Auto-Subs
+description: AI-translated subtitles in your language for any movie or series, even when no subtitle file exists for it. 30+ languages, synced to the release you play. Paid, with a free trial.
+keywords:
+  [stremio, addons, subtitles, guide, setup, configuration, install, link, translation, ai]
+tags: [stremio-addon, stremio-addon:subtitles]
+---
+
+```mdx-code-block
+import StremioAddonButtons from '@site/src/components/StremioAddonButtons';
+
+<StremioAddonButtons id="auto-subs" configurable configurationRequired configureOverride="https://auto-subs.com" source="https://github.com/Auto-Subs-For-Stremio/Stremio-Addon"/>
+```
+
+<h3>Description</h3>
+
+Auto-Subs does not look for an existing subtitle file in your language. It finds the original English subtitles for whatever you are playing (including subtitle tracks embedded in the video file), translates them with AI into your language and serves them synced to the exact release you are playing, on-screen text included. More than 30 languages are supported. Everything runs on the addon's own server, so it works on every Stremio platform (Android TV, Fire TV, mobile, desktop, web) and there is a Kodi add-on as well.
+
+The service is paid, with a free trial. AI translation costs money, so there is no free tier beyond the trial; current plans are on the website.
+
+<h3>Configuration</h3>
+
+1. Click on the `Configure` button and sign in with Google.
+2. Pick your subtitle language. "More options" has dual subtitles (original line above the translation) and sound cues for the hard of hearing.
+3. Click `Add to Stremio`, or copy the manifest URL shown there and [install it manually](/stremio/faq#how-do-i-install-an-addon-manually). The install link is personal to your account, so do not share it.
